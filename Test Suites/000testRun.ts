@@ -170,7 +170,7 @@
    <testCaseLink>
       <guid>f14d7699-db66-425f-90f2-4f87b79c03f0</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>true</isRun>
+      <isRun>false</isRun>
       <testCaseId>Test Cases/XRepeated_TC/JobActions_ForJobStates_Array</testCaseId>
       <testDataLink>
          <combinationType>ONE</combinationType>
@@ -257,6 +257,76 @@
          <type>DEFAULT</type>
          <value></value>
          <variableId>30e28d99-7f6a-4387-b7e7-a9bc354bd7a8</variableId>
+      </variableLink>
+   </testCaseLink>
+   <testCaseLink>
+      <guid>a4e1c813-17a8-4314-af6c-136736add486</guid>
+      <isReuseDriver>false</isReuseDriver>
+      <isRun>true</isRun>
+      <testCaseId>Test Cases/Preferences/Set_Preferences</testCaseId>
+      <testDataLink>
+         <combinationType>ONE</combinationType>
+         <id>ff97098b-af2d-4a39-90ad-cf014177788a</id>
+         <iterationEntity>
+            <iterationType>ALL</iterationType>
+            <value></value>
+         </iterationEntity>
+         <testDataId>Data Files/Regression/TestDataForPreferences</testDataId>
+      </testDataLink>
+      <usingDataBindingAtTestSuiteLevel>true</usingDataBindingAtTestSuiteLevel>
+      <variableLink>
+         <testDataLinkId>ff97098b-af2d-4a39-90ad-cf014177788a</testDataLinkId>
+         <type>DATA_COLUMN</type>
+         <value>TestCaseName</value>
+         <variableId>20e66ddf-642f-491a-b46e-0d3dc565bf8c</variableId>
+      </variableLink>
+      <variableLink>
+         <testDataLinkId>ff97098b-af2d-4a39-90ad-cf014177788a</testDataLinkId>
+         <type>DATA_COLUMN</type>
+         <value>userChoice</value>
+         <variableId>4611fa3d-9817-4318-9699-09323a3d16ae</variableId>
+      </variableLink>
+      <variableLink>
+         <testDataLinkId>ff97098b-af2d-4a39-90ad-cf014177788a</testDataLinkId>
+         <type>DATA_COLUMN</type>
+         <value>preference</value>
+         <variableId>8c467d1f-9c4c-493c-a375-d9145f840bda</variableId>
+      </variableLink>
+      <variableLink>
+         <testDataLinkId></testDataLinkId>
+         <type>DEFAULT</type>
+         <value></value>
+         <variableId>71b6bb43-2854-4a87-80e8-e8a6cc55b8f7</variableId>
+      </variableLink>
+      <variableLink>
+         <testDataLinkId></testDataLinkId>
+         <type>DEFAULT</type>
+         <value></value>
+         <variableId>4a94cf29-3aca-457a-8b05-cbec1a213170</variableId>
+      </variableLink>
+      <variableLink>
+         <testDataLinkId></testDataLinkId>
+         <type>DEFAULT</type>
+         <value></value>
+         <variableId>003edf9a-5cd2-49e7-b7ef-cf2adf5857a1</variableId>
+      </variableLink>
+      <variableLink>
+         <testDataLinkId></testDataLinkId>
+         <type>DEFAULT</type>
+         <value></value>
+         <variableId>630400d7-1a60-442c-afcd-0566c0a50cbe</variableId>
+      </variableLink>
+      <variableLink>
+         <testDataLinkId></testDataLinkId>
+         <type>DEFAULT</type>
+         <value></value>
+         <variableId>80fb4bcc-6ac6-46ae-b1f3-d80a3cca2ee6</variableId>
+      </variableLink>
+      <variableLink>
+         <testDataLinkId>ff97098b-af2d-4a39-90ad-cf014177788a</testDataLinkId>
+         <type>DATA_COLUMN</type>
+         <value>TestCaseID</value>
+         <variableId>60085911-6028-497a-82dd-c46d970e53b5</variableId>
       </variableLink>
    </testCaseLink>
 </TestSuiteEntity>

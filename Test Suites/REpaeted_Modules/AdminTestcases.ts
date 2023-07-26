@@ -168,6 +168,12 @@
          <value></value>
          <variableId>80fb4bcc-6ac6-46ae-b1f3-d80a3cca2ee6</variableId>
       </variableLink>
+      <variableLink>
+         <testDataLinkId></testDataLinkId>
+         <type>DEFAULT</type>
+         <value></value>
+         <variableId>60085911-6028-497a-82dd-c46d970e53b5</variableId>
+      </variableLink>
    </testCaseLink>
    <testCaseLink>
       <guid>6d455d90-6c5f-4cf3-9008-2bdba3aa7c88</guid>
