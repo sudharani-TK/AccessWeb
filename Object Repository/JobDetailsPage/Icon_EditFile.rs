@@ -7,13 +7,29 @@
    <selectorCollection>
       <entry>
          <key>BASIC</key>
-         <value></value>
+         <value>//span[@data-automation-id = 'Edit']</value>
       </entry>
       <entry>
          <key>XPATH</key>
-         <value>//span[@class='file-content-viewer-action-bar-item '][@title='Edit']//img[contains(@src,'.svg')]</value>
+         <value></value>
       </entry>
    </selectorCollection>
-   <selectorMethod>XPATH</selectorMethod>
+   <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>tag</name>
+      <type>Main</type>
+      <value>span</value>
+      <webElementGuid>4030428b-d6c5-4511-8c6f-430dfc8928f5</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>data-automation-id</name>
+      <type>Main</type>
+      <value>Edit</value>
+      <webElementGuid>eeafb642-96b7-47b8-98ef-3ba80b8bc1c4</webElementGuid>
+   </webElementProperties>
 </WebElementEntity>

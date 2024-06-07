@@ -6,7 +6,8 @@ import com.kms.katalon.core.annotation.Keyword
 import com.kms.katalon.core.model.FailureHandling
 import com.kms.katalon.core.testobject.TestObject
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
-import com.relevantcodes.extentreports.LogStatus
+import com.aventstack.extentreports.MediaEntityBuilder
+import com.aventstack.extentreports.Status
 
 import internal.GlobalVariable
 
@@ -14,9 +15,9 @@ public class executeJobAction_topmenu {
 
 	@Keyword
 	def perfromJobAction(String Action , String TestCaseName , extentTest) {
-		def isNotoficationPresent
+		def isNotoficationPresent=false
 		boolean result=false
-		def LogStatus = com.relevantcodes.extentreports.LogStatus
+
 		WebUI.delay(3)
 
 		switch (Action) {
@@ -32,7 +33,7 @@ public class executeJobAction_topmenu {
 				String[] splitAddress = jobID.split('\\.')
 				GlobalVariable.G_JobIdFromDetails=splitAddress[0]
 				println GlobalVariable.G_JobIdFromDetails
-				extentTest.log(LogStatus.PASS, 'job id from details page '+ GlobalVariable.G_JobIdFromDetails)
+				extentTest.log(Status.PASS, 'job id from details page '+ GlobalVariable.G_JobIdFromDetails)
 				result=true
 				break
 
@@ -82,7 +83,7 @@ public class executeJobAction_topmenu {
 			 String[] splitAddress = jobID.split('\\.')
 			 GlobalVariable.G_JobIdFromDetails=splitAddress[0]
 			 println GlobalVariable.G_JobIdFromDetails
-			 */extentTest.log(LogStatus.PASS, 'job id from details page '+ GlobalVariable.G_JobIdFromDetails)
+			 */extentTest.log(Status.PASS, 'job id from details page '+ GlobalVariable.G_JobIdFromDetails)
 				result=true
 				break
 

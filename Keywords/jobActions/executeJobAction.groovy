@@ -6,7 +6,9 @@ import com.kms.katalon.core.annotation.Keyword
 import com.kms.katalon.core.model.FailureHandling
 import com.kms.katalon.core.testobject.TestObject
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
-import com.relevantcodes.extentreports.LogStatus
+
+import com.aventstack.extentreports.MediaEntityBuilder
+import com.aventstack.extentreports.Status
 
 import internal.GlobalVariable
 
@@ -16,7 +18,6 @@ public class executeJobAction {
 	def perfromJobAction(String Action , String TestCaseName , extentTest) {
 		def isNotoficationPresent
 		boolean result=false
-		def LogStatus = com.relevantcodes.extentreports.LogStatus
 		WebUI.delay(3)
 
 		switch (Action) {
@@ -32,7 +33,7 @@ public class executeJobAction {
 				String[] splitAddress = jobID.split('\\.')
 				GlobalVariable.G_JobIdFromDetails=splitAddress[0]
 				println GlobalVariable.G_JobIdFromDetails
-				extentTest.log(LogStatus.PASS, 'job id from details page '+ GlobalVariable.G_JobIdFromDetails)
+				extentTest.log(Status.PASS, 'job id from details page '+ GlobalVariable.G_JobIdFromDetails)
 				result=true
 				break
 
@@ -46,17 +47,17 @@ public class executeJobAction {
 				if (TestCaseName.contains("No")) {
 					WebUI.click(findTestObject('GenericObjects/btn_No'))
 					result=true
-					extentTest.log(LogStatus.PASS, 'Not deleting job  ')
+					extentTest.log(Status.PASS, 'Not deleting job  ')
 				}
 				else {
 					WebUI.click(findTestObject('GenericObjects/btn_Yes'))
 					WebUI.delay(2)
-					extentTest.log(LogStatus.PASS, 'deleting job  ')
+					extentTest.log(Status.PASS, 'deleting job  ')
 					WebUI.click(findTestObject('Landing_Page/Btn_Notifiction2'))
 					WebUI.delay(3)
 					isNotoficationPresent=WebUI.waitForElementPresent(findTestObject('Notificactions/Notification_JobDelete'), 5)
 					println("notification status - "+isNotoficationPresent)
-					extentTest.log(LogStatus.PASS, 'Verified notification')
+					extentTest.log(Status.PASS, 'Verified notification')
 					result=isNotoficationPresent
 				}
 				break
@@ -71,18 +72,18 @@ public class executeJobAction {
 					println("No")
 					WebUI.click(findTestObject('GenericObjects/btn_No'))
 					result=true
-					extentTest.log(LogStatus.PASS, 'Not terminating job  ')
+					extentTest.log(Status.PASS, 'Not terminating job  ')
 				}
 				else {
 
 					WebUI.click(findTestObject('GenericObjects/btn_Yes'))
 					WebUI.delay(2)
-					extentTest.log(LogStatus.PASS, 'terminating job  ')
+					extentTest.log(Status.PASS, 'terminating job  ')
 					WebUI.click(findTestObject('Landing_Page/Btn_Notifiction2'))
 					WebUI.delay(2)
 					isNotoficationPresent=WebUI.waitForElementPresent(findTestObject('Notificactions/Notification_JobTerminate'), 5)
 					println("notification status - "+isNotoficationPresent)
-					extentTest.log(LogStatus.PASS, 'Verified notification')
+					extentTest.log(Status.PASS, 'Verified notification')
 					result=isNotoficationPresent
 				}
 				break
@@ -94,11 +95,11 @@ public class executeJobAction {
 				WebUI.delay(2)
 				WebUI.click(newJobAction)
 				WebUI.click(findTestObject('JobSubmissionForm/button_Submit_Job'))
-				extentTest.log(LogStatus.PASS, 'resubmitted job  ')
+				extentTest.log(Status.PASS, 'resubmitted job  ')
 				isNotoficationPresent=WebUI.waitForElementPresent(findTestObject('Notificactions/Notification_JobSubmission'), 5)
 				def jobText = WebUI.getText(findTestObject('Notificactions/Notification_JobSubmission'))
 				def JobID=(new operations_JobsModule.GetJobRowDetails()).getJobID(jobText)
-				extentTest.log(LogStatus.PASS, 'Verified notification - new rjob id '+ JobID)
+				extentTest.log(Status.PASS, 'Verified notification - new rjob id '+ JobID)
 				result=isNotoficationPresent
 
 				break
@@ -109,7 +110,7 @@ public class executeJobAction {
 						'id', 'equals', Action, true)
 				WebUI.delay(2)
 				WebUI.click(newJobAction)
-				extentTest.log(LogStatus.PASS, 'Downloading job')
+				extentTest.log(Status.PASS, 'Downloading job')
 				result=true
 				break
 
@@ -128,7 +129,7 @@ public class executeJobAction {
 				WebUI.delay(2)
 
 				WebUI.click(findTestObject('JobDetailsPage/JobDetailsLink_Details'))
-				extentTest.log(LogStatus.PASS,"Navigated to Details Tab")
+				extentTest.log(Status.PASS,"Navigated to Details Tab")
 				WebUI.click(findTestObject('JobDetailsPage/TextBx_DetailsFilter'))
 
 				WebUI.setText(findTestObject('JobDetailsPage/TextBx_DetailsFilter'), 'queue name')
@@ -140,7 +141,7 @@ public class executeJobAction {
 			 String[] splitAddress = jobID.split('\\.')
 			 GlobalVariable.G_JobIdFromDetails=splitAddress[0]
 			 println GlobalVariable.G_JobIdFromDetails
-			 */extentTest.log(LogStatus.PASS, 'job id from details page '+ GlobalVariable.G_JobIdFromDetails)
+			 */extentTest.log(Status.PASS, 'job id from details page '+ GlobalVariable.G_JobIdFromDetails)
 				result=true
 				break
 

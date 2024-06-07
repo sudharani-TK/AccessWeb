@@ -7,13 +7,13 @@
    <selectorCollection>
       <entry>
          <key>XPATH</key>
-         <value>//span[@id=&quot;upload_folder_button_parent_running&quot;]//div[@id=&quot;dir_folder_menu&quot;]//span[contains(text(),&quot;Folder&quot;)]</value>
+         <value>//span[@id=&quot;upload_folder_button_parent_running&quot;]//span[contains(text(),&quot;Upload Folder&quot;)]</value>
       </entry>
       <entry>
          <key>BASIC</key>
-         <value></value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>
+   <smartLocatorEnabled>false</smartLocatorEnabled>
    <useRalativeImagePath>false</useRalativeImagePath>
 </WebElementEntity>

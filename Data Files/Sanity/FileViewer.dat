@@ -3,6 +3,7 @@
    <description></description>
    <name>FileViewer</name>
    <tag></tag>
+   <connectionProperties/>
    <containsHeaders>true</containsHeaders>
    <csvSeperator></csvSeperator>
    <dataFileGUID>485347a1-fcf2-4c9d-af17-1cd6a971dbf4</dataFileGUID>
@@ -11,6 +12,6 @@
    <isInternalPath>true</isInternalPath>
    <query></query>
    <secureUserAccount>false</secureUserAccount>
-   <sheetName>FileViewerOps</sheetName>
+   <sheetName>FileViewer</sheetName>
    <usingGlobalDBSetting>false</usingGlobalDBSetting>
 </DataFileEntity>

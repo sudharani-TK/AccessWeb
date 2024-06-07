@@ -9,6 +9,10 @@
          <key>XPATH</key>
          <value>//button[@id='confirm_modal_ok_btn']</value>
       </entry>
+      <entry>
+         <key>BASIC</key>
+         <value>//button[@id = 'confirm_modal_ok_btn']</value>
+      </entry>
    </selectorCollection>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
@@ -18,6 +22,7 @@
       <name>tag</name>
       <type>Main</type>
       <value>button</value>
+      <webElementGuid>76ac5635-cfed-4e74-9985-c0ba9e6ae974</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -25,6 +30,7 @@
       <name>id</name>
       <type>Main</type>
       <value>confirm_modal_ok_btn</value>
+      <webElementGuid>42456d53-861b-4c8c-8d7a-698152995518</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -32,13 +38,15 @@
       <name>class</name>
       <type>Main</type>
       <value>button_master</value>
+      <webElementGuid>db89f881-9bb2-414e-88c8-8ada4afa6e3b</webElementGuid>
    </webElementProperties>
    <webElementProperties>
-      <isSelected>true</isSelected>
+      <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>text</name>
       <type>Main</type>
       <value>Save</value>
+      <webElementGuid>8ccc9f1f-211b-406b-bf4e-7de62ed5357b</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -46,6 +54,7 @@
       <name>xpath</name>
       <type>Main</type>
       <value>id(&quot;confirm_modal_ok_btn&quot;)</value>
+      <webElementGuid>32d708c7-670d-488c-b3f8-d3614d70afae</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
@@ -53,6 +62,7 @@
       <name>xpath:attributes</name>
       <type>Main</type>
       <value>//button[@id='confirm_modal_ok_btn']</value>
+      <webElementGuid>eab9adef-eced-4f5b-bdc9-7129467fffbb</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -60,6 +70,7 @@
       <name>xpath:idRelative</name>
       <type>Main</type>
       <value>//div[@id='fileOperation_dialog']/div/div/div/div/div[2]/div[2]/div/button</value>
+      <webElementGuid>96242624-503f-41a5-a03e-8cc329585e82</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -67,6 +78,7 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='Create New Directory'])[1]/following::button[1]</value>
+      <webElementGuid>721c8a63-9f82-40a6-a637-6bb2edceefff</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -74,6 +86,7 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)=concat('id(', '&quot;', 'confirm_modal_ok_btn', '&quot;', ')')])[1]/following::button[1]</value>
+      <webElementGuid>3cd81cab-cba0-459f-acd3-41335b961e91</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -81,6 +94,7 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='Cancel'])[1]/preceding::button[1]</value>
+      <webElementGuid>41c47270-32ad-4f8b-bb68-0dbdc887734a</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -88,5 +102,6 @@
       <name>xpath:position</name>
       <type>Main</type>
       <value>//div[2]/div/button</value>
+      <webElementGuid>b2886f89-0228-4582-b0d7-5071aad4a875</webElementGuid>
    </webElementXpaths>
 </WebElementEntity>

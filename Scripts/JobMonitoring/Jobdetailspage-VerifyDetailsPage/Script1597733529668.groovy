@@ -65,9 +65,7 @@ def jobsTab = CustomKeywords.'customWait.WaitForElement.WaitForelementPresent'(f
 	
 	WebUI.click(findTestObject('2020.1/Details'))
 	
-	
-		
-		if (GlobalVariable.G_Browser == 'Edge') {
+	if (GlobalVariable.G_Browser == 'Edge') {
 		WebUI.callTestCase(findTestCase('XRepeated_TC/Logout'), [:], FailureHandling.STOP_ON_FAILURE)
 	}
 

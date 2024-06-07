@@ -7,7 +7,7 @@
    <selectorCollection>
       <entry>
          <key>BASIC</key>
-         <value>//div[@title = 'RunJob.sh']</value>
+         <value>//div[@data-automation-id = 'RunJob.sh']</value>
       </entry>
    </selectorCollection>
    <selectorMethod>BASIC</selectorMethod>
@@ -18,12 +18,14 @@
       <name>tag</name>
       <type>Main</type>
       <value>div</value>
+      <webElementGuid>7cb72235-41de-45f0-bc6d-66709fa5cd84</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
-      <name>title</name>
+      <name>data-automation-id</name>
       <type>Main</type>
       <value>RunJob.sh</value>
+      <webElementGuid>7f8f51d7-5e3a-4c3f-87de-e25b555abf3d</webElementGuid>
    </webElementProperties>
 </WebElementEntity>

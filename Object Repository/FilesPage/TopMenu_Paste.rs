@@ -7,13 +7,29 @@
    <selectorCollection>
       <entry>
          <key>BASIC</key>
-         <value></value>
+         <value>//span[@id = 'paste_icon']</value>
       </entry>
       <entry>
          <key>XPATH</key>
-         <value>//nav[@class='react-contextmenu react-contextmenu--visible']//span[@id='Paste']</value>
+         <value></value>
       </entry>
    </selectorCollection>
-   <selectorMethod>XPATH</selectorMethod>
+   <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>tag</name>
+      <type>Main</type>
+      <value>span</value>
+      <webElementGuid>c6f90d7c-6f7b-4634-aa4e-4952b2d76580</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>id</name>
+      <type>Main</type>
+      <value>paste_icon</value>
+      <webElementGuid>3e3c11ef-78d2-414a-9a0b-0c0516eb7547</webElementGuid>
+   </webElementProperties>
 </WebElementEntity>

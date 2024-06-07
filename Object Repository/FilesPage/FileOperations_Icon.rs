@@ -7,7 +7,7 @@
    <selectorCollection>
       <entry>
          <key>BASIC</key>
-         <value>//div[@id = 'copy_icon']</value>
+         <value>//span[@id = 'copy_icon']</value>
       </entry>
       <entry>
          <key>XPATH</key>
@@ -21,7 +21,8 @@
       <matchCondition>equals</matchCondition>
       <name>tag</name>
       <type>Main</type>
-      <value>div</value>
+      <value>span</value>
+      <webElementGuid>3656e60f-3981-4d39-8924-9d683ff7f77a</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -29,5 +30,6 @@
       <name>id</name>
       <type>Main</type>
       <value>copy_icon</value>
+      <webElementGuid>389a24a2-c090-4985-be7d-92be4f49beef</webElementGuid>
    </webElementProperties>
 </WebElementEntity>

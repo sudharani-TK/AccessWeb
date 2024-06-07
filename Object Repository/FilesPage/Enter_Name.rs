@@ -7,7 +7,11 @@
    <selectorCollection>
       <entry>
          <key>BASIC</key>
-         <value>//input[@placeholder = 'Enter Name']</value>
+         <value>//input[@placeholder = 'Enter Name' and @type = 'text']</value>
+      </entry>
+      <entry>
+         <key>XPATH</key>
+         <value></value>
       </entry>
    </selectorCollection>
    <selectorMethod>BASIC</selectorMethod>
@@ -18,7 +22,7 @@
       <name>tag</name>
       <type>Main</type>
       <value>input</value>
-      <webElementGuid>3b2e7563-15ef-417a-a22c-39a2bfc4dcde</webElementGuid>
+      <webElementGuid>a846d384-235e-4107-8c6d-c5399f7bdadc</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -26,6 +30,14 @@
       <name>placeholder</name>
       <type>Main</type>
       <value>Enter Name</value>
-      <webElementGuid>a7bb2d9a-c090-4bb5-8a22-b12609089cb6</webElementGuid>
+      <webElementGuid>1cefacd5-e948-4296-80c2-d96e6cbedfc1</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>type</name>
+      <type>Main</type>
+      <value>text</value>
+      <webElementGuid>b051f72f-39d1-441b-997d-43fb653a7d07</webElementGuid>
    </webElementProperties>
 </WebElementEntity>

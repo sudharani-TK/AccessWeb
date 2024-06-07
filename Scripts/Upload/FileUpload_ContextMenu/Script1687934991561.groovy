@@ -21,29 +21,31 @@ import org.openqa.selenium.Capabilities
 import org.openqa.selenium.remote.RemoteWebDriver
 import com.kms.katalon.core.exception.StepErrorException as StepErrorException
 import com.kms.katalon.core.util.KeywordUtil
+import com.aventstack.extentreports.MediaEntityBuilder
+import com.aventstack.extentreports.Status
 
 //====================================================================================
 WebDriver driver = DriverFactory.getWebDriver()
 EventFiringWebDriver eventFiring = ((DriverFactory.getWebDriver()) as EventFiringWebDriver)
 WebDriver wrappedWebDriver = eventFiring.getWrappedDriver()
-RemoteWebDriver katalonWebDriver = ((wrappedWebDriver) as RemoteWebDriver)
-//====================================================================================
-ReportFile = (GlobalVariable.G_ReportName + '.html')
-def extent = CustomKeywords.'generateReports.GenerateReport.create'(ReportFile, GlobalVariable.G_Browser, GlobalVariable.G_BrowserVersion)
-def LogStatus = com.relevantcodes.extentreports.LogStatus
-def extentTest = extent.startTest(TestCaseName)
+RemoteWebDriver katalonWebDriver = (RemoteWebDriver) wrappedWebDriver
+//==================================================================
+def Browser = GlobalVariable.G_Browser
+//===============================================================
+def extentTest=GlobalVariable.G_ExtentTest
+//===========================================================
 CustomKeywords.'toLogin.ForLogin.Login'(extentTest)
-//=====================================================================================
-def result 
+//=============================================================
+def result =false
 WebUI.delay(2)
 try
 {
 	WebUI.delay(2)
 	WebUI.click(findTestObject('GenericObjects/TitleLink_Jobs'))
-	extentTest.log(LogStatus.PASS, 'Click on Jobs tab')
+	extentTest.log(Status.PASS, 'Click on Jobs tab')
 	WebUI.delay(2)
 	WebUI.click(findTestObject('Object Repository/JobMonitoringPage/a_Reset'))
-	extentTest.log(LogStatus.PASS, 'Click on reset')
+	extentTest.log(Status.PASS, 'Click on reset')
 
 	TestObject newJobFilter = WebUI.modifyObjectProperty(findTestObject('JobMonitoringPage/label_jobState'), 'text', 'equals',
 			jobState, true)
@@ -51,7 +53,7 @@ try
 	WebUI.click(newJobFilter)
 
 	WebUI.delay(2)
-	extentTest.log(LogStatus.PASS, 'Clicked on job with state  - ' + jobState)
+	extentTest.log(Status.PASS, 'Clicked on job with state  - ' + jobState)
 
 	println jobState
 	TestObject newJobRow = WebUI.modifyObjectProperty(findTestObject('JobMonitoringPage/div_Completed'), 'title', 'equals',	jobState, true)
@@ -60,14 +62,14 @@ try
 		
 	
 	WebUI.click(findTestObject('JobMonitoringPage/ViewDetails_Jobs'))
-//	extentTest.log(LogStatus.PASS, 'Clicked on job with state  - ' + jobState)
+//	extentTest.log(Status.PASS, 'Clicked on job with state  - ' + jobState)
 
    //WebUI.waitForElementVisible(findTestObject('JobMonitoringPage/OutputFolder_File'), 5)
 	//WebUI.click(findTestObject('JobMonitoringPage/OutputFolder_File'))
 	WebUI.click(findTestObject('JobMonitoringPage/RunningFolder'))
-	extentTest.log(LogStatus.PASS, 'Click on The  Running  Folder Tab')
+	extentTest.log(Status.PASS, 'Click on The  Running  Folder Tab')
 	
-	extentTest.log(LogStatus.PASS, 'Upload the File Through Context Menu')
+	extentTest.log(Status.PASS, 'Upload the File Through Context Menu')
 	
 	
     
@@ -77,14 +79,14 @@ try
 	println(newFPFT)
 
 	WebUI.uploadFile(findTestObject('Object Repository/JobDetailsPage/Upload_File_ContextMenu'), newFPFT )
-	extentTest.log(LogStatus.PASS, 'Uploading The File Running.sh ')
+	extentTest.log(Status.PASS, 'Uploading The File Running.sh ')
 	WebUI.delay(2)
 	//WebUI.click(findTestObject('Object Repository/FilesPage/button_Yes'))
-	//extentTest.log(LogStatus.PASS, 'Clicked YES on Unzip on Upload confirmation pop-up')
+	//extentTest.log(Status.PASS, 'Clicked YES on Unzip on Upload confirmation pop-up')
 
 		
 	def res= WebUI.verifyElementPresent(findTestObject('2020.1/Replace_File'), 5)
-	extentTest.log(LogStatus.PASS, 'Verify replace file message  '+ WebUI.getText(findTestObject('Object Repository/JobDetailsPage/message_body_replacefile')))
+	extentTest.log(Status.PASS, 'Verify replace file message  '+ WebUI.getText(findTestObject('Object Repository/JobDetailsPage/message_body_replacefile')))
 	
 		
 		
@@ -95,31 +97,36 @@ try
 
 }
 
-catch (Exception  ex)
-{
+catch (Exception ex) {
+	println('From TC - ' + GlobalVariable.G_ReportFolder)
 
-	String screenShotPath='ExtentReports/'+TestCaseName+GlobalVariable.G_Browser+'.png'
+	String screenShotPath = (('ExtentReports/' + TestCaseName) + GlobalVariable.G_Browser) + '.png'
+
 	WebUI.takeScreenshot(screenShotPath)
-	extentTest.log(LogStatus.FAIL,ex)
-	KeywordUtil.markFailed('ERROR: '+ e)
 
+	String p = (TestCaseName + GlobalVariable.G_Browser) + '.png'
+
+	extentTest.log(Status.FAIL, ex)
+
+	extentTest.fail(MediaEntityBuilder.createScreenCaptureFromPath(p).build())
 }
-catch (StepErrorException  e)
-{
+catch (StepErrorException e) {
+	String screenShotPath = (('ExtentReports/' + TestCaseName) + GlobalVariable.G_Browser) + '.png'
 
-	String screenShotPath='ExtentReports/'+TestCaseName+GlobalVariable.G_Browser+'.png'
 	WebUI.takeScreenshot(screenShotPath)
-	extentTest.log(LogStatus.FAIL,e)
-	KeywordUtil.markFailed('ERROR: '+ e)
 
+	String p = (TestCaseName + GlobalVariable.G_Browser) + '.png'
+
+	extentTest.log(Status.FAIL, ex)
+
+	extentTest.fail(MediaEntityBuilder.createScreenCaptureFromPath(p).build())
 }
-finally
-{
-
-	extent.endTest(extentTest);
-	extent.flush();
-
+finally {
+	extentTest.log(Status.PASS, 'Closing the browser after executinge test case - ' + TestCaseName)
+	
+	
 }
+
 
 
 

@@ -15,6 +15,7 @@
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>
+   <smartLocatorEnabled>false</smartLocatorEnabled>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -22,6 +23,7 @@
       <name>tag</name>
       <type>Main</type>
       <value>span</value>
+      <webElementGuid>d10d2fcd-3838-45fa-bec1-072e6a64572b</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -29,6 +31,7 @@
       <name>id</name>
       <type>Main</type>
       <value>Rename</value>
+      <webElementGuid>85555c4f-7853-4939-b296-56da965766a3</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -36,6 +39,7 @@
       <name>class</name>
       <type>Main</type>
       <value>contextLabel show-text-ellipsis retain-whitespace</value>
+      <webElementGuid>ec597b45-0788-4c7b-ad2c-e7385025f2ec</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -43,6 +47,7 @@
       <name>title</name>
       <type>Main</type>
       <value>Rename</value>
+      <webElementGuid>d08f7a7a-13f4-4699-9528-671189b23ffa</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -50,6 +55,7 @@
       <name>text</name>
       <type>Main</type>
       <value>Rename</value>
+      <webElementGuid>b35c40d5-cc7b-4411-a2ba-ec97dfbc1896</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -57,6 +63,7 @@
       <name>xpath</name>
       <type>Main</type>
       <value>id(&quot;Rename&quot;)</value>
+      <webElementGuid>e72a8f0b-e4b7-4108-9710-24615b164749</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
@@ -64,6 +71,7 @@
       <name>xpath:attributes</name>
       <type>Main</type>
       <value>//span[@id='Rename']</value>
+      <webElementGuid>b847ad56-4f28-4173-83b1-6f89414940d3</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -71,6 +79,7 @@
       <name>xpath:idRelative</name>
       <type>Main</type>
       <value>//div[@id='file_list_rename_menu_item']/span</value>
+      <webElementGuid>e7eae5b5-2612-4951-a134-47c338430801</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -78,6 +87,7 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='Paste'])[2]/following::span[1]</value>
+      <webElementGuid>726ffd25-f51c-4856-b066-c0774bd91fca</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -85,6 +95,7 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='Copy'])[1]/following::span[2]</value>
+      <webElementGuid>ea5d9f83-a730-4cbe-b69c-ab23f5775252</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -92,6 +103,7 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='Download'])[2]/preceding::span[1]</value>
+      <webElementGuid>469aa96f-1d37-460d-9652-b5bebfd990fe</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -99,6 +111,7 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='Compress'])[2]/preceding::span[2]</value>
+      <webElementGuid>b3604be2-3e45-453b-af76-27f5afc657aa</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -106,5 +119,6 @@
       <name>xpath:position</name>
       <type>Main</type>
       <value>//div[7]/div/span</value>
+      <webElementGuid>d85d1374-305f-4ec9-8c96-fe6ff1cd9a49</webElementGuid>
    </webElementXpaths>
 </WebElementEntity>

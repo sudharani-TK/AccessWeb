@@ -7,12 +7,29 @@
    <selectorCollection>
       <entry>
          <key>BASIC</key>
+         <value>//div[@id = 'fileviewer_filelist_container']</value>
       </entry>
       <entry>
          <key>XPATH</key>
-         <value>//div[@class='tile-parent']</value>
+         <value></value>
       </entry>
    </selectorCollection>
-   <selectorMethod>XPATH</selectorMethod>
+   <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>tag</name>
+      <type>Main</type>
+      <value>div</value>
+      <webElementGuid>2a5f79e2-a0b6-49d7-866b-fb4fd4b47c52</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>id</name>
+      <type>Main</type>
+      <value>fileviewer_filelist_container</value>
+      <webElementGuid>cf851814-677b-4fef-806f-374829fe4f9b</webElementGuid>
+   </webElementProperties>
 </WebElementEntity>

@@ -47,7 +47,7 @@ try {
 
     WebUI.delay(2)
 
-    TestObject newAppObj = WebUI.modifyObjectProperty(findTestObject('NewJobPage/AppList_ShellScript'), 'id', 'equals', 
+    TestObject newAppObj = WebUI.modifyObjectProperty(findTestObject('LoginPage/NewJobPage/AppList_ShellScript'), 'id', 'equals', 
         AppName, true)s
 
     WebUI.click(newAppObj)

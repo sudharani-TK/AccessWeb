@@ -6,12 +6,11 @@
    <elementGuidId>10b213d3-2301-4016-a653-551aba2a14f9</elementGuidId>
    <selectorCollection>
       <entry>
-         <key>XPATH</key>
-         <value></value>
+         <key>BASIC</key>
+         <value>//span[@id = 'delete_icon']</value>
       </entry>
       <entry>
-         <key>BASIC</key>
-         <value>//div[@class = 'focus_enable_class additional_file_options ' and @id = 'delete_icon']</value>
+         <key>XPATH</key>
       </entry>
    </selectorCollection>
    <selectorMethod>BASIC</selectorMethod>
@@ -21,16 +20,8 @@
       <matchCondition>equals</matchCondition>
       <name>tag</name>
       <type>Main</type>
-      <value>div</value>
-      <webElementGuid>fcffd061-bad9-4305-99c7-ac8c86b2cad8</webElementGuid>
-   </webElementProperties>
-   <webElementProperties>
-      <isSelected>true</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>class</name>
-      <type>Main</type>
-      <value>focus_enable_class additional_file_options </value>
-      <webElementGuid>4b31da0f-4d77-4079-9dcd-9aeb6f91c3a3</webElementGuid>
+      <value>span</value>
+      <webElementGuid>b10f1b74-e062-4f9d-91e9-8eb52999493d</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -38,6 +29,6 @@
       <name>id</name>
       <type>Main</type>
       <value>delete_icon</value>
-      <webElementGuid>21f702b5-e3a2-4b7f-a580-304ec11864c6</webElementGuid>
+      <webElementGuid>c635c9fc-87b8-4d3f-a8f5-b0970c0248c0</webElementGuid>
    </webElementProperties>
 </WebElementEntity>

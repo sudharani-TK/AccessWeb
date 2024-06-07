@@ -9,18 +9,20 @@ import com.kms.katalon.core.model.FailureHandling as FailureHandling
 import com.kms.katalon.core.testobject.TestObject as TestObject
 import com.kms.katalon.core.util.KeywordUtil
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
-import com.relevantcodes.extentreports.LogStatus
+import com.aventstack.extentreports.MediaEntityBuilder
+import com.aventstack.extentreports.Status
 
 
 import internal.GlobalVariable as GlobalVariable
 
-//====================================================================================
-ReportFile = (GlobalVariable.G_ReportName + '.html')
-def extent = CustomKeywords.'generateReports.GenerateReport.create'(ReportFile, GlobalVariable.G_Browser, GlobalVariable.G_BrowserVersion)
-def LogStatus = com.relevantcodes.extentreports.LogStatus
-def extentTest = extent.startTest(TestCaseName)
+
+//==================================================================
+def Browser = GlobalVariable.G_Browser
+//===============================================================
+def extentTest=GlobalVariable.G_ExtentTest
+//===========================================================
 CustomKeywords.'toLogin.ForLogin.Login'(extentTest)
-//=====================================================================================
+//=============================================================
 
 
 WebUI.delay(2)
@@ -32,130 +34,130 @@ try {
 
 		case 'verify theme colour':
 
-			WebUI.click(findTestObject('Preferences/Profiletab'))
-			extentTest.log(LogStatus.PASS, 'Click on profile tab')
+			WebUI.click(findTestObject('PageNavigation/Preferences/Profiletab'))
+			extentTest.log(Status.PASS, 'Click on profile tab')
 
-			WebUI.click(findTestObject('Preferences/Preference'))
-			extentTest.log(LogStatus.PASS, 'Click on preference')
+			WebUI.click(findTestObject('PageNavigation/Preferences/Preference'))
+			extentTest.log(Status.PASS, 'Click on preference')
 
-			WebUI.verifyElementPresent(findTestObject('Preferences/ThemeColour'),5)
-			extentTest.log(LogStatus.PASS, 'Verify theme colur')
+			WebUI.verifyElementPresent(findTestObject('PageNavigation/Preferences/ThemeColour'),5)
+			extentTest.log(Status.PASS, 'Verify theme colur')
 
 			break
 
 		case 'verify font size':
 
-			WebUI.click(findTestObject('Preferences/Profiletab'))
-			extentTest.log(LogStatus.PASS, 'Click on profile tab')
+			WebUI.click(findTestObject('PageNavigation/Preferences/Profiletab'))
+			extentTest.log(Status.PASS, 'Click on profile tab')
 
-			WebUI.click(findTestObject('Preferences/Preference'))
-			extentTest.log(LogStatus.PASS, 'Click on preference')
+			WebUI.click(findTestObject('PageNavigation/Preferences/Preference'))
+			extentTest.log(Status.PASS, 'Click on preference')
 
-			WebUI.verifyElementPresent(findTestObject('Preferences/Fontsize'),5)
-			extentTest.log(LogStatus.PASS, 'Verify font size')
+			WebUI.verifyElementPresent(findTestObject('PageNavigation/Preferences/Fontsize'),5)
+			extentTest.log(Status.PASS, 'Verify font size')
 
 			break
 
 		case 'Diagnosis':
 
-			WebUI.click(findTestObject('Preferences/Profiletab'))
-			extentTest.log(LogStatus.PASS, 'Click on profile tab')
+			WebUI.click(findTestObject('PageNavigation/Preferences/Profiletab'))
+			extentTest.log(Status.PASS, 'Click on profile tab')
 
-			WebUI.click(findTestObject('Preferences/Preference'))
-			extentTest.log(LogStatus.PASS, 'Click on the  preference')
+			WebUI.click(findTestObject('PageNavigation/Preferences/Preference'))
+			extentTest.log(Status.PASS, 'Click on the  preference')
 
 
-			TestObject	 prefer = WebUI.modifyObjectProperty(findTestObject('Preferences/Choice'), 'text', 'equals',
+			TestObject	 prefer = WebUI.modifyObjectProperty(findTestObject('PageNavigation/Preferences/Choice'), 'text', 'equals',
 					preference, true)
 			WebUI.click(prefer)
 		
 
-			WebUI.click(findTestObject('Preferences/Reset'))
-			extentTest.log(LogStatus.PASS, 'Click on Reset all')
+			WebUI.click(findTestObject('PageNavigation/Preferences/Reset'))
+			extentTest.log(Status.PASS, 'Click on Reset all')
 
-			WebUI.click(findTestObject('Preferences/Confirm_button'))
-			extentTest.log(LogStatus.PASS, 'Click on yes button')
+			WebUI.click(findTestObject('PageNavigation/Preferences/Confirm_button'))
+			extentTest.log(Status.PASS, 'Click on yes button')
 
 
-			result=WebUI.verifyElementPresent(findTestObject('Preferences/Reset_popup'), 2)
+			result=WebUI.verifyElementPresent(findTestObject('PageNavigation/Preferences/Reset_popup'), 2)
 			if(result) {
-				extentTest.log(LogStatus.PASS, 'Verify the Reset  pop-up ')
+				extentTest.log(Status.PASS, 'Verify the Reset  pop-up ')
 			}
 			else
-				extentTest.log(LogStatus.FAIL, 'failed to verify the popup')
+				extentTest.log(Status.FAIL, 'failed to verify the popup')
 				break
 
 		case 'Remote Session':
 
-			WebUI.click(findTestObject('Preferences/Profiletab'))
-			extentTest.log(LogStatus.PASS, 'Click on profile tab')
+			WebUI.click(findTestObject('PageNavigation/Preferences/Profiletab'))
+			extentTest.log(Status.PASS, 'Click on profile tab')
 
-			WebUI.click(findTestObject('Preferences/Preference'))
-			extentTest.log(LogStatus.PASS, 'Click on preference')
+			WebUI.click(findTestObject('PageNavigation/Preferences/Preference'))
+			extentTest.log(Status.PASS, 'Click on preference')
 
-			TestObject	 prefer = WebUI.modifyObjectProperty(findTestObject('Preferences/Choice'), 'text', 'equals',
+			TestObject	 prefer = WebUI.modifyObjectProperty(findTestObject('PageNavigation/Preferences/Choice'), 'text', 'equals',
 					preference, true)
 			WebUI.click(prefer)
-			extentTest.log(LogStatus.PASS, 'Click on preference')
+			extentTest.log(Status.PASS, 'Click on preference')
 			WebUI.delay(3)
 
-			WebUI.verifyElementPresent(findTestObject('Preferences/Remotesession'), 5)
-			extentTest.log(LogStatus.PASS, 'Verify Remote session resolution')
+			WebUI.verifyElementPresent(findTestObject('PageNavigation/Preferences/Remotesession'), 5)
+			extentTest.log(Status.PASS, 'Verify Remote session resolution')
 
 			break
 
 		case 'Profile':
 
-			WebUI.click(findTestObject('Preferences/Profiletab'))
-			extentTest.log(LogStatus.PASS, 'Click on profile tab')
+			WebUI.click(findTestObject('PageNavigation/Preferences/Profiletab'))
+			extentTest.log(Status.PASS, 'Click on profile tab')
 
-			WebUI.click(findTestObject('Preferences/Preference'))
-			extentTest.log(LogStatus.PASS, 'Click on preference')
+			WebUI.click(findTestObject('PageNavigation/Preferences/Preference'))
+			extentTest.log(Status.PASS, 'Click on preference')
 
-			TestObject	 prefer = WebUI.modifyObjectProperty(findTestObject('Preferences/Choice'), 'text', 'equals',
+			TestObject	 prefer = WebUI.modifyObjectProperty(findTestObject('PageNavigation/Preferences/Choice'), 'text', 'equals',
 					preference, true)
 			WebUI.click(prefer)
-			extentTest.log(LogStatus.PASS, 'Click on preference')
+			extentTest.log(Status.PASS, 'Click on preference')
 
-			WebUI.click(findTestObject('Preferences/Profilename'))
-			WebUI.setText(findTestObject('Preferences/Profilename'),'samishtha')
-			extentTest.log(LogStatus.PASS, 'Add profile name')
+			WebUI.click(findTestObject('PageNavigation/Preferences/Profilename'))
+			WebUI.setText(findTestObject('PageNavigation/Preferences/Profilename'),'samishtha')
+			extentTest.log(Status.PASS, 'Add profile name')
 
-			WebUI.click(findTestObject('Preferences/Profile_email'))
-			WebUI.setText(findTestObject('Preferences/Profile_email'),'samishtha.taneja@altair.com')
-			extentTest.log(LogStatus.PASS, 'Add email id')
+			WebUI.click(findTestObject('PageNavigation/Preferences/Profile_email'))
+			WebUI.setText(findTestObject('PageNavigation/Preferences/Profile_email'),'samishtha.taneja@altair.com')
+			extentTest.log(Status.PASS, 'Add email id')
 
-			WebUI.click(findTestObject('Preferences/Back'))
-			extentTest.log(LogStatus.PASS, 'Click on back')
+			WebUI.click(findTestObject('PageNavigation/Preferences/Back'))
+			extentTest.log(Status.PASS, 'Click on back')
 
-			WebUI.click(findTestObject('Preferences/Profiletab'))
-			extentTest.log(LogStatus.PASS, 'Click on profile tab')
+			WebUI.click(findTestObject('PageNavigation/Preferences/Profiletab'))
+			extentTest.log(Status.PASS, 'Click on profile tab')
 
-			WebUI.click(findTestObject('Preferences/Preference'))
-			extentTest.log(LogStatus.PASS, 'Click on preference')
+			WebUI.click(findTestObject('PageNavigation/Preferences/Preference'))
+			extentTest.log(Status.PASS, 'Click on preference')
 
-			WebUI.click(findTestObject('Preferences/Profile'))
-			extentTest.log(LogStatus.PASS, 'Click on profile')
+			WebUI.click(findTestObject('PageNavigation/Preferences/Profile'))
+			extentTest.log(Status.PASS, 'Click on profile')
 
 
 
 		case 'Notifications On':
 
-			WebUI.click(findTestObject('Preferences/Profiletab'))
-			extentTest.log(LogStatus.PASS, 'Click on profile tab')
+			WebUI.click(findTestObject('PageNavigation/Preferences/Profiletab'))
+			extentTest.log(Status.PASS, 'Click on profile tab')
 
-			WebUI.click(findTestObject('Preferences/Preference'))
-			extentTest.log(LogStatus.PASS, 'Click on preference')
+			WebUI.click(findTestObject('PageNavigation/Preferences/Preference'))
+			extentTest.log(Status.PASS, 'Click on preference')
 
-			TestObject	 prefer = WebUI.modifyObjectProperty(findTestObject('Preferences/Choice'), 'text', 'equals',
+			TestObject	 prefer = WebUI.modifyObjectProperty(findTestObject('PageNavigation/Preferences/Choice'), 'text', 'equals',
 					preference, true)
 			WebUI.click(prefer)
-			extentTest.log(LogStatus.PASS, 'Click on preference')
+			extentTest.log(Status.PASS, 'Click on preference')
 
-			WebUI.verifyElementPresent(findTestObject('Preferences/Tickmark'),5)
+			WebUI.verifyElementPresent(findTestObject('PageNavigation/Preferences/Tickmark'),5)
 
-			WebUI.click(findTestObject('Preferences/Back'))
-			extentTest.log(LogStatus.PASS, 'Click on back')
+			WebUI.click(findTestObject('PageNavigation/Preferences/Back'))
+			extentTest.log(Status.PASS, 'Click on back')
 
 			'Navigate to Files Tab\r\n'
 
@@ -165,7 +167,7 @@ try {
 			if (isElemenetPresent)
 			{
 				WebUI.click(findTestObject('GenericObjects/TitleLink_Files'))
-				extentTest.log(LogStatus.PASS, "Navigated to Files Tab" )
+				extentTest.log(Status.PASS, "Navigated to Files Tab" )
 			}
 
 
@@ -174,7 +176,7 @@ try {
 
 			'Click New File Button '
 			WebUI.click(findTestObject('FilesPage/btn_NewFileFolder'))
-			extentTest.log(LogStatus.PASS, "Clicked on New File Button" )
+			extentTest.log(Status.PASS, "Clicked on New File Button" )
 
 
 			WebUI.click(findTestObject('FilesPage/ListItem_File'))
@@ -188,36 +190,36 @@ try {
 
 			WebUI.setText(findTestObject('FilesPage/TextBx_CreateFile'), 'new.txt')
 
-			extentTest.log(LogStatus.PASS, "Enterted File Name to create " )
+			extentTest.log(Status.PASS, "Enterted File Name to create " )
 			'Click save\r\n'
 			WebUI.click(findTestObject('FilesPage/btn_Save'))
-			extentTest.log(LogStatus.PASS, "Clicked on Save Button" )
+			extentTest.log(Status.PASS, "Clicked on Save Button" )
 
-			result=WebUI.verifyElementPresent(findTestObject('Preferences/Notification_popup'), 2)
+			result=WebUI.verifyElementPresent(findTestObject('PageNavigation/Preferences/Notification_popup'), 2)
 			if(result)
-				extentTest.log(LogStatus.PASS, "Verified the Notification for file creation " )
+				extentTest.log(Status.PASS, "Verified the Notification for file creation " )
 				else
-					extentTest.log(LogStatus.FAIL, "Failed to verify the notification" )
+					extentTest.log(Status.FAIL, "Failed to verify the notification" )
 			break
 
 
 		case 'Notifications Off':
 
-			WebUI.click(findTestObject('Preferences/Profiletab'))
-			extentTest.log(LogStatus.PASS, 'Click on profile tab')
+			WebUI.click(findTestObject('PageNavigation/Preferences/Profiletab'))
+			extentTest.log(Status.PASS, 'Click on profile tab')
 
-			WebUI.click(findTestObject('Preferences/Preference'))
-			extentTest.log(LogStatus.PASS, 'Click on preference')
+			WebUI.click(findTestObject('PageNavigation/Preferences/Preference'))
+			extentTest.log(Status.PASS, 'Click on preference')
 
-			TestObject	 prefer = WebUI.modifyObjectProperty(findTestObject('Preferences/Choice'), 'text', 'equals',
+			TestObject	 prefer = WebUI.modifyObjectProperty(findTestObject('PageNavigation/Preferences/Choice'), 'text', 'equals',
 					preference, true)
 			WebUI.click(prefer)
-			extentTest.log(LogStatus.PASS, 'Click on preference')
+			extentTest.log(Status.PASS, 'Click on preference')
 
-			WebUI.click(findTestObject('Preferences/Tickmark'))
+			WebUI.click(findTestObject('PageNavigation/Preferences/Tickmark'))
 
-			WebUI.click(findTestObject('Preferences/Back'))
-			extentTest.log(LogStatus.PASS, 'Click on back')
+			WebUI.click(findTestObject('PageNavigation/Preferences/Back'))
+			extentTest.log(Status.PASS, 'Click on back')
 
 			'Navigate to Files Tab\r\n'
 
@@ -227,7 +229,7 @@ try {
 			if (isElemenetPresent)
 			{
 				WebUI.click(findTestObject('GenericObjects/TitleLink_Files'))
-				extentTest.log(LogStatus.PASS, "Navigated to Files Tab" )
+				extentTest.log(Status.PASS, "Navigated to Files Tab" )
 			}
 
 
@@ -236,7 +238,7 @@ try {
 
 			'Click New File Button '
 			WebUI.click(findTestObject('FilesPage/btn_NewFileFolder'))
-			extentTest.log(LogStatus.PASS, "Clicked on New File Button" )
+			extentTest.log(Status.PASS, "Clicked on New File Button" )
 
 
 			WebUI.click(findTestObject('FilesPage/ListItem_File'))
@@ -250,48 +252,48 @@ try {
 
 			WebUI.setText(findTestObject('FilesPage/TextBx_CreateFile'), fileName)
 
-			extentTest.log(LogStatus.PASS, "Enterted File Name to create " )
+			extentTest.log(Status.PASS, "Enterted File Name to create " )
 			'Click save\r\n'
 			WebUI.click(findTestObject('FilesPage/btn_Save'))
-			extentTest.log(LogStatus.PASS, "Clicked on Save Button" )
+			extentTest.log(Status.PASS, "Clicked on Save Button" )
 
 
 			WebUI.click(findTestObject('Landing_Page/Btn_Notifiction2'))
-			extentTest.log(LogStatus.PASS, "Opened Notification Panel" )
+			extentTest.log(Status.PASS, "Opened Notification Panel" )
 			WebUI.delay(2)
 			result = WebUI.verifyElementPresent(findTestObject('Notificactions/Notification_FileCreation'),5)
-			result=WebUI.verifyElementNotPresent(findTestObject('Preferences/Notification_popup'), 2)
+			result=WebUI.verifyElementNotPresent(findTestObject('PageNavigation/Preferences/Notification_popup'), 2)
 			println("notification status - "+result)
 			if(result) {
-			extentTest.log(LogStatus.PASS, "Verified notification for operation - ")
+			extentTest.log(Status.PASS, "Verified notification for operation - ")
 			}
 			else
-				extentTest.log(LogStatus.FAIL, "Failed to verify")
+				extentTest.log(Status.FAIL, "Failed to verify")
 				
 			break
 
 		case 'Job Submission form open':
 
-			WebUI.click(findTestObject('Preferences/Profiletab'))
-			extentTest.log(LogStatus.PASS, 'Click on profile tab')
+			WebUI.click(findTestObject('PageNavigation/Preferences/Profiletab'))
+			extentTest.log(Status.PASS, 'Click on profile tab')
 
-			WebUI.click(findTestObject('Preferences/Preference'))
-			extentTest.log(LogStatus.PASS, 'Click on preference')
+			WebUI.click(findTestObject('PageNavigation/Preferences/Preference'))
+			extentTest.log(Status.PASS, 'Click on preference')
 
-			TestObject	 prefer = WebUI.modifyObjectProperty(findTestObject('Preferences/Choice'), 'text', 'equals',
+			TestObject	 prefer = WebUI.modifyObjectProperty(findTestObject('PageNavigation/Preferences/Choice'), 'text', 'equals',
 					preference, true)
 			WebUI.click(prefer)
-			extentTest.log(LogStatus.PASS, 'Click on preference')
+			extentTest.log(Status.PASS, 'Click on preference')
 
-			WebUI.click(findTestObject('Preferences/Back'))
-			extentTest.log(LogStatus.PASS, 'Click on back')
+			WebUI.click(findTestObject('PageNavigation/Preferences/Back'))
+			extentTest.log(Status.PASS, 'Click on back')
 
-			TestObject newAppObj = WebUI.modifyObjectProperty(findTestObject('NewJobPage/AppList_ShellScript'), 'id', 'equals',
+			TestObject newAppObj = WebUI.modifyObjectProperty(findTestObject('LoginPage/NewJobPage/AppList_ShellScript'), 'id', 'equals',
 					AppName, true)
 
 			WebUI.click(newAppObj)
 
-			extentTest.log(LogStatus.PASS, 'Navigated to Job Submission For for - ' + AppName)
+			extentTest.log(Status.PASS, 'Navigated to Job Submission For for - ' + AppName)
 
 		//	WebUI.doubleClick(newAppObj)
 			WebUI.delay(2)
@@ -302,7 +304,7 @@ try {
 				WebUI.click(findTestObject('Object Repository/JobSubmissionForm/button_Close'))
 			}
 
-			WebUI.click(findTestObject('Object Repository/NewJobPage/GenericProfile'))
+			WebUI.click(findTestObject('Object Repository/LoginPage/NewJobPage/GenericProfile'))
 
 			WebUI.delay(2)
 
@@ -329,18 +331,18 @@ try {
 
 				WebUI.rightClick(newFileObj)
 
-				extentTest.log(LogStatus.PASS, 'Right Clicked on Input file ' + InputFile)
+				extentTest.log(Status.PASS, 'Right Clicked on Input file ' + InputFile)
 
 				WebUI.delay(2)
 
 				String idForCntxtMn = 'Add as ' + FileArg
 
-				TestObject newRFBContextMnOption = WebUI.modifyObjectProperty(findTestObject('Object Repository/NewJobPage/ContextMenu_RFB_FilePicker'),
+				TestObject newRFBContextMnOption = WebUI.modifyObjectProperty(findTestObject('Object Repository/LoginPage/NewJobPage/ContextMenu_RFB_FilePicker'),
 						'id', 'equals', idForCntxtMn, true)
 
 				WebUI.click(newRFBContextMnOption)
 
-				extentTest.log(LogStatus.PASS, 'Clicked on context menu - ' + idForCntxtMn)
+				extentTest.log(Status.PASS, 'Clicked on context menu - ' + idForCntxtMn)
 			}
 
 			def submitBtn = CustomKeywords.'customWait.WaitForElement.WaitForelementPresent'(findTestObject('JobSubmissionForm/button_Submit_Job'),10,extentTest,"")
@@ -348,40 +350,40 @@ try {
 			if (submitBtn) {
 				WebUI.click(findTestObject('JobSubmissionForm/button_Submit_Job'))
 
-				extentTest.log(LogStatus.PASS, 'Clicked on Submit Button ')
+				extentTest.log(Status.PASS, 'Clicked on Submit Button ')
 			}
 
 			result=WebUI.verifyElementPresent(findTestObject('JobSubmissionForm/button_Submit_Job'), 5)
-			extentTest.log(LogStatus.PASS, 'Verify submit button present')
+			extentTest.log(Status.PASS, 'Verify submit button present')
 
 			break
 
 		case 'Job Submission form close':
 
-			WebUI.click(findTestObject('Preferences/Profiletab'))
-			extentTest.log(LogStatus.PASS, 'Click on profile tab')
+			WebUI.click(findTestObject('PageNavigation/Preferences/Profiletab'))
+			extentTest.log(Status.PASS, 'Click on profile tab')
 
-			WebUI.click(findTestObject('Preferences/Preference'))
-			extentTest.log(LogStatus.PASS, 'Click on preference')
+			WebUI.click(findTestObject('PageNavigation/Preferences/Preference'))
+			extentTest.log(Status.PASS, 'Click on preference')
 
-			TestObject	 prefer = WebUI.modifyObjectProperty(findTestObject('Preferences/Choice'), 'text', 'equals',
+			TestObject	 prefer = WebUI.modifyObjectProperty(findTestObject('PageNavigation/Preferences/Choice'), 'text', 'equals',
 					preference, true)
 			WebUI.click(prefer)
-			extentTest.log(LogStatus.PASS, 'Click on preference')
+			extentTest.log(Status.PASS, 'Click on preference')
 			WebUI.delay(2)
 
-			WebUI.click(findTestObject('Preferences/Job_submission_tickmark'))
-			extentTest.log(LogStatus.PASS, 'Enable tick mark')
+			WebUI.click(findTestObject('PageNavigation/Preferences/Job_submission_tickmark'))
+			extentTest.log(Status.PASS, 'Enable tick mark')
 
-			WebUI.click(findTestObject('Preferences/Back'))
-			extentTest.log(LogStatus.PASS, 'Click on back')
+			WebUI.click(findTestObject('PageNavigation/Preferences/Back'))
+			extentTest.log(Status.PASS, 'Click on back')
 
-			TestObject newAppObj = WebUI.modifyObjectProperty(findTestObject('NewJobPage/AppList_ShellScript'), 'id', 'equals',
+			TestObject newAppObj = WebUI.modifyObjectProperty(findTestObject('LoginPage/NewJobPage/AppList_ShellScript'), 'id', 'equals',
 					AppName, true)
 
 			WebUI.click(newAppObj)
 
-			extentTest.log(LogStatus.PASS, 'Navigated to Job Submission For for - ' + AppName)
+			extentTest.log(Status.PASS, 'Navigated to Job Submission For for - ' + AppName)
 
 		//	WebUI.doubleClick(newAppObj)
 			WebUI.delay(2)
@@ -392,7 +394,7 @@ try {
 				WebUI.click(findTestObject('Object Repository/JobSubmissionForm/button_Close'))
 			}
 
-			WebUI.click(findTestObject('Object Repository/NewJobPage/GenericProfile'))
+			WebUI.click(findTestObject('Object Repository/LoginPage/NewJobPage/GenericProfile'))
 
 			WebUI.delay(2)
 
@@ -419,18 +421,18 @@ try {
 
 				WebUI.rightClick(newFileObj)
 
-				extentTest.log(LogStatus.PASS, 'Right Clicked on Input file ' + InputFile)
+				extentTest.log(Status.PASS, 'Right Clicked on Input file ' + InputFile)
 
 				WebUI.delay(2)
 
 				String idForCntxtMn = 'Add as ' + FileArg
 
-				TestObject newRFBContextMnOption = WebUI.modifyObjectProperty(findTestObject('Object Repository/NewJobPage/ContextMenu_RFB_FilePicker'),
+				TestObject newRFBContextMnOption = WebUI.modifyObjectProperty(findTestObject('Object Repository/LoginPage/NewJobPage/ContextMenu_RFB_FilePicker'),
 						'id', 'equals', idForCntxtMn, true)
 
 				WebUI.click(newRFBContextMnOption)
 
-				extentTest.log(LogStatus.PASS, 'Clicked on context menu - ' + idForCntxtMn)
+				extentTest.log(Status.PASS, 'Clicked on context menu - ' + idForCntxtMn)
 			}
 
 			def submitBtn = CustomKeywords.'customWait.WaitForElement.WaitForelementPresent'(findTestObject('JobSubmissionForm/button_Submit_Job'),10,extentTest,"")
@@ -438,32 +440,32 @@ try {
 			if (submitBtn) {
 				WebUI.click(findTestObject('JobSubmissionForm/button_Submit_Job'))
 
-				extentTest.log(LogStatus.PASS, 'Clicked on Submit Button ')
+				extentTest.log(Status.PASS, 'Clicked on Submit Button ')
 			}
 
-			WebUI.verifyElementPresent(findTestObject('NewJobPage/AppList_ShellScript'), 5)
-			extentTest.log(LogStatus.PASS, 'Verify app def is present')
+			WebUI.verifyElementPresent(findTestObject('LoginPage/NewJobPage/AppList_ShellScript'), 5)
+			extentTest.log(Status.PASS, 'Verify app def is present')
 
 			break
 
 		case 'Hidden Files Enable':
 
-			WebUI.click(findTestObject('Preferences/Profiletab'))
-			extentTest.log(LogStatus.PASS, 'Click on profile tab')
+			WebUI.click(findTestObject('PageNavigation/Preferences/Profiletab'))
+			extentTest.log(Status.PASS, 'Click on profile tab')
 
-			WebUI.click(findTestObject('Preferences/Preference'))
-			extentTest.log(LogStatus.PASS, 'Click on preference')
+			WebUI.click(findTestObject('PageNavigation/Preferences/Preference'))
+			extentTest.log(Status.PASS, 'Click on preference')
 
-			TestObject	 prefer = WebUI.modifyObjectProperty(findTestObject('Preferences/Choice'), 'text', 'equals',
+			TestObject	 prefer = WebUI.modifyObjectProperty(findTestObject('PageNavigation/Preferences/Choice'), 'text', 'equals',
 					preference, true)
 			WebUI.click(prefer)
-			extentTest.log(LogStatus.PASS, 'Click on preference')
+			extentTest.log(Status.PASS, 'Click on preference')
 
-			WebUI.click(findTestObject('Preferences/Tickmark'))
-			extentTest.log(LogStatus.PASS, 'Enable hidden items')
+			WebUI.click(findTestObject('PageNavigation/Preferences/Tickmark'))
+			extentTest.log(Status.PASS, 'Enable hidden items')
 
-			WebUI.click(findTestObject('Preferences/Back'))
-			extentTest.log(LogStatus.PASS, 'Click on back')
+			WebUI.click(findTestObject('PageNavigation/Preferences/Back'))
+			extentTest.log(Status.PASS, 'Click on back')
 
 
 			'Navigate to Files Tab\r\n'
@@ -474,7 +476,7 @@ try {
 			if (isElemenetPresent)
 			{
 				WebUI.click(findTestObject('GenericObjects/TitleLink_Files'))
-				extentTest.log(LogStatus.PASS, "Navigated to Files Tab" )
+				extentTest.log(Status.PASS, "Navigated to Files Tab" )
 			}
 
 			WebUI.click(findTestObject('Object Repository/FilesPage/Icon_EditFilePath'))
@@ -483,7 +485,7 @@ try {
 			WebUI.setText(findTestObject('Object Repository/FilesPage/textBx_FilePath'), location)
 
 			WebUI.sendKeys(findTestObject('Object Repository/FilesPage/textBx_FilePath'), Keys.chord(Keys.ENTER))
-			extentTest.log(LogStatus.PASS, 'Navigated to /stage/JSUploads in RFB ')
+			extentTest.log(Status.PASS, 'Navigated to /stage/JSUploads in RFB ')
 
 			WebUI.click(findTestObject('FilesPage/FilesSearch_filter'))
 
@@ -493,14 +495,14 @@ try {
 			println('.hidden')
 
 			WebUI.setText(findTestObject('FilesPage/FilesSearch_filter'), 'hiddenfile')
-			extentTest.log(LogStatus.PASS, 'Looking for file to perfrom operation - ')
+			extentTest.log(Status.PASS, 'Looking for file to perfrom operation - ')
 
 			WebUI.sendKeys(findTestObject('JobDetailsPage/TextBx_DetailsFilter'), Keys.chord(Keys.ENTER))
 
-			extentTest.log(LogStatus.PASS, 'Clicked on File')
-			result=WebUI.verifyElementPresent(findTestObject('Preferences/HiddenFile'), 5)
+			extentTest.log(Status.PASS, 'Clicked on File')
+			result=WebUI.verifyElementPresent(findTestObject('PageNavigation/Preferences/HiddenFile'), 5)
 			if(result)
-			extentTest.log(LogStatus.PASS, 'Verify the hidden file is  present')
+			extentTest.log(Status.PASS, 'Verify the hidden file is  present')
 
 
 
@@ -508,24 +510,24 @@ try {
 
 
 		case 'Hidden Files Disable':
-			WebUI.click(findTestObject('Preferences/Profiletab'))
-			extentTest.log(LogStatus.PASS, 'Click on profile tab')
+			WebUI.click(findTestObject('PageNavigation/Preferences/Profiletab'))
+			extentTest.log(Status.PASS, 'Click on profile tab')
 
-			WebUI.click(findTestObject('Preferences/Preference'))
+			WebUI.click(findTestObject('PageNavigation/Preferences/Preference'))
 		
 
 
-			TestObject	 prefer = WebUI.modifyObjectProperty(findTestObject('Preferences/Choice'), 'text', 'equals',
+			TestObject	 prefer = WebUI.modifyObjectProperty(findTestObject('PageNavigation/Preferences/Choice'), 'text', 'equals',
 					preference, true)
 			WebUI.click(prefer)
-			extentTest.log(LogStatus.PASS, 'Click on preference')
-			WebUI.click(findTestObject('Preferences/Tickmark'))
-			extentTest.log(LogStatus.PASS, 'Enable hidden items')
+			extentTest.log(Status.PASS, 'Click on preference')
+			WebUI.click(findTestObject('PageNavigation/Preferences/Tickmark'))
+			extentTest.log(Status.PASS, 'Enable hidden items')
 
 
 
-			WebUI.click(findTestObject('Preferences/Back'))
-			extentTest.log(LogStatus.PASS, 'Click on back')
+			WebUI.click(findTestObject('PageNavigation/Preferences/Back'))
+			extentTest.log(Status.PASS, 'Click on back')
 
 
 			'Navigate to Files Tab\r\n'
@@ -536,7 +538,7 @@ try {
 			if (isElemenetPresent)
 			{
 				WebUI.click(findTestObject('GenericObjects/TitleLink_Files'))
-				extentTest.log(LogStatus.PASS, "Navigated to Files Tab" )
+				extentTest.log(Status.PASS, "Navigated to Files Tab" )
 			}
 
 			WebUI.click(findTestObject('Object Repository/FilesPage/Icon_EditFilePath'))
@@ -545,7 +547,7 @@ try {
 			WebUI.setText(findTestObject('Object Repository/FilesPage/textBx_FilePath'), location)
 
 			WebUI.sendKeys(findTestObject('Object Repository/FilesPage/textBx_FilePath'), Keys.chord(Keys.ENTER))
-			extentTest.log(LogStatus.PASS, 'Navigated to /stage/JSUploads in RFB ')
+			extentTest.log(Status.PASS, 'Navigated to /stage/JSUploads in RFB ')
 
 
 		/*
@@ -553,74 +555,74 @@ try {
 		 WebUI.waitForElementVisible(findTestObject('FilesPage/FilesSearch_filter'), 2)
 		 println('.hidden')
 		 WebUI.setText(findTestObject('FilesPage/FilesSearch_filter'), '.hidden')
-		 extentTest.log(LogStatus.PASS, 'Looking for file to perfrom operation - ')
+		 extentTest.log(Status.PASS, 'Looking for file to perfrom operation - ')
 		 WebUI.sendKeys(findTestObject('JobDetailsPage/TextBx_DetailsFilter'), Keys.chord(Keys.ENTER))
-		 extentTest.log(LogStatus.PASS, 'Clicked on File')
+		 extentTest.log(Status.PASS, 'Clicked on File')
 		 prefer
 		 */
-			result=WebUI.verifyElementNotPresent(findTestObject('Preferences/HiddenFile'), 5)
+			result=WebUI.verifyElementNotPresent(findTestObject('PageNavigation/Preferences/HiddenFile'), 5)
 			if(result)
-			extentTest.log(LogStatus.PASS, 'Verify the hidden file is not present  '+result)
+			extentTest.log(Status.PASS, 'Verify the hidden file is not present  '+result)
 
 			break
 
 		/*	 
 		 case 'Pagination':
-		 WebUI.click(findTestObject('Preferences/Profiletab'))
-		 extentTest.log(LogStatus.PASS, 'Click on profile tab')
-		 WebUI.click(findTestObject('Preferences/Preference'))
-		 extentTest.log(LogStatus.PASS, 'Click on preference')
-		 TestObject	 prefer = WebUI.modifyObjectProperty(findTestObject('Preferences/Choice'), 'text', 'equals',
+		 WebUI.click(findTestObject('PageNavigation/Preferences/Profiletab'))
+		 extentTest.log(Status.PASS, 'Click on profile tab')
+		 WebUI.click(findTestObject('PageNavigation/Preferences/Preference'))
+		 extentTest.log(Status.PASS, 'Click on preference')
+		 TestObject	 prefer = WebUI.modifyObjectProperty(findTestObject('PageNavigation/Preferences/Choice'), 'text', 'equals',
 		 preference, true)
 		 WebUI.click(prefer)
-		 extentTest.log(LogStatus.PASS, 'Click on preference')
+		 extentTest.log(Status.PASS, 'Click on preference')
 		 break
 		 case 'Tail Frequency':
-		 WebUI.click(findTestObject('Preferences/Profiletab'))
-		 extentTest.log(LogStatus.PASS, 'Click on profile tab')
-		 WebUI.click(findTestObject('Preferences/Preference'))
-		 extentTest.log(LogStatus.PASS, 'Click on preference')
-		 TestObject	 prefer = WebUI.modifyObjectProperty(findTestObject('Preferences/Choice'), 'text', 'equals',
+		 WebUI.click(findTestObject('PageNavigation/Preferences/Profiletab'))
+		 extentTest.log(Status.PASS, 'Click on profile tab')
+		 WebUI.click(findTestObject('PageNavigation/Preferences/Preference'))
+		 extentTest.log(Status.PASS, 'Click on preference')
+		 TestObject	 prefer = WebUI.modifyObjectProperty(findTestObject('PageNavigation/Preferences/Choice'), 'text', 'equals',
 		 preference, true)
 		 WebUI.click(prefer)
-		 extentTest.log(LogStatus.PASS, 'Click on preference')
+		 extentTest.log(Status.PASS, 'Click on preference')
 		 break
 		 */
 
 		case 'Hidden Files Disable':
-		/*WebUI.click(findTestObject('Preferences/Profiletab'))
-		extentTest.log(LogStatus.PASS, 'Click on profile tab')
+		/*WebUI.click(findTestObject('PageNavigation/Preferences/Profiletab'))
+		extentTest.log(Status.PASS, 'Click on profile tab')
 
-		WebUI.click(findTestObject('Preferences/Preference'))
-		WebUI.click(findTestObject('Preferences/Tickmark'))
-		extentTest.log(LogStatus.PASS, 'Enable hidden items')
+		WebUI.click(findTestObject('PageNavigation/Preferences/Preference'))
+		WebUI.click(findTestObject('PageNavigation/Preferences/Tickmark'))
+		extentTest.log(Status.PASS, 'Enable hidden items')
 
 
-		TestObject	 prefer = WebUI.modifyObjectProperty(findTestObject('Preferences/Choice'), 'text', 'equals',
+		TestObject	 prefer = WebUI.modifyObjectProperty(findTestObject('PageNavigation/Preferences/Choice'), 'text', 'equals',
 				preference, true)
 		WebUI.click(prefer)
-		extentTest.log(LogStatus.PASS, 'Click on preference')
+		extentTest.log(Status.PASS, 'Click on preference')
 
 
 
-		WebUI.click(findTestObject('Preferences/Back'))
-		extentTest.log(LogStatus.PASS, 'Click on back')*/
+		WebUI.click(findTestObject('PageNavigation/Preferences/Back'))
+		extentTest.log(Status.PASS, 'Click on back')*/
 
-			WebUI.click(findTestObject('Preferences/Profiletab'))
-			extentTest.log(LogStatus.PASS, 'Click on profile tab')
+			WebUI.click(findTestObject('PageNavigation/Preferences/Profiletab'))
+			extentTest.log(Status.PASS, 'Click on profile tab')
 
-			WebUI.click(findTestObject('Preferences/Preference'))
-			extentTest.log(LogStatus.PASS, 'Click on preference')
+			WebUI.click(findTestObject('PageNavigation/Preferences/Preference'))
+			extentTest.log(Status.PASS, 'Click on preference')
 
-			TestObject	 prefer = WebUI.modifyObjectProperty(findTestObject('Preferences/Choice'), 'text', 'equals',
+			TestObject	 prefer = WebUI.modifyObjectProperty(findTestObject('PageNavigation/Preferences/Choice'), 'text', 'equals',
 					preference, true)
 			WebUI.click(prefer)
-			extentTest.log(LogStatus.PASS, 'Click on preference')
+			extentTest.log(Status.PASS, 'Click on preference')
 
 
 
-			WebUI.click(findTestObject('Preferences/Back'))
-			extentTest.log(LogStatus.PASS, 'Click on back')
+			WebUI.click(findTestObject('PageNavigation/Preferences/Back'))
+			extentTest.log(Status.PASS, 'Click on back')
 
 
 			'Navigate to Files Tab\r\n'
@@ -631,7 +633,7 @@ try {
 			if (isElemenetPresent)
 			{
 				WebUI.click(findTestObject('GenericObjects/TitleLink_Files'))
-				extentTest.log(LogStatus.PASS, "Navigated to Files Tab" )
+				extentTest.log(Status.PASS, "Navigated to Files Tab" )
 			}
 
 			WebUI.click(findTestObject('Object Repository/FilesPage/Icon_EditFilePath'))
@@ -640,7 +642,7 @@ try {
 			WebUI.setText(findTestObject('Object Repository/FilesPage/textBx_FilePath'), location)
 
 			WebUI.sendKeys(findTestObject('Object Repository/FilesPage/textBx_FilePath'), Keys.chord(Keys.ENTER))
-			extentTest.log(LogStatus.PASS, 'Navigated to /stage/JSUploads in RFB ')
+			extentTest.log(Status.PASS, 'Navigated to /stage/JSUploads in RFB ')
 
 
 		
@@ -648,31 +650,31 @@ try {
 		 WebUI.waitForElementVisible(findTestObject('FilesPage/FilesSearch_filter'), 2)
 		 println('.hidden')
 		 WebUI.setText(findTestObject('FilesPage/FilesSearch_filter'), 'hidden')
-		 extentTest.log(LogStatus.PASS, 'Looking for file to perfrom operation - ')
+		 extentTest.log(Status.PASS, 'Looking for file to perfrom operation - ')
 		 WebUI.sendKeys(findTestObject('JobDetailsPage/TextBx_DetailsFilter'), Keys.chord(Keys.ENTER))
-		// extentTest.log(LogStatus.PASS, 'Clicked on File')
+		// extentTest.log(Status.PASS, 'Clicked on File')
 		 
 		 
-			result=WebUI.verifyElementNotPresent(findTestObject('Preferences/HiddenFile'), 5)
+			result=WebUI.verifyElementNotPresent(findTestObject('PageNavigation/Preferences/HiddenFile'), 5)
 			if(result)
-				extentTest.log(LogStatus.PASS, 'The hidden file is not present')
+				extentTest.log(Status.PASS, 'The hidden file is not present')
 			break
 
 		case 'Persistence Off':
 
-			WebUI.click(findTestObject('Preferences/Profiletab'))
-			extentTest.log(LogStatus.PASS, 'Click on profile tab')
+			WebUI.click(findTestObject('PageNavigation/Preferences/Profiletab'))
+			extentTest.log(Status.PASS, 'Click on profile tab')
 
-			WebUI.click(findTestObject('Preferences/Preference'))
-			extentTest.log(LogStatus.PASS, 'Click on preference')
+			WebUI.click(findTestObject('PageNavigation/Preferences/Preference'))
+			extentTest.log(Status.PASS, 'Click on preference')
 
-			TestObject	 prefer = WebUI.modifyObjectProperty(findTestObject('Preferences/Choice'), 'text', 'equals',
+			TestObject	 prefer = WebUI.modifyObjectProperty(findTestObject('PageNavigation/Preferences/Choice'), 'text', 'equals',
 					preference, true)
 			WebUI.click(prefer)
-			extentTest.log(LogStatus.PASS, 'Click on preference')
+			extentTest.log(Status.PASS, 'Click on preference')
 
-			WebUI.click(findTestObject('Preferences/Back'))
-			extentTest.log(LogStatus.PASS, 'Click on back')
+			WebUI.click(findTestObject('PageNavigation/Preferences/Back'))
+			extentTest.log(Status.PASS, 'Click on back')
 
 			WebUI.delay(2)
 			WebUI.click(findTestObject('GenericObjects/TitleLink_Jobs'))
@@ -685,7 +687,7 @@ try {
 			WebUI.click(newJobFilter)
 
 			WebUI.delay(2)
-			extentTest.log(LogStatus.INFO, 'Clicked on job with state  - Completed')
+			extentTest.log(Status.INFO, 'Clicked on job with state  - Completed')
 
 			TestObject newJobRow = WebUI.modifyObjectProperty(findTestObject('JobMonitoringPage/div_Completed'), 'title', 'equals',	'Completed', true)
 			WebUI.rightClick(newJobRow)
@@ -694,31 +696,31 @@ try {
 
 			WebUI.waitForElementVisible(findTestObject('JobMonitoringPage/OutputFolder_File'), 5)
 
-			WebUI.click(findTestObject('Preferences/Sessions'))
+			WebUI.click(findTestObject('PageNavigation/Preferences/Sessions'))
 			WebUI.click(findTestObject('GenericObjects/TitleLink_Jobs'))
 			WebUI.delay(2)
-			WebUI.verifyElementPresent(findTestObject('Preferences/Appdef'), 5)
-			extentTest.log(LogStatus.PASS, 'Verify app def is present')
+			WebUI.verifyElementPresent(findTestObject('PageNavigation/Preferences/Appdef'), 5)
+			extentTest.log(Status.PASS, 'Verify app def is present')
 			break
 
 		case 'Persistence On':
 
-			WebUI.click(findTestObject('Preferences/Profiletab'))
-			extentTest.log(LogStatus.PASS, 'Click on profile tab')
+			WebUI.click(findTestObject('PageNavigation/Preferences/Profiletab'))
+			extentTest.log(Status.PASS, 'Click on profile tab')
 
-			WebUI.click(findTestObject('Preferences/Preference'))
-			extentTest.log(LogStatus.PASS, 'Click on preference')
+			WebUI.click(findTestObject('PageNavigation/Preferences/Preference'))
+			extentTest.log(Status.PASS, 'Click on preference')
 
-			TestObject	 prefer = WebUI.modifyObjectProperty(findTestObject('Preferences/Choice'), 'text', 'equals',
+			TestObject	 prefer = WebUI.modifyObjectProperty(findTestObject('PageNavigation/Preferences/Choice'), 'text', 'equals',
 					preference, true)
 			WebUI.click(prefer)
-			extentTest.log(LogStatus.PASS, 'Click on preference')
+			extentTest.log(Status.PASS, 'Click on preference')
 
-			WebUI.click(findTestObject('Preferences/Tickmark'))
-			extentTest.log(LogStatus.PASS, 'Click on Tickmark')
+			WebUI.click(findTestObject('PageNavigation/Preferences/Tickmark'))
+			extentTest.log(Status.PASS, 'Click on Tickmark')
 
-			WebUI.click(findTestObject('Preferences/Back'))
-			extentTest.log(LogStatus.PASS, 'Click on back')
+			WebUI.click(findTestObject('PageNavigation/Preferences/Back'))
+			extentTest.log(Status.PASS, 'Click on back')
 
 			WebUI.delay(2)
 			WebUI.click(findTestObject('GenericObjects/TitleLink_Jobs'))
@@ -731,7 +733,7 @@ try {
 			WebUI.click(newJobFilter)
 
 			WebUI.delay(2)
-			extentTest.log(LogStatus.INFO, 'Clicked on job with state  - ')
+			extentTest.log(Status.INFO, 'Clicked on job with state  - ')
 
 
 			TestObject newJobRow = WebUI.modifyObjectProperty(findTestObject('JobMonitoringPage/div_Completed'), 'title', 'equals',	'Completed', true)
@@ -743,7 +745,7 @@ try {
 
 			WebUI.waitForElementVisible(findTestObject('JobMonitoringPage/OutputFolder_File'), 5)
 
-			WebUI.click(findTestObject('Preferences/Sessions'))
+			WebUI.click(findTestObject('PageNavigation/Preferences/Sessions'))
 			WebUI.click(findTestObject('GenericObjects/TitleLink_Jobs'))
 			WebUI.delay(2)
 			WebUI.verifyElementPresent(findTestObject('JobMonitoringPage/OutputFolder_File'), 5)
@@ -754,22 +756,22 @@ try {
 
 		case 'RVS':
 
-			WebUI.click(findTestObject('Preferences/Profiletab'))
-			extentTest.log(LogStatus.PASS, 'Click on profile tab')
+			WebUI.click(findTestObject('PageNavigation/Preferences/Profiletab'))
+			extentTest.log(Status.PASS, 'Click on profile tab')
 
-			WebUI.click(findTestObject('Preferences/Preference'))
+			WebUI.click(findTestObject('PageNavigation/Preferences/Preference'))
 			
 
-			TestObject	 prefer = WebUI.modifyObjectProperty(findTestObject('Preferences/Choice'), 'text', 'equals',
+			TestObject	 prefer = WebUI.modifyObjectProperty(findTestObject('PageNavigation/Preferences/Choice'), 'text', 'equals',
 					preference, true)
 			WebUI.click(prefer)
-			extentTest.log(LogStatus.PASS, 'Click on  the preference')
+			extentTest.log(Status.PASS, 'Click on  the preference')
 
-			result=WebUI.verifyElementPresent(findTestObject('Preferences/Autorefreshtime'), 5)
+			result=WebUI.verifyElementPresent(findTestObject('PageNavigation/Preferences/Autorefreshtime'), 5)
 			if(result)
-			extentTest.log(LogStatus.PASS, 'Verify autorefresh time')
+			extentTest.log(Status.PASS, 'Verify autorefresh time')
 			else
-				extentTest.log(LogStatus.FAIL, 'failed to verify the  autorefresh time')
+				extentTest.log(Status.FAIL, 'failed to verify the  autorefresh time')
 
 			break
 
@@ -782,29 +784,33 @@ try {
 	}
 }
 catch (Exception ex) {
-	String screenShotPath = (('ExtentReports/' + TCName) + GlobalVariable.G_Browser) + '.png'
+	println('From TC - ' + GlobalVariable.G_ReportFolder)
+
+	String screenShotPath = (('ExtentReports/' + TestCaseName) + GlobalVariable.G_Browser) + '.png'
 
 	WebUI.takeScreenshot(screenShotPath)
 
-	extentTest.log(LogStatus.FAIL, ex)
+	String p = (TestCaseName + GlobalVariable.G_Browser) + '.png'
 
-	KeywordUtil.markFailed('ERROR: ' + e)
+	extentTest.log(Status.FAIL, ex)
+
+	extentTest.fail(MediaEntityBuilder.createScreenCaptureFromPath(p).build())
 }
 catch (StepErrorException e) {
-	String screenShotPath = (('ExtentReports/' + TCName) + GlobalVariable.G_Browser) + '.png'
+	String screenShotPath = (('ExtentReports/' + TestCaseName) + GlobalVariable.G_Browser) + '.png'
 
 	WebUI.takeScreenshot(screenShotPath)
 
-	extentTest.log(LogStatus.FAIL, e)
+	String p = (TestCaseName + GlobalVariable.G_Browser) + '.png'
 
-	KeywordUtil.markFailed('ERROR: ' + e)
+	extentTest.log(Status.FAIL, ex)
+
+	extentTest.fail(MediaEntityBuilder.createScreenCaptureFromPath(p).build())
 }
 finally {
-	extent.endTest(extentTest)
-
-	extent.flush()
-
-
+	extentTest.log(Status.PASS, 'Closing the browser after executinge test case - ' + TestCaseName)
+	
+	
 }
 
 

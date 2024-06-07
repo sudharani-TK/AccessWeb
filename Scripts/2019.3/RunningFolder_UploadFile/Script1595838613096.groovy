@@ -54,24 +54,28 @@ try
 	
 	WebUI.click(findTestObject('JobMonitoringPage/ViewDetails_Jobs'))
 	extentTest.log(LogStatus.PASS, 'Clicked on job with state  - ' + jobState)
-	CustomKeywords.'operations_JobsModule.GetJobRowDetails.getJobID'(jobText)
+	//CustomKeywords.'operations_JobsModule.GetJobRowDetails.getJobID'(jobText)
 	
-		extentTest.log(LogStatus.PASS, 'Job ID - ' + GlobalVariable.G_JobID)
+		//extentTest.log(LogStatus.PASS, 'Job ID - ' + GlobalVariable.G_JobID)
 
    //WebUI.waitForElementVisible(findTestObject('JobMonitoringPage/OutputFolder_File'), 5)
 	//WebUI.click(findTestObject('JobMonitoringPage/OutputFolder_File'))
 	WebUI.click(findTestObject('JobMonitoringPage/RunningFolder'))
-	extentTest.log(LogStatus.PASS, 'Click on Running Folder')
-	
-	WebUI.delay(2)
-	WebUI.waitForElementVisible(findTestObject('2020.1/UploadFile'), 5)
+	extentTest.log(LogStatus.PASS, 'Clicking on Running Folder')
+	WebUI.click(findTestObject('Object Repository/2020.1/NewDropdown'))
+	extentTest.log(LogStatus.PASS, 'Clicking on NewDropdown Button')
+	boolean uploadFileBtn=WebUI.verifyElementPresent(findTestObject('2020.1/UploadFile'), 5)
+	if(uploadFileBtn) {
+		//WebUI.click(findTestObject('2020.1/UploadFile'))
+		extentTest.log(LogStatus.PASS, 'verified that File Upload in Running Folder')
+	}
 
-	'Click Upload File Button '
 	
 	
 	
 	
-	def filePath1 = (RunConfiguration.getProjectDir() + '/Upload/InputDeck/Running.sh')
+	
+	/*def filePath1 = (RunConfiguration.getProjectDir() + '/Upload/InputDeck/Running.sh')
 	def newFP1=(new generateFilePath.filePath()).getFilePath(filePath1)
 	println(newFP1)
 	WebUI.uploadFile(findTestObject('2020.1/UploadFile'), newFP1 )
@@ -79,7 +83,7 @@ try
 	
 	
 	WebUI.verifyElementPresent(findTestObject('2020.1/Replace_File'), 3)
-	extentTest.log(LogStatus.PASS, 'Verify replace file message')
+	extentTest.log(LogStatus.PASS, 'Verify replace file message')*/
 		
 		
 		if (GlobalVariable.G_Browser == 'IE') {

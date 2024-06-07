@@ -20,7 +20,6 @@ public class CreateTestObjJobs {
 		TestObject LeftNavAppIdentifier = new TestObject('objectName')
 		LeftNavAppIdentifier.addProperty('xpath', ConditionType.EQUALS, xpath_LeftNavAppIdentifier)
 		return LeftNavAppIdentifier
-
 	}
 
 	@Keyword

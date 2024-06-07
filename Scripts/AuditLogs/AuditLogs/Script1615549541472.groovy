@@ -13,7 +13,9 @@ import com.kms.katalon.core.testobject.TestObject as TestObject
 import com.kms.katalon.core.util.KeywordUtil as KeywordUtil
 import com.kms.katalon.core.webui.driver.DriverFactory as DriverFactory
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
-import com.relevantcodes.extentreports.LogStatus as LogStatus
+
+import com.aventstack.extentreports.MediaEntityBuilder
+import com.aventstack.extentreports.Status
 import internal.GlobalVariable as GlobalVariable
 import com.kms.katalon.core.configuration.RunConfiguration as RunConfiguration
 import com.kms.katalon.core.mobile.keyword.MobileBuiltInKeywords as Mobile
@@ -40,23 +42,20 @@ EventFiringWebDriver eventFiring = ((DriverFactory.getWebDriver()) as EventFirin
 WebDriver wrappedWebDriver = eventFiring.getWrappedDriver()
 
 // Cast the wrapped driver into RemoteWebDriver
-RemoteWebDriver katalonWebDriver = ((wrappedWebDriver) as RemoteWebDriver)
+RemoteWebDriver katalonWebDriver = (RemoteWebDriver) wrappedWebDriver
 
-ReportFile = (GlobalVariable.G_ReportName + '.html')
-
-def extent = CustomKeywords.'generateReports.GenerateReport.create'(ReportFile, GlobalVariable.G_Browser, GlobalVariable.G_BrowserVersion)
-
-def LogStatus = com.relevantcodes.extentreports.LogStatus
-
-def extentTest = extent.startTest(TestCaseName)
-
+//==================================================================
+def Browser = GlobalVariable.G_Browser
+//===============================================================
+def extentTest=GlobalVariable.G_ExtentTest
+//===========================================================
 CustomKeywords.'toLogin.ForLogin.Login'(extentTest)
+//=============================================================
 
-String screenShot = ((('ExtentReports/' + TestCaseName) + userChoice) + GlobalVariable.G_Browser) + '.png'
 
-def result
+def result=false
 
-def text
+def text=null
 
 def location = '/stage/pbsworks/'
 
@@ -65,21 +64,21 @@ WebUI.delay(2)
 def TCName = TestCaseName + ' - through top menu icons'
 
 
-TestObject newFileObj
+TestObject newFileObj=null
 
 try {
     WebUI.delay(2)
 
     //WebUI.click(findTestObject('GenericObjects/TitleLink_Jobs'))
-    WebUI.click(findTestObject('Preferences/Profiletab'))
+    WebUI.click(findTestObject('PageNavigation/Preferences/Profiletab'))
 
-    extentTest.log(LogStatus.PASS, 'Click on profile tab')
+    extentTest.log(Status.PASS, 'Click on profile tab')
 
     WebUI.delay(2)
 
     WebUI.click(findTestObject('AuditLogs/AuditLogs'))
 
-    extentTest.log(LogStatus.PASS, 'Click on Audit Logs')
+    extentTest.log(Status.PASS, 'Click on Audit Logs')
 
     switch (userChoice) {
         case 'ip add':
@@ -92,12 +91,12 @@ try {
             println('Ipaddress value - ' + result)
 
             if (result) {
-                extentTest.log(LogStatus.PASS, ' Ipaddres value matched')
+                extentTest.log(Status.PASS, ' Ipaddres value matched')
 
-                extentTest.log(LogStatus.PASS, ('Ipaddress value  - "' + value) + '" is listed') //extentTest.log(LogStatus.PASS, fileToCheck + ' - Not pasted')
-				extentTest.log(LogStatus.PASS, 'Verified that in Audit log page IP address field should show the correct local IP address')
+                extentTest.log(Status.PASS, ('Ipaddress value  - "' + value) + '" is listed') //extentTest.log(Status.PASS, fileToCheck + ' - Not pasted')
+				extentTest.log(Status.PASS, 'Verified that in Audit log page IP address field should show the correct local IP address')
             } else {
-                extentTest.log(LogStatus.FAIL, 'Failed to verify the ipaddress')
+                extentTest.log(Status.FAIL, 'Failed to verify the ipaddress')
             }
             
             //WebUI.verifyElementPresent(findTestObject('AuditLogs/Ipadd'), 4)
@@ -107,20 +106,26 @@ try {
         case 'Title':
             WebUI.verifyElementPresent(findTestObject('AuditLogs/AuditActivity'), 3)
 
-            extentTest.log(LogStatus.PASS, ' Verify title element present ')
+            extentTest.log(Status.PASS, ' Verify title element present ')
 
-            WebUI.waitForElementPresent(findTestObject('Object Repository/AuditLogs/AuditActivity'), 5)
+             result=WebUI.waitForElementPresent(findTestObject('Object Repository/AuditLogs/AuditActivity'), 5)
+			if(result) {
+				
 
              text = WebUI.getText(findTestObject('Object Repository/AuditLogs/AuditActivity'))
 
-            extentTest.log(LogStatus.PASS, 'Title displayed -' + text)
+            extentTest.log(Status.PASS, 'Title displayed -' + text)
+				}
+				else {
+					extentTest.log(Status.FAIL, "failed to verify the title")
+				}
 
             break
         case 'Calendar':
             //Audit Log: Verify the arrows icons in 'From date' to 'To date' calendar
             WebUI.click(findTestObject('Object Repository/AuditLogs/Calendar_Icon_From_date'))
 
-            extentTest.log(LogStatus.PASS, ' Click on  the Calendar icon::  From Date:: ')
+            extentTest.log(Status.PASS, ' Click on  the Calendar icon::  From Date:: ')
 			WebUI.delay(2)
 			//WebUI.click(findTestObject('Object Repository/AuditLogs/From_date_fwd_arrow'))
 
@@ -131,13 +136,13 @@ try {
 		
 
             if (res1 && res2) {
-                extentTest.log(LogStatus.PASS, ' verify that forward arrow is disabled & only backward arrow is enabled  ')
+                extentTest.log(Status.PASS, ' verify that forward arrow is disabled & only backward arrow is enabled  ')
             } else {
-                extentTest.log(LogStatus.FAIL, 'Failed to verify the arrow')
+                extentTest.log(Status.FAIL, 'Failed to verify the arrow')
             }
             
             //To Date: Click calendar icon and verify that backward arrow is disabled & only forward arrow is enabled
-            extentTest.log(LogStatus.PASS, ' Click on  the Calendar icon::  To Date:: ')
+            extentTest.log(Status.PASS, ' Click on  the Calendar icon::  To Date:: ')
 
             WebUI.delay(4)
 			
@@ -153,22 +158,22 @@ try {
 			
 
             if (res1 && res2) {
-                extentTest.log(LogStatus.PASS, ' verify that backward arrow is disabled & only forward arrow is enabled  ')
+                extentTest.log(Status.PASS, ' verify that backward arrow is disabled & only forward arrow is enabled  ')
             } else {
-                extentTest.log(LogStatus.FAIL, 'Failed to verify the arrow')
+                extentTest.log(Status.FAIL, 'Failed to verify the arrow')
             }
             
             break
         case 'Upload':
             WebUI.click(findTestObject('GenericObjects/TitleLink_Files'))
 
-            extentTest.log(LogStatus.PASS, ' Click on Files Tab ')
+            extentTest.log(Status.PASS, ' Click on Files Tab ')
 
             WebUI.delay(2)
 
             WebUI.waitForElementVisible(findTestObject('2020.1/Upload_File'), 5)
 
-            extentTest.log(LogStatus.PASS, 'Click on Upload file')
+            extentTest.log(Status.PASS, 'Click on Upload file')
 
             'Click Upload File Button '
             def filePath = RunConfiguration.getProjectDir() + '/Upload/100MB_ActualTextFile.txt'
@@ -179,7 +184,7 @@ try {
 
             WebUI.uploadFile(findTestObject('FilesPage/UploadFileBtn'), newFP)
 
-            extentTest.log(LogStatus.PASS, 'Upload  file')
+            extentTest.log(Status.PASS, 'Upload  file')
 
             WebUI.delay(5)
 
@@ -189,56 +194,56 @@ try {
         case 'Disable':
             WebUI.click(findTestObject('AuditLogs/SearchBox'))
 
-            extentTest.log(LogStatus.PASS, ' Click on Searchbox')
+            extentTest.log(Status.PASS, ' Click on Searchbox')
 
             WebUI.setText(findTestObject('AuditLogs/SearchBox'), '')
 
             WebUI.setText(findTestObject('AuditLogs/SearchBox'), username)
 
-            extentTest.log(LogStatus.PASS, 'Add username name - ' + username)
+            extentTest.log(Status.PASS, 'Add username name - ' + username)
 
             WebUI.sendKeys(findTestObject('Object Repository/AuditLogs/SearchBox'), Keys.chord(Keys.ENTER))
 
-            extentTest.log(LogStatus.PASS, ' Hit on Enter ')
+            extentTest.log(Status.PASS, ' Hit on Enter ')
 
             WebUI.verifyElementPresent(findTestObject('AuditLogs/Nolog'), 3)
 
-            extentTest.log(LogStatus.PASS, ' Verified that when user provides invalid search keyword, a message should be displayed No logs to show')
+            extentTest.log(Status.PASS, ' Verified that when user provides invalid search keyword, a message should be displayed No logs to show')
 
             WebUI.waitForElementPresent(findTestObject('AuditLogs/Nolog'), 5)
 
             text = WebUI.getText(findTestObject('AuditLogs/Nolog'))
 
-            extentTest.log(LogStatus.PASS, 'No Log message genereted - ' + text)
+            extentTest.log(Status.PASS, 'No Log message genereted - ' + text)
 
 			result=WebUI.verifyElementHasAttribute(findTestObject('Object Repository/AuditLogs/export_button'),'disabled', 20)
 			
 
-            def res1 = WebUI.verifyElementPresent(findTestObject('Object Repository/AuditLogs/Pagination_element2'),  5)
+            def res1 = WebUI.verifyElementPresent(findTestObject('Object Repository/AuditLogs/Pagination_element1'),  5)
 			def res2 = WebUI.verifyElementPresent(findTestObject('Object Repository/AuditLogs/Pagination_element2'),  5)
-			def res3 = WebUI.verifyElementPresent(findTestObject('Object Repository/AuditLogs/Pagination_element2'),  5)
+		//	def res3 = WebUI.verifyElementPresent(findTestObject('Object Repository/AuditLogs/Pagination_element3'),  5)
 			
-			def res4 = WebUI.verifyElementPresent(findTestObject('Object Repository/AuditLogs/Pagination_element2'),  5)
+		//	def res4 = WebUI.verifyElementPresent(findTestObject('Object Repository/AuditLogs/Pagination_element4'),  5)
 			
 
-            if (res1 && res2 && res3 && res4 &&result) {
-                extentTest.log(LogStatus.PASS, ' Verify < , << , > , >> arrows are disabled ')
+            if (res1 && res2 &&result) {
+                extentTest.log(Status.PASS, ' Verify < , << , > , >> arrows are disabled ')
 
-                extentTest.log(LogStatus.PASS, ' Verify export data button is disabled ')
+                extentTest.log(Status.PASS, ' Verify export data button is disabled ')
             } else {
-                extentTest.log(LogStatus.FAIL, ' Failed to verify the buttons')
+                extentTest.log(Status.FAIL, ' Failed to verify the buttons')
             }
             
             break
         case 'audit page':
             WebUI.click(findTestObject('GenericObjects/TitleLink_Jobs'))
 
-            TestObject newAppObj = WebUI.modifyObjectProperty(findTestObject('NewJobPage/AppList_ShellScript'), 'id', 'equals', 
+            TestObject newAppObj = WebUI.modifyObjectProperty(findTestObject('LoginPage/NewJobPage/AppList_ShellScript'), 'id', 'equals', 
                 AppName, true)
 
             WebUI.click(newAppObj)
 
-            extentTest.log(LogStatus.PASS, 'Navigated to Job Submission For for - ' + AppName)
+            extentTest.log(Status.PASS, 'Navigated to Job Submission For for - ' + AppName)
 
             //	WebUI.doubleClick(newAppObj)
             WebUI.delay(2)
@@ -250,14 +255,14 @@ try {
                 WebUI.click(findTestObject('Object Repository/JobSubmissionForm/button_Close'))
             }
             
-            WebUI.click(findTestObject('Object Repository/NewJobPage/GenericProfile'))
+            WebUI.click(findTestObject('Object Repository/LoginPage/NewJobPage/GenericProfile'))
 
             WebUI.delay(2)
 
             CustomKeywords.'operations_JobsModule.JobSubmissions.JSAllFileds'(ToChange, ChangeValue, extentTest)
 
             if (ExecMode.equals('Array')) {
-                extentTest.log(LogStatus.PASS, 'No file required for Array Job')
+                extentTest.log(Status.PASS, 'No file required for Array Job')
             } else {
                 WebUI.delay(2)
 
@@ -271,18 +276,18 @@ try {
 
                 WebUI.rightClick(newFileObj)
 
-                extentTest.log(LogStatus.PASS, 'Right Clicked on Input file ' + InputFile)
+                extentTest.log(Status.PASS, 'Right Clicked on Input file ' + InputFile)
 
                 WebUI.delay(2)
 
                 String idForCntxtMn = 'Add as ' + FileArg
 
-                TestObject newRFBContextMnOption = WebUI.modifyObjectProperty(findTestObject('Object Repository/NewJobPage/ContextMenu_RFB_FilePicker'), 
+                TestObject newRFBContextMnOption = WebUI.modifyObjectProperty(findTestObject('Object Repository/LoginPage/NewJobPage/ContextMenu_RFB_FilePicker'), 
                     'id', 'equals', idForCntxtMn, true)
 
                 WebUI.click(newRFBContextMnOption)
 
-                extentTest.log(LogStatus.PASS, 'Clicked on context menu - ' + idForCntxtMn)
+                extentTest.log(Status.PASS, 'Clicked on context menu - ' + idForCntxtMn)
             }
             
             def submitBtn = CustomKeywords.'customWait.WaitForElement.WaitForelementPresent'(findTestObject('JobSubmissionForm/button_Submit_Job'), 
@@ -291,30 +296,30 @@ try {
             if (submitBtn) {
                 WebUI.click(findTestObject('JobSubmissionForm/button_Submit_Job'))
 
-                extentTest.log(LogStatus.PASS, 'Clicked on Submit Button ')
+                extentTest.log(Status.PASS, 'Clicked on Submit Button ')
             }
             
             WebUI.waitForElementPresent(findTestObject('Notificactions/Notification_JobSubmission'), 5)
 
             def jobText = WebUI.getText(findTestObject('Notificactions/Notification_JobSubmission'))
 
-            extentTest.log(LogStatus.PASS, 'Notification Generated'+ jobText)
+            extentTest.log(Status.PASS, 'Notification Generated'+ jobText)
 
             CustomKeywords.'operations_JobsModule.GetJobRowDetails.getJobID'(jobText)
 
-            extentTest.log(LogStatus.PASS, 'Job ID - ' + GlobalVariable.G_JobID)
+            extentTest.log(Status.PASS, 'Job ID - ' + GlobalVariable.G_JobID)
 
-            extentTest.log(LogStatus.PASS, 'Job Submission Done for - ' + TestCaseName)
+            extentTest.log(Status.PASS, 'Job Submission Done for - ' + TestCaseName)
 
-            WebUI.click(findTestObject('Preferences/Profiletab'))
+            WebUI.click(findTestObject('PageNavigation/Preferences/Profiletab'))
 
-            extentTest.log(LogStatus.PASS, 'Click on profile tab')
+            extentTest.log(Status.PASS, 'Click on profile tab')
 
             WebUI.delay(2)
 
             WebUI.click(findTestObject('AuditLogs/AuditLogs'))
 
-            extentTest.log(LogStatus.PASS, 'Click on Audit Logs')
+            extentTest.log(Status.PASS, 'Click on Audit Logs')
 
             WebUI.delay(2)
 
@@ -324,30 +329,30 @@ try {
         case 'No logs':
             WebUI.click(findTestObject('AuditLogs/SearchBox'))
 
-            extentTest.log(LogStatus.PASS, ' Click on Searchbox')
+            extentTest.log(Status.PASS, ' Click on Searchbox')
 
             WebUI.setText(findTestObject('AuditLogs/SearchBox'), '')
 
             WebUI.setText(findTestObject('AuditLogs/SearchBox'), username)
 
-            extentTest.log(LogStatus.PASS, 'Add username name - ' + username)
+            extentTest.log(Status.PASS, 'Add username name - ' + username)
 
             WebUI.sendKeys(findTestObject('Object Repository/AuditLogs/SearchBox'), Keys.chord(Keys.ENTER))
 
-            extentTest.log(LogStatus.PASS, ' Hit on Enter ')
+            extentTest.log(Status.PASS, ' Hit on Enter ')
 
             WebUI.verifyElementPresent(findTestObject('AuditLogs/Nolog'), 3)
 
-            extentTest.log(LogStatus.PASS, ' Verified that when user provides invalid search keyword, a message should be displayed No logs to show')
+            extentTest.log(Status.PASS, ' Verified that when user provides invalid search keyword, a message should be displayed No logs to show')
 
             result = WebUI.waitForElementPresent(findTestObject('AuditLogs/Nolog'), 5)
 
             text = WebUI.getText(findTestObject('AuditLogs/Nolog'))
 
             if (result) {
-                extentTest.log(LogStatus.PASS, 'No Log message genereted - ' + text)
+                extentTest.log(Status.PASS, 'No Log message genereted - ' + text)
             } else {
-                extentTest.log(LogStatus.FAIL, 'Not able to see NO logs message')
+                extentTest.log(Status.FAIL, 'Not able to see NO logs message')
             }
             
             break
@@ -364,7 +369,7 @@ try {
 				 
 								 if (namesOfFiles.contains('auditlog')) {
 									 println('success')
-									 //extentTest.log(LogStatus.PASS, 'file to downloaded ')
+									 //extentTest.log(Status.PASS, 'file to downloaded ')
 				 
 								 } else {
 									 println('fail')
@@ -377,21 +382,21 @@ try {
         case 'Logs':
             WebUI.click(findTestObject('AuditLogs/SearchBox'))
 
-            extentTest.log(LogStatus.PASS, ' Click on Searchbox')
+            extentTest.log(Status.PASS, ' Click on Searchbox')
 
             WebUI.setText(findTestObject('AuditLogs/SearchBox'), '')
 
             WebUI.setText(findTestObject('AuditLogs/SearchBox'), 'Success')
 
-            extentTest.log(LogStatus.PASS, 'Add username name pbsadmin')
+            extentTest.log(Status.PASS, 'Add username name pbsadmin')
 
             WebUI.sendKeys(findTestObject('Object Repository/AuditLogs/SearchBox'), Keys.chord(Keys.ENTER))
 
-            extentTest.log(LogStatus.PASS, ' Hit on Enter ')
+            extentTest.log(Status.PASS, ' Hit on Enter ')
 
             WebUI.delay(2)
 
-            extentTest.log(LogStatus.PASS, ' Log details ')
+            extentTest.log(Status.PASS, ' Log details ')
 
             CustomKeywords.'demo.AuditLog.auditLogs'(katalonWebDriver, extentTest)
 
@@ -399,25 +404,25 @@ try {
 
             WebUI.click(findTestObject('AuditLogs/close_icon'))
 
-            extentTest.log(LogStatus.PASS, ' Click on close icon ')
+            extentTest.log(Status.PASS, ' Click on close icon ')
 
             WebUI.click(findTestObject('AuditLogs/SearchBox'))
 
-            extentTest.log(LogStatus.PASS, ' Click on Searchbox')
+            extentTest.log(Status.PASS, ' Click on Searchbox')
 
             WebUI.setText(findTestObject('AuditLogs/SearchBox'), '')
 
             WebUI.setText(findTestObject('AuditLogs/SearchBox'), 'pbsworks')
 
-            extentTest.log(LogStatus.PASS, 'Add username name pbsworks')
+            extentTest.log(Status.PASS, 'Add username name pbsworks')
 
             WebUI.sendKeys(findTestObject('Object Repository/AuditLogs/SearchBox'), Keys.chord(Keys.ENTER))
 
-            extentTest.log(LogStatus.PASS, ' Hit on Enter ')
+            extentTest.log(Status.PASS, ' Hit on Enter ')
 
             WebUI.delay(2)
 
-            extentTest.log(LogStatus.PASS, ' Log details ')
+            extentTest.log(Status.PASS, ' Log details ')
 
             CustomKeywords.'demo.AuditLog.auditLogs'(katalonWebDriver, extentTest)
 
@@ -425,70 +430,111 @@ try {
 
             WebUI.click(findTestObject('AuditLogs/close_icon'))
 
-            extentTest.log(LogStatus.PASS, ' Click on close icon ')
+            extentTest.log(Status.PASS, ' Click on close icon ')
 
             WebUI.click(findTestObject('AuditLogs/SearchBox'))
 
-            extentTest.log(LogStatus.PASS, ' Click on Searchbox')
+            extentTest.log(Status.PASS, ' Click on Searchbox')
 
             WebUI.setText(findTestObject('AuditLogs/SearchBox'), '')
 
             WebUI.setText(findTestObject('AuditLogs/SearchBox'), 'delete')
 
-            extentTest.log(LogStatus.PASS, 'Enter action  - delete')
+            extentTest.log(Status.PASS, 'Enter action  - delete')
 
             WebUI.sendKeys(findTestObject('Object Repository/AuditLogs/SearchBox'), Keys.chord(Keys.ENTER))
 
-            extentTest.log(LogStatus.PASS, ' Hit on Enter ')
+            extentTest.log(Status.PASS, ' Hit on Enter ')
 
             WebUI.delay(2)
 
-            extentTest.log(LogStatus.PASS, ' Log details ')
+            extentTest.log(Status.PASS, ' Log details ')
 
             CustomKeywords.'demo.AuditLog.auditLogs'(katalonWebDriver, extentTest)
 
             WebUI.click(findTestObject('AuditLogs/close_icon'))
 
-            extentTest.log(LogStatus.PASS, ' Click on close icon ')
+            extentTest.log(Status.PASS, ' Click on close icon ')
 
             WebUI.click(findTestObject('AuditLogs/SearchBox'))
 
-            extentTest.log(LogStatus.PASS, ' Click on Searchbox')
+            extentTest.log(Status.PASS, ' Click on Searchbox')
 
             WebUI.setText(findTestObject('AuditLogs/SearchBox'), '')
 
             WebUI.setText(findTestObject('AuditLogs/SearchBox'), 'user')
 
-            extentTest.log(LogStatus.PASS, 'Enter type - user')
+            extentTest.log(Status.PASS, 'Enter type - user')
 
             WebUI.sendKeys(findTestObject('Object Repository/AuditLogs/SearchBox'), Keys.chord(Keys.ENTER))
 
-            extentTest.log(LogStatus.PASS, ' Hit on Enter ')
+            extentTest.log(Status.PASS, ' Hit on Enter ')
 
             WebUI.delay(2)
 
-            extentTest.log(LogStatus.PASS, ' Log details ')
+            extentTest.log(Status.PASS, ' Log details ')
 
             CustomKeywords.'demo.AuditLog.auditLogs'(katalonWebDriver, extentTest)
 
             //WebUI.click(findTestObject('AuditLogs/Close'))
-            //extentTest.log(LogStatus.PASS, ' Click on close icon ')
+            //extentTest.log(Status.PASS, ' Click on close icon ')
             break
         case 'Pagination':
             //WebUI.verifyElementPresent(findTestObject('AuditLogs/Pagination'), 3)
-            extentTest.log(LogStatus.PASS, ' Verified that >, <, >>, << buttons for paginations are working without any issue ')
+            //extentTest.log(Status.PASS, ' Verified that >, <, >>, << buttons for paginations are working without any issue ')
 
-            WebUI.verifyElementPresent(findTestObject('FilesPage/FilesPageNavigation'), 3, FailureHandling.STOP_ON_FAILURE)
+          //  WebUI.verifyElementPresent(findTestObject('FilesPage/FilesPageNavigation'), 3, FailureHandling.STOP_ON_FAILURE)
 
-            WebUI.click(findTestObject('FilesPage/FilesPageNavigation'), FailureHandling.STOP_ON_FAILURE)
+//            WebUI.click(findTestObject('FilesPage/FilesPageNavigation'), FailureHandling.STOP_ON_FAILURE)
 
-            extentTest.log(LogStatus.PASS, 'Click on page navigation')
+         //   extentTest.log(Status.PASS, 'Click on page navigation')
+			
+			
 
-            String data = WebUI.getAttribute(findTestObject('FilesPage/PageHolder'), 'value')
+          //  String data = WebUI.getAttribute(findTestObject('FilesPage/PageHolder'), 'value')
 
-            println('value of page holder - ' + data)
+          //  println('value of page holder - ' + data)
 
-            extentTest.log(LogStatus.PASS, 'Verified that when user enters a page number and hits enter paginations should work without any issue')
+          //  extentTest.log(Status.PASS, 'Verified that when user enters a page number and hits enter paginations should work without any issue')
+		
+		WebUI.click(findTestObject('Object Repository/AuditLogs/pagination-dropdown'))
+		
+		boolean isPresent=	WebUI.verifyElementPresent(findTestObject('Object Repository/AuditLogs/Entries_per_page'), 2)
+	
+				extentTest.log(Status.PASS, 'Select 25 log entries from the dropdown ')
+				WebUI.click(findTestObject('Object Repository/AuditLogs/Entries_per_page'))
+					if(isPresent) {
+						extentTest.log(Status.PASS, ' Verified that 25 logs present in Entries per page ')
+						}
+						
+						boolean numberStatus=WebUI.verifyElementPresent(findTestObject('Object Repository/AuditLogs/pagination_number_status'), 2)
+						if(numberStatus) {
+						
+							
+							def pageentry=WebUI.getText(findTestObject('Object Repository/AuditLogs/pagination_number_status'))
+							if(pageentry.contains('25')) {
+								extentTest.log(Status.PASS, ' Verified that Logs Showing Entry between 1 to 25 ')
+							}
+							else
+								extentTest.log(Status.FAIL, ' Failed to verify the entry ')
+								WebUI.delay(2)
+								
+								WebUI.click(findTestObject('Object Repository/AuditLogs/Pagination_element3'))
+								println("pageentry"+pageentry)
+								
+								extentTest.log(Status.PASS, ' click on the >(next) arrow  ')
+							 pageentry=WebUI.getText(findTestObject('Object Repository/AuditLogs/pagination_number_status'))
+							 WebUI.delay(4)
+							 println("pageentry"+pageentry)
+								if(pageentry.contains('50')) {
+									extentTest.log(Status.PASS, ' Verified that Logs Showing Entry between 26 to 50 ')
+								}
+								else
+									extentTest.log(Status.FAIL, ' Failed to verify the entry ')
+									
+							
+						
+						}
 
             break
         case 'File':
@@ -498,13 +544,13 @@ try {
 
             WebUI.click(findTestObject('GenericObjects/TitleLink_Files'))
 
-            extentTest.log(LogStatus.PASS, ' Click on Files Tab ')
+            extentTest.log(Status.PASS, ' Click on Files Tab ')
 
             WebUI.delay(2)
 
             WebUI.waitForElementVisible(findTestObject('2020.1/Upload_File'), 5)
 
-            extentTest.log(LogStatus.PASS, 'Click on Upload file')
+            extentTest.log(Status.PASS, 'Click on Upload file')
 
             'Click Upload File Button '
             def filePath = RunConfiguration.getProjectDir() + '/Upload/InputDeck/RunJob.sh'
@@ -515,44 +561,47 @@ try {
 
             WebUI.uploadFile(findTestObject('FilesPage/UploadFileBtn'), newFP)
 
-            extentTest.log(LogStatus.PASS, 'Upload  file')
+            extentTest.log(Status.PASS, 'Upload  file')
 
             WebUI.delay(3)
 
             //WebUI.click(findTestObject('2020.1/Cancel_button'))
-            WebUI.click(findTestObject('Preferences/Profiletab'))
+            WebUI.click(findTestObject('PageNavigation/Preferences/Profiletab'))
 
-            extentTest.log(LogStatus.PASS, 'Click on profile tab')
+            extentTest.log(Status.PASS, 'Click on profile tab')
 
             WebUI.delay(2)
 
             WebUI.click(findTestObject('AuditLogs/AuditLogs'))
 
-            extentTest.log(LogStatus.PASS, 'Click on Audit Logs')
+            extentTest.log(Status.PASS, 'Click on Audit Logs')
 
             WebUI.delay(2)
 
-            extentTest.log(LogStatus.PASS, 'Verifying Log in action details')
+            extentTest.log(Status.PASS, 'Verifying Log in action details')
 
             CustomKeywords.'demo.AuditLog.auditLogs'(katalonWebDriver, extentTest)
 
             WebUI.click(findTestObject('GenericObjects/TitleLink_Files'))
 
-            extentTest.log(LogStatus.PASS, 'Click on file tab')
+            extentTest.log(Status.PASS, 'Click on file tab')
 
-            WebUI.click(findTestObject('Object Repository/FilesPage/Icon_EditFilePath'))
+           /* WebUI.click(findTestObject('Object Repository/FilesPage/Icon_EditFilePath'))
 
-            extentTest.log(LogStatus.PASS, 'Click on edit path')
+            extentTest.log(Status.PASS, 'Click on edit path')
 
             WebUI.setText(findTestObject('Object Repository/FilesPage/textBx_FilePath'), location)
 
             WebUI.sendKeys(findTestObject('Object Repository/FilesPage/textBx_FilePath'), Keys.chord(Keys.ENTER))
 
-            extentTest.log(LogStatus.PASS, 'Navigated to /stage/JSUploads in RFB ')
+            extentTest.log(Status.PASS, 'Navigated to /stage/JSUploads in RFB ')*/
+			
+			CustomKeywords.'generateFilePath.filePath.navlocation'(location, extentTest)
+			
 
             WebUI.click(findTestObject('FilesPage/FilesSearch_filter'))
 
-            extentTest.log(LogStatus.PASS, 'Click on files filter')
+            extentTest.log(Status.PASS, 'Click on files filter')
 
             WebUI.waitForElementVisible(findTestObject('FilesPage/FilesSearch_filter'), 2)
 
@@ -560,13 +609,13 @@ try {
 
             WebUI.setText(findTestObject('FilesPage/FilesSearch_filter'), fileName)
 
-            extentTest.log(LogStatus.PASS, 'Looking for file to perfrom operation - ' + Operation)
+            extentTest.log(Status.PASS, 'Looking for file to perfrom operation - ' + Operation)
 
             WebUI.sendKeys(findTestObject('JobDetailsPage/TextBx_DetailsFilter'), Keys.chord(Keys.ENTER))
 
-            extentTest.log(LogStatus.PASS, 'Clicked on File  - ' + fileName)
+            extentTest.log(Status.PASS, 'Clicked on File  - ' + fileName)
 
-            newFileObj = WebUI.modifyObjectProperty(findTestObject('FilesPage/RowItem_File_ListView'), 'title', 'equals', 
+            newFileObj = WebUI.modifyObjectProperty(findTestObject('FilesPage/RowItem_File_ListView'), 'data-automation-id', 'equals', 
                 fileName, true)
 
             def fileItem = CustomKeywords.'customWait.WaitForElement.WaitForelementPresent'(newFileObj, 20, extentTest, 
@@ -589,15 +638,15 @@ try {
             def result1 = CustomKeywords.'operations_FileModule.fileOperations.executeFileOperations'(Operation, TestCaseName, 
                 extentTest)
 
-            WebUI.click(findTestObject('Preferences/Profiletab'))
+            WebUI.click(findTestObject('PageNavigation/Preferences/Profiletab'))
 
-            extentTest.log(LogStatus.PASS, 'Click on profile tab')
+            extentTest.log(Status.PASS, 'Click on profile tab')
 
             WebUI.delay(2)
 
             WebUI.click(findTestObject('AuditLogs/AuditLogs'))
 
-            extentTest.log(LogStatus.PASS, 'Click on Audit Logs')
+            extentTest.log(Status.PASS, 'Click on Audit Logs')
 
             WebUI.delay(2)
 
@@ -607,12 +656,12 @@ try {
         case 'Jobs':
             WebUI.click(findTestObject('GenericObjects/TitleLink_Jobs'))
 
-            TestObject newAppObj = WebUI.modifyObjectProperty(findTestObject('NewJobPage/AppList_ShellScript'), 'id', 'equals', 
+            TestObject newAppObj = WebUI.modifyObjectProperty(findTestObject('LoginPage/NewJobPage/AppList_ShellScript'), 'id', 'equals', 
                 AppName, true)
 
             WebUI.click(newAppObj)
 
-            extentTest.log(LogStatus.PASS, 'Navigated to Job Submission For for - ' + AppName)
+            extentTest.log(Status.PASS, 'Navigated to Job Submission For for - ' + AppName)
 
             //	WebUI.doubleClick(newAppObj)
             WebUI.delay(2)
@@ -624,7 +673,7 @@ try {
                 WebUI.click(findTestObject('Object Repository/JobSubmissionForm/button_Close'))
             }
             
-            WebUI.click(findTestObject('Object Repository/NewJobPage/GenericProfile'))
+            WebUI.click(findTestObject('Object Repository/LoginPage/NewJobPage/GenericProfile'))
 
             WebUI.delay(2)
 
@@ -632,7 +681,7 @@ try {
 			
 			CustomKeywords.'operations_JobsModule.JobSubmissions.JSAllFileds'(ToChange,ChangeValue, extentTest)
             if (ExecMode.equals('Array')) {
-                extentTest.log(LogStatus.PASS, 'No file required for Array Job')
+                extentTest.log(Status.PASS, 'No file required for Array Job')
             } else {
                 WebUI.delay(2)
 
@@ -646,18 +695,18 @@ try {
 
                 WebUI.rightClick(newFileObj)
 
-                extentTest.log(LogStatus.PASS, 'Right Clicked on Input file ' + InputFile)
+                extentTest.log(Status.PASS, 'Right Clicked on Input file ' + InputFile)
 
                 WebUI.delay(2)
 
                 String idForCntxtMn = 'Add as ' + FileArg
 
-                TestObject newRFBContextMnOption = WebUI.modifyObjectProperty(findTestObject('Object Repository/NewJobPage/ContextMenu_RFB_FilePicker'), 
+                TestObject newRFBContextMnOption = WebUI.modifyObjectProperty(findTestObject('Object Repository/LoginPage/NewJobPage/ContextMenu_RFB_FilePicker'), 
                     'id', 'equals', idForCntxtMn, true)
 
                 WebUI.click(newRFBContextMnOption)
 
-                extentTest.log(LogStatus.PASS, 'Clicked on context menu - ' + idForCntxtMn)
+                extentTest.log(Status.PASS, 'Clicked on context menu - ' + idForCntxtMn)
             }
             
             def submitBtn = CustomKeywords.'customWait.WaitForElement.WaitForelementPresent'(findTestObject('JobSubmissionForm/button_Submit_Job'), 
@@ -666,30 +715,30 @@ try {
             if (submitBtn) {
                 WebUI.click(findTestObject('JobSubmissionForm/button_Submit_Job'))
 
-                extentTest.log(LogStatus.PASS, 'Clicked on Submit Button ')
+                extentTest.log(Status.PASS, 'Clicked on Submit Button ')
             }
             
             WebUI.waitForElementPresent(findTestObject('Notificactions/Notification_JobSubmission'), 5)
 
             def jobText = WebUI.getText(findTestObject('Notificactions/Notification_JobSubmission'))
 
-            extentTest.log(LogStatus.PASS, 'Notification Generated')
+            extentTest.log(Status.PASS, 'Notification Generated')
 
             CustomKeywords.'operations_JobsModule.GetJobRowDetails.getJobID'(jobText)
 
-            extentTest.log(LogStatus.PASS, 'Job ID - ' + GlobalVariable.G_JobID)
+            extentTest.log(Status.PASS, 'Job ID - ' + GlobalVariable.G_JobID)
 
-            extentTest.log(LogStatus.PASS, 'Job Submission Done for - ' + TestCaseName)
+            extentTest.log(Status.PASS, 'Job Submission Done for - ' + TestCaseName)
 
-            WebUI.click(findTestObject('Preferences/Profiletab'))
+            WebUI.click(findTestObject('PageNavigation/Preferences/Profiletab'))
 
-            extentTest.log(LogStatus.PASS, 'Click on profile tab')
+            extentTest.log(Status.PASS, 'Click on profile tab')
 
             WebUI.delay(2)
 
             WebUI.click(findTestObject('AuditLogs/AuditLogs'))
 
-            extentTest.log(LogStatus.PASS, 'Click on Audit Logs')
+            extentTest.log(Status.PASS, 'Click on Audit Logs')
 
             WebUI.delay(2)
 
@@ -699,7 +748,7 @@ try {
 
             WebUI.delay(2)
 
-            WebUI.click(findTestObject('Object Repository/JobMonitoringPage/a_Reset'))
+           // WebUI.click(findTestObject('Object Repository/JobMonitoringPage/a_Reset'))
 
             TestObject newJobFilter = WebUI.modifyObjectProperty(findTestObject('JobMonitoringPage/label_jobState'), 'text', 
                 'equals', jobState, true)
@@ -708,7 +757,7 @@ try {
 
             WebUI.delay(2)
 
-            extentTest.log(LogStatus.INFO, 'Clicked on job with state  - ' + jobState)
+            extentTest.log(Status.INFO, 'Clicked on job with state  - ' + jobState)
 
             println(jobState)
 
@@ -719,19 +768,19 @@ try {
 
             result = CustomKeywords.'operations_JobsModule.executeJobAction_Icon.perfromJobAction'(jobAction, TCName, extentTest)
 
-            WebUI.click(findTestObject('Preferences/Profiletab'))
+            WebUI.click(findTestObject('PageNavigation/Preferences/Profiletab'))
 
-            extentTest.log(LogStatus.PASS, 'Click on profile tab')
+            extentTest.log(Status.PASS, 'Click on profile tab')
 
             WebUI.delay(2)
 
             WebUI.click(findTestObject('AuditLogs/AuditLogs'))
 
-            extentTest.log(LogStatus.PASS, 'Click on Audit Logs')
+            extentTest.log(Status.PASS, 'Click on Audit Logs')
 
             WebUI.delay(2)
 
-            extentTest.log(LogStatus.PASS, 'Verifying Log in action details')
+            extentTest.log(Status.PASS, 'Verifying Log in action details')
 
             CustomKeywords.'demo.AuditLog.auditLogs'(katalonWebDriver, extentTest)
 
@@ -743,19 +792,19 @@ try {
 			if (isLinkPresent) {
 				WebUI.click(findTestObject('Object Repository/PageNavigation/NavTo_LastPage'))
 
-				extentTest.log(LogStatus.PASS, 'Clicked on navigate to last page arrow ')
+				extentTest.log(Status.PASS, 'Clicked on navigate to last page arrow ')
 
 				WebUI.delay(1)
 
 				data = WebUI.getAttribute(findTestObject('FilesPage/PageHolder'), 'value')
 
 				if (data.equalsIgnoreCase('3')) {
-					extentTest.log(LogStatus.PASS, 'Verified the page number in page number box - ' + data)
+					extentTest.log(Status.PASS, 'Verified the page number in page number box - ' + data)
 				}
 			}
 			
 		//CustomKeywords.'operations_FileModule.getRowDetails.getFilePage'(katalonWebDriver, extentTest,TestCaseName)
-		extentTest.log(LogStatus.PASS, 'Test case for pagination passed')
+		extentTest.log(Status.PASS, 'Test case for pagination passed')
 
 			break
 		case 'previous':
@@ -767,21 +816,21 @@ try {
 
 				WebUI.click(findTestObject('Object Repository/PageNavigation/NavTo_PreviousPage'))
 
-				extentTest.log(LogStatus.PASS, 'Clicked on navigate to last page arrow ')
+				extentTest.log(Status.PASS, 'Clicked on navigate to last page arrow ')
 
-				extentTest.log(LogStatus.PASS, 'Clicked on navigate to previous arrow ')
+				extentTest.log(Status.PASS, 'Clicked on navigate to previous arrow ')
 
 				WebUI.delay(1)
 
 				data = WebUI.getAttribute(findTestObject('FilesPage/PageHolder'), 'value')
 
 				if (data.equalsIgnoreCase('2')) {
-					extentTest.log(LogStatus.PASS, 'Verified the page number in page number box - ' + data)
+					extentTest.log(Status.PASS, 'Verified the page number in page number box - ' + data)
 				}
 			}
 			
 				CustomKeywords.'operations_FileModule.getRowDetails.getFilePage'(katalonWebDriver, extentTest,TestCaseName)
-				extentTest.log(LogStatus.PASS, 'Test case for pagination passed')
+				extentTest.log(Status.PASS, 'Test case for pagination passed')
 			break
 		case 'first':
 			isLinkPresent = WebUI.verifyElementPresent(findTestObject('Object Repository/PageNavigation/NavTo_NextPage'),
@@ -792,21 +841,21 @@ try {
 
 				WebUI.click(findTestObject('Object Repository/PageNavigation/NavTo_FirstPage'))
 
-				extentTest.log(LogStatus.PASS, 'Clicked on navigate to last page arrow ')
+				extentTest.log(Status.PASS, 'Clicked on navigate to last page arrow ')
 
-				extentTest.log(LogStatus.PASS, 'Clicked on navigate to first arrow ')
+				extentTest.log(Status.PASS, 'Clicked on navigate to first arrow ')
 
 				WebUI.delay(1)
 
 				data = WebUI.getAttribute(findTestObject('FilesPage/PageHolder'), 'value')
 
 				if (data.equalsIgnoreCase('1')) {
-					extentTest.log(LogStatus.PASS, 'Verified the page number in page number box - ' + data)
+					extentTest.log(Status.PASS, 'Verified the page number in page number box - ' + data)
 				}
 			}
 			
 				CustomKeywords.'operations_FileModule.getRowDetails.getFilePage'(katalonWebDriver, extentTest,TestCaseName)
-				extentTest.log(LogStatus.PASS, 'Test case for pagination passed')
+				extentTest.log(Status.PASS, 'Test case for pagination passed')
 
 			break
 		case 'next':
@@ -816,19 +865,19 @@ try {
 			if (isLinkPresent) {
 				WebUI.click(findTestObject('Object Repository/PageNavigation/NavTo_NextPage'))
 
-				extentTest.log(LogStatus.PASS, 'Clicked on navigate to next arrow ')
+				extentTest.log(Status.PASS, 'Clicked on navigate to next arrow ')
 
 				WebUI.delay(1)
 
 				data = WebUI.getAttribute(findTestObject('FilesPage/PageHolder'), 'value')
 
 				if (data.equalsIgnoreCase('2')) {
-					extentTest.log(LogStatus.PASS, 'Verified the page number in page number box - ' + data)
+					extentTest.log(Status.PASS, 'Verified the page number in page number box - ' + data)
 				}
 			}
 			
 		//	CustomKeywords.'operations_FileModule.getRowDetails.getFilePage'(katalonWebDriver, extentTest,TestCaseName)
-				extentTest.log(LogStatus.PASS, 'Test case for pagination passed')
+				extentTest.log(Status.PASS, 'Test case for pagination passed')
 
 			break
 		case 'page':
@@ -839,22 +888,22 @@ try {
 				WebUI.click(findTestObject('FilesPage/PageHolder'))
 				WebUI.delay(1)
 				WebUI.setText(findTestObject('FilesPage/PageHolder'), '2')
-				extentTest.log(LogStatus.PASS, 'Enter the value inside the pagenumber box and click on the Goto button ')
+				extentTest.log(Status.PASS, 'Enter the value inside the pagenumber box and click on the Goto button ')
 
 				WebUI.click(findTestObject('Object Repository/FilesPage/GoButton'))
 
 				WebUI.delay(2)
 
 				data = WebUI.getAttribute(findTestObject('FilesPage/PageHolder'), 'value')
-				extentTest.log(LogStatus.PASS, 'Verify the current page number is  ' +data)
+				extentTest.log(Status.PASS, 'Verify the current page number is  ' +data)
 
 				if (data.equalsIgnoreCase('2')) {
-					extentTest.log(LogStatus.PASS, 'Verified the page number in page number box ---page case ----- ' + data)
+					extentTest.log(Status.PASS, 'Verified the page number in page number box ---page case ----- ' + data)
 				}
 			}
 			
 				CustomKeywords.'operations_FileModule.getRowDetails.getFilePage'(katalonWebDriver, extentTest,TestCaseName)
-				extentTest.log(LogStatus.PASS, 'Test case for pagination passed')
+				extentTest.log(Status.PASS, 'Test case for pagination passed')
 
 			break
 	
@@ -866,35 +915,31 @@ try {
     }
 }
 catch (Exception ex) {
-    String screenShotPath = (('ExtentReports/' + TestCaseName) + GlobalVariable.G_Browser) + '.png'
+	println('From TC - ' + GlobalVariable.G_ReportFolder)
 
-    WebUI.takeScreenshot(screenShotPath)
+	String screenShotPath = (('ExtentReports/' + TestCaseName) + GlobalVariable.G_Browser) + '.png'
 
-    extentTest.log(LogStatus.FAIL, ex)
+	WebUI.takeScreenshot(screenShotPath)
 
-    KeywordUtil.markFailed('ERROR: ' + e)
-} 
-catch (StepErrorException e) {
-    String screenShotPath = (('ExtentReports/' + TestCaseName) + GlobalVariable.G_Browser) + '.png'
+	String p = (TestCaseName + GlobalVariable.G_Browser) + '.png'
 
-    WebUI.takeScreenshot(screenShotPath)
+	extentTest.log(Status.FAIL, ex)
 
-    extentTest.log(LogStatus.FAIL, e)
-
-    KeywordUtil.markFailed('ERROR: ' + e)
-} 
-catch (StepFailedException e) {
-    String screenShotPath = (('ExtentReports/' + TestCaseName) + GlobalVariable.G_Browser) + '.png'
-
-    WebUI.takeScreenshot(screenShotPath)
-
-    extentTest.log(LogStatus.FAIL, e)
-
-    KeywordUtil.markFailed('ERROR: ' + e)
-} 
-finally { 
-    extent.endTest(extentTest)
-
-    extent.flush()
+	extentTest.fail(MediaEntityBuilder.createScreenCaptureFromPath(p).build())
 }
+catch (StepErrorException e) {
+	String screenShotPath = (('ExtentReports/' + TestCaseName) + GlobalVariable.G_Browser) + '.png'
 
+	WebUI.takeScreenshot(screenShotPath)
+
+	String p = (TestCaseName + GlobalVariable.G_Browser) + '.png'
+
+	extentTest.log(Status.FAIL, ex)
+
+	extentTest.fail(MediaEntityBuilder.createScreenCaptureFromPath(p).build())
+}
+finally {
+	extentTest.log(Status.PASS, 'Closing the browser after executinge test case - ' + TestCaseName)
+	
+	
+}

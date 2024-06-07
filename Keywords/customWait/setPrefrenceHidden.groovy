@@ -8,26 +8,28 @@ import com.kms.katalon.core.annotation.Keyword
 import com.kms.katalon.core.model.FailureHandling
 import com.kms.katalon.core.testobject.TestObject
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
-import com.relevantcodes.extentreports.LogStatus
+
+import com.aventstack.extentreports.MediaEntityBuilder
+import com.aventstack.extentreports.Status
 
 public class setPrefrenceHidden {
 
 	@Keyword
 	def setprefrence(def preValue, extentTest) {
 
-		WebUI.click(findTestObject('Preferences/Profiletab'))
+		WebUI.click(findTestObject('PageNavigation/Preferences/Profiletab'))
 		extentTest.log(LogStatus.PASS, 'Click on profile tab')
 
-		WebUI.click(findTestObject('Preferences/Preference'))
+		WebUI.click(findTestObject('PageNavigation/Preferences/Preference'))
 		extentTest.log(LogStatus.PASS, 'Click on preference menu item')
 
-		TestObject	 prefer = WebUI.modifyObjectProperty(findTestObject('Preferences/Choice'), 'text', 'equals',"Files", true)
+		TestObject	 prefer = WebUI.modifyObjectProperty(findTestObject('PageNavigation/Preferences/Choice'), 'text', 'equals',"Files", true)
 		WebUI.click(prefer)
 		extentTest.log(LogStatus.PASS, 'Click on preference - Files')
 
 		WebUI.delay(2)
 
-		def result=WebUI.verifyElementChecked(findTestObject('Preferences/CheckBox_HiddenFiles'), 2,FailureHandling.CONTINUE_ON_FAILURE)
+		def result=WebUI.verifyElementChecked(findTestObject('PageNavigation/Preferences/CheckBox_HiddenFiles'), 2,FailureHandling.CONTINUE_ON_FAILURE)
 
 		extentTest.log(LogStatus.PASS, 'result value -- '+ result)
 		extentTest.log(LogStatus.PASS, 'preValue value -- '+ preValue)
@@ -39,7 +41,7 @@ public class setPrefrenceHidden {
 				extentTest.log(LogStatus.PASS, 'pref - true , res - true ')
 			}
 			else {
-				WebUI.click(findTestObject('Preferences/Tickmark'))
+				WebUI.click(findTestObject('PageNavigation/Preferences/Tickmark'))
 				extentTest.log(LogStatus.PASS, ' Checked the Enable hidden items checkbox')
 				extentTest.log(LogStatus.PASS, 'pref - true , res - false ')
 			}
@@ -47,7 +49,7 @@ public class setPrefrenceHidden {
 		else {
 			if(result) {
 				extentTest.log(LogStatus.PASS, 'Enable hidden items is checked')
-				WebUI.click(findTestObject('Preferences/Tickmark'))
+				WebUI.click(findTestObject('PageNavigation/Preferences/Tickmark'))
 				extentTest.log(LogStatus.PASS, ' UnChecked the Enable hidden items checkbox')
 				extentTest.log(LogStatus.PASS, 'pref - false , res - true ')
 			}
@@ -57,7 +59,7 @@ public class setPrefrenceHidden {
 			}
 		}
 
-		WebUI.click(findTestObject('Preferences/Back'))
+		WebUI.click(findTestObject('PageNavigation/Preferences/Back'))
 		extentTest.log(LogStatus.PASS, 'Click on back')
 	}
 
@@ -73,11 +75,11 @@ public class setPrefrenceHidden {
 
 		if (TestCaseName.contains('tile view')) {
 			WebUI.delay(2)
-			newFileObj = WebUI.modifyObjectProperty(findTestObject('FilesPage/RowItem_File_TileView'), 'title', 'equals', ".hiddenFile",true)
-			newFolderObj = WebUI.modifyObjectProperty(findTestObject('FilesPage/FolderRowItem_TileView'), 'title', 'equals',".hiddenFolder", true )
+			newFileObj = WebUI.modifyObjectProperty(findTestObject('FilesPage/RowItem_File_TileView'), 'data-automation-id', 'equals', ".hiddenFile",true)
+			newFolderObj = WebUI.modifyObjectProperty(findTestObject('FilesPage/FolderRowItem_TileView'), 'data-automation-id', 'equals',".hiddenFolder", true )
 		} else {
-			newFileObj = WebUI.modifyObjectProperty(findTestObject('FilesPage/RowItem_File_ListView'), 'title', 'equals', ".hiddenFile",true)
-			newFolderObj = WebUI.modifyObjectProperty(findTestObject('FilesPage/FolderRowItem_ListView'), 'title','equals', ".hiddenFolder", true)
+			newFileObj = WebUI.modifyObjectProperty(findTestObject('FilesPage/RowItem_File_ListView'), 'data-automation-id', 'equals', ".hiddenFile",true)
+			newFolderObj = WebUI.modifyObjectProperty(findTestObject('FilesPage/FolderRowItem_ListView'), 'data-automation-id','equals', ".hiddenFolder", true)
 		}
 
 		isFilePresent=WebUI.verifyElementPresent(newFileObj, 3, FailureHandling.CONTINUE_ON_FAILURE)
@@ -115,11 +117,17 @@ public class setPrefrenceHidden {
 		else {
 			location = navLocation + '/ForHidden/'
 		}
+		WebUI.delay(2)
 		WebUI.click(findTestObject('JobMonitoringPage/JM_SearchBox'))
+		WebUI.sendKeys(findTestObject('JobMonitoringPage/JM_SearchBox'), Keys.chord(Keys.CONTROL, 'a'))
+		WebUI.sendKeys(findTestObject('JobMonitoringPage/JM_SearchBox'), Keys.chord(Keys.BACK_SPACE))
+		WebUI.delay(3)
+
 		//WebUI.setText(findTestObject('JobMonitoringPage/JM_SearchBox'),AllJobsUser)
-		WebUI.sendKeys(findTestObject('JobMonitoringPage/JM_SearchBox'), 'hiddenfiles')
+		WebUI.sendKeys(findTestObject('JobMonitoringPage/JM_SearchBox'), 'hidden')
+		WebUI.delay(2)
 		if(userChoice=='Input'||userChoice=='Output') {
-			WebUI.click(findTestObject('Object Repository/JobMonitoringPage/a_Reset'))
+			//WebUI.click(findTestObject('Object Repository/JobMonitoringPage/a_Reset'))
 			TestObject newJobFilter = WebUI.modifyObjectProperty(findTestObject('JobMonitoringPage/label_jobState'), 'text', 'equals',
 					'Completed', true)
 			WebUI.click(newJobFilter)
@@ -133,7 +141,7 @@ public class setPrefrenceHidden {
 			WebUI.click(findTestObject('Object Repository/JobDetailsPage/Input_tab'))
 		}
 		if(userChoice=='Running') {
-			WebUI.click(findTestObject('Object Repository/JobMonitoringPage/a_Reset'))
+			//	WebUI.click(findTestObject('Object Repository/JobMonitoringPage/a_Reset'))
 			TestObject newJobFilter = WebUI.modifyObjectProperty(findTestObject('JobMonitoringPage/label_jobState'), 'text', 'equals',
 					'Running', true)
 			WebUI.click(newJobFilter)
@@ -146,8 +154,8 @@ public class setPrefrenceHidden {
 
 			WebUI.delay(3)
 			WebUI.click(findTestObject('Object Repository/JobDetailsPage/Running_tab'))
-			WebUI.waitForElementVisible(findTestObject('Object Repository/NewJobPage/HiddenFolder_Jobdetailspage'), 10)
-			WebUI.doubleClick(findTestObject('Object Repository/NewJobPage/HiddenFolder_Jobdetailspage'))
+			WebUI.waitForElementVisible(findTestObject('Object Repository/LoginPage/NewJobPage/HiddenFolder_Jobdetailspage'), 10)
+			WebUI.doubleClick(findTestObject('Object Repository/LoginPage/NewJobPage/HiddenFolder_Jobdetailspage'))
 		}
 
 		switch (userChoice) {
@@ -163,32 +171,36 @@ public class setPrefrenceHidden {
 				(new operations_FileModule.ChangeView()).changePageView(TestCaseName,extentTest)
 				WebUI.delay(2)
 				println(TestCaseName)
-				WebUI.click(findTestObject('Object Repository/FilesPage/Icon_EditFilePath'))
-				WebUI.setText(findTestObject('Object Repository/FilesPage/textBx_FilePath'), location)
-				WebUI.sendKeys(findTestObject('Object Repository/FilesPage/textBx_FilePath'), Keys.chord(Keys.ENTER))
-				extentTest.log(LogStatus.PASS, 'Navigated to - ' + location)
+			/*WebUI.click(findTestObject('Object Repository/FilesPage/Icon_EditFilePath'))
+			 WebUI.setText(findTestObject('Object Repository/FilesPage/textBx_FilePath'), location)
+			 WebUI.sendKeys(findTestObject('Object Repository/FilesPage/textBx_FilePath'), Keys.chord(Keys.ENTER))
+			 extentTest.log(LogStatus.PASS, 'Navigated to - ' + location)*/
+
+				(new generateFilePath.filePath()).navlocation(location, extentTest)
 
 				break
 
 			case 'RFB':
 
-				def jobsTab =(new customWait.WaitForElement()).WaitForelementPresent(findTestObject('NewJobPage/AppList_ShellScript'), 5,extentTest, 'Jobs Tab')
+				def jobsTab =(new customWait.WaitForElement()).WaitForelementPresent(findTestObject('LoginPage/NewJobPage/AppList_ShellScript'), 5,extentTest, 'Jobs Tab')
 				if (jobsTab) {
 					WebUI.click(findTestObject('GenericObjects/TitleLink_Jobs'))
 				}
 				extentTest.log(LogStatus.PASS, 'Navigated Job Tab')
 				WebUI.delay(2)
-				TestObject newAppObj = WebUI.modifyObjectProperty(findTestObject('NewJobPage/AppList_ShellScript'), 'id', 'equals',
+				TestObject newAppObj = WebUI.modifyObjectProperty(findTestObject('LoginPage/NewJobPage/AppList_ShellScript'), 'id', 'equals',
 						'ShellScript', true)
 				WebUI.click(newAppObj)
 				extentTest.log(LogStatus.PASS, 'Navigated to Job Submission For for - '+'ShellScript')
 				WebUI.delay(2)
-				WebUI.click(findTestObject('Object Repository/NewJobPage/GenericProfile'))
+				WebUI.click(findTestObject('Object Repository/LoginPage/NewJobPage/GenericProfile'))
 				WebUI.delay(2)
-				WebUI.click(findTestObject('Object Repository/FilesPage/Icon_EditFilePath'))
-				WebUI.setText(findTestObject('Object Repository/FilesPage/textBx_FilePath'), location)
-				WebUI.sendKeys(findTestObject('Object Repository/FilesPage/textBx_FilePath'), Keys.chord(Keys.ENTER))
-				extentTest.log(LogStatus.PASS, 'Navigated to '+location)
+			/*	WebUI.click(findTestObject('Object Repository/FilesPage/Icon_EditFilePath'))
+			 WebUI.setText(findTestObject('Object Repository/FilesPage/textBx_FilePath'), location)
+			 WebUI.sendKeys(findTestObject('Object Repository/FilesPage/textBx_FilePath'), Keys.chord(Keys.ENTER))
+			 extentTest.log(LogStatus.PASS, 'Navigated to '+location)*/
+
+				(new generateFilePath.filePath()).navlocation(location, extentTest)
 				break
 
 			case 'Input':
@@ -199,8 +211,8 @@ public class setPrefrenceHidden {
 			case 'Output':
 				WebUI.click(findTestObject('JobMonitoringPage/OutputFolder'))
 				extentTest.log(LogStatus.PASS, 'Click on Output Folder')
-			//	WebUI.waitForElementVisible(findTestObject('Object Repository/NewJobPage/HiddenFolder_Jobdetailspage'), 10)
-			//	WebUI.doubleClick(findTestObject('Object Repository/NewJobPage/HiddenFolder_Jobdetailspage'))
+			//	WebUI.waitForElementVisible(findTestObject('Object Repository/LoginPage/NewJobPage/HiddenFolder_Jobdetailspage'), 10)
+			//	WebUI.doubleClick(findTestObject('Object Repository/LoginPage/NewJobPage/HiddenFolder_Jobdetailspage'))
 				break
 			case 'Running':
 				WebUI.click(findTestObject('JobMonitoringPage/RunningFolder'))

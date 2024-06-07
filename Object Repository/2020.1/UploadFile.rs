@@ -11,9 +11,17 @@
       </entry>
       <entry>
          <key>BASIC</key>
-         <value></value>
+         <value>//li[@id='upload_file_menu_item focus_enable_class']//span[text()='Upload File']</value>
       </entry>
    </selectorCollection>
-   <selectorMethod>XPATH</selectorMethod>
+   <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath</name>
+      <type>Main</type>
+      <value>//li[@id='upload_file_menu_item focus_enable_class']//span[text()='Upload File']</value>
+      <webElementGuid>808f614f-b6b4-4af7-8cbc-39174f473ffb</webElementGuid>
+   </webElementProperties>
 </WebElementEntity>

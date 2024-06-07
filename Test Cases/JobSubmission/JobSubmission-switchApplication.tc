@@ -5,6 +5,42 @@
    <tag></tag>
    <comment></comment>
    <testCaseGuid>f281f9fd-10ad-4807-a7e9-115959cbe6a8</testCaseGuid>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>f5fc2ade-2b0d-4f8c-9c81-250fff92cae5</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>a6413bb5-8219-4755-a651-79cc0c9b129f</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>d136fd6a-f3fa-44c6-bfda-d4211751b61f</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>11230f5d-2647-4379-8eb7-5ddb6672c072</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>e50dac30-7a76-48be-b01d-426bbf80bc96</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>622ae497-c74e-472f-972d-2996e7120e60</variableId>
+   </variableLinks>
    <variable>
       <defaultValue>'Optistruct'</defaultValue>
       <description></description>

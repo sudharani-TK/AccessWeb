@@ -21,7 +21,7 @@
          <id>54afcc6e-ab4f-4c6f-9721-f72e6249924d</id>
          <iterationEntity>
             <iterationType>ALL</iterationType>
-            <value></value>
+            <value>3</value>
          </iterationEntity>
          <testDataId>Data Files/Sanity/FileCreate</testDataId>
       </testDataLink>
@@ -39,9 +39,9 @@
          <variableId>02884025-536f-4943-85bd-c1e5dc201c49</variableId>
       </variableLink>
       <variableLink>
-         <testDataLinkId></testDataLinkId>
-         <type>DEFAULT</type>
-         <value></value>
+         <testDataLinkId>54afcc6e-ab4f-4c6f-9721-f72e6249924d</testDataLinkId>
+         <type>DATA_COLUMN</type>
+         <value>userChoice</value>
          <variableId>cdf52790-8a83-4b10-8c0b-bed0a592b1c4</variableId>
       </variableLink>
    </testCaseLink>

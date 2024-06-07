@@ -11,29 +11,31 @@ import com.kms.katalon.core.exception.StepErrorException as StepErrorException
 import com.kms.katalon.core.testobject.TestObject as TestObject
 import com.kms.katalon.core.webui.driver.DriverFactory as DriverFactory
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
-import com.relevantcodes.extentreports.LogStatus as LogStatus
+import com.aventstack.extentreports.MediaEntityBuilder
+import com.aventstack.extentreports.Status
 
 import internal.GlobalVariable as GlobalVariable
 
-String ReportFile = GlobalVariable.G_ReportName + '.html'
+//==================================================================
+def Browser = GlobalVariable.G_Browser
+//===============================================================
+def extentTest=GlobalVariable.G_ExtentTest
+//==============================================================
+CustomKeywords.'toLogin.ForLogin.Login'(extentTest)
+//=============================================================
 
-def extent = CustomKeywords.'generateReports.GenerateReport.create'(ReportFile, GlobalVariable.G_Browser, GlobalVariable.G_BrowserVersion)
-def LogStatus = com.relevantcodes.extentreports.LogStatus
+
 
 //Updaing test case name to represent multifile operations and icon operations
 TestCaseName='MultiFileOperation -'+TestCaseName
 if (Operation.contains('icon')) {
 	TestCaseName = (TestCaseName + ' thorugh top menu icons')
 }
-def extentTest = extent.startTest(TestCaseName)
-
-//Login call
-CustomKeywords.'toLogin.ForLogin.Login'(extentTest)
 
 WebDriver driver = DriverFactory.getWebDriver()
 EventFiringWebDriver eventFiring = ((DriverFactory.getWebDriver()) as EventFiringWebDriver)
 WebDriver wrappedWebDriver = eventFiring.getWrappedDriver()
-RemoteWebDriver katalonWebDriver = ((wrappedWebDriver) as RemoteWebDriver)
+RemoteWebDriver katalonWebDriver = (RemoteWebDriver) wrappedWebDriver
 
 //updating location to navigate as per module
 
@@ -76,7 +78,7 @@ else
 	{
 		location = (location + '/ListView')
 	}
-	newFileObj = WebUI.modifyObjectProperty(findTestObject('FilesPage/RowItem_File_ListView'), 'title', 'equals', 'five.txt',
+	newFileObj = WebUI.modifyObjectProperty(findTestObject('FilesPage/RowItem_File_ListView'), 'data-automation-id', 'equals', 'five.txt',
 			true)
 }
 println("================================================")
@@ -89,13 +91,15 @@ println("================================================")
 
 try {
 	WebUI.click(findTestObject('GenericObjects/TitleLink_Files'))
-	extentTest.log(LogStatus.PASS, 'Navigated to Files Tab')
-	WebUI.delay(2)
+	extentTest.log(Status.PASS, 'Navigated to Files Tab')
+	//WebUI.delay(2)
+	WebUI.enableSmartWait()
 
-	WebUI.click(findTestObject('Object Repository/FilesPage/Icon_EditFilePath'))
+/*	WebUI.click(findTestObject('Object Repository/FilesPage/Icon_EditFilePath'))
 	WebUI.setText(findTestObject('Object Repository/FilesPage/textBx_FilePath'), location)
 	WebUI.sendKeys(findTestObject('Object Repository/FilesPage/textBx_FilePath'), Keys.chord(Keys.ENTER))
-	extentTest.log(LogStatus.PASS, 'Navigated to - ' + location)
+	extentTest.log(Status.PASS, 'Navigated to - ' + location)*/
+	CustomKeywords.'generateFilePath.filePath.navlocation'(location, extentTest)
 
 	CustomKeywords.'operations_FileModule.ChangeView.changePageView'('list view', extentTest)
 
@@ -106,7 +110,7 @@ try {
 	println(listElement[1].getText())
 	println("================================================")
 
-	extentTest.log(LogStatus.INFO,listElement[1].getText())
+	extentTest.log(Status.INFO,listElement[1].getText())
 	if(listElement[1].getText().equals('five.txt'))
 	{
 		println("in order")
@@ -117,7 +121,7 @@ try {
 	}
 
 	WebUI.click(findTestObject('FilesPage/SelectallFiles'))
-	extentTest.log(LogStatus.PASS, 'Clicked on Select All header check box ')
+	extentTest.log(Status.PASS, 'Clicked on Select All header check box ')
 
 	//Changing view as per test case
 	CustomKeywords.'operations_FileModule.ChangeView.changePageView'(TestCaseName, extentTest)
@@ -135,35 +139,50 @@ try {
 		if (fileItem) {
 			WebUI.waitForElementPresent(newFileObj, 3)
 			WebUI.scrollToElement(newFileObj, 3)
+			WebUI.delay(2)
 			WebUI.rightClick(newFileObj)
-			extentTest.log(LogStatus.PASS, 'Right Clicked File to invoke context menu on  ')
+			extentTest.log(Status.PASS, 'Right Clicked File to invoke context menu on  ')
+			WebUI.delay(2)
 		}
 		result = CustomKeywords.'operations_FileModule.multifileOpsCntxtMn.multiFileOperations'(Operation, TestCaseName,
 				extentTest, katalonWebDriver)
 	}
-	
+	WebUI.disableSmartWait()
 	
 	if (result)
 	{
-		extentTest.log(LogStatus.PASS, ('Verified - ' + TestCaseName) + '  Sucessfully')
+		extentTest.log(Status.PASS, ('Verified - ' + TestCaseName) + '  Sucessfully')
 	} else {
-		extentTest.log(LogStatus.FAIL, ( TestCaseName) + ' - failed')
+		extentTest.log(Status.FAIL, TestCaseName + ' - failed')
 	}
 
 }
 catch (Exception ex) {
+	println('From TC - ' + GlobalVariable.G_ReportFolder)
+
 	String screenShotPath = (('ExtentReports/' + TestCaseName) + GlobalVariable.G_Browser) + '.png'
+
 	WebUI.takeScreenshot(screenShotPath)
+
 	String p = (TestCaseName + GlobalVariable.G_Browser) + '.png'
-	extentTest.log(LogStatus.FAIL, ex)
-	extentTest.log(LogStatus.FAIL, extentTest.addScreenCapture(p))
+
+	extentTest.log(Status.FAIL, ex)
+
+	extentTest.fail(MediaEntityBuilder.createScreenCaptureFromPath(p).build())
 }
 catch (StepErrorException e) {
 	String screenShotPath = (('ExtentReports/' + TestCaseName) + GlobalVariable.G_Browser) + '.png'
+
 	WebUI.takeScreenshot(screenShotPath)
-	extentTest.log(LogStatus.FAIL, e)
+
+	String p = (TestCaseName + GlobalVariable.G_Browser) + '.png'
+
+	extentTest.log(Status.FAIL, ex)
+
+	extentTest.fail(MediaEntityBuilder.createScreenCaptureFromPath(p).build())
 }
 finally {
-	extent.endTest(extentTest)
-	extent.flush()
+	extentTest.log(Status.PASS, 'Closing the browser after executinge test case - ' + TestCaseName)
+	
+	
 }

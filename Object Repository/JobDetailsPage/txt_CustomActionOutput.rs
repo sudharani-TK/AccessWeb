@@ -7,10 +7,15 @@
    <selectorCollection>
       <entry>
          <key>BASIC</key>
-         <value>//div[@class = 'stdout']</value>
+         <value>//div[@class = 'custom-action-results-view ']</value>
+      </entry>
+      <entry>
+         <key>XPATH</key>
+         <value></value>
       </entry>
    </selectorCollection>
    <selectorMethod>BASIC</selectorMethod>
+   <smartLocatorEnabled>false</smartLocatorEnabled>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -18,14 +23,14 @@
       <name>tag</name>
       <type>Main</type>
       <value>div</value>
-      <webElementGuid>aaffa5f8-af57-4ce9-847f-d5328e7f535b</webElementGuid>
+      <webElementGuid>33ac256c-0fde-45b4-b40f-a995f29d3cbc</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>class</name>
       <type>Main</type>
-      <value>stdout</value>
-      <webElementGuid>1bb0261f-bf9f-4cc0-a56d-fea0a55670d7</webElementGuid>
+      <value>custom-action-results-view </value>
+      <webElementGuid>1c2f8a24-e433-4470-ab09-4cccfa5da6fa</webElementGuid>
    </webElementProperties>
 </WebElementEntity>

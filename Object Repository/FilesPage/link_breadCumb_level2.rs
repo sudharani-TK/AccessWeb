@@ -7,7 +7,7 @@
    <selectorCollection>
       <entry>
          <key>BASIC</key>
-         <value>//a[@title = 'UnZipOps' and @id = 'bread_crumb_links_2']</value>
+         <value>//label[@data-automation-id = 'UnZipOps']</value>
       </entry>
    </selectorCollection>
    <selectorMethod>BASIC</selectorMethod>
@@ -17,20 +17,15 @@
       <matchCondition>equals</matchCondition>
       <name>tag</name>
       <type>Main</type>
-      <value>a</value>
+      <value>label</value>
+      <webElementGuid>407c8401-3a86-43cb-83a5-57e1cc606400</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
-      <name>title</name>
+      <name>data-automation-id</name>
       <type>Main</type>
       <value>UnZipOps</value>
-   </webElementProperties>
-   <webElementProperties>
-      <isSelected>true</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>id</name>
-      <type>Main</type>
-      <value>bread_crumb_links_2</value>
+      <webElementGuid>5f80de28-49ba-4665-8106-8ec3e47f6789</webElementGuid>
    </webElementProperties>
 </WebElementEntity>

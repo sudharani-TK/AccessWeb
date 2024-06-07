@@ -41,7 +41,7 @@ def extentTest = extent.startTest(TestCaseName)
 TestObject newFileObj
 
 try {
-   	def jobsTab = CustomKeywords.'customWait.WaitForElement.WaitForelementPresent'(findTestObject('NewJobPage/AppList_ShellScript'),
+   	def jobsTab = CustomKeywords.'customWait.WaitForElement.WaitForelementPresent'(findTestObject('LoginPage/NewJobPage/AppList_ShellScript'),
 		20,extentTest,'App def')
 
 	if (jobsTab) {
@@ -55,7 +55,7 @@ try {
 
     WebUI.delay(2)
 
-    TestObject newAppObj = WebUI.modifyObjectProperty(findTestObject('NewJobPage/AppList_ShellScript'), 'id', 'equals', 
+    TestObject newAppObj = WebUI.modifyObjectProperty(findTestObject('LoginPage/NewJobPage/AppList_ShellScript'), 'id', 'equals', 
         AppName, true)
 
     WebUI.click(newAppObj)

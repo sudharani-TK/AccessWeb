@@ -5,6 +5,12 @@
    <tag></tag>
    <comment></comment>
    <testCaseGuid>ef6ab366-3d0f-4f47-a69d-3dfe8a44475a</testCaseGuid>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>984824c6-5c08-48ae-bc77-5162dfb8fe5e</variableId>
+   </variableLinks>
    <variable>
       <defaultValue>'Test to verify Edit File Path in Files Tab'</defaultValue>
       <description></description>

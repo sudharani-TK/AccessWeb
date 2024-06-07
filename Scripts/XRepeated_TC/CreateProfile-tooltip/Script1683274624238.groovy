@@ -38,7 +38,7 @@ Robot rob = new Robot()
 WebUI.delay(2)
 try
 {
-	def jobsTab = CustomKeywords.'customWait.WaitForElement.WaitForelementPresent'(findTestObject('NewJobPage/AppList_ShellScript'),
+	def jobsTab = CustomKeywords.'customWait.WaitForElement.WaitForelementPresent'(findTestObject('LoginPage/NewJobPage/AppList_ShellScript'),
 			20,extentTest,'App def')
 
 	if (jobsTab) {
@@ -47,11 +47,11 @@ try
 
 	WebUI.delay(2)
 
-	TestObject newAppObj = WebUI.modifyObjectProperty(findTestObject('NewJobPage/AppList_ShellScript'), 'id', 'equals', AppName, true)
+	TestObject newAppObj = WebUI.modifyObjectProperty(findTestObject('LoginPage/NewJobPage/AppList_ShellScript'), 'id', 'equals', AppName, true)
 	TestObject LeftNavAppIdentifier = CustomKeywords.'buildTestObj.CreateTestObjJobs.myLeftNavAppIdentifier'(proName)
 	WebUI.click(newAppObj)
 
-	def GP = CustomKeywords.'customWait.WaitForElement.WaitForelementPresent'(findTestObject('Object Repository/NewJobPage/GenericProfile'),2,extentTest,'JSPage')
+	def GP = CustomKeywords.'customWait.WaitForElement.WaitForelementPresent'(findTestObject('Object Repository/LoginPage/NewJobPage/GenericProfile'),2,extentTest,'JSPage')
 
 	if (GP) {
 		extentTest.log(LogStatus.PASS, 'Navigated to Job Submission For for - '+AppName)		}
@@ -63,16 +63,16 @@ try
 
 
 	extentTest.log(LogStatus.PASS, 'Navigated to Job Submission For for - '+AppName)
-	WebUI.click(findTestObject('Object Repository/NewJobPage/GenericProfile'))
-	WebUI.click(findTestObject('NewJobPage/Btn_Save As'))
-	WebUI.waitForElementPresent(findTestObject('NewJobPage/label_Save Profile'), 5)
-	WebUI.waitForElementPresent(findTestObject('NewJobPage/label_Save Profile'), 5)
+	WebUI.click(findTestObject('Object Repository/LoginPage/NewJobPage/GenericProfile'))
+	WebUI.click(findTestObject('LoginPage/NewJobPage/Btn_Save As'))
+	WebUI.waitForElementPresent(findTestObject('LoginPage/NewJobPage/label_Save Profile'), 5)
+	WebUI.waitForElementPresent(findTestObject('LoginPage/NewJobPage/label_Save Profile'), 5)
 
-	WebUI.clearText(findTestObject('NewJobPage/TxtBx_saveProfile'))
-	WebUI.sendKeys(findTestObject('NewJobPage/TxtBx_saveProfile'), proName)
-	WebUI.click(findTestObject('NewJobPage/button_Save'))
-	String  tooltip=WebUI.getAttribute(findTestObject('NewJobPage/TxtBx_saveProfile'), 'validationMessage')
-	WebUI.click(findTestObject('Object Repository/NewJobPage/button_Cancel'))
+	WebUI.clearText(findTestObject('LoginPage/NewJobPage/TxtBx_saveProfile'))
+	WebUI.sendKeys(findTestObject('LoginPage/NewJobPage/TxtBx_saveProfile'), proName)
+	WebUI.click(findTestObject('LoginPage/NewJobPage/button_Save'))
+	String  tooltip=WebUI.getAttribute(findTestObject('LoginPage/NewJobPage/TxtBx_saveProfile'), 'validationMessage')
+	WebUI.click(findTestObject('Object Repository/LoginPage/NewJobPage/button_Cancel'))
 	WebUI.delay(1)
 	String myXpath="//span[@title='"+proName+"']"
 	List<WebElement> listElement = katalonWebDriver.findElements(By.xpath(myXpath))

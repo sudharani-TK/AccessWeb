@@ -43,6 +43,7 @@
       <name>title</name>
       <type>Main</type>
       <value>Rename</value>
+      <webElementGuid>5dfb4943-d263-4f53-a714-3deff9c116dd</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -50,6 +51,7 @@
       <name>text</name>
       <type>Main</type>
       <value>Rename</value>
+      <webElementGuid>73f6019b-dcdf-4d89-b88b-073a0a7fc36e</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -57,6 +59,7 @@
       <name>xpath</name>
       <type>Main</type>
       <value>id(&quot;Rename&quot;)</value>
+      <webElementGuid>3425c731-aa41-42ac-bb95-1211ef80fbba</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
@@ -64,6 +67,7 @@
       <name>xpath:attributes</name>
       <type>Main</type>
       <value>//span[@id='Rename']</value>
+      <webElementGuid>075f58e3-2d83-4430-9db4-5901134ba9c1</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -71,6 +75,7 @@
       <name>xpath:idRelative</name>
       <type>Main</type>
       <value>//div[@id='file_list_rename_menu_item']/span</value>
+      <webElementGuid>e54a67f9-0ecd-41ed-bcb2-eccc3463cba6</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -78,6 +83,7 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='Paste'])[2]/following::span[1]</value>
+      <webElementGuid>fb527976-4e92-494c-ae56-840a92ad40b8</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -85,6 +91,7 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='Copy'])[1]/following::span[2]</value>
+      <webElementGuid>306da73a-e57d-4cfc-9916-352ebb2124ec</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -92,6 +99,7 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='Download'])[2]/preceding::span[1]</value>
+      <webElementGuid>30698a4d-fa49-416d-bee7-486a2c70eb8d</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -99,6 +107,7 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='Compress'])[2]/preceding::span[2]</value>
+      <webElementGuid>c3c2faef-0728-4c87-a656-f727ee30082f</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -106,5 +115,6 @@
       <name>xpath:position</name>
       <type>Main</type>
       <value>//div[7]/div/span</value>
+      <webElementGuid>4b7e051d-4721-4e66-8dfb-5dc96b328d18</webElementGuid>
    </webElementXpaths>
 </WebElementEntity>

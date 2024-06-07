@@ -6,12 +6,11 @@
    <elementGuidId>e603519f-4442-4cde-b44f-249474b8825a</elementGuidId>
    <selectorCollection>
       <entry>
-         <key>XPATH</key>
-         <value>//span[@id=&quot;upload_folder_button_parent&quot;]//div[@id=&quot;dir_folder_menu&quot;]//span[contains(text(),&quot;Folder&quot;)]</value>
+         <key>BASIC</key>
       </entry>
       <entry>
-         <key>BASIC</key>
-         <value></value>
+         <key>XPATH</key>
+         <value>//span[@id=&quot;upload_folder_button_parent&quot;]//span[contains(text(),&quot;Upload Folder&quot;)]</value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>

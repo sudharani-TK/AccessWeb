@@ -7,13 +7,29 @@
    <selectorCollection>
       <entry>
          <key>BASIC</key>
-         <value></value>
+         <value>//div[@id = 'job-file-inline-overlay']</value>
       </entry>
       <entry>
          <key>XPATH</key>
-         <value>//span[@class=&quot;retain-whitespace&quot;]</value>
+         <value></value>
       </entry>
    </selectorCollection>
-   <selectorMethod>XPATH</selectorMethod>
+   <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>tag</name>
+      <type>Main</type>
+      <value>div</value>
+      <webElementGuid>67eae145-dfc5-41a4-b807-17ac9bb10d0c</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>id</name>
+      <type>Main</type>
+      <value>job-file-inline-overlay</value>
+      <webElementGuid>b7d011e7-9231-4691-8072-0f2aa566333b</webElementGuid>
+   </webElementProperties>
 </WebElementEntity>

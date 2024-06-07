@@ -13,7 +13,9 @@ import com.kms.katalon.core.model.FailureHandling
 import com.kms.katalon.core.testobject.ConditionType as ConditionType
 import com.kms.katalon.core.testobject.TestObject
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
-import com.relevantcodes.extentreports.LogStatus
+import com.aventstack.extentreports.MediaEntityBuilder
+import com.aventstack.extentreports.Status
+
 
 import internal.GlobalVariable
 
@@ -24,10 +26,10 @@ public class multifolderOps {
 		def sdf = new SimpleDateFormat("ddMMyyyy_HHmmss")
 		def e1 = sdf.format(date)
 		def e2 =sdf.format(date)
-		def op
+		def op=null
 		boolean result=false
-		def LogStatus = com.relevantcodes.extentreports.LogStatus
-		def y
+
+		def y=null
 		println ("Control in Keyword")
 		WebUI.delay(2)
 		String msg
@@ -37,7 +39,7 @@ public class multifolderOps {
 				TestObject newFileOp=WebUI.modifyObjectProperty(findTestObject('FilesPage/FileOperations_Icon'), 'id', 'equals', Operation, true)
 				println(Operation)
 				WebUI.click(newFileOp)
-				extentTest.log(LogStatus.PASS, 'Clicked on top menu icon -'+op)
+				extentTest.log(Status.PASS, 'Clicked on top menu icon -'+op)
 
 				def fileToCheck
 				if (TestCaseName.contains('tile view')) {
@@ -51,7 +53,7 @@ public class multifolderOps {
 					newFolderObj.addProperty('xpath', ConditionType.EQUALS, "//label[contains(text(),'CopyPasteTV')]")
 					WebUI.click(newFolderObj)
 					WebUI.doubleClick(newFolderObj)
-					extentTest.log(LogStatus.PASS, 'Navigated to '+GlobalVariable.G_StageArea+'/'+GlobalVariable.G_userName+'/MultipleFolderIcons/CopyPasteTV')
+					extentTest.log(Status.PASS, 'Navigated to '+GlobalVariable.G_StageArea+'/'+GlobalVariable.G_userName+'/MultipleFolderIcons/CopyPasteTV')
 					WebUI.delay(2)
 					y=5
 					msg = '5 items copied successfully to'+ GlobalVariable.G_StageArea+'/'+GlobalVariable.G_userName+'/MultipleFolderIcons/CopyPasteTV'
@@ -68,36 +70,36 @@ public class multifolderOps {
 					newFolderObj.addProperty('xpath', ConditionType.EQUALS, "//div[@title = 'CopyPasteLV']")
 					WebUI.click(newFolderObj)
 					WebUI.doubleClick(newFolderObj)
-					extentTest.log(LogStatus.PASS, 'Navigated to '+GlobalVariable.G_StageArea+'/'+GlobalVariable.G_userName+'/MultipleFolderIcons/CopyPasteLV')
+					extentTest.log(Status.PASS, 'Navigated to '+GlobalVariable.G_StageArea+'/'+GlobalVariable.G_userName+'/MultipleFolderIcons/CopyPasteLV')
 					WebUI.delay(2)
 					y=6
 					msg = '5 items copied successfully to'+ GlobalVariable.G_StageArea+'/'+GlobalVariable.G_userName+'/MultipleFolderIcons/CopyPasteLV'
 				}
 
 				WebUI.click(findTestObject('FilesPage/TopMenuIcon_ellipses'))
-				extentTest.log(LogStatus.PASS, 'Clicked on top menu icon ellipses')
+				extentTest.log(Status.PASS, 'Clicked on top menu icon ellipses')
 				WebUI.click(findTestObject('Object Repository/FilesPage/TopMenu_Paste'))
-				extentTest.log(LogStatus.PASS, 'Clicked on top menu item for Paste')
+				extentTest.log(Status.PASS, 'Clicked on top menu item for Paste')
 
 				WebUI.delay(3)
 
 
 				WebUI.click(findTestObject('Landing_Page/Btn_Notifiction2'))
-				extentTest.log(LogStatus.PASS, 'Click on Notification button to open Notification Panel')
+				extentTest.log(Status.PASS, 'Click on Notification button to open Notification Panel')
 				WebUI.delay(2)
 				result = WebUI.verifyElementPresent(findTestObject('Notificactions/Notification_CopyFile'),5)
 				println("notification status - "+result)
 
 
 				if (result) {
-					extentTest.log(LogStatus.PASS, ('Notification with msg - "' + msg) + '" is listed')
+					extentTest.log(Status.PASS, ('Notification with msg - "' + msg) + '" is listed')
 				}
 				else {
-					extentTest.log(LogStatus.PASS, 'Files Not pasted')
-					extentTest.log(LogStatus.FAIL)
+					extentTest.log(Status.PASS, 'Files Not pasted')
+					extentTest.log(Status.FAIL)
 				}
 				WebUI.click(findTestObject('Landing_Page/Btn_Notifiction2'))
-				extentTest.log(LogStatus.PASS, 'Click on Notification button to close Notification Panel')
+				extentTest.log(Status.PASS, 'Click on Notification button to close Notification Panel')
 
 				String myXpath=null;
 				String myText=null;
@@ -117,14 +119,14 @@ public class multifolderOps {
 				println listElement.size()
 				println("-------------------------------------")
 				def x=listElement.size()
-				extentTest.log(LogStatus.PASS, ' Number of files listied on this page - '+x)
+				extentTest.log(Status.PASS, ' Number of files listied on this page - '+x)
 
 				if(y==x) {
-					extentTest.log(LogStatus.PASS, 'All the files are copied')
+					extentTest.log(Status.PASS, 'All the files are copied')
 					result = true
 				}
 				else {
-					extentTest.log(LogStatus.FAIL, 'All the files not are copied')
+					extentTest.log(Status.FAIL, 'All the files not are copied')
 					result=false
 				}
 				return result
@@ -135,7 +137,7 @@ public class multifolderOps {
 				TestObject newFileOp=WebUI.modifyObjectProperty(findTestObject('FilesPage/FileOperations_Icon'), 'id', 'equals', Operation, true)
 				println(Operation)
 				WebUI.click(newFileOp)
-				extentTest.log(LogStatus.PASS, 'Clicked on top menu icon -'+op)
+				extentTest.log(Status.PASS, 'Clicked on top menu icon -'+op)
 
 				if (TestCaseName.contains('tile view')) {
 					TestObject newFolderObj
@@ -148,7 +150,7 @@ public class multifolderOps {
 					newFolderObj.addProperty('xpath', ConditionType.EQUALS, "//label[contains(text(),'CutPasteTV')]")
 					WebUI.click(newFolderObj)
 					WebUI.doubleClick(newFolderObj)
-					extentTest.log(LogStatus.PASS, 'Navigated to '+GlobalVariable.G_StageArea+'/'+GlobalVariable.G_userName+'/MultipleFolderIcons/CutPasteTV')
+					extentTest.log(Status.PASS, 'Navigated to '+GlobalVariable.G_StageArea+'/'+GlobalVariable.G_userName+'/MultipleFolderIcons/CutPasteTV')
 					WebUI.delay(2)
 					y=5
 					msg = '5 items moved successfully to'+ GlobalVariable.G_StageArea+'/'+GlobalVariable.G_userName+'/MultipleFolderIcons/CutPasteTV'
@@ -165,31 +167,31 @@ public class multifolderOps {
 					newFolderObj.addProperty('xpath', ConditionType.EQUALS, "//div[@title = 'CutPasteLV']")
 					WebUI.click(newFolderObj)
 					WebUI.doubleClick(newFolderObj)
-					extentTest.log(LogStatus.PASS, 'Navigated to '+GlobalVariable.G_StageArea+'/'+GlobalVariable.G_userName+'/MultipleFolderIcons/CutPasteLV')
+					extentTest.log(Status.PASS, 'Navigated to '+GlobalVariable.G_StageArea+'/'+GlobalVariable.G_userName+'/MultipleFolderIcons/CutPasteLV')
 					WebUI.delay(2)
 					y=6
 					msg = '5 items moved successfully to'+ GlobalVariable.G_StageArea+'/'+GlobalVariable.G_userName+'/MultipleFolderIcons/CutPasteLV'
 				}
 
 				WebUI.click(findTestObject('FilesPage/TopMenuIcon_ellipses'))
-				extentTest.log(LogStatus.PASS, 'Clicked on top menu icon ellipses')
+				extentTest.log(Status.PASS, 'Clicked on top menu icon ellipses')
 				WebUI.click(findTestObject('Object Repository/FilesPage/TopMenu_Paste'))
-				extentTest.log(LogStatus.PASS, 'Clicked on top menu item for Paste')
+				extentTest.log(Status.PASS, 'Clicked on top menu item for Paste')
 				WebUI.delay(3)
 				WebUI.click(findTestObject('Landing_Page/Btn_Notifiction2'))
-				extentTest.log(LogStatus.PASS, 'Click on Notification button to open Notification Panel')
+				extentTest.log(Status.PASS, 'Click on Notification button to open Notification Panel')
 				WebUI.delay(2)
 				result = WebUI.verifyElementPresent(findTestObject('Notificactions/Notification_CutFile'),5)
 				println("notification status - "+result)
 				if (result) {
-					extentTest.log(LogStatus.PASS, ('Notification with msg - "' + msg) + '" is listed')
+					extentTest.log(Status.PASS, ('Notification with msg - "' + msg) + '" is listed')
 				}
 				else {
-					extentTest.log(LogStatus.PASS, 'Files Not pasted')
-					extentTest.log(LogStatus.FAIL)
+					extentTest.log(Status.PASS, 'Files Not pasted')
+					extentTest.log(Status.FAIL)
 				}
 				WebUI.click(findTestObject('Landing_Page/Btn_Notifiction2'))
-				extentTest.log(LogStatus.PASS, 'Click on Notification button to close Notification Panel')
+				extentTest.log(Status.PASS, 'Click on Notification button to close Notification Panel')
 
 				String myXpath=null;
 				String myText=null;
@@ -209,14 +211,14 @@ public class multifolderOps {
 				println listElement.size()
 				println("-------------------------------------")
 				def x=listElement.size()
-				extentTest.log(LogStatus.PASS, ' Number of files listied on this page - '+x)
+				extentTest.log(Status.PASS, ' Number of files listied on this page - '+x)
 
 				if(x<=y) {
-					extentTest.log(LogStatus.PASS, 'All the files are pasted ')
+					extentTest.log(Status.PASS, 'All the files are pasted ')
 					result = true
 				}
 				else {
-					extentTest.log(LogStatus.FAIL, 'All the files not are pasted')
+					extentTest.log(Status.FAIL, 'All the files not are pasted')
 					result=false
 				}
 				return result
@@ -230,26 +232,26 @@ public class multifolderOps {
 				println(Operation)
 				WebUI.click(newFileOp)
 				WebUI.delay(2)
-				extentTest.log(LogStatus.PASS, 'Clicked on top menu icon -'+op)
+				extentTest.log(Status.PASS, 'Clicked on top menu icon -'+op)
 				WebUI.click(findTestObject('GenericObjects/btn_Yes'))
 				WebUI.delay(2)
-				extentTest.log(LogStatus.PASS, 'Clicked on Yes on Delete confirmation pop-up ')
+				extentTest.log(Status.PASS, 'Clicked on Yes on Delete confirmation pop-up ')
 				WebUI.click(findTestObject('Landing_Page/Btn_Notifiction2'))
-				extentTest.log(LogStatus.PASS, 'Click on Notification button to open Notification Panel')
+				extentTest.log(Status.PASS, 'Click on Notification button to open Notification Panel')
 				msg = '5 item deleted successfully'
 				WebUI.delay(2)
 				result = WebUI.verifyElementPresent(findTestObject('Object Repository/Notificactions/Notification_DeleteFile'),5)
 				println("notification status - "+result)
 				if (result) {
-					extentTest.log(LogStatus.PASS, ' Deleted folder and verified notification')
-					extentTest.log(LogStatus.PASS, ('Notification with msg - "' + msg) + '" is listed')
+					extentTest.log(Status.PASS, ' Deleted folder and verified notification')
+					extentTest.log(Status.PASS, ('Notification with msg - "' + msg) + '" is listed')
 				}
 				else {
-					extentTest.log(LogStatus.PASS, '  Not pasted')
-					extentTest.log(LogStatus.FAIL)
+					extentTest.log(Status.PASS, '  Not pasted')
+					extentTest.log(Status.FAIL)
 				}
 				WebUI.click(findTestObject('Landing_Page/Btn_Notifiction2'))
-				extentTest.log(LogStatus.PASS, 'Click on Notification button to close Notification Panel')
+				extentTest.log(Status.PASS, 'Click on Notification button to close Notification Panel')
 				String myXpath=null;
 				String myText=null;
 				String item=null
@@ -270,14 +272,14 @@ public class multifolderOps {
 				println listElement.size()
 				println("-------------------------------------")
 				def x=listElement.size()
-				extentTest.log(LogStatus.PASS, ' Number of files listied on this page - '+x)
+				extentTest.log(Status.PASS, ' Number of files listied on this page - '+x)
 
 				if(x==y) {
-					extentTest.log(LogStatus.PASS, 'All the files are deleted ')
+					extentTest.log(Status.PASS, 'All the files are deleted ')
 					result = true
 				}
 				else {
-					extentTest.log(LogStatus.FAIL, 'All the files not are deleted')
+					extentTest.log(Status.FAIL, 'All the files not are deleted')
 					result=false
 				}
 
@@ -289,7 +291,7 @@ public class multifolderOps {
 				WebUI.click(findTestObject('FilesPage/TopMenuIcon_ellipses'))
 				WebUI.click(findTestObject('FilesPage/TopMenuIcons_Compress'))
 				WebUI.delay(5)
-				extentTest.log(LogStatus.PASS, 'Clicked on top menu item for -'+op)
+				extentTest.log(Status.PASS, 'Clicked on top menu item for -'+op)
 			//WebUI.click(findTestObject('FilesPage/Icon_Close'))
 				println"Clicked Compress"
 				if (TestCaseName.contains('tile view')) {
@@ -298,7 +300,7 @@ public class multifolderOps {
 					WebUI.delay(3)
 					WebUI.mouseOver(findTestObject("Object Repository/FilesPage/SortList-Option"))
 					WebUI.click(findTestObject("Object Repository/FilesPage/SortList-Option"))
-					extentTest.log(LogStatus.PASS, 'Sorted the listed files by created on, in tile view')
+					extentTest.log(Status.PASS, 'Sorted the listed files by created on, in tile view')
 
 					TestObject sortIconDown=WebUI.modifyObjectProperty(findTestObject('Object Repository/FilesPage/SortBy-Order'), 'class', 'equals',"down-arrow tile-sortable-icon focus_enable_class", true)
 					def sortIconUp=WebUI.waitForElementPresent(findTestObject('Object Repository/FilesPage/SortBy-Order'), 3, FailureHandling.CONTINUE_ON_FAILURE)
@@ -312,7 +314,6 @@ public class multifolderOps {
 					def isElemenetPresent=WebUI.waitForElementVisible(findTestObject('FilesPage/RowItem_CompressedFile_TileView'), 10, FailureHandling.CONTINUE_ON_FAILURE)
 					println  "RowItem_CompressedFile_TileView - "+isElemenetPresent
 					println("Testcasename - "+TestCaseName)
-
 				}
 				else {
 					def isElemenetPresent=WebUI.waitForElementVisible(findTestObject('FilesPage/RowItem_CompressedFile_ListView'), 10, FailureHandling.CONTINUE_ON_FAILURE)
@@ -333,20 +334,18 @@ public class multifolderOps {
 					newCompressedFile.addProperty('xpath', ConditionType.EQUALS, xpathNew)
 					WebUI.click(newCompressedFile)
 				}
-				else
-				{
+				else {
 
 					TestObject newCompressedFile
 					newCompressedFile=new TestObject('objectName')
 					String xpathNew="//div[contains(text(),'"+compressedFileName+"')]"
 					newCompressedFile.addProperty('xpath', ConditionType.EQUALS, xpathNew)
 					WebUI.click(newCompressedFile)
-
 				}
 				WebUI.delay(3)
 				WebUI.click(findTestObject('FilesPage/TopMenuIcon_ellipses'))
 				WebUI.click(findTestObject('FilesPage/TopMenuIcon_Uncompress'))
-				extentTest.log(LogStatus.PASS, 'Clicked on top menu item Un-Compress on folder - '+compressedFileName)
+				extentTest.log(Status.PASS, 'Clicked on top menu item Un-Compress on folder - '+compressedFileName)
 
 				result=(new operations_FileModule.multiFileCompress()).VerifyUnCompressedFile(compressedFileName , TestCaseName ,extentTest)
 				WebUI.delay(4)
@@ -369,18 +368,15 @@ public class multifolderOps {
 				println listElement.size()
 				println("-------------------------------------")
 				def x=listElement.size()
-				extentTest.log(LogStatus.PASS, ' Number of files listied on this page - '+x)
+				extentTest.log(Status.PASS, ' Number of files listied on this page - '+x)
 
-				if(x==y)
-				{
-					extentTest.log(LogStatus.PASS, 'All the files are present after uncompress ')
+				if(x==y) {
+					extentTest.log(Status.PASS, 'All the files are present after uncompress ')
 					result = true
 				}
-				else
-				{
-					extentTest.log(LogStatus.FAIL, 'All the files not are present after uncompress')
+				else {
+					extentTest.log(Status.FAIL, 'All the files not are present after uncompress')
 					result=false
-
 				}
 
 				return result
@@ -401,16 +397,13 @@ public class multifolderOps {
 
 				if (namesOfFiles.contains('ToDownload.txt')) {
 					println('success')
-					//extentTest.log(LogStatus.PASS, 'file to downloaded ')
-
+					//extentTest.log(Status.PASS, 'file to downloaded ')
 				} else {
 					println('fail')
 				}
 
 				return true
 				break
-
-
 		}
 	}
 }

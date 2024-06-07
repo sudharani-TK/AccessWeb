@@ -3,6 +3,7 @@
    <description></description>
    <name>FolderCreate</name>
    <tag></tag>
+   <connectionProperties/>
    <containsHeaders>true</containsHeaders>
    <csvSeperator></csvSeperator>
    <dataFileGUID>b78db0e6-aa4d-49e6-b283-b2c263abe5c2</dataFileGUID>
@@ -11,6 +12,6 @@
    <isInternalPath>true</isInternalPath>
    <query></query>
    <secureUserAccount>false</secureUserAccount>
-   <sheetName>CreateFolder</sheetName>
+   <sheetName>FolderUpload</sheetName>
    <usingGlobalDBSetting>false</usingGlobalDBSetting>
 </DataFileEntity>

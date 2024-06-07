@@ -7,7 +7,7 @@
    <selectorCollection>
       <entry>
          <key>BASIC</key>
-         <value>//button[@id = 'job-detail-viewer-close-btn']</value>
+         <value>//span[(text() = 'Close File' or . = 'Close File')]</value>
       </entry>
       <entry>
          <key>XPATH</key>
@@ -21,13 +21,15 @@
       <matchCondition>equals</matchCondition>
       <name>tag</name>
       <type>Main</type>
-      <value>button</value>
+      <value>span</value>
+      <webElementGuid>61673bb4-849f-44a7-a569-b52a1a311e6a</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
-      <name>id</name>
+      <name>text</name>
       <type>Main</type>
-      <value>job-detail-viewer-close-btn</value>
+      <value>Close File</value>
+      <webElementGuid>30041fcf-ee63-4a75-9d07-c5318e7c77b8</webElementGuid>
    </webElementProperties>
 </WebElementEntity>

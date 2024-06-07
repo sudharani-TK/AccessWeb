@@ -8,7 +8,8 @@ import com.kms.katalon.core.model.FailureHandling
 import com.kms.katalon.core.testobject.ConditionType as ConditionType
 import com.kms.katalon.core.testobject.TestObject
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
-import com.relevantcodes.extentreports.LogStatus
+import com.aventstack.extentreports.MediaEntityBuilder
+import com.aventstack.extentreports.Status
 
 import internal.GlobalVariable
 
@@ -20,10 +21,10 @@ public class fileOperations_Icon {
 		def sdf = new SimpleDateFormat("ddMMyyyy_HHmmss")
 		def e1 = sdf.format(date)
 		def e2 =sdf.format(date)
-		def op
+		def op= null
 		boolean result=false
-		def LogStatus = com.relevantcodes.extentreports.LogStatus
-		String msg
+
+		String msg= null
 		println ("Control in Keyword")
 		WebUI.delay(2)
 		switch (Operation) {
@@ -32,7 +33,7 @@ public class fileOperations_Icon {
 				TestObject newFileOp=WebUI.modifyObjectProperty(findTestObject('FilesPage/FileOperations_Icon'), 'id', 'equals', Operation, true)
 				println(Operation)
 				WebUI.click(newFileOp)
-				extentTest.log(LogStatus.PASS, 'Clicked on top menu icon -'+op)
+				extentTest.log(Status.PASS, 'Clicked on top menu icon -'+op)
 				WebUI.click(findTestObject('FilesPage/Icon_Close'))
 				def fileToCheck
 				if (TestCaseName.contains('tile view')) {
@@ -42,21 +43,21 @@ public class fileOperations_Icon {
 					fileToCheck='ToCopy_TV.txt'
 					WebUI.click(newFolderObj)
 					WebUI.doubleClick(newFolderObj)
-					extentTest.log(LogStatus.PASS, 'Navigated to ToPaste Folder')
+					extentTest.log(Status.PASS, 'Navigated to ToPaste Folder')
 					WebUI.delay(2)
 				}
 				else {
 
 					WebUI.click(findTestObject('Object Repository/FilesPage/Folder_ListView_ToPaste'))
 					WebUI.doubleClick(findTestObject('Object Repository/FilesPage/Folder_ListView_ToPaste'))
-					extentTest.log(LogStatus.PASS, 'Navigated to ToPaste Folder')
+					extentTest.log(Status.PASS, 'Navigated to ToPaste Folder')
 					fileToCheck='ToCopy_LV.txt'
 					WebUI.delay(2)
 				}
-				WebUI.click(findTestObject('FilesPage/TopMenuIcon_ellipses'))
-				extentTest.log(LogStatus.PASS, 'Clicked on top menu ellipses')
+			//WebUI.click(findTestObject('FilesPage/TopMenuIcon_ellipses'))
+			//	extentTest.log(Status.PASS, 'Clicked on top menu ellipses')
 				WebUI.click(findTestObject('Object Repository/FilesPage/TopMenu_Paste'))
-				extentTest.log(LogStatus.PASS, 'Clicked on top menu item - Paste ')
+				extentTest.log(Status.PASS, 'Clicked on top menu item - Paste ')
 				WebUI.delay(2)
 				TestObject newFileObj
 				if (TestCaseName.contains('tile view')) {
@@ -64,11 +65,11 @@ public class fileOperations_Icon {
 					newFileObj = WebUI.modifyObjectProperty(findTestObject('FilesPage/RowItem_File_TileView'), 'title', 'equals', fileToCheck, true)
 				}
 				else {
-					newFileObj = WebUI.modifyObjectProperty(findTestObject('FilesPage/RowItem_File_ListView'), 'title', 'equals', fileToCheck, true)
+					newFileObj = WebUI.modifyObjectProperty(findTestObject('FilesPage/RowItem_File_ListView'), 'data-automation-id', 'equals', fileToCheck, true)
 				}
 				def isFilePresent=WebUI.waitForElementVisible(newFileObj, 10,FailureHandling.CONTINUE_ON_FAILURE)
 				if(isFilePresent){
-					extentTest.log(LogStatus.PASS, 'Verified Pasted File - '+ fileToCheck)
+					extentTest.log(Status.PASS, 'Verified Pasted File - '+ fileToCheck)
 					result=true
 				}
 				else {
@@ -92,7 +93,7 @@ public class fileOperations_Icon {
 				TestObject newFileOp=WebUI.modifyObjectProperty(findTestObject('FilesPage/FileOperations_Icon'), 'id', 'equals', Operation, true)
 				println(Operation)
 				WebUI.click(newFileOp)
-				extentTest.log(LogStatus.PASS, 'Clicked on top menu icon -'+op)
+				extentTest.log(Status.PASS, 'Clicked on top menu icon -'+op)
 
 				WebUI.click(findTestObject('FilesPage/Icon_Close'))
 				def fileToCheck
@@ -103,9 +104,9 @@ public class fileOperations_Icon {
 					fileToCheck='ToCut_TV.txt'
 					WebUI.click(newFolderObj)
 					WebUI.doubleClick(newFolderObj)
-					extentTest.log(LogStatus.PASS, 'Navigated to ToPaste Folder')
+					extentTest.log(Status.PASS, 'Navigated to ToPaste Folder')
 					WebUI.delay(2)
-					TestObject viewIconList=WebUI.modifyObjectProperty(findTestObject('Object Repository/FilesPage/Icon_ViewIcon'), 'title', 'equals',"List View", true)
+					TestObject viewIconList=WebUI.modifyObjectProperty(findTestObject('Object Repository/FilesPage/Icon_ViewIcon'), 'data-automation-id', 'equals',"List View", true)
 
 					def viewIconListPresent=WebUI.waitForElementPresent(viewIconList, 3, FailureHandling.CONTINUE_ON_FAILURE)
 
@@ -118,14 +119,14 @@ public class fileOperations_Icon {
 					fileToCheck='ToCut_LV.txt'
 					WebUI.click(findTestObject('Object Repository/FilesPage/Folder_ListView_ToPaste'))
 					WebUI.doubleClick(findTestObject('Object Repository/FilesPage/Folder_ListView_ToPaste'))
-					extentTest.log(LogStatus.PASS, 'Navigated to ToPaste Folder')
+					extentTest.log(Status.PASS, 'Navigated to ToPaste Folder')
 					WebUI.delay(2)
 				}
 
 				def isElemenetPresent=WebUI.waitForElementVisible(findTestObject('FilesPage/Label_FolderEmpty'), 10,FailureHandling.CONTINUE_ON_FAILURE)
 
 				if(isElemenetPresent) {
-					extentTest.log(LogStatus.PASS, 'ToPaste Folder is Currently Empty')
+					extentTest.log(Status.PASS, 'ToPaste Folder is Currently Empty')
 
 					WebUI.rightClick(findTestObject('FilesPage/Label_FolderEmpty'))
 					String SC='RC'+e1
@@ -134,26 +135,32 @@ public class fileOperations_Icon {
 				}
 
 				else {
-					extentTest.log(LogStatus.PASS, 'ToPaste Folder is Currently Not Empty')
-					WebUI.rightClick(findTestObject('FilesPage/Canvas_FilesPage_ListView'))
+					WebUI.delay(3)
+					extentTest.log(Status.PASS, 'ToPaste Folder is Currently Not Empty')
+					if(TestCaseName.contains('tile view')) {
+						WebUI.rightClick(findTestObject('FilesPage/Canvas_FilesPage_TileView'))
+					}
+					else {
+						WebUI.rightClick(findTestObject('FilesPage/Canvas_FilesPage_ListView'))
+					}
+
 					String SC='RC-not'+e2
 					String screenShotPath = (('ExtentReports/' + SC) + GlobalVariable.G_Browser) + '.png'
 					WebUI.takeScreenshot(screenShotPath)
 				}
 				WebUI.delay(2)
 				WebUI.click(findTestObject('FilesPage/ContextMenu_FileGrid_Paste'))
-				extentTest.log(LogStatus.PASS, 'Invoked context menu in ToPaste Folder')
-				extentTest.log(LogStatus.PASS, 'Clicked on Paste Option')
+				extentTest.log(Status.PASS, 'Invoked context menu in ToPaste Folder')
+				extentTest.log(Status.PASS, 'Clicked on Paste Option')
 
 				TestObject newFileObj
 
 				if (TestCaseName.contains('tile view')) {
 					WebUI.delay(2)
 
-					TestObject viewIconTile = WebUI.modifyObjectProperty(findTestObject('Object Repository/FilesPage/Icon_ViewIcon'), 'title',
+					TestObject viewIconTile = WebUI.modifyObjectProperty(findTestObject('Object Repository/FilesPage/Icon_ViewIcon'), 'data-automation-id',
 							'equals', 'Tile View', true)
 					def viewIconTilePresent=WebUI.waitForElementPresent(viewIconTile, 3, FailureHandling.CONTINUE_ON_FAILURE)
-
 					if(viewIconTilePresent) {
 						WebUI.click(viewIconTile)
 						WebUI.delay(2)
@@ -162,15 +169,15 @@ public class fileOperations_Icon {
 					newFileObj = WebUI.modifyObjectProperty(findTestObject('FilesPage/RowItem_File_TileView'), 'title', 'equals', fileToCheck, true)
 				}
 				else {
-					newFileObj = WebUI.modifyObjectProperty(findTestObject('FilesPage/RowItem_File_ListView'), 'title', 'equals', fileToCheck, true)
+					newFileObj = WebUI.modifyObjectProperty(findTestObject('FilesPage/RowItem_File_ListView'), 'data-automation-id', 'equals', fileToCheck, true)
 				}
 				def isFilePresent=WebUI.waitForElementVisible(newFileObj, 10,FailureHandling.CONTINUE_ON_FAILURE)
 				if(isFilePresent){
 					result=true
-					extentTest.log(LogStatus.PASS, 'Verified Pasted File - '+ fileToCheck)
+					extentTest.log(Status.PASS, 'Verified Pasted File - '+ fileToCheck)
 				}
-			//	WebUI.click(findTestObject('Landing_Page/Btn_Notifiction2'))
-			//	extentTest.log(LogStatus.PASS, 'Click on Notification button to open Notification Panel')
+				WebUI.click(findTestObject('Landing_Page/Btn_Notifiction2'))
+				extentTest.log(Status.PASS, 'Click on Notification button to open Notification Panel')
 
 				if(TestCaseName.contains('Job Submission')) {
 					msg=GlobalVariable.G_StageArea+'/'+GlobalVariable.G_userName+'/JobsModule/JobsModuleFileOps/'+fileToCheck+' moved successfully to '+ GlobalVariable.G_StageArea+'/'+GlobalVariable.G_userName+'/JobsModule/JobsModuleFileOps/ToPaste.'
@@ -191,7 +198,7 @@ public class fileOperations_Icon {
 				WebUI.click(findTestObject('FilesPage/TopMenuIcon_ellipses'))
 				WebUI.click(findTestObject('FilesPage/TopMenuIcons_Compress'))
 				WebUI.delay(5)
-				extentTest.log(LogStatus.PASS, 'Clicked on top menu item for -'+op)
+				extentTest.log(Status.PASS, 'Clicked on top menu item for -'+op)
 				println"Clicked Compress"
 				if (TestCaseName.contains('tile view')) {
 
@@ -199,7 +206,7 @@ public class fileOperations_Icon {
 					WebUI.delay(3)
 					WebUI.mouseOver(findTestObject("Object Repository/FilesPage/SortList-Option"))
 					WebUI.click(findTestObject("Object Repository/FilesPage/SortList-Option"))
-					extentTest.log(LogStatus.PASS, 'Sorted the listed files by created on, in tile view')
+					extentTest.log(Status.PASS, 'Sorted the listed files by created on, in tile view')
 
 					TestObject sortIconDown=WebUI.modifyObjectProperty(findTestObject('Object Repository/FilesPage/SortBy-Order'), 'class', 'equals',"down-arrow tile-sortable-icon focus_enable_class", true)
 					def sortIconUp=WebUI.waitForElementPresent(findTestObject('Object Repository/FilesPage/SortBy-Order'), 3, FailureHandling.CONTINUE_ON_FAILURE)
@@ -229,25 +236,26 @@ public class fileOperations_Icon {
 					WebUI.click(findTestObject('FilesPage/RowItem_CompressedFile_TileView'))
 				}
 				else {
+					WebUI.delay(3)
 					WebUI.click(findTestObject('FilesPage/RowItem_CompressedFile_ListView'))
 				}
 				WebUI.delay(3)
 				WebUI.click(findTestObject('FilesPage/TopMenuIcon_ellipses'))
 				WebUI.click(findTestObject('FilesPage/TopMenuIcon_Uncompress'))
-				extentTest.log(LogStatus.PASS, 'Clicked on top menu item Un-Compress on file - '+compressedFileName)
+				extentTest.log(Status.PASS, 'Clicked on top menu item Un-Compress on file - '+compressedFileName)
 
 				result=(new operations_FileModule.CreateFilesPageTestObj()).VerifyUnCompressedFile(compressedFileName , extentTest)
 				if (TestCaseName.contains('tile view')) {
 					TestObject newFileTV = WebUI.modifyObjectProperty(findTestObject('FilesPage/RowItem_File_TileView'), 'title', 'equals','ToCompress_TV.txt', true)
 					WebUI.click(newFileTV)
 					println(" original file exixts - "+WebUI.verifyElementPresent(newFileTV, 10, FailureHandling.CONTINUE_ON_FAILURE))
-					extentTest.log(LogStatus.PASS, ' Verified the origial compressed file is listed  - ToCompress_TV.txt')
+					extentTest.log(Status.PASS, ' Verified the origial compressed file is listed  - ToCompress_TV.txt')
 				}
 				else {
-					TestObject newFileLV = WebUI.modifyObjectProperty(findTestObject('FilesPage/RowItem_File_ListView'), 'title', 'equals','ToCompress_LV.txt', true)
+					TestObject newFileLV = WebUI.modifyObjectProperty(findTestObject('FilesPage/RowItem_File_ListView'), 'data-automation-id', 'equals','ToCompress_LV.txt', true)
 					WebUI.click(newFileLV)
 					println(" original file exixts - "+WebUI.verifyElementPresent(newFileLV, 10, FailureHandling.CONTINUE_ON_FAILURE))
-					extentTest.log(LogStatus.PASS, ' Verified the origial compressed file is listed  - ToCompress_LV.txt')
+					extentTest.log(Status.PASS, ' Verified the origial compressed file is listed  - ToCompress_LV.txt')
 				}
 				return result
 				break
@@ -260,17 +268,17 @@ public class fileOperations_Icon {
 				WebUI.waitForElementVisible(findTestObject('Object Repository/JobSubmissionForm/Icon_DeleteIcon_Fileop'), 10)
 				WebUI.click(findTestObject('Object Repository/JobSubmissionForm/Icon_DeleteIcon_Fileop'))
 				WebUI.delay(2)
-				extentTest.log(LogStatus.PASS, 'Clicked on top menu icon -'+op)
+				extentTest.log(Status.PASS, 'Clicked on top menu icon -'+op)
 				WebUI.click(findTestObject('GenericObjects/btn_Yes'))
 				WebUI.delay(2)
-				extentTest.log(LogStatus.PASS, 'Clicked on Yes on Delete confirmation pop-up ')
+				extentTest.log(Status.PASS, 'Clicked on Yes on Delete confirmation pop-up ')
 
 				msg = '1 item deleted successfully'
 				WebUI.delay(2)
 
 				if (TestCaseName.contains('Job Submission')) {
 					oriFileName='ToDelete.txt'
-					newFileObjVerify = WebUI.modifyObjectProperty(findTestObject('FilesPage/RowItem_File_ListView'), 'title', 'equals',oriFileName, true)
+					newFileObjVerify = WebUI.modifyObjectProperty(findTestObject('FilesPage/RowItem_File_ListView'), 'data-automation-id', 'equals',oriFileName, true)
 				}
 				else {
 					if(TestCaseName.contains('tile view')) {
@@ -279,18 +287,17 @@ public class fileOperations_Icon {
 					}
 					else {
 						oriFileName='ToDelete_LV.txt'
-						newFileObjVerify = WebUI.modifyObjectProperty(findTestObject('FilesPage/RowItem_File_ListView'), 'title', 'equals',oriFileName, true)
+						newFileObjVerify = WebUI.modifyObjectProperty(findTestObject('FilesPage/RowItem_File_ListView'), 'data-automation-id', 'equals',oriFileName, true)
 					}
 				}
 				def isFilePresent=WebUI.verifyElementPresent(newFileObjVerify, 5, FailureHandling.CONTINUE_ON_FAILURE)
 				if(isFilePresent) {
 					result=false
-					extentTest.log(LogStatus.FAIL, 'Verified file - '+oriFileName+' is listed ')
-
+					extentTest.log(Status.FAIL, 'Verified file - '+oriFileName+' is listed ')
 				}
 				else {
 					result=true
-					extentTest.log(LogStatus.PASS, 'Verified file - '+oriFileName+' is not listed ')
+					extentTest.log(Status.PASS, 'Verified file - '+oriFileName+' is not listed ')
 				}
 
 				return result
@@ -303,18 +310,17 @@ public class fileOperations_Icon {
 				WebUI.click(findTestObject('FilesPage/TopMenuIcon_ellipses'))
 				WebUI.click(findTestObject('Object Repository/FilesPage/TopMenuIcon_Download'))
 				WebUI.delay(5)
-				extentTest.log(LogStatus.PASS, ' Clicked on Download top menu item')
+				extentTest.log(Status.PASS, ' Clicked on Download top menu item')
 
 				File downloadFolder = new File(GlobalVariable.G_DownloadFolder)
 				List namesOfFiles = Arrays.asList(downloadFolder.list())
 				if (namesOfFiles.contains('ToDownload_LV.txt')) {
 					println('success')
-					//extentTest.log(LogStatus.PASS, 'file to downloaded ')
-
+					//extentTest.log(Status.PASS, 'file to downloaded ')
 				} else {
 					println('fail')
 				}
-				extentTest.log(LogStatus.PASS, 'Verified file existes on host machine at path - '+GlobalVariable.G_DownloadFolder)
+				extentTest.log(Status.PASS, 'Verified file existes on host machine at path - '+GlobalVariable.G_DownloadFolder)
 
 				return true
 				break

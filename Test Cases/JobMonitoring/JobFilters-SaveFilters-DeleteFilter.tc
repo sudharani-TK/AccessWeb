@@ -5,6 +5,48 @@
    <tag></tag>
    <comment></comment>
    <testCaseGuid>2498672b-2aea-49f0-8123-3f1e9461a82b</testCaseGuid>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>ab72b31e-8363-44da-a321-301ff1535bf2</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>e683da7f-b440-4ffd-9ab3-e4d0221098ce</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>488bdad1-b25f-4332-aa67-b5f1516d3fe5</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>9633f5cd-4e51-4d25-afeb-0623d3a4c0b8</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>e08466a3-c8c6-461b-b6ba-9ae8717a20e2</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>a52efbd1-1f37-4e3b-884b-5d246331e84e</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>5d7a8e47-aa07-4eb1-b1c6-904487ae7a2a</variableId>
+   </variableLinks>
    <variable>
       <defaultValue>'Job Filters - delete'</defaultValue>
       <description></description>

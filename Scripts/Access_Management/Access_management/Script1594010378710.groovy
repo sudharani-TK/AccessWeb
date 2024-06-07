@@ -11,7 +11,8 @@ import com.kms.katalon.core.testobject.TestObject as TestObject
 import com.kms.katalon.core.util.KeywordUtil as KeywordUtil
 import com.kms.katalon.core.webui.driver.DriverFactory as DriverFactory
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
-import com.relevantcodes.extentreports.LogStatus as LogStatus
+import com.aventstack.extentreports.MediaEntityBuilder
+import com.aventstack.extentreports.Status
 import internal.GlobalVariable as GlobalVariable
 
 /*
@@ -31,12 +32,12 @@ RemoteWebDriver katalonWebDriver = ((wrappedWebDriver) as RemoteWebDriver)
 String ReportFile=GlobalVariable.G_ReportName+".html"
 
 def extent=CustomKeywords.'generateReports.GenerateReport.create'(ReportFile,GlobalVariable.G_Browser,GlobalVariable.G_BrowserVersion)
-def LogStatus = com.relevantcodes.extentreports.LogStatus;
+def Status = com.relevantcodes.extentreports.Status;
 
-def extentTest = extent.startTest(TestCaseName)
+def extentTest = extent.startTest(TestCaseName)*/
 String screenShot='ExtentReports/'+TestCaseName+userChoice+GlobalVariable.G_Browser+'.png'
-def result
-*/
+//sdef result
+
 'Login into PAW '
 WebDriver driver = DriverFactory.getWebDriver()
 
@@ -46,18 +47,15 @@ EventFiringWebDriver eventFiring = ((DriverFactory.getWebDriver()) as EventFirin
 WebDriver wrappedWebDriver = eventFiring.getWrappedDriver()
 
 // Cast the wrapped driver into RemoteWebDriver
-RemoteWebDriver katalonWebDriver = ((wrappedWebDriver) as RemoteWebDriver)
 
-ReportFile = (GlobalVariable.G_ReportName + '.html')
-
-def extent = CustomKeywords.'generateReports.GenerateReport.create'(ReportFile, GlobalVariable.G_Browser, GlobalVariable.G_BrowserVersion)
-
-def LogStatus = com.relevantcodes.extentreports.LogStatus
-
-def extentTest = extent.startTest(TestCaseName)
-
+RemoteWebDriver katalonWebDriver = (RemoteWebDriver) wrappedWebDriver
+//==================================================================
+def Browser = GlobalVariable.G_Browser
+//===============================================================
+def extentTest=GlobalVariable.G_ExtentTest
+//===========================================================
 CustomKeywords.'toLogin.ForLogin.Login'(extentTest)
-String screenShot = ((('ExtentReports/' + TestCaseName) + userChoice) + GlobalVariable.G_Browser) + '.png'
+//=============================================================
 
 def result
 
@@ -67,25 +65,25 @@ try {
     WebUI.delay(2)
 
     //WebUI.click(findTestObject('GenericObjects/TitleLink_Jobs'))
-    WebUI.click(findTestObject('Preferences/Profiletab'))
+    WebUI.click(findTestObject('PageNavigation/Preferences/Profiletab'))
 
-    extentTest.log(LogStatus.PASS, 'Click on profile tab')
+    extentTest.log(Status.PASS, 'Click on profile tab')
 
     WebUI.delay(2)
 
     WebUI.click(findTestObject('Access_Management/Access_management'))
 
-    extentTest.log(LogStatus.PASS, 'Click on access management')
+    extentTest.log(Status.PASS, 'Click on access management')
 
     switch (userChoice) {
         case 'Add user verify assigned role':
             CustomKeywords.'create_user_role.user.add_user'(username, firstname, lastname, extentTest)
 
             /*WebUI.click(findTestObject('Access_Management/Add_user'))
-		extentTest.log(LogStatus.PASS, 'Click on users')
+		extentTest.log(Status.PASS, 'Click on users')
 		
 		WebUI.click(findTestObject('Access_Management/Add_userbutton'))
-		extentTest.log(LogStatus.PASS, 'Click on add user')
+		extentTest.log(Status.PASS, 'Click on add user')
 		
 		
 		
@@ -98,47 +96,47 @@ try {
 		rob.keyRelease(KeyEvent.VK_BACK_SPACE)
 		WebUI.setText(findTestObject('Object Repository/Access_Management/Username_text'), '')
 		WebUI.setText(findTestObject('Object Repository/Access_Management/Username_text'), username)
-		extentTest.log(LogStatus.PASS, 'Add username name - ' + username )
+		extentTest.log(Status.PASS, 'Add username name - ' + username )
 		
 		WebUI.click(findTestObject('Access_Management/Firstname'))
 		WebUI.setText(findTestObject('Access_Management/Firstname'), firstname)
-		extentTest.log(LogStatus.PASS, 'Add first name - ' + firstname)
+		extentTest.log(Status.PASS, 'Add first name - ' + firstname)
 		
 		WebUI.click(findTestObject('Access_Management/Lastname'))
 		WebUI.setText(findTestObject('Access_Management/Lastname'), lastname)
-		extentTest.log(LogStatus.PASS, 'Add last name - ' + lastname)
+		extentTest.log(Status.PASS, 'Add last name - ' + lastname)
 		
 		
 		WebUI.click(findTestObject('Access_Management/Save'))
-		extentTest.log(LogStatus.PASS, 'Click on save')*/
+		extentTest.log(Status.PASS, 'Click on save')*/
             TestObject user = WebUI.modifyObjectProperty(findTestObject('Access_Management/Userinfo'), 'text', 'equals', 
                 username, true)
 
             WebUI.doubleClick(findTestObject('Access_Management/Userinfo'))
 
-            extentTest.log(LogStatus.PASS, 'Verify new user info')
+            extentTest.log(Status.PASS, 'Verify new user info')
 
             WebUI.click(findTestObject('Access_Management/Add_role'))
 
-            extentTest.log(LogStatus.PASS, 'Assign role to new user')
+            extentTest.log(Status.PASS, 'Assign role to new user')
 
             WebUI.delay(2)
 
             WebUI.click(findTestObject('Access_Management/Appuser'))
 
-            extentTest.log(LogStatus.PASS, 'Select the role')
+            extentTest.log(Status.PASS, 'Select the role')
 
             WebUI.delay(2)
 
             WebUI.click(findTestObject('Access_Management/Confirm_button'))
 
-            extentTest.log(LogStatus.PASS, 'Click on confirm button')
+            extentTest.log(Status.PASS, 'Click on confirm button')
 
             WebUI.delay(2)
 
             WebUI.click(findTestObject('Access_Management/Save'))
 
-            extentTest.log(LogStatus.PASS, 'Click on save')
+            extentTest.log(Status.PASS, 'Click on save')
 
             break
         case 'Add new user duplicate name':
@@ -146,7 +144,7 @@ try {
 
             WebUI.verifyElementPresent(findTestObject('Access_Management/Duplicate_name'), 2)
 
-            extentTest.log(LogStatus.PASS, 'Verify error message user already exists')
+            extentTest.log(Status.PASS, 'Verify error message user already exists')
 
             WebUI.takeScreenshot(screenShot)
 
@@ -154,7 +152,7 @@ try {
         case 'Add new user special characters':
             CustomKeywords.'create_user_role.user.add_user'(username, firstname, lastname, extentTest)
 
-            extentTest.log(LogStatus.PASS, 'Verify through Screenshot')
+            extentTest.log(Status.PASS, 'Verify through Screenshot')
 
             WebUI.takeScreenshot(screenShot)
 
@@ -163,18 +161,18 @@ try {
             CustomKeywords.'create_user_role.user.add_user'(username, firstname, lastname, extentTest)
 
             /*  WebUI.click(findTestObject('Access_Management/Add_user'))
-	    extentTest.log(LogStatus.PASS, 'Click on users')
+	    extentTest.log(Status.PASS, 'Click on users')
 
 	    WebUI.click(findTestObject('Access_Management/Add_userbutton'))
-	    extentTest.log(LogStatus.PASS, 'Click on add user')
+	    extentTest.log(Status.PASS, 'Click on add user')
 
 	    WebUI.click(findTestObject('Access_Management/Firstname'))
 	    WebUI.setText(findTestObject('Access_Management/Firstname'), firstname)
-	    extentTest.log(LogStatus.PASS, 'Add first name - ' + firstname)
+	    extentTest.log(Status.PASS, 'Add first name - ' + firstname)
 
 	    WebUI.click(findTestObject('Access_Management/Lastname'))
 	    WebUI.setText(findTestObject('Access_Management/Lastname'), lastname)
-	    extentTest.log(LogStatus.PASS, 'Add last name - ' + lastname)
+	    extentTest.log(Status.PASS, 'Add last name - ' + lastname)
 
 		WebUI.click(findTestObject('Access_Management/Username'))
 		WebUI.doubleClick(findTestObject('Access_Management/Username'))
@@ -185,14 +183,14 @@ try {
 		rob.keyRelease(KeyEvent.VK_BACK_SPACE)
 		WebUI.setText(findTestObject('Object Repository/Access_Management/Username_text'), '')
 		WebUI.setText(findTestObject('Object Repository/Access_Management/Username_text'), username)
-		extentTest.log(LogStatus.PASS, 'Add username name - ' + username )
+		extentTest.log(Status.PASS, 'Add username name - ' + username )
 
 	    WebUI.click(findTestObject('Access_Management/Save'))
-	    extentTest.log(LogStatus.PASS, 'Click on save')
+	    extentTest.log(Status.PASS, 'Click on save')
 		*/
             WebUI.takeScreenshot(screenShot)
 
-            extentTest.log(LogStatus.PASS, 'Verify through screenshot ')
+            extentTest.log(Status.PASS, 'Verify through screenshot ')
 
             break
         case 'Add user valid username':
@@ -203,59 +201,59 @@ try {
 
             WebUI.click(user)
 
-            extentTest.log(LogStatus.PASS, 'Verify new user')
+            extentTest.log(Status.PASS, 'Verify new user')
 
             break
         case 'Delete User':
             WebUI.click(findTestObject('Access_Management/Add_user'))
 
-            extentTest.log(LogStatus.PASS, 'Click on users')
+            extentTest.log(Status.PASS, 'Click on users')
 
             TestObject user = WebUI.modifyObjectProperty(findTestObject('Access_Management/Userinfo'), 'text', 'equals', 
                 username, true)
 
             WebUI.click(user)
 
-            extentTest.log(LogStatus.PASS, 'Click on user to be deleted')
+            extentTest.log(Status.PASS, 'Click on user to be deleted')
 
             WebUI.click(findTestObject('Access_Management/Delete_icon'))
 
-            extentTest.log(LogStatus.PASS, 'Click on delete icon')
+            extentTest.log(Status.PASS, 'Click on delete icon')
 
             WebUI.click(findTestObject('Access_Management/Confirm_button'))
 
             WebUI.click(findTestObject('Landing_Page/Btn_Notifiction2'))
 
-            extentTest.log(LogStatus.PASS, 'Opened Notification Panel')
+            extentTest.log(Status.PASS, 'Opened Notification Panel')
 
             WebUI.delay(2)
 
             result = WebUI.verifyElementPresent(findTestObject('Access_Management/Delete_User'), 5)
 
-            extentTest.log(LogStatus.PASS, 'Verified user is deleted successfully ')
+            extentTest.log(Status.PASS, 'Verified user is deleted successfully ')
 
             break
         case 'Delete service user':
             WebUI.click(findTestObject('Access_Management/Add_user'))
 
-            extentTest.log(LogStatus.PASS, 'Click on users')
+            extentTest.log(Status.PASS, 'Click on users')
 
             //WebUI.click(findTestObject('Access_Management/Checkuser'))
             WebUI.click(findTestObject('Access_Management/Manager_userinfo'))
 
-            extentTest.log(LogStatus.PASS, 'Click on manager ')
+            extentTest.log(Status.PASS, 'Click on manager ')
 
             WebUI.verifyElementPresent(findTestObject('Access_Management/Lock_icon'), 5)
 
-            extentTest.log(LogStatus.PASS, 'Verify the lock icon present')
+            extentTest.log(Status.PASS, 'Verify the lock icon present')
 
             WebUI.doubleClick(findTestObject('Access_Management/Manager_userinfo'))
 
-            extentTest.log(LogStatus.PASS, 'Double click the manager user')
+            extentTest.log(Status.PASS, 'Double click the manager user')
 
             WebUI.verifyElementNotPresent(findTestObject('Access_Management/Confirm_button'), 5)
 
-            extentTest.log(LogStatus.PASS, 'Verify save  button is diabled')
+            extentTest.log(Status.PASS, 'Verify save  button is diabled')
 
             break
         case 'Add new role application user':
@@ -263,15 +261,15 @@ try {
 
             WebUI.verifyElementPresent(findTestObject('Access_Management/App_user_tickmark'), 4)
 
-            extentTest.log(LogStatus.PASS, 'Verify application user is enable')
+            extentTest.log(Status.PASS, 'Verify application user is enable')
 
             WebUI.click(findTestObject('Access_Management/Save_role'))
 
-            extentTest.log(LogStatus.PASS, 'Click on save')
+            extentTest.log(Status.PASS, 'Click on save')
 
             WebUI.verifyElementPresent(findTestObject('Access_Management/Verify_roleid'), 5)
 
-            extentTest.log(LogStatus.PASS, 'Verify roleid')
+            extentTest.log(Status.PASS, 'Verify roleid')
 
             break
         case 'Add new role portal admin':
@@ -334,7 +332,7 @@ try {
 
             WebUI.takeScreenshot(screenShot)
 
-            extentTest.log(LogStatus.PASS, 'Verify unable to use special characters')
+            extentTest.log(Status.PASS, 'Verify unable to use special characters')
 
             if (GlobalVariable.G_Browser == 'IE') {
                 WebUI.click(findTestObject('Access_Management/Cancel'))
@@ -348,21 +346,21 @@ try {
 
             WebUI.click(findTestObject('Access_Management/Add_resources'))
 
-            extentTest.log(LogStatus.PASS, 'Click on add resources')
+            extentTest.log(Status.PASS, 'Click on add resources')
 
             WebUI.delay(2)
 
             WebUI.click(findTestObject('Access_Management/Shellscript_resource'))
 
-            extentTest.log(LogStatus.PASS, 'Add Shellscript')
+            extentTest.log(Status.PASS, 'Add Shellscript')
 
             WebUI.click(findTestObject('Access_Management/Confirm_button'))
 
-            extentTest.log(LogStatus.PASS, 'Click on Confirm')
+            extentTest.log(Status.PASS, 'Click on Confirm')
 
             WebUI.click(findTestObject('Access_Management/Save_role'))
 
-            extentTest.log(LogStatus.PASS, 'Click on save role')
+            extentTest.log(Status.PASS, 'Click on save role')
 
             WebUI.delay(2)
 
@@ -371,21 +369,21 @@ try {
 
             WebUI.doubleClick(role)
 
-            extentTest.log(LogStatus.PASS, 'Click on save')
+            extentTest.log(Status.PASS, 'Click on save')
 
             WebUI.click(findTestObject('Access_Management/Shellscript_resource'))
 
-            extentTest.log(LogStatus.PASS, 'Click on save')
+            extentTest.log(Status.PASS, 'Click on save')
 
             WebUI.delay(2)
 
             WebUI.click(findTestObject('Access_Management/Delete_resource'))
 
-            extentTest.log(LogStatus.PASS, 'Click on delete assigned resource')
+            extentTest.log(Status.PASS, 'Click on delete assigned resource')
 
             WebUI.verifyElementNotPresent(findTestObject('Access_Management/Shellscript_resource'), 5)
 
-            extentTest.log(LogStatus.PASS, 'Verify assigned resource is deleted')
+            extentTest.log(Status.PASS, 'Verify assigned resource is deleted')
 
             break
         case 'Edit role':
@@ -395,11 +393,11 @@ try {
             WebUI.doubleClick(role)
 			WebUI.delay(2)
 
-            extentTest.log(LogStatus.PASS, 'Click on role to be edit')
+            extentTest.log(Status.PASS, 'Click on role to be edit')
 
             WebUI.click(findTestObject('Access_Management/Edit_role'))
 
-            extentTest.log(LogStatus.PASS, 'Click on edit')
+            extentTest.log(Status.PASS, 'Click on edit')
 
             WebUI.delay(2)
 
@@ -414,19 +412,19 @@ try {
 
             WebUI.setText(findTestObject('Object Repository/AppComposer/Text'), 'newrole')
 
-            extentTest.log(LogStatus.PASS, 'Add roleid name - newrole')
+            extentTest.log(Status.PASS, 'Add roleid name - newrole')
 
             WebUI.click(findTestObject('Access_Management/Confirm_button'))
 
-            extentTest.log(LogStatus.PASS, 'Click on confirm')
+            extentTest.log(Status.PASS, 'Click on confirm')
 
             WebUI.click(findTestObject('Access_Management/Save_role'))
 
-            extentTest.log(LogStatus.PASS, 'Click on save')
+            extentTest.log(Status.PASS, 'Click on save')
 
             WebUI.click(findTestObject('Access_Management/Newrole_info'))
 
-            extentTest.log(LogStatus.PASS, 'Click on new role')
+            extentTest.log(Status.PASS, 'Click on new role')
 
             break
         case 'Edit role cancel':
@@ -436,11 +434,11 @@ try {
             WebUI.doubleClick(role)
 			WebUI.delay(2)
 
-            extentTest.log(LogStatus.PASS, 'Click on role')
+            extentTest.log(Status.PASS, 'Click on role')
 
             WebUI.click(findTestObject('Access_Management/Edit_role'))
 
-            extentTest.log(LogStatus.PASS, 'Click on edit role')
+            extentTest.log(Status.PASS, 'Click on edit role')
 
             WebUI.delay(2)
 
@@ -455,22 +453,22 @@ try {
 
             WebUI.setText(findTestObject('Object Repository/AppComposer/Text'), 'newrole')
 
-            extentTest.log(LogStatus.PASS, 'Add new roleid name')
+            extentTest.log(Status.PASS, 'Add new roleid name')
 			WebUI.delay(3)
 
             WebUI.click(findTestObject('Access_Management/Confirm_cancel'))
 
-            extentTest.log(LogStatus.PASS, 'Click on cancel')
+            extentTest.log(Status.PASS, 'Click on cancel')
 
             WebUI.verifyElementPresent(findTestObject('Access_Management/Role_header'), 5)
 
-            extentTest.log(LogStatus.PASS, 'Verify role header is present')
+            extentTest.log(Status.PASS, 'Verify role header is present')
 
             break
         case 'Edit username cancel':
             WebUI.click(findTestObject('Access_Management/Add_user'))
 
-            extentTest.log(LogStatus.PASS, 'Click on users')
+            extentTest.log(Status.PASS, 'Click on users')
 			WebUI.delay(2)
 
             TestObject user = WebUI.modifyObjectProperty(findTestObject('Access_Management/Userinfo'), 'text', 'equals', 
@@ -479,34 +477,34 @@ try {
             WebUI.doubleClick(user)
 			WebUI.delay(2)
 
-            extentTest.log(LogStatus.PASS, 'Click on user')
+            extentTest.log(Status.PASS, 'Click on user')
 
             WebUI.waitForElementPresent(findTestObject('Access_Management/Cancel_button'), 10)
 
             WebUI.click(findTestObject('Access_Management/Cancel_button'))
 
-            extentTest.log(LogStatus.PASS, 'Click on cancel button')
+            extentTest.log(Status.PASS, 'Click on cancel button')
 
             WebUI.click(findTestObject('Access_Management/Userinfo'))
 
-            extentTest.log(LogStatus.PASS, 'Verify user is present' + username)
+            extentTest.log(Status.PASS, 'Verify user is present' + username)
 
             break
         case 'Edit username':
             WebUI.click(findTestObject('Access_Management/Add_user'))
 
-            extentTest.log(LogStatus.PASS, 'Click on users')
+            extentTest.log(Status.PASS, 'Click on users')
 
             TestObject user = WebUI.modifyObjectProperty(findTestObject('Access_Management/Userinfo'), 'text', 'equals', 
                 username, true)
 
             WebUI.doubleClick(user)
 
-            extentTest.log(LogStatus.PASS, 'Click on user info')
+            extentTest.log(Status.PASS, 'Click on user info')
 
             WebUI.takeScreenshot(screenShot)
 
-            extentTest.log(LogStatus.PASS, 'Verify unable to edit username')
+            extentTest.log(Status.PASS, 'Verify unable to edit username')
 
             break
         case 'Delete role':
@@ -517,7 +515,7 @@ try {
 
             WebUI.click(role)
 
-            extentTest.log(LogStatus.PASS, 'Click on role')
+            extentTest.log(Status.PASS, 'Click on role')
 
             //WebUI.mouseOver(findTestObject('Access_Management/Selectrole'))
             //WebUI.click(findTestObject('Access_Management/Selectrole'))
@@ -525,21 +523,21 @@ try {
 
             WebUI.click(findTestObject('Access_Management/Delete_role'))
 
-            extentTest.log(LogStatus.PASS, 'Click on delete icon')
+            extentTest.log(Status.PASS, 'Click on delete icon')
 
             WebUI.click(findTestObject('Access_Management/Confirm_button'))
 
-            extentTest.log(LogStatus.PASS, 'Click on confirm button')
+            extentTest.log(Status.PASS, 'Click on confirm button')
 
             WebUI.click(findTestObject('Landing_Page/Btn_Notifiction2'))
 
-            extentTest.log(LogStatus.PASS, 'Opened Notification Panel')
+            extentTest.log(Status.PASS, 'Opened Notification Panel')
 
             WebUI.delay(2)
 
             WebUI.verifyElementPresent(findTestObject('Access_Management/Role_Delete'), 5)
 
-            extentTest.log(LogStatus.PASS, 'Verify role deleted successfully')
+            extentTest.log(Status.PASS, 'Verify role deleted successfully')
 
             break
         case 'Delete role manager':
@@ -547,7 +545,7 @@ try {
 
             WebUI.click(findTestObject('Access_Management/Manager_roleinfo'))
 
-            extentTest.log(LogStatus.PASS, 'Click on manager role')
+            extentTest.log(Status.PASS, 'Click on manager role')
 
             WebUI.delay(3)
 
@@ -558,17 +556,17 @@ try {
 
             WebUI.verifyElementPresent(findTestObject('Access_Management/Lock_icon'), 5)
 
-            extentTest.log(LogStatus.PASS, 'Verify the lock icon present')
+            extentTest.log(Status.PASS, 'Verify the lock icon present')
 
             WebUI.doubleClick(findTestObject('Access_Management/Manager_roleinfo'))
 
-            extentTest.log(LogStatus.PASS, 'Double click the manager role')
+            extentTest.log(Status.PASS, 'Double click the manager role')
 
             WebUI.delay(3)
 
             WebUI.verifyElementPresent(findTestObject('Access_Management/Cancel_Role'), 5)
 
-            extentTest.log(LogStatus.PASS, 'Verify save role button is diabled')
+            extentTest.log(Status.PASS, 'Verify save role button is diabled')
 
             break
     }
@@ -577,38 +575,35 @@ try {
         WebUI.callTestCase(findTestCase('XRepeated_TC/Logout'), [:], FailureHandling.STOP_ON_FAILURE)
     }
 }
+
 catch (Exception ex) {
-    String screenShotPath = (('ExtentReports/' + TestCaseName) + GlobalVariable.G_Browser) + '.png'
+	println('From TC - ' + GlobalVariable.G_ReportFolder)
 
-    WebUI.takeScreenshot(screenShotPath)
+	String screenShotPath = (('ExtentReports/' + TestCaseName) + GlobalVariable.G_Browser) + '.png'
 
-    extentTest.log(LogStatus.FAIL, ex)
+	WebUI.takeScreenshot(screenShotPath)
 
-    KeywordUtil.markFailed('ERROR: ' + e)
-} 
-catch (StepErrorException e) {
-    String screenShotPath = (('ExtentReports/' + TestCaseName) + GlobalVariable.G_Browser) + '.png'
+	String p = (TestCaseName + GlobalVariable.G_Browser) + '.png'
 
-    WebUI.takeScreenshot(screenShotPath)
+	extentTest.log(Status.FAIL, ex)
 
-    extentTest.log(LogStatus.FAIL, e)
-
-    KeywordUtil.markFailed('ERROR: ' + e)
-} 
-catch (StepFailedException e) {
-    String screenShotPath = (('ExtentReports/' + TestCaseName) + GlobalVariable.G_Browser) + '.png'
-
-    WebUI.takeScreenshot(screenShotPath)
-
-    extentTest.log(LogStatus.FAIL, e)
-
-    KeywordUtil.markFailed('ERROR: ' + e)
-} 
-finally { 
-    extent.endTest(extentTest)
-
-    extent.flush()
+	extentTest.fail(MediaEntityBuilder.createScreenCaptureFromPath(p).build())
 }
+catch (StepErrorException e) {
+	String screenShotPath = (('ExtentReports/' + TestCaseName) + GlobalVariable.G_Browser) + '.png'
 
+	WebUI.takeScreenshot(screenShotPath)
+
+	String p = (TestCaseName + GlobalVariable.G_Browser) + '.png'
+
+	extentTest.log(Status.FAIL, ex)
+
+	extentTest.fail(MediaEntityBuilder.createScreenCaptureFromPath(p).build())
+}
+finally {
+	extentTest.log(Status.PASS, 'Closing the browser after executinge test case - ' + TestCaseName)
+	
+	
+}
 
 

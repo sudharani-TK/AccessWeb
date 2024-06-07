@@ -7,11 +7,10 @@
    <selectorCollection>
       <entry>
          <key>BASIC</key>
-         <value>//span[@id = 'app_notify_menu' and @title = 'Notifications']</value>
+         <value>//span[@id = 'app_notify_menu']</value>
       </entry>
       <entry>
          <key>XPATH</key>
-         <value></value>
       </entry>
    </selectorCollection>
    <selectorMethod>BASIC</selectorMethod>
@@ -22,15 +21,7 @@
       <name>tag</name>
       <type>Main</type>
       <value>span</value>
-      <webElementGuid>b1d31c8d-8ced-47c7-aa5d-f0fab98bce8b</webElementGuid>
-   </webElementProperties>
-   <webElementProperties>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>tabindex</name>
-      <type>Main</type>
-      <value>0</value>
-      <webElementGuid>9289acd2-802c-4dd0-bf0b-609da926986c</webElementGuid>
+      <webElementGuid>18773fae-daa7-43ec-be33-08eba51eea59</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -38,23 +29,7 @@
       <name>id</name>
       <type>Main</type>
       <value>app_notify_menu</value>
-      <webElementGuid>854125bd-0de9-4ab2-a562-ea8deaaf2949</webElementGuid>
-   </webElementProperties>
-   <webElementProperties>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>class</name>
-      <type>Main</type>
-      <value>focus_enable_class notification-btn buttonOpacityFull</value>
-      <webElementGuid>0e76c4a3-a49a-4d99-956a-c2d879aeb8a8</webElementGuid>
-   </webElementProperties>
-   <webElementProperties>
-      <isSelected>true</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>title</name>
-      <type>Main</type>
-      <value>Notifications</value>
-      <webElementGuid>ec129bb4-8995-4598-8879-0facf7312aac</webElementGuid>
+      <webElementGuid>e25f423a-cebc-4c27-abac-c42f2b547b15</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -62,7 +37,7 @@
       <name>xpath</name>
       <type>Main</type>
       <value>id(&quot;app_notify_menu&quot;)</value>
-      <webElementGuid>f369e3fc-3436-4f53-9924-74fafc83a416</webElementGuid>
+      <webElementGuid>e1d953e1-25ea-4098-ac66-10cf5c94cc2a</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
@@ -70,7 +45,7 @@
       <name>xpath:attributes</name>
       <type>Main</type>
       <value></value>
-      <webElementGuid>66b2c021-ec20-469b-b704-5c32692499d4</webElementGuid>
+      <webElementGuid>3bdffab4-eaeb-4744-9cf9-c6044ab8da01</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -78,7 +53,7 @@
       <name>xpath:idRelative</name>
       <type>Main</type>
       <value></value>
-      <webElementGuid>cafc1b82-f26a-419b-a3a2-b79044283419</webElementGuid>
+      <webElementGuid>50d992ba-5fa3-4d63-92a2-355c38129654</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -86,6 +61,6 @@
       <name>xpath:position</name>
       <type>Main</type>
       <value></value>
-      <webElementGuid>59a8f37b-3a14-492d-809d-558a7cc61642</webElementGuid>
+      <webElementGuid>89c8c225-2bfd-4acc-9e68-5b2b8f8e2d1b</webElementGuid>
    </webElementXpaths>
 </WebElementEntity>

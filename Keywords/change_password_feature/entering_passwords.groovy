@@ -17,7 +17,7 @@ import com.kms.katalon.core.testobject.TestObject
 import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
-import com.relevantcodes.extentreports.LogStatus
+import com.aventstack.extentreports.Status
 
 import internal.GlobalVariable
 
@@ -31,7 +31,7 @@ public class entering_passwords {
 		//click on the change password option
 		WebUI.click(findTestObject('Object Repository/change_password/changepass_menu'))
 
-		extentTest.log(LogStatus.PASS, 'Clicked on the change password icon  ')
+		extentTest.log(Status.PASS, 'Clicked on the change password icon  ')
 
 		//verify the title
 		println(WebUI.verifyElementPresent(findTestObject('Object Repository/change_password/title'), 20))
@@ -39,9 +39,9 @@ public class entering_passwords {
 		String title = WebUI.getText(findTestObject('Object Repository/change_password/title'))
 		def returnvalue= WebUI.verifyMatch(title, "Change Password", true)
 		if(returnvalue)
-			extentTest.log(LogStatus.PASS, ('Verify the Title ' + title) + 'is present')
+			extentTest.log(Status.PASS, ('Verify the Title ' + title) + 'is present')
 		else
-			extentTest.log(LogStatus.FAIL, ('Verify the Title::  ' + title) + 'is not present')
+			extentTest.log(Status.FAIL, ('Verify the Title::  ' + title) + 'is not present')
 
 		//set the old password
 		WebUI.setText(findTestObject('Object Repository/change_password/oldpasswd'), oldpasswd)
@@ -58,11 +58,10 @@ public class entering_passwords {
 
 		WebUI.delay(2)
 
-		extentTest.log(LogStatus.PASS, 'Entered oldpassword::' + oldpasswd)
+		extentTest.log(Status.PASS, 'Entered oldpassword::' + oldpasswd)
 
-		extentTest.log(LogStatus.PASS, 'Entered new password::' + newpassword)
-		extentTest.log(LogStatus.PASS, 'Entered Confirm password::' + confirmpassword)
-
+		extentTest.log(Status.PASS, 'Entered new password::' + newpassword)
+		extentTest.log(Status.PASS, 'Entered Confirm password::' + confirmpassword)
 	}
 	@Keyword
 	def validatemessages(String message, String msg2, String msg3,extentTest ){
@@ -80,11 +79,11 @@ public class entering_passwords {
 
 		String errormesage = WebUI.getText(error_msg1)
 
-		extentTest.log(LogStatus.PASS, 'Error message 1:: ' + message)
+		extentTest.log(Status.PASS, 'Error message 1:: ' + message)
 
-		extentTest.log(LogStatus.PASS, 'Error messages 2::   ' + msg2)
+		extentTest.log(Status.PASS, 'Error messages 2::   ' + msg2)
 
-		extentTest.log(LogStatus.PASS, 'Error messages 3::  ' + msg3)
+		extentTest.log(Status.PASS, 'Error messages 3::  ' + msg3)
 	}
 }
 

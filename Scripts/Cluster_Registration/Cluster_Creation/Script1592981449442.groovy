@@ -49,7 +49,7 @@ def LogStatus = com.relevantcodes.extentreports.LogStatus
 def extentTest = extent.startTest(TestCaseName)
 CustomKeywords.'toLogin.ForLogin.Login'(extentTest)
 
-def result
+def result=false
 WebUI.delay(2)
 
 try
@@ -82,6 +82,7 @@ try
 		WebUI.click(findTestObject('Cluster_Registration/Server_Name'))
 		WebUI.setText(findTestObject('Cluster_Registration/Server_Name'),server)
 		extentTest.log(LogStatus.PASS, 'Add server name'+ server)
+		WebUI.delay(2)
 		
 		WebUI.click(findTestObject('Cluster_Registration/Url'))
 		WebUI.setText(findTestObject('Cluster_Registration/Url'),url)
@@ -90,6 +91,7 @@ try
 		WebUI.click(findTestObject('Cluster_Registration/Username'))
 		WebUI.setText(findTestObject('Cluster_Registration/Username'),username)
 		extentTest.log(LogStatus.PASS, 'Add username' + username)
+		WebUI.delay(2)
 		
 		/*WebUI.click(findTestObject('Cluster_Registration/Password'))
 		WebUI.setText(findTestObject('Cluster_Registration/Password'),password)
@@ -98,6 +100,7 @@ try
 		WebUI.click(findTestObject('Cluster_Registration/Rootdir'))
 		WebUI.setText(findTestObject('Cluster_Registration/Rootdir'),rootdir)
 		extentTest.log(LogStatus.PASS, 'Add root directory' )
+		WebUI.waitForElementVisible(findTestObject('Object Repository/Cluster_Registration/Network_HPC'), 20, FailureHandling.STOP_ON_FAILURE)
 		
 		WebUI.click(findTestObject('Cluster_Registration/Add_Server'))
 		extentTest.log(LogStatus.PASS, 'Click on add server')
@@ -146,11 +149,13 @@ try
 	/*	WebUI.click(findTestObject('Cluster_Registration/Password'))
 		WebUI.setText(findTestObject('Cluster_Registration/Password'),password)
 		extentTest.log(LogStatus.PASS, 'Add password' + password)*/
-		
+		WebUI.delay(2)
 		WebUI.click(findTestObject('Cluster_Registration/Rootdir'))
 		WebUI.setText(findTestObject('Cluster_Registration/Rootdir'),rootdir)
 		extentTest.log(LogStatus.PASS, 'Add root directory')
+		WebUI.waitForElementVisible(findTestObject('Object Repository/Cluster_Registration/Network_HPC'), 20, FailureHandling.STOP_ON_FAILURE)
 		
+	
 		WebUI.click(findTestObject('Cluster_Registration/Add_Server'))
 		extentTest.log(LogStatus.PASS, 'Click on add server')
 		

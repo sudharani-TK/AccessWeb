@@ -39,7 +39,7 @@ try {
 		}
 	extentTest.log(LogStatus.PASS, 'navigated to jobs tab')
 
-	TestObject newAppObj =  WebUI.modifyObjectProperty(findTestObject('NewJobPage/AppList_ShellScript'),  'id', 'equals', AppName, true)
+	TestObject newAppObj =  WebUI.modifyObjectProperty(findTestObject('LoginPage/NewJobPage/AppList_ShellScript'),  'id', 'equals', AppName, true)
 
 	WebUI.click(newAppObj)
 
@@ -83,13 +83,14 @@ try {
 		WebUI.click(LeftNavAppIdentifier)
 		extentTest.log(LogStatus.PASS, 'loaded job submission form for - '+NewApp)
 		WebUI.delay(2)
-		WebUI.scrollToElement(findTestObject('Object Repository/JobSubmissionForm/Link_ResetLink'), 3,  FailureHandling.STOP_ON_FAILURE)
+	/*	WebUI.scrollToElement(findTestObject('Object Repository/JobSubmissionForm/Link_ResetLink'), 3,  FailureHandling.STOP_ON_FAILURE)
 		WebUI.click(findTestObject('Object Repository/JobSubmissionForm/Link_ResetLink'))
-		WebUI.click(findTestObject('Object Repository/JobMonitoringPage/button_Yes'))
+		WebUI.click(findTestObject('Object Repository/JobMonitoringPage/button_Yes'))*/
 
-		WebUI.click(findTestObject('Object Repository/FilesPage/Icon_EditFilePath'))
+		/*WebUI.click(findTestObject('Object Repository/FilesPage/Icon_EditFilePath'))
 		WebUI.setText(findTestObject('Object Repository/FilesPage/textBx_FilePath'), location)
-		WebUI.sendKeys(findTestObject('Object Repository/FilesPage/textBx_FilePath'), Keys.chord(Keys.ENTER))
+		WebUI.sendKeys(findTestObject('Object Repository/FilesPage/textBx_FilePath'), Keys.chord(Keys.ENTER))*/
+		CustomKeywords.'generateFilePath.filePath.navlocation'(location, extentTest)
 
 		extentTest.log(LogStatus.PASS, 'navigated to - '+location+' in JS-RFB')
 		CustomKeywords.'operations_JobsModule.JobSubmissions.JSAllFileds'('NCPU', '2', extentTest)
@@ -110,19 +111,19 @@ try {
 		}
 
 
-		WebUI.modifyObjectProperty(findTestObject('JobSubmissionForm/File_InputFile') , 'text', 'equals',InputFile, true)
+		WebUI.modifyObjectProperty(findTestObject('JobSubmissionForm/File_InputFile') , 'data-automation-id', 'equals',InputFile, true)
 		WebUI.waitForElementPresent(findTestObject('Object Repository/JobSubmissionForm/textBx_file_filter'), 5)
 		WebUI.click(findTestObject('Object Repository/JobSubmissionForm/textBx_file_filter'))
 		WebUI.setText(findTestObject('Object Repository/JobSubmissionForm/textBx_file_filter'), InputFile)
 		WebUI.sendKeys(findTestObject('JobSubmissionForm/textBx_file_filter'), Keys.chord(Keys.ENTER))
 		extentTest.log(LogStatus.PASS, 'Searched for input	  file - '+InputFile)
 		WebUI.delay(3)
-		TestObject newFileObj =  WebUI.modifyObjectProperty(findTestObject('JobSubmissionForm/File_InputFile'), 'text', 'equals',InputFile, true)
+		TestObject newFileObj =  WebUI.modifyObjectProperty(findTestObject('JobSubmissionForm/File_InputFile'), 'data-automation-id', 'equals',InputFile, true)
 		WebUI.click(newFileObj)
 		WebUI.rightClick(newFileObj)
 		extentTest.log(LogStatus.PASS, 'Right Clicked on  Input file ' + InputFile)
 		WebUI.delay(2)
-		newRFBContextMnOption = WebUI.modifyObjectProperty(findTestObject('Object Repository/NewJobPage/ContextMenu_RFB_FilePicker'),'id', 'equals', idForCntxtMn, true)
+		newRFBContextMnOption = WebUI.modifyObjectProperty(findTestObject('Object Repository/LoginPage/NewJobPage/ContextMenu_RFB_FilePicker'),'id', 'equals', idForCntxtMn, true)
 		WebUI.click(newRFBContextMnOption)
 		extentTest.log(LogStatus.PASS, 'Clicked on context menu - ' + idForCntxtMn)
 

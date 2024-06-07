@@ -111,7 +111,7 @@ try {
 		WebUI.verifyElementPresent(findTestObject('Object Repository/JobMonitoringPage/hiddenfile'), 3)
 		
 		
-		WebUI.click(findTestObject('Preferences/Profiletab'))
+		WebUI.click(findTestObject('PageNavigation/Preferences/Profiletab'))
 		extentTest.log(LogStatus.PASS, 'Click on profile tab')
 		WebUI.delay(2)
 		

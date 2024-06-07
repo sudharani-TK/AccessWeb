@@ -11,23 +11,25 @@
       </entry>
       <entry>
          <key>BASIC</key>
-         <value>//div[(text() = 'This folder is empty' or . = 'This folder is empty')]</value>
+         <value>//span[@class = 'dragNDrop']</value>
       </entry>
    </selectorCollection>
-   <selectorMethod>XPATH</selectorMethod>
+   <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>tag</name>
       <type>Main</type>
-      <value>div</value>
+      <value>span</value>
+      <webElementGuid>a5df626f-88d5-4dca-8112-9e3e1326c00c</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
-      <name>text</name>
+      <name>class</name>
       <type>Main</type>
-      <value>This folder is empty</value>
+      <value>dragNDrop</value>
+      <webElementGuid>f11b6db9-6a8f-42af-a7b0-4d34e0146e64</webElementGuid>
    </webElementProperties>
 </WebElementEntity>

@@ -22,15 +22,15 @@ WebUI.delay(2)
 try {
 	
 
-			WebUI.click(findTestObject('Preferences/Profiletab'))
+			WebUI.click(findTestObject('PageNavigation/Preferences/Profiletab'))
 			extentTest.log(LogStatus.PASS, 'Click on profile tab')
 
-			WebUI.click(findTestObject('Preferences/Preference'))
+			WebUI.click(findTestObject('PageNavigation/Preferences/Preference'))
 			extentTest.log(LogStatus.PASS, 'Click on preference')
 			
             WebUI.delay(3)
 			
-			TestObject	 prefer = WebUI.modifyObjectProperty(findTestObject('Preferences/Choice'), 'text', 'equals',
+			TestObject	 prefer = WebUI.modifyObjectProperty(findTestObject('PageNavigation/Preferences/Choice'), 'text', 'equals',
 					preference, true)
 			WebUI.click(prefer)
 			extentTest.log(LogStatus.PASS, 'Click on preference')
@@ -39,14 +39,14 @@ try {
 
 
 
-			WebUI.click(findTestObject('Preferences/Back'))
+			WebUI.click(findTestObject('PageNavigation/Preferences/Back'))
 			extentTest.log(LogStatus.PASS, 'Click on back')
 
 
 			
 			
 			WebUI.delay(2)
-			def jobsTab = CustomKeywords.'customWait.WaitForElement.WaitForelementPresent'(findTestObject('NewJobPage/AppList_ShellScript'),
+			def jobsTab = CustomKeywords.'customWait.WaitForElement.WaitForelementPresent'(findTestObject('LoginPage/NewJobPage/AppList_ShellScript'),
 			20,extentTest,'App def')
 		
 		if (jobsTab) {

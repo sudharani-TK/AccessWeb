@@ -12,7 +12,8 @@ import com.kms.katalon.core.testobject.TestObject as TestObject
 import com.kms.katalon.core.util.KeywordUtil as KeywordUtil
 import com.kms.katalon.core.webui.driver.DriverFactory as DriverFactory
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
-import com.relevantcodes.extentreports.LogStatus as LogStatus
+import com.aventstack.extentreports.Status
+import com.aventstack.extentreports.MediaEntityBuilder
 
 import internal.GlobalVariable as GlobalVariable
 
@@ -21,38 +22,41 @@ import internal.GlobalVariable as GlobalVariable
 WebDriver driver = DriverFactory.getWebDriver()
 
 
-ReportFile = (GlobalVariable.G_ReportName + '.html')
-def extent = CustomKeywords.'generateReports.GenerateReport.create'(ReportFile, GlobalVariable.G_Browser, GlobalVariable.G_BrowserVersion)
-def LogStatus = com.relevantcodes.extentreports.LogStatus
-def extentTest = extent.startTest(TestCaseName)
+//====================================================================================
+def Browser = GlobalVariable.G_Browser
+//====================================================================================
+def extentTest=GlobalVariable.G_ExtentTest
+//====================================================================================
 CustomKeywords.'toLogin.ForLogin.Login'(extentTest)
+
+//=====================================================================================
 //String screenShot='ExtentReports/'+TestCaseName+userChoice+GlobalVariable.G_Browser+'.png'
 TestObject newFileObj
 
 try {
 	
-		WebUI.click(findTestObject('Preferences/Profiletab'))
-		extentTest.log(LogStatus.PASS, 'Click on profile tab')
+		WebUI.click(findTestObject('PageNavigation/Preferences/Profiletab'))
+		extentTest.log(Status.PASS, 'Click on profile tab')
 		WebUI.delay(2)
 		
 		WebUI.click(findTestObject('Landing_Page/ListItem_Logout'))
-		extentTest.log(LogStatus.PASS, 'Click on logout')
+		extentTest.log(Status.PASS, 'Click on logout')
 		
 		WebUI.verifyElementVisible(findTestObject('LogOut-PopUp/Title_Logout'))
 		
 		WebUI.delay(2)
 		
 		WebUI.click(findTestObject('GenericObjects/btn_Yes'))
-		extentTest.log(LogStatus.PASS, 'Click on yes button')
+		extentTest.log(Status.PASS, 'Click on yes button')
 		WebUI.delay(2)
 		
 		def title = WebUI.getWindowTitle()
 		println(title)
 		if(title== "Logout-Altair Access") {
 		
-		extentTest.log(LogStatus.PASS, 'Browser page  -  ' + title)}
+		extentTest.log(Status.PASS, 'Browser page  -  ' + title)}
 		else
-			extentTest.log(LogStatus.FAIL, 'Failed to verify the title')
+			extentTest.log(Status.FAIL, 'Failed to verify the title')
 		
 		
 	
@@ -60,44 +64,44 @@ try {
 	if (TestCaseName.contains('Login'))
 	{
 		WebUI.click(findTestObject('AppComposer/Login'))
-		extentTest.log(LogStatus.PASS, 'Click on Login again')
+		extentTest.log(Status.PASS, 'Click on Login again')
 		
 		def title1 = WebUI.getWindowTitle()
 		println(title1)
-		extentTest.log(LogStatus.PASS, 'Browser page  -  ' + title1)
+		extentTest.log(Status.PASS, 'Browser page  -  ' + title1)
 	}
    
-    if (GlobalVariable.G_Browser == 'Edge') {
-        WebUI.callTestCase(findTestCase('XRepeated_TC/Logout'), [:], FailureHandling.STOP_ON_FAILURE)
-    }
+	if (GlobalVariable.G_Browser == 'Edge') {
+		WebUI.callTestCase(findTestCase('XRepeated_TC/Logout'), [:], FailureHandling.STOP_ON_FAILURE)
+	}
 }
 catch (Exception ex) {
-    String screenShotPath = (('ExtentReports/' + TestCaseName) + GlobalVariable.G_Browser) + '.png'
-
-    WebUI.takeScreenshot(screenShotPath)
-
-  	String p =TestCaseName+GlobalVariable.G_Browser+'.png'
-	extentTest.log(LogStatus.FAIL,ex)
-	extentTest.log(LogStatus.FAIL,extentTest.addScreenCapture(p))
-
-
-    KeywordUtil.markFailed('ERROR: ' + e)
-} 
-catch (StepErrorException e) {
-    String screenShotPath = (('ExtentReports/' + TestCaseName) + GlobalVariable.G_Browser) + '.png'
-
-    WebUI.takeScreenshot(screenShotPath)
-
- 	String p =TestCaseName+GlobalVariable.G_Browser+'.png'
-	extentTest.log(LogStatus.FAIL,ex)
-	extentTest.log(LogStatus.FAIL,extentTest.addScreenCapture(p))
-
-
-    KeywordUtil.markFailed('ERROR: ' + e)
-} 
-finally { 
-    extent.endTest(extentTest)
-
-    extent.flush()
+	println('From TC - ' + GlobalVariable.G_ReportFolder)
+ 
+	String screenShotPath = (('ExtentReports/' + TestCaseName) + GlobalVariable.G_Browser) + '.png'
+ 
+	WebUI.takeScreenshot(screenShotPath)
+ 
+	String p = (TestCaseName + GlobalVariable.G_Browser) + '.png'
+ 
+	extentTest.log(Status.FAIL, ex)
+ 
+	extentTest.fail(MediaEntityBuilder.createScreenCaptureFromPath(p).build())
 }
+catch (StepErrorException e) {
+	String screenShotPath = (('ExtentReports/' + TestCaseName) + GlobalVariable.G_Browser) + '.png'
+ 
+	WebUI.takeScreenshot(screenShotPath)
+ 
+	String p = (TestCaseName + GlobalVariable.G_Browser) + '.png'
+ 
+	extentTest.log(Status.FAIL, ex)
+ 
+	extentTest.fail(MediaEntityBuilder.createScreenCaptureFromPath(p).build())
+}
+finally {
+	extentTest.log(Status.PASS, 'Closing the browser after executinge test case - ' + TestCaseName)
+
+}
+//=====================================================================================
 

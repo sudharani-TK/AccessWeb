@@ -3,6 +3,7 @@
    <description></description>
    <name>TestDataForBookMarks</name>
    <tag></tag>
+   <connectionProperties/>
    <containsHeaders>true</containsHeaders>
    <csvSeperator></csvSeperator>
    <dataFileGUID>ac2f98de-51d1-4323-b551-4f9680771133</dataFileGUID>

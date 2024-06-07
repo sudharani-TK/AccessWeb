@@ -3,6 +3,7 @@
    <description></description>
    <name>FolderOps</name>
    <tag></tag>
+   <connectionProperties/>
    <containsHeaders>true</containsHeaders>
    <csvSeperator></csvSeperator>
    <dataFileGUID>cdf78509-2e96-4585-8289-02b4066c7867</dataFileGUID>

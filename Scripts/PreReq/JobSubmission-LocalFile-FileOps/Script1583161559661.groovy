@@ -41,13 +41,13 @@ try {
 	extentTest.log(LogStatus.PASS, 'Navigated Job Tab')
 	WebUI.delay(2)
 
-	TestObject newAppObj = WebUI.modifyObjectProperty(findTestObject('NewJobPage/AppList_ShellScript'), 'id', 'equals',
+	TestObject newAppObj = WebUI.modifyObjectProperty(findTestObject('LoginPage/NewJobPage/AppList_ShellScript'), 'id', 'equals',
 			AppName, true)
 
 	WebUI.click(newAppObj)
 	extentTest.log(LogStatus.PASS, 'Navigated to Job Submission For for - '+AppName)
 
-	WebUI.click(findTestObject('Object Repository/NewJobPage/GenericProfile'))
+	WebUI.click(findTestObject('Object Repository/LoginPage/NewJobPage/GenericProfile'))
 	WebUI.delay(2)
 
 

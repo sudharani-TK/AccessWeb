@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement
 import org.openqa.selenium.remote.RemoteWebElement
 
 import com.kms.katalon.core.annotation.Keyword
-import com.relevantcodes.extentreports.LogStatus
+import com.aventstack.extentreports.Status
 
 
 public class tryPAW {
@@ -19,7 +19,6 @@ public class tryPAW {
 		if (namesOfFiles.contains('ToDownload_LV.txt')) {
 			println('success')
 			//extentTest.log(LogStatus.PASS, 'file to downloaded ')
-
 		} else {
 			println('fail')
 		}

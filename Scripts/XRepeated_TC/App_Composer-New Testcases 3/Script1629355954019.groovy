@@ -51,7 +51,7 @@ try
 	WebUI.delay(2)
 	//WebUI.click(findTestObject('GenericObjects/TitleLink_Jobs'))
 
-	WebUI.click(findTestObject('Preferences/Profiletab'))
+	WebUI.click(findTestObject('PageNavigation/Preferences/Profiletab'))
 	extentTest.log(LogStatus.PASS, 'Click on profile tab')
 	WebUI.delay(2)
 

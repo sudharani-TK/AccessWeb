@@ -18,7 +18,7 @@
       <variableId>edbdda98-3662-45dc-9cca-c374182f15b5</variableId>
    </variableLinks>
    <variable>
-      <defaultValue>''</defaultValue>
+      <defaultValue>'Custom Actions'</defaultValue>
       <description></description>
       <id>36613ca7-02ff-44ad-a63a-66d42a1fca50</id>
       <masked>false</masked>

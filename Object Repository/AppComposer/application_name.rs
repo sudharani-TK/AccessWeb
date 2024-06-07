@@ -11,7 +11,7 @@
       </entry>
       <entry>
          <key>BASIC</key>
-         <value>//*[@tage = 'a' and @title = 'Test123File_1']</value>
+         <value>//div[@data-automation-id = 'TestSaved']</value>
       </entry>
    </selectorCollection>
    <selectorMethod>BASIC</selectorMethod>
@@ -21,13 +21,15 @@
       <matchCondition>equals</matchCondition>
       <name>tag</name>
       <type>Main</type>
-      <value>a</value>
+      <value>div</value>
+      <webElementGuid>6467f401-fd71-4e2e-9e98-cacbd9d7da5d</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
-      <name>title</name>
+      <name>data-automation-id</name>
       <type>Main</type>
-      <value>Test123File_1</value>
+      <value>TestSaved</value>
+      <webElementGuid>7e50029f-7d41-4a81-a19a-9eccaafa3ee6</webElementGuid>
    </webElementProperties>
 </WebElementEntity>

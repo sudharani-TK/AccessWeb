@@ -13,7 +13,8 @@ import com.kms.katalon.core.annotation.Keyword
 import com.kms.katalon.core.configuration.RunConfiguration
 import com.kms.katalon.core.testobject.TestObject
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
-import com.relevantcodes.extentreports.LogStatus
+import com.aventstack.extentreports.MediaEntityBuilder
+import com.aventstack.extentreports.Status
 import internal.GlobalVariable
 
 public class getRowDetails_Jobdetails {
@@ -23,7 +24,7 @@ public class getRowDetails_Jobdetails {
 		String myXpath=null;
 		String myText=null;
 		WebUI.delay(5)
-		def LogStatus = com.relevantcodes.extentreports.LogStatus
+		
 
 
 		myXpath="//div[@col-id='name']"
@@ -41,7 +42,7 @@ public class getRowDetails_Jobdetails {
 			println (ele.getText())
 			if(myText.toLowerCase().contains(searchStr.toLowerCase())) {
 				println("PASS")
-				extentTest.log(LogStatus.PASS, 'Current row in files table - '+i + '- file name - '+myText)
+				extentTest.log(Status.PASS, 'Current row in files table - '+i + '- file name - '+myText)
 			}
 			else {
 				println("FAIL")
@@ -51,11 +52,9 @@ public class getRowDetails_Jobdetails {
 
 
 	@Keyword
-	def getFileLine(WebDriver katalonWebDriver,extentTest)
-
-	{
+	def getFileLine(WebDriver katalonWebDriver,extentTest) {
 		String myText
-		def LogStatus = com.relevantcodes.extentreports.LogStatus
+		def Status = com.relevantcodes.extentreports.Status
 		def myXpath="//div[@id='brace-editor']//textarea"
 		List<WebElement> listElement = katalonWebDriver.findElements(By.xpath(myXpath))
 		def num=listElement.size()
@@ -73,7 +72,6 @@ public class getRowDetails_Jobdetails {
 		RemoteWebElement ele = listElement.get(num)
 		ele.sendKeys("new line added")
 		ele.sendKeys('\n')
-
 	}
 
 
@@ -83,8 +81,8 @@ public class getRowDetails_Jobdetails {
 		String myXpath=null;
 		String myText=null;
 		WebUI.delay(5)
-		def LogStatus = com.relevantcodes.extentreports.LogStatus
-		def result
+		def Status = com.relevantcodes.extentreports.Status
+		def result= false
 		String item=null
 
 		if(TestCaseName.contains('tile view')) {
@@ -102,19 +100,17 @@ public class getRowDetails_Jobdetails {
 		println listElement.size()
 		println("-------------------------------------")
 		def x=listElement.size()
-		extentTest.log(LogStatus.PASS, ' Number of files listied on this page - '+x)
+		extentTest.log(Status.PASS, ' Number of files listied on this page - '+x)
 
 		RemoteWebElement ele = listElement.get(1)
 		myText=ele.getText()
-		extentTest.log(LogStatus.PASS, 'Name of first file - '+myText)
+		extentTest.log(Status.PASS, 'Name of first file - '+myText)
 		x=x-1
 		RemoteWebElement ele1 = listElement.get(x)
 		myText=ele1.getText()
-		extentTest.log(LogStatus.PASS, 'Name of last file - '+myText)
+		extentTest.log(Status.PASS, 'Name of last file - '+myText)
 
 		result =true
 		return result
 	}
-
-
 }

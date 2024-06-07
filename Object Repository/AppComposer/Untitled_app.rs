@@ -7,13 +7,29 @@
    <selectorCollection>
       <entry>
          <key>BASIC</key>
-         <value></value>
+         <value>//div[@data-automation-id = 'Untitled']</value>
       </entry>
       <entry>
          <key>XPATH</key>
          <value>//a[contains(text(),'Untitled')]</value>
       </entry>
    </selectorCollection>
-   <selectorMethod>XPATH</selectorMethod>
+   <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>tag</name>
+      <type>Main</type>
+      <value>div</value>
+      <webElementGuid>6acc76b2-d583-42b8-b222-674ab6d95031</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>data-automation-id</name>
+      <type>Main</type>
+      <value>Untitled</value>
+      <webElementGuid>de05f6c2-5571-4c3e-b73c-926b940479fc</webElementGuid>
+   </webElementProperties>
 </WebElementEntity>

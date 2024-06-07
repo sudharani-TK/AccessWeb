@@ -6,12 +6,12 @@
    <elementGuidId>db477d1c-2ae1-49ea-bb81-3d7a7c345c59</elementGuidId>
    <selectorCollection>
       <entry>
-         <key>XPATH</key>
-         <value>//div[contains(text(),'bar.fem')]</value>
-      </entry>
-      <entry>
          <key>BASIC</key>
          <value></value>
+      </entry>
+      <entry>
+         <key>XPATH</key>
+         <value>//label[contains(text(),'bar.fem')]</value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>

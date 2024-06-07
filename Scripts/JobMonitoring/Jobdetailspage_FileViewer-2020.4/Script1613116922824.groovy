@@ -24,7 +24,7 @@ WebUI.delay(2)
 try
 {
 	WebUI.delay(2)
-		def jobsTab = CustomKeywords.'customWait.WaitForElement.WaitForelementPresent'(findTestObject('NewJobPage/AppList_ShellScript'),
+		def jobsTab = CustomKeywords.'customWait.WaitForElement.WaitForelementPresent'(findTestObject('LoginPage/NewJobPage/AppList_ShellScript'),
 		20,extentTest,'App def')
 
 	if (jobsTab) {
@@ -41,7 +41,7 @@ try
 
 	WebUI.click(findTestObject('JobMonitoringPage/JM_SearchBox'))
 	//WebUI.setText(findTestObject('JobMonitoringPage/JM_SearchBox'),AllJobsUser)
-	WebUI.sendKeys(findTestObject('JobMonitoringPage/JM_SearchBox'), 'Ops')
+	WebUI.sendKeys(findTestObject('JobMonitoringPage/JM_SearchBox'), 'RunJob')
 
 	TestObject newJobFilter = WebUI.modifyObjectProperty(findTestObject('JobMonitoringPage/label_jobState'), 'text', 'equals',
 			jobState, true)
@@ -71,7 +71,8 @@ try
 
 		case 'Output':
 		WebUI.click(findTestObject('JobMonitoringPage/OutputFolder'))
-			WebUI.waitForElementVisible(findTestObject('JobMonitoringPage/OutputFolder'), 5)
+		extentTest.log(LogStatus.PASS, 'Click on Output Folder')
+			//WebUI.waitForElementVisible(findTestObject('JobMonitoringPage/OutputFolder'), 5)
 		//WebUI.rightClick(findTestObject('JobMonitoringPage/OutputFolder_File'))
 			break;
 
@@ -82,7 +83,7 @@ try
 
 			break;
 	}
-	TestObject newFileObj = WebUI.modifyObjectProperty(findTestObject('FilesPage/RowItem_File_ListView'), 'title', 'equals',
+	TestObject newFileObj = WebUI.modifyObjectProperty(findTestObject('FilesPage/RowItem_File_ListView'), 'data-automation-id', 'equals',
 		fileName, true)
 
 
@@ -102,9 +103,13 @@ if (fileItem) {
 
 WebUI.delay(2)
 
-WebUI.click(findTestObject('FilesPage/ContextMenu_FileOperation_Open'))
+//WebUI.click(findTestObject('FilesPage/ContextMenu_FileOperation_Open'))
 
-WebUI.verifyElementNotPresent(findTestObject('2020.4/ProcessWith'), 3)
+boolean processWithNotPresent=WebUI.verifyElementNotPresent(findTestObject('2020.4/ProcessWith'), 3)
+if(processWithNotPresent) {
+	extentTest.log(LogStatus.PASS, 'verified processWith not present in job details page')
+}
+
 
 	//result=CustomKeywords.'operations_JobsModule.executeJobAction_JobFiles.perfromJobAction'(jobAction,TestCaseName,extentTest,userChoice)
 

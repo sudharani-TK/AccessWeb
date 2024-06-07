@@ -6,6 +6,10 @@
    <elementGuidId>27b49483-fef3-4b56-909a-7812b56ea61f</elementGuidId>
    <selectorCollection>
       <entry>
+         <key>BASIC</key>
+         <value>//span[(text() = 'New Folder' or . = 'New Folder')]</value>
+      </entry>
+      <entry>
          <key>XPATH</key>
          <value>//a[@id='new_folder_menu']</value>
       </entry>
@@ -17,28 +21,16 @@
       <matchCondition>equals</matchCondition>
       <name>tag</name>
       <type>Main</type>
-      <value>a</value>
-   </webElementProperties>
-   <webElementProperties>
-      <isSelected>true</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>id</name>
-      <type>Main</type>
-      <value>new_folder_menu</value>
+      <value>span</value>
+      <webElementGuid>b9e1ceb9-161a-44cb-b809-9b042ce2dc66</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>text</name>
       <type>Main</type>
-      <value>Folder</value>
-   </webElementProperties>
-   <webElementProperties>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath</name>
-      <type>Main</type>
-      <value>id(&quot;new_folder_menu&quot;)</value>
+      <value>New Folder</value>
+      <webElementGuid>7a6ebd65-7f22-4a3a-b960-4f36d5012554</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
@@ -46,6 +38,7 @@
       <name>xpath:attributes</name>
       <type>Main</type>
       <value>//a[@id='new_folder_menu']</value>
+      <webElementGuid>d3beb774-ccfb-4fc1-9d89-6dac43e21410</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -53,6 +46,7 @@
       <name>xpath:idRelative</name>
       <type>Main</type>
       <value>//li[@id='new_folder_menu_item_for_drop_down focus_enable_class']/a</value>
+      <webElementGuid>f355007d-8d89-4514-b067-4b992d9f26ac</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -60,6 +54,7 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='Upload File'])[1]/following::a[2]</value>
+      <webElementGuid>0782853f-35d6-428f-a8c5-a62ebc408f0e</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -67,6 +62,7 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='File'])[1]/preceding::a[1]</value>
+      <webElementGuid>14741f81-73de-40ce-9d84-013deb03e086</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -74,5 +70,6 @@
       <name>xpath:position</name>
       <type>Main</type>
       <value>//span[2]/div/ul/li/a</value>
+      <webElementGuid>6e4e5889-1dd2-49ce-9eb4-b9f8ee3ee261</webElementGuid>
    </webElementXpaths>
 </WebElementEntity>

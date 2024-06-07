@@ -7,7 +7,7 @@
    <selectorCollection>
       <entry>
          <key>BASIC</key>
-         <value>//div[(text() = 'bar.fem' or . = 'bar.fem')]</value>
+         <value>//div[@data-automation-id = 'bar.fem']</value>
       </entry>
       <entry>
          <key>XPATH</key>
@@ -22,12 +22,14 @@
       <name>tag</name>
       <type>Main</type>
       <value>div</value>
+      <webElementGuid>8df950df-4d41-47ff-b9ea-52662f49c7a0</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
-      <name>text</name>
+      <name>data-automation-id</name>
       <type>Main</type>
       <value>bar.fem</value>
+      <webElementGuid>a0535533-5cfa-4106-8e21-bb10a9a84505</webElementGuid>
    </webElementProperties>
 </WebElementEntity>

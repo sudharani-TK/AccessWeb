@@ -48,7 +48,7 @@ def LogStatus = com.relevantcodes.extentreports.LogStatus
 def extentTest = extent.startTest(TestCaseName)
 CustomKeywords.'toLogin.ForLogin.Login'(extentTest)
 
-def result
+def result=false
 WebUI.delay(2)
 
 try
@@ -62,11 +62,11 @@ try
 	WebUI.delay(2)
 	
 	switch(userChoice)
-	{   
+	{
 		case'Edit':
 		
-		WebUI.waitForElementVisible(findTestObject('Cluster_Registration/Available'), 10)
-	    WebUI.rightClick(findTestObject('Cluster_Registration/Available'))
+		
+		WebUI.rightClick(findTestObject('Cluster_Registration/Available'))
 		WebUI.delay(3)
 		WebUI.click(findTestObject('Cluster_Registration/Edit'))
 		extentTest.log(LogStatus.PASS, 'Edit Existing Cluster')
@@ -77,25 +77,26 @@ try
 		WebUI.delay(3)
 		WebUI.click(findTestObject('Cluster_Registration/Addrootdir'))
 			
-        WebUI.click(findTestObject('Cluster_Registration/root_dir1'))
+		WebUI.click(findTestObject('Cluster_Registration/root_dir1'))
 		WebUI.setText(findTestObject('Cluster_Registration/root_dir1'),rootdir1)
 		extentTest.log(LogStatus.PASS, 'Click on add root dir')
+		WebUI.waitForElementVisible(findTestObject('Object Repository/Cluster_Registration/Network_HPC'), 20, FailureHandling.STOP_ON_FAILURE)
 		
 		WebUI.click(findTestObject('Cluster_Registration/Add_Server'))
 		extentTest.log(LogStatus.PASS, 'Click on add server')
 		/*
 		
-		def submitBtn = CustomKeywords.'customWait.WaitForElement.WaitForelementPresent'(findTestObject('Cluster_Registration/Add_Server'), 
-        30 , extentTest , 'add server')
+		def submitBtn = CustomKeywords.'customWait.WaitForElement.WaitForelementPresent'(findTestObject('Cluster_Registration/Add_Server'),
+		30 , extentTest , 'add server')
 
-    if (submitBtn) {
-        
+	if (submitBtn) {
+		
 		WebUI.mouseOver(findTestObject('Cluster_Registration/Manageservice'))
 		WebUI.click(findTestObject('Cluster_Registration/Manageservice'))
 		extentTest.log(LogStatus.PASS, 'Click on Manage Service')
 
-        
-    }
+		
+	}
 	*/
 	//WebUI.click(findTestObject('Cluster_Registration/File'))
 	//WebUI.verifyElementPresent(findTestObject('Cluster_Registration/Homedir'), 5)
@@ -111,12 +112,12 @@ try
 		WebUI.delay(3)
 		WebUI.click(findTestObject('Cluster_Registration/Edit'))
 		extentTest.log(LogStatus.PASS, 'Edit Existing Cluster')
-		WebUI.verifyElementPresent(findTestObject('Cluster_Registration/root_dir1'), 3)
+		WebUI.verifyElementPresent(findTestObject('Cluster_Registration/root_dir1'), 7)
 	break
 	
 	case'cancel Edit':
 	
-	    WebUI.delay(3)
+		WebUI.delay(3)
 		WebUI.rightClick(findTestObject('Cluster_Registration/Available'))
 		WebUI.delay(2)
 		WebUI.click(findTestObject('Cluster_Registration/Edit'))

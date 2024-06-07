@@ -6,12 +6,11 @@
    <elementGuidId>ccc2e1fb-e9ad-4d6c-80bb-e3db8de010e7</elementGuidId>
    <selectorCollection>
       <entry>
-         <key>XPATH</key>
-         <value></value>
-      </entry>
-      <entry>
          <key>BASIC</key>
          <value>//input[@id = 'folder_upload_element_dirview']</value>
+      </entry>
+      <entry>
+         <key>XPATH</key>
       </entry>
    </selectorCollection>
    <selectorMethod>BASIC</selectorMethod>
@@ -22,7 +21,7 @@
       <name>tag</name>
       <type>Main</type>
       <value>input</value>
-      <webElementGuid>87f4d2e8-f25a-4175-b66e-3e5dcd28af18</webElementGuid>
+      <webElementGuid>b6426b80-1ccd-4c9f-99c2-d222600bdc8f</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -30,6 +29,6 @@
       <name>id</name>
       <type>Main</type>
       <value>folder_upload_element_dirview</value>
-      <webElementGuid>a4915a9d-4b4e-41fe-9246-2db4afc8be19</webElementGuid>
+      <webElementGuid>b9a74666-672c-4b4f-8fbe-6190f8d24578</webElementGuid>
    </webElementProperties>
 </WebElementEntity>

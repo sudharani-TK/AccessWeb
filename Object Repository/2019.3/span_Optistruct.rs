@@ -4,21 +4,29 @@
    <name>span_Optistruct</name>
    <tag></tag>
    <elementGuidId>e8821141-f865-429e-bde1-89f593e64274</elementGuidId>
+   <selectorCollection>
+      <entry>
+         <key>BASIC</key>
+         <value>//span[@data-automation-id = 'Optistruct-Last Submitted']</value>
+      </entry>
+   </selectorCollection>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
-      <isSelected>false</isSelected>
+      <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>tag</name>
       <type>Main</type>
       <value>span</value>
+      <webElementGuid>fa776126-021e-4a4a-962b-7bbaee016886</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
-      <name>id</name>
+      <name>data-automation-id</name>
       <type>Main</type>
-      <value>Optistruct</value>
+      <value>Optistruct-Last Submitted</value>
+      <webElementGuid>7002ce7a-3d80-4518-bd89-ad1eb65f5a03</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -26,20 +34,23 @@
       <name>class</name>
       <type>Main</type>
       <value>contextLabel show-text-ellipsis retain-whitespace</value>
+      <webElementGuid>d57b1b96-01a2-4356-9dd3-d306f346b7b5</webElementGuid>
    </webElementProperties>
    <webElementProperties>
-      <isSelected>true</isSelected>
+      <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>title</name>
       <type>Main</type>
       <value>Optistruct</value>
+      <webElementGuid>268cb06b-d06f-46ea-95cc-85be2ffc8166</webElementGuid>
    </webElementProperties>
    <webElementProperties>
-      <isSelected>true</isSelected>
+      <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>text</name>
       <type>Main</type>
       <value>Optistruct</value>
+      <webElementGuid>6af6697c-9c8b-4dbe-9698-468a36c1fd82</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -47,6 +58,7 @@
       <name>xpath</name>
       <type>Main</type>
       <value>id(&quot;Optistruct&quot;)</value>
+      <webElementGuid>e51f6221-ff96-4e33-a968-88a64bd64de1</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
@@ -54,6 +66,7 @@
       <name>xpath:attributes</name>
       <type>Main</type>
       <value>//span[@id='Optistruct']</value>
+      <webElementGuid>c3b74d5f-5c8a-4a67-aac3-0ec1975ddb3c</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -61,6 +74,7 @@
       <name>xpath:idRelative</name>
       <type>Main</type>
       <value>//div[@id='file_list_run_solver-0']/span</value>
+      <webElementGuid>4ac059ca-dbf6-4820-b315-49919fce098c</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -68,6 +82,7 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='Process With'])[1]/following::span[1]</value>
+      <webElementGuid>5541e306-46e9-43cc-b77d-584fe3d1f997</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -75,6 +90,7 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='Last'])[1]/following::span[2]</value>
+      <webElementGuid>7723e12e-6b8b-4b6d-8bd2-0f9b50c6610b</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -82,6 +98,7 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='Optistruct-Last Submitted'])[1]/preceding::span[1]</value>
+      <webElementGuid>e170440f-7e5f-4805-886d-729dbac14e42</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -89,6 +106,7 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='Optistruct-OptiPro'])[1]/preceding::span[2]</value>
+      <webElementGuid>3d6d74d6-6065-45fe-bb0d-1f11932e91ee</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -96,6 +114,7 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>//*/text()[normalize-space(.)='Optistruct']/parent::*</value>
+      <webElementGuid>818a559d-6ae6-4e81-b3ee-989615235530</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -103,5 +122,6 @@
       <name>xpath:position</name>
       <type>Main</type>
       <value>//nav/nav/div/div/span</value>
+      <webElementGuid>2c989f6d-e676-4ff0-a065-4f7285b16cf2</webElementGuid>
    </webElementXpaths>
 </WebElementEntity>

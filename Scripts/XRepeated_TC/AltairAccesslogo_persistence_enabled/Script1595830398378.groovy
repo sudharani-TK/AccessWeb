@@ -33,20 +33,20 @@ try {
 	     
 	case 'Persistence Off':
 	    
-	    WebUI.click(findTestObject('Preferences/Profiletab'))
+	    WebUI.click(findTestObject('PageNavigation/Preferences/Profiletab'))
 	    extentTest.log(LogStatus.PASS, 'Click on profile tab')
 
-	    WebUI.click(findTestObject('Preferences/Preference'))
+	    WebUI.click(findTestObject('PageNavigation/Preferences/Preference'))
 	    extentTest.log(LogStatus.PASS, 'Click on preference')
 
-	    TestObject	 prefer = WebUI.modifyObjectProperty(findTestObject('Preferences/Choice'), 'text', 'equals',
+	    TestObject	 prefer = WebUI.modifyObjectProperty(findTestObject('PageNavigation/Preferences/Choice'), 'text', 'equals',
 	    preference, true)
 	    WebUI.click(prefer)
 	    extentTest.log(LogStatus.PASS, 'Click on persistence')
 		
 		
 		
-		WebUI.click(findTestObject('Preferences/Back'))
+		WebUI.click(findTestObject('PageNavigation/Preferences/Back'))
 		extentTest.log(LogStatus.PASS, 'Click on back')
 		
 		WebUI.delay(2)
@@ -72,30 +72,30 @@ try {
 		
 		WebUI.waitForElementVisible(findTestObject('JobMonitoringPage/OutputFolder_File'), 5)
 		
-		WebUI.click(findTestObject('Preferences/Sessions'))
+		WebUI.click(findTestObject('PageNavigation/Preferences/Sessions'))
 		WebUI.click(findTestObject('GenericObjects/TitleLink_Jobs'))
 		WebUI.delay(2)
-		WebUI.verifyElementPresent(findTestObject('Preferences/Appdef'), 5)
+		WebUI.verifyElementPresent(findTestObject('PageNavigation/Preferences/Appdef'), 5)
 		extentTest.log(LogStatus.PASS, 'Verify app def is present hence user is on Jobs Tab')
 	    break
 		
 	case 'Persistence On':
 	    
-	WebUI.click(findTestObject('Preferences/Profiletab'))
+	WebUI.click(findTestObject('PageNavigation/Preferences/Profiletab'))
 	extentTest.log(LogStatus.PASS, 'Click on profile tab')
 
-	WebUI.click(findTestObject('Preferences/Preference'))
+	WebUI.click(findTestObject('PageNavigation/Preferences/Preference'))
 	extentTest.log(LogStatus.PASS, 'Click on preference')
 
-	TestObject	 prefer = WebUI.modifyObjectProperty(findTestObject('Preferences/Choice'), 'text', 'equals',
+	TestObject	 prefer = WebUI.modifyObjectProperty(findTestObject('PageNavigation/Preferences/Choice'), 'text', 'equals',
 	preference, true)
 	WebUI.click(prefer)
 	extentTest.log(LogStatus.PASS, 'Click on preference')
 	
-	WebUI.click(findTestObject('Preferences/Tickmark'))
+	WebUI.click(findTestObject('PageNavigation/Preferences/Tickmark'))
 	extentTest.log(LogStatus.PASS, 'Click on Tickmark')
 	
-	WebUI.click(findTestObject('Preferences/Back'))
+	WebUI.click(findTestObject('PageNavigation/Preferences/Back'))
 	
 	TestObject newJobFilter = WebUI.modifyObjectProperty(findTestObject('JobMonitoringPage/label_jobState'), 'text', 'equals',
 		jobState, true)
@@ -126,18 +126,18 @@ extentTest.log(LogStatus.PASS, 'Click on view details jobs ')
 		
 	case 'RVS':
 	    
-	    WebUI.click(findTestObject('Preferences/Profiletab'))
+	    WebUI.click(findTestObject('PageNavigation/Preferences/Profiletab'))
 	    extentTest.log(LogStatus.PASS, 'Click on profile tab')
 
-	    WebUI.click(findTestObject('Preferences/Preference'))
+	    WebUI.click(findTestObject('PageNavigation/Preferences/Preference'))
 	    extentTest.log(LogStatus.PASS, 'Click on preference')
 
-	    TestObject	 prefer = WebUI.modifyObjectProperty(findTestObject('Preferences/Choice'), 'text', 'equals',
+	    TestObject	 prefer = WebUI.modifyObjectProperty(findTestObject('PageNavigation/Preferences/Choice'), 'text', 'equals',
 	    preference, true)
 	    WebUI.click(prefer)
 	    extentTest.log(LogStatus.PASS, 'Click on preference')
 		
-		WebUI.verifyElementPresent(findTestObject('Preferences/Autorefreshtime'), 5)
+		WebUI.verifyElementPresent(findTestObject('PageNavigation/Preferences/Autorefreshtime'), 5)
 		extentTest.log(LogStatus.PASS, 'Verify autorefresh time')
 	    
 	    break

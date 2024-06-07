@@ -34,7 +34,7 @@ public class jobSubmissionForPreReq {
 		}
 
 
-		WebUI.click(findTestObject('Object Repository/NewJobPage/GenericProfile'))
+		WebUI.click(findTestObject('Object Repository/LoginPage/NewJobPage/GenericProfile'))
 		WebUI.delay(2)
 		WebUI.click(findTestObject('JobSubmissionForm/List_NCPUS'))
 		WebUI.setText(findTestObject('JobSubmissionForm/List_NCPUS'),'2')
@@ -107,11 +107,7 @@ public class jobSubmissionForPreReq {
 
 
 		String [] DirName = ['C1', 'R1', 'F1']
-		String [] ZipName = [
-			filePathOpsCom,
-			filePathOps,
-			filePathOps
-		]
+		String [] ZipName = [filePathOpsCom, filePathOps, filePathOps]
 		String [] NavFolder=['OpsCompleted', 'Ops', 'Ops']
 		int i =0
 
@@ -186,7 +182,7 @@ public class jobSubmissionForPreReq {
 
 			TestObject LeftNavAppIdentifier = (new buildTestObj.CreateTestObjJobs()).myLeftNavAppIdentifier('ShellScript')
 			WebUI.click(LeftNavAppIdentifier)
-			WebUI.click(findTestObject('Object Repository/NewJobPage/GenericProfile'))
+			WebUI.click(findTestObject('Object Repository/LoginPage/NewJobPage/GenericProfile'))
 			WebUI.click(findTestObject('Object Repository/JobSubmissionForm/Link_ResetLink'))
 			WebUI.click(findTestObject('Object Repository/JobMonitoringPage/button_Yes'))
 
@@ -200,17 +196,11 @@ public class jobSubmissionForPreReq {
 			WebUI.click(newFileObj)
 			WebUI.rightClick(newFileObj)
 			String idForCntxtMn = 'Add as Job Script'
-			TestObject newRFBContextMnOption = WebUI.modifyObjectProperty(findTestObject('Object Repository/NewJobPage/ContextMenu_RFB_FilePicker'),
+			TestObject newRFBContextMnOption = WebUI.modifyObjectProperty(findTestObject('Object Repository/LoginPage/NewJobPage/ContextMenu_RFB_FilePicker'),
 					'id', 'equals', idForCntxtMn, true)
 			WebUI.click(newRFBContextMnOption)
 			println('context menu ')
-			String [] JobFiles = [
-				'ToDelete.txt',
-				'ToOpen.txt',
-				'ToOpenWith.txt',
-				'ToRename.txt',
-				'ToEdit.txt'
-			]
+			String [] JobFiles = ['ToDelete.txt', 'ToOpen.txt', 'ToOpenWith.txt', 'ToRename.txt', 'ToEdit.txt']
 			int x=0
 			for (String name1:JobFiles) {
 				String JF =JobFiles[x]
@@ -221,7 +211,7 @@ public class jobSubmissionForPreReq {
 				WebUI.click(newJobFile)
 				WebUI.rightClick(newJobFile)
 				String idForCntxtMnJF = 'Add in Job Files'
-				TestObject newRFBContextMnOption1 = WebUI.modifyObjectProperty(findTestObject('Object Repository/NewJobPage/ContextMenu_RFB_FilePicker'),
+				TestObject newRFBContextMnOption1 = WebUI.modifyObjectProperty(findTestObject('Object Repository/LoginPage/NewJobPage/ContextMenu_RFB_FilePicker'),
 						'id', 'equals', idForCntxtMnJF, true)
 				WebUI.click(newRFBContextMnOption1)
 				x=x+1
@@ -262,7 +252,7 @@ public class jobSubmissionForPreReq {
 			WebUI.click(findTestObject('Object Repository/JobSubmissionForm/button_Close'))
 		}
 
-		WebUI.click(findTestObject('Object Repository/NewJobPage/GenericProfile'))
+		WebUI.click(findTestObject('Object Repository/LoginPage/NewJobPage/GenericProfile'))
 		WebUI.delay(2)
 		WebUI.click(findTestObject('JobSubmissionForm/List_NCPUS'))
 

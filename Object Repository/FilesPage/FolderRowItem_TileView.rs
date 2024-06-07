@@ -6,12 +6,12 @@
    <elementGuidId>f17719c0-211a-4767-8fc7-26f17f8238b6</elementGuidId>
    <selectorCollection>
       <entry>
-         <key>XPATH</key>
-         <value>//div[@title='ToDeleteMyFolder']</value>
+         <key>BASIC</key>
+         <value>//*[@data-automation-id = 'MyFolder']</value>
       </entry>
       <entry>
-         <key>BASIC</key>
-         <value>//label[@title = 'MyFolder']</value>
+         <key>XPATH</key>
+         <value>//div[@title='ToDeleteMyFolder']</value>
       </entry>
    </selectorCollection>
    <selectorMethod>BASIC</selectorMethod>
@@ -19,37 +19,10 @@
    <webElementProperties>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
-      <name>tag</name>
-      <type>Main</type>
-      <value>label</value>
-   </webElementProperties>
-   <webElementProperties>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>class</name>
-      <type>Main</type>
-      <value>show-text-ellipsis retain-whitespace</value>
-   </webElementProperties>
-   <webElementProperties>
-      <isSelected>true</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>title</name>
+      <name>data-automation-id</name>
       <type>Main</type>
       <value>MyFolder</value>
-   </webElementProperties>
-   <webElementProperties>
-      <isSelected>false</isSelected>
-      <matchCondition>contains</matchCondition>
-      <name>text</name>
-      <type>Main</type>
-      <value>MyFolder</value>
-   </webElementProperties>
-   <webElementProperties>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath</name>
-      <type>Main</type>
-      <value>id(&quot;fileviewer_filelist_table&quot;)/div[@class=&quot;grey-theme&quot;]/div[@class=&quot;react-grid-Container&quot;]/div[@class=&quot;react-grid-Main&quot;]/div[@class=&quot;react-grid-Grid&quot;]/div[2]/div[@class=&quot;react-grid-Viewport&quot;]/div[@class=&quot;react-grid-Canvas&quot;]/div[1]/div[@class=&quot;show-focus-border row-renderer-custom&quot;]/div[@class=&quot;react-grid-Row react-grid-Row--even&quot;]/div[@class=&quot;hola&quot;]/div[@class=&quot;react-grid-Cell&quot;]/div[@class=&quot;react-grid-Cell__value&quot;]/div[1]/span[1]/div[1]/div[@class=&quot;show-text-ellipsis retain-whitespace&quot;]</value>
+      <webElementGuid>eb7dc6b7-c9e4-4a0b-8963-0990d1dfe4ed</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
@@ -57,6 +30,7 @@
       <name>xpath:idRelative</name>
       <type>Main</type>
       <value>//div[@id='fileviewer_filelist_table']/div/div/div/div/div[2]/div/div/div/div/div/div/div/div/div/span/div/div</value>
+      <webElementGuid>9b8e13c9-2092-4620-8eed-9c4c0de278ba</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -64,6 +38,7 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='File Size'])[1]/following::div[18]</value>
+      <webElementGuid>f89ab4b4-a7b7-4934-a656-3aa8145d10dc</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -71,6 +46,7 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='Owner'])[1]/following::div[22]</value>
+      <webElementGuid>951dea5d-020e-40ba-841d-2eaac1d9e632</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -78,6 +54,7 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='pbsadmin'])[3]/preceding::div[7]</value>
+      <webElementGuid>4c60362d-1400-4ee8-8404-1af1f9a2ab43</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -85,6 +62,7 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='Myfile1'])[1]/preceding::div[25]</value>
+      <webElementGuid>86cc3c8a-05f6-46fd-976b-0873661e3919</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -92,5 +70,6 @@
       <name>xpath:position</name>
       <type>Main</type>
       <value>//div/span/div/div</value>
+      <webElementGuid>f2cbc533-251f-479c-90a2-503a05d4df22</webElementGuid>
    </webElementXpaths>
 </WebElementEntity>

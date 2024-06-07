@@ -55,7 +55,7 @@ try {
 
 	WebUI.delay(2)
 
-	TestObject newAppObj = WebUI.modifyObjectProperty(findTestObject('NewJobPage/AppList_ShellScript'), 'id', 'equals',
+	TestObject newAppObj = WebUI.modifyObjectProperty(findTestObject('LoginPage/NewJobPage/AppList_ShellScript'), 'id', 'equals',
 		AppName, true)
 
 	WebUI.click(newAppObj)
@@ -72,7 +72,7 @@ try {
 		WebUI.click(findTestObject('Object Repository/JobSubmissionForm/button_Close'))
 	}
 	
-	WebUI.click(findTestObject('Object Repository/NewJobPage/GenericProfile'))
+	WebUI.click(findTestObject('Object Repository/LoginPage/NewJobPage/GenericProfile'))
 
 	WebUI.delay(2)
 
@@ -99,7 +99,7 @@ try {
 
 		String idForCntxtMn = 'Add as ' + FileArg
 
-		TestObject newRFBContextMnOption = WebUI.modifyObjectProperty(findTestObject('Object Repository/NewJobPage/ContextMenu_RFB_FilePicker'),
+		TestObject newRFBContextMnOption = WebUI.modifyObjectProperty(findTestObject('Object Repository/LoginPage/NewJobPage/ContextMenu_RFB_FilePicker'),
 			'id', 'equals', idForCntxtMn, true)
 
 		WebUI.click(newRFBContextMnOption)

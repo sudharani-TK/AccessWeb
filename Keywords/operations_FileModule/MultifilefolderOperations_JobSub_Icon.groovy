@@ -10,7 +10,8 @@ import com.kms.katalon.core.model.FailureHandling
 import com.kms.katalon.core.testobject.ConditionType as ConditionType
 import com.kms.katalon.core.testobject.TestObject
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
-import com.relevantcodes.extentreports.LogStatus
+import com.aventstack.extentreports.MediaEntityBuilder
+import com.aventstack.extentreports.Status
 
 
 import internal.GlobalVariable
@@ -26,7 +27,7 @@ public class MultifilefolderOperations_JobSub_Icon {
 		def e1 = sdf.format(date)
 		def e2 =sdf.format(date)
 		boolean result=false
-		def LogStatus = com.relevantcodes.extentreports.LogStatus
+
 		println ("Control in Keyword")
 		WebUI.delay(2)
 		switch (Operation) {
@@ -37,16 +38,16 @@ public class MultifilefolderOperations_JobSub_Icon {
 			case 'Delete':
 
 				WebUI.doubleClick(findTestObject('JobMonitoringPage/MultiFileFolder'))
-				extentTest.log(LogStatus.PASS, 'Double click on MultiFileFolder folder')
+				extentTest.log(Status.PASS, 'Double click on MultiFileFolder folder')
 				WebUI.delay(3)
 
 				WebUI.doubleClick(findTestObject('JobMonitoringPage/MultiFileFolder'))
-				extentTest.log(LogStatus.PASS, 'Double click on MultiFileFolder folder')
+				extentTest.log(Status.PASS, 'Double click on MultiFileFolder folder')
 				WebUI.delay(3)
 				WebUI.click(findTestObject('Object Repository/FilesPage/CheckBox_SelectAll-JS-RFB'))
-				extentTest.log(LogStatus.PASS, ' Click on select all ')
+				extentTest.log(Status.PASS, ' Click on select all ')
 				WebUI.rightClick(findTestObject('Object Repository/JobMonitoringPage/four'))
-				extentTest.log(LogStatus.PASS, 'Right click on folder to perform Delete operation')
+				extentTest.log(Status.PASS, 'Right click on folder to perform Delete operation')
 
 				TestObject newFileOp=WebUI.modifyObjectProperty(findTestObject('Object Repository/JobMonitoringPage/Resubmit_Icon'), 'text', 'equals', Operation, true)
 				WebUI.click(newFileOp)
@@ -64,15 +65,15 @@ public class MultifilefolderOperations_JobSub_Icon {
 
 			case 'Download':
 				WebUI.doubleClick(findTestObject('JobMonitoringPage/MultiFileFolder'))
-				extentTest.log(LogStatus.PASS, 'Double click on MultiFileFolder folder')
+				extentTest.log(Status.PASS, 'Double click on MultiFileFolder folder')
 				WebUI.delay(3)
 
 				WebUI.doubleClick(findTestObject('JobMonitoringPage/MultiFileFolder'))
-				extentTest.log(LogStatus.PASS, 'Double click on MultiFileFolder folder')
+				extentTest.log(Status.PASS, 'Double click on MultiFileFolder folder')
 				WebUI.click(findTestObject('Object Repository/FilesPage/CheckBox_SelectAll-JS-RFB'))
-				extentTest.log(LogStatus.PASS, ' Click on select all ')
+				extentTest.log(Status.PASS, ' Click on select all ')
 				WebUI.rightClick(findTestObject('JobMonitoringPage/RowItem_JobdDeails'))
-				extentTest.log(LogStatus.PASS, 'Right click on folder to perform Download operation using icon')
+				extentTest.log(Status.PASS, 'Right click on folder to perform Download operation using icon')
 
 				WebUI.click(findTestObject('Object Repository/JobMonitoringPage/Download_Icon'))
 
@@ -82,8 +83,7 @@ public class MultifilefolderOperations_JobSub_Icon {
 
 				if (namesOfFiles.contains('ToDownload.txt')) {
 					println('success')
-					//extentTest.log(LogStatus.PASS, 'file to downloaded ')
-
+					//extentTest.log(Status.PASS, 'file to downloaded ')
 				} else {
 					println('fail')
 				}
@@ -94,13 +94,13 @@ public class MultifilefolderOperations_JobSub_Icon {
 			case 'Resubmit':
 
 				WebUI.doubleClick(findTestObject('JobMonitoringPage/MultiFileFolder'))
-				extentTest.log(LogStatus.PASS, 'Double click on MultiFileFolder folder')
+				extentTest.log(Status.PASS, 'Double click on MultiFileFolder folder')
 				WebUI.delay(3)
 
 				WebUI.doubleClick(findTestObject('JobMonitoringPage/MultiFileFolder'))
-				extentTest.log(LogStatus.PASS, 'Double click on MultiFileFolder folder')
+				extentTest.log(Status.PASS, 'Double click on MultiFileFolder folder')
 				WebUI.click(findTestObject('Object Repository/FilesPage/CheckBox_SelectAll-JS-RFB'))
-				extentTest.log(LogStatus.PASS, ' Click on select all ')
+				extentTest.log(Status.PASS, ' Click on select all ')
 
 
 				TestObject newFileOp=WebUI.modifyObjectProperty(findTestObject('Object Repository/JobMonitoringPage/Resubmit_Icon'), 'text', 'equals', Operation, true)
@@ -110,26 +110,23 @@ public class MultifilefolderOperations_JobSub_Icon {
 
 				WebUI.click(findTestObject('JobSubmissionForm/button_Submit_Job'))
 
-				extentTest.log(LogStatus.PASS, 'Clicked on Submit Button ')
+				extentTest.log(Status.PASS, 'Clicked on Submit Button ')
 
 
 				WebUI.waitForElementPresent(findTestObject('Notificactions/Notification_JobSubmission'), 5)
 
 				def jobText = WebUI.getText(findTestObject('Notificactions/Notification_JobSubmission'))
 
-				extentTest.log(LogStatus.PASS, 'Notification Generated')
+				extentTest.log(Status.PASS, 'Notification Generated')
 
 				GlobalVariable.G_JobID=CustomKeywords.'operations_JobsModule.GetJobRowDetails.getJobID'(jobText)
 
-				extentTest.log(LogStatus.PASS, 'Job ID - ' + GlobalVariable.G_JobID)
+				extentTest.log(Status.PASS, 'Job ID - ' + GlobalVariable.G_JobID)
 
-				extentTest.log(LogStatus.PASS, 'Job Submission Done for - ' + TestCaseName)
+				extentTest.log(Status.PASS, 'Job Submission Done for - ' + TestCaseName)
 
 
 				break
-
-
-
 		}
 	}
 }

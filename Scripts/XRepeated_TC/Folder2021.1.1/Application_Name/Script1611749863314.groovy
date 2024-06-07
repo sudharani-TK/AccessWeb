@@ -21,7 +21,7 @@ WebUI.delay(2)
 try
 {
 	WebUI.delay(2)
-		def jobsTab = CustomKeywords.'customWait.WaitForElement.WaitForelementPresent'(findTestObject('NewJobPage/AppList_ShellScript'),
+		def jobsTab = CustomKeywords.'customWait.WaitForElement.WaitForelementPresent'(findTestObject('LoginPage/NewJobPage/AppList_ShellScript'),
 		20,extentTest,'App def')
 
 	if (jobsTab) {
@@ -35,10 +35,10 @@ try
 		case 'Preferences':
 			
 		
-		            WebUI.click(findTestObject('Preferences/Profiletab'))
+		            WebUI.click(findTestObject('PageNavigation/Preferences/Profiletab'))
 		            extentTest.log(LogStatus.PASS, 'Click on profile tab')
 
-		            WebUI.click(findTestObject('Preferences/Preference'))
+		            WebUI.click(findTestObject('PageNavigation/Preferences/Preference'))
 		            extentTest.log(LogStatus.PASS, 'Click on preference')
 					
 					def title = WebUI.getWindowTitle()
@@ -59,7 +59,7 @@ try
 			
 		case 'AccessMan':
 		    
-		            WebUI.click(findTestObject('Preferences/Profiletab'))
+		            WebUI.click(findTestObject('PageNavigation/Preferences/Profiletab'))
 		            extentTest.log(LogStatus.PASS, 'Click on profile tab')
 		            WebUI.delay(2)
 		
@@ -72,7 +72,7 @@ try
 		
 		case 'AppComposer':
 		
-		            WebUI.click(findTestObject('Preferences/Profiletab'))
+		            WebUI.click(findTestObject('PageNavigation/Preferences/Profiletab'))
 		            extentTest.log(LogStatus.PASS, 'Click on profile tab')
 		            WebUI.delay(2)
 	
@@ -86,7 +86,7 @@ try
 			
 		case 'Sessions':
 		            
-		            WebUI.click(findTestObject('Preferences/Sessions'))
+		            WebUI.click(findTestObject('PageNavigation/Preferences/Sessions'))
 					def title4 = WebUI.getWindowTitle()
 					print(title4)
 		

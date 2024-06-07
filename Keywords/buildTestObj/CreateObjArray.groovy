@@ -9,7 +9,7 @@ import com.kms.katalon.core.annotation.Keyword
 import com.kms.katalon.core.testobject.ConditionType as ConditionType
 import com.kms.katalon.core.testobject.TestObject
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
-import com.relevantcodes.extentreports.LogStatus
+import com.aventstack.extentreports.Status
 
 import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
 
@@ -24,7 +24,7 @@ public class CreateObjArray {
 		WebUI.click(findTestObject('FilesPage/FileViewer_Edit'))
 		List<WebElement> listElement = katalonWebDriver.findElements(By.xpath("//div[contains(@class, 'ace_line_group')]"))
 		println listElement.size()
-		extentTest.log(LogStatus.INFO, 'Number of filterd jobs '+ listElement.size() )
+		extentTest.log(Status.INFO, 'Number of filterd jobs '+ listElement.size() )
 		return true
 	}
 
@@ -33,14 +33,13 @@ public class CreateObjArray {
 	def grid(WebDriver katalonWebDriver , String dataAttribute , String FliterValue, extentTest  ) {
 
 		def fail=false
-		def LogStatus = com.relevantcodes.extentreports.LogStatus
 
 		List<WebElement> listElement = katalonWebDriver.findElements(By.xpath("//div[contains(@id, '_row')]"))
 		//List listElement = driver.findElements(By.xpath("//div[contains(@id, '_row')]"))
 		//List listElement = ((RemoteWebDriver) (((EventFiringWebDriver) driver).findElements(By.xpath("//div[contains(@id, '_row')]"))))
 
 		println listElement.size()
-		extentTest.log(LogStatus.INFO, 'Number of filterd jobs '+ listElement.size() )
+		extentTest.log(Status.INFO, 'Number of filterd jobs '+ listElement.size() )
 
 		for(int i =0;i<listElement.size();i++) {
 			RemoteWebElement ele = listElement.get(i)
@@ -59,7 +58,7 @@ public class CreateObjArray {
 			String CheckString=s1[0]
 
 			if(CheckString.equalsIgnoreCase(FliterValue)) {
-				extentTest.log(LogStatus.INFO, 'Filter value matched for '+ i + ' row in jobs table')
+				extentTest.log(Status.INFO, 'Filter value matched for '+ i + ' row in jobs table')
 			}
 			else {
 				fail=true

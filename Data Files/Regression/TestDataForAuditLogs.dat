@@ -3,6 +3,7 @@
    <description></description>
    <name>TestDataForAuditLogs</name>
    <tag></tag>
+   <connectionProperties/>
    <containsHeaders>true</containsHeaders>
    <csvSeperator></csvSeperator>
    <dataFileGUID>09d10841-8d44-49a5-9728-63654c929aba</dataFileGUID>

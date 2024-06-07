@@ -7,7 +7,7 @@
    <selectorCollection>
       <entry>
          <key>BASIC</key>
-         <value>//div[@title = 'Myfile']</value>
+         <value>//div[@data-automation-id = 'Myfile']</value>
       </entry>
       <entry>
          <key>XPATH</key>
@@ -19,42 +19,26 @@
    <webElementProperties>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
-      <name>tag</name>
+      <name>data-automation-id</name>
       <type>Main</type>
-      <value>div</value>
-      <webElementGuid>86c39461-4f6f-4b45-9ea3-cea05b4f6efe</webElementGuid>
-   </webElementProperties>
-   <webElementProperties>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>class</name>
-      <type>Main</type>
-      <value>show-text-ellipsis retain-whitespace</value>
-      <webElementGuid>6c33838a-fcb5-44ef-b96c-aba3b42deffb</webElementGuid>
+      <value>Myfile</value>
+      <webElementGuid>29de7556-9495-466e-a2ea-6ca73742579f</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
-      <name>title</name>
+      <name>tag</name>
       <type>Main</type>
-      <value>Myfile</value>
-      <webElementGuid>86219045-5d8b-48e4-aacc-300bf4b2c4c5</webElementGuid>
-   </webElementProperties>
-   <webElementProperties>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>text</name>
-      <type>Main</type>
-      <value>Myfile</value>
-      <webElementGuid>b612f4ba-c227-481e-9ea9-b0beff1e5a30</webElementGuid>
+      <value>div</value>
+      <webElementGuid>f1a9271c-ce77-45da-9426-47c673954dbb</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath</name>
       <type>Main</type>
-      <value>id(&quot;fileviewer_filelist_table&quot;)/div[@class=&quot;grey-theme&quot;]/div[@class=&quot;react-grid-Container&quot;]/div[@class=&quot;react-grid-Main&quot;]/div[@class=&quot;react-grid-Grid&quot;]/div[2]/div[@class=&quot;react-grid-Viewport&quot;]/div[@class=&quot;react-grid-Canvas&quot;]/div[1]/div[@class=&quot;show-focus-border row-renderer-custom&quot;]/div[@class=&quot;react-grid-Row react-grid-Row--even&quot;]/div[@class=&quot;hola&quot;]/div[@class=&quot;react-grid-Cell&quot;]/div[@class=&quot;react-grid-Cell__value&quot;]/div[1]/span[1]/div[1]/div[@class=&quot;show-text-ellipsis retain-whitespace&quot;]</value>
-      <webElementGuid>87e23c50-921c-48e4-b7fa-f2139b27752c</webElementGuid>
+      <value>//label[@id='file_text']</value>
+      <webElementGuid>21033030-ea7a-4d52-88f4-903bcfe8a468</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
@@ -62,7 +46,7 @@
       <name>xpath:idRelative</name>
       <type>Main</type>
       <value>//div[@id='fileviewer_filelist_table']/div/div/div/div/div[2]/div/div/div/div/div/div/div/div/div/span/div/div</value>
-      <webElementGuid>69d365e0-2f0c-4f9d-bf8f-04382dd3928f</webElementGuid>
+      <webElementGuid>592fda07-8bfd-4891-9959-3fe956de1b4d</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -70,7 +54,7 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='File Size'])[1]/following::div[18]</value>
-      <webElementGuid>d8bf22cb-eba9-40cb-b697-0e7e29976fd6</webElementGuid>
+      <webElementGuid>6c9d8553-925f-4fa4-9d0e-18957f0599ed</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -78,7 +62,7 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='Owner'])[1]/following::div[22]</value>
-      <webElementGuid>d71fe174-fb7f-4252-8c8a-a09364126550</webElementGuid>
+      <webElementGuid>4a438aa6-b186-44cf-878f-e2aad850d142</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -86,7 +70,7 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='pbsadmin'])[3]/preceding::div[7]</value>
-      <webElementGuid>a563d06e-6054-4f5d-b0c2-2bf2e9d74743</webElementGuid>
+      <webElementGuid>5541fd66-e181-4d67-847f-869991d2bc74</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -94,7 +78,7 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='Open'])[1]/preceding::div[27]</value>
-      <webElementGuid>53ba1c63-2d3d-4a60-bf78-804464607703</webElementGuid>
+      <webElementGuid>5a740b34-66a8-490e-bcff-d750e920398f</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -102,6 +86,6 @@
       <name>xpath:position</name>
       <type>Main</type>
       <value>//div/span/div/div</value>
-      <webElementGuid>32070cf1-1163-4208-8a26-ac98c15ea89e</webElementGuid>
+      <webElementGuid>f995e3d9-61d7-4241-a4ab-fe0e376550fb</webElementGuid>
    </webElementXpaths>
 </WebElementEntity>

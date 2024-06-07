@@ -6,12 +6,12 @@
    <elementGuidId>f649cdea-e9f1-4769-981d-62f1a52e4c62</elementGuidId>
    <selectorCollection>
       <entry>
-         <key>BASIC</key>
-         <value></value>
+         <key>XPATH</key>
+         <value>//label[@title=&quot;/stage/pbsworks&quot;]</value>
       </entry>
       <entry>
-         <key>XPATH</key>
-         <value>//a[@title='/stage']</value>
+         <key>BASIC</key>
+         <value></value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>

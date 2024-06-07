@@ -5,8 +5,8 @@ import com.kms.katalon.core.exception.StepFailedException
 import com.kms.katalon.core.model.FailureHandling
 import com.kms.katalon.core.testobject.TestObject
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
-import com.relevantcodes.extentreports.LogStatus
-
+import com.aventstack.extentreports.MediaEntityBuilder
+import com.aventstack.extentreports.Status
 public class WaitForElement {
 
 
@@ -20,7 +20,7 @@ public class WaitForElement {
 				WebUI.verifyElementPresent(to, 1)
 				isElemenetPresent =WebUI.verifyElementClickable(to)
 				//, FailureHandling.CONTINUE_ON_FAILURE)
-				extentTest.log(LogStatus.PASS, elementName+' clickable within - '+i+' Secs')
+				extentTest.log(Status.PASS, elementName+' clickable within - '+i+' Secs')
 			}
 			catch (Exception  ex) {
 				println("Exception")
@@ -44,7 +44,7 @@ public class WaitForElement {
 			WebUI.delay(1)
 			try {
 				isElemenetPresent=WebUI.verifyElementNotPresent(to, 1)
-				extentTest.log(LogStatus.PASS, ' true/false - '+isElemenetPresent)
+				extentTest.log(Status.PASS, ' true/false - '+isElemenetPresent)
 
 				//isElemenetPresent =WebUI.verifyElementNotClickable(to)
 			}
@@ -57,7 +57,7 @@ public class WaitForElement {
 			println(isElemenetPresent)
 			i++
 		}
-		extentTest.log(LogStatus.PASS, elementName+' clickable after - '+i+' Secs')
+		extentTest.log(Status.PASS, elementName+' clickable after - '+i+' Secs')
 
 		return isElemenetPresent
 	}

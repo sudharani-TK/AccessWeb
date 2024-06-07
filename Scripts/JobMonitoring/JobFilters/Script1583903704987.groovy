@@ -11,7 +11,8 @@ import com.kms.katalon.core.testobject.TestObject as TestObject
 import com.kms.katalon.core.util.KeywordUtil as KeywordUtil
 import com.kms.katalon.core.webui.driver.DriverFactory as DriverFactory
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
-import com.relevantcodes.extentreports.LogStatus as LogStatus
+import com.aventstack.extentreports.MediaEntityBuilder
+import com.aventstack.extentreports.Status
 
 import internal.GlobalVariable as GlobalVariable
 
@@ -19,27 +20,27 @@ import internal.GlobalVariable as GlobalVariable
 WebDriver driver = DriverFactory.getWebDriver()
 EventFiringWebDriver eventFiring = ((DriverFactory.getWebDriver()) as EventFiringWebDriver)
 WebDriver wrappedWebDriver = eventFiring.getWrappedDriver()
-RemoteWebDriver katalonWebDriver = ((wrappedWebDriver) as RemoteWebDriver)
-//====================================================================================
-ReportFile = (GlobalVariable.G_ReportName + '.html')
-def extent = CustomKeywords.'generateReports.GenerateReport.create'(ReportFile, GlobalVariable.G_Browser, GlobalVariable.G_BrowserVersion)
-def LogStatus = com.relevantcodes.extentreports.LogStatus
-def extentTest = extent.startTest(TestCaseName)
+RemoteWebDriver katalonWebDriver = (RemoteWebDriver) wrappedWebDriver
+//==================================================================
+def Browser = GlobalVariable.G_Browser
+//===============================================================
+def extentTest=GlobalVariable.G_ExtentTest
+//===========================================================
 CustomKeywords.'toLogin.ForLogin.Login'(extentTest)
-//=====================================================================================
+//=============================================================
 
 
-def result
+def result=false
 
-def isElementPresentRight
+def isElementPresentRight=false
 
-def isElementPresentDown
+def isElementPresentDown=false
 
 WebUI.delay(2)
 
 try {
 	
-		def jobsTab = CustomKeywords.'customWait.WaitForElement.WaitForelementPresent'(findTestObject('NewJobPage/AppList_ShellScript'),
+		def jobsTab = CustomKeywords.'customWait.WaitForElement.WaitForelementPresent'(findTestObject('LoginPage/NewJobPage/AppList_ShellScript'),
 		20,extentTest,'App def')
 
 	if (jobsTab) {
@@ -48,13 +49,14 @@ try {
 		
     WebUI.delay(2)
 	
-	def isFilterPresent= CustomKeywords.'customWait.WaitForElement.WaitForelementPresent'(findTestObject('Object Repository/JobMonitoringPage/icon_removeFilter'),5,extentTest,'RemoveFilterIcon')
+	/*def isFilterPresent= CustomKeywords.'customWait.WaitForElement.WaitForelementPresent'(findTestObject('Object Repository/JobMonitoringPage/icon_removeFilter'),5,extentTest,'RemoveFilterIcon')
 	if(isFilterPresent)
 	{
+		WebUI.mouseOver(findTestObject('Object Repository/JobMonitoringPage/icon_removeFilter'))
 		WebUI.click(findTestObject('Object Repository/JobMonitoringPage/icon_removeFilter'))
-		extentTest.log(LogStatus.PASS, 'Clicked on filter delete icon' )
+		extentTest.log(Status.PASS, 'Clicked on filter delete icon' )
 		WebUI.refresh()
-	}
+	}*/
     WebUI.click(findTestObject('Object Repository/JobMonitoringPage/a_Reset'))
 
 	
@@ -89,7 +91,7 @@ try {
         println('down')
 
         WebUI.click(newJobFilterValue)
-		extentTest.log(LogStatus.PASS,'Verification for AD-1418 - Expand and Collapse the left navigation filters')
+		extentTest.log(Status.PASS,'Verification for AD-1418 - Expand and Collapse the left navigation filters')
 		
     }
     
@@ -98,16 +100,16 @@ try {
 
         WebUI.click(newJobFilterTitle)
 
-        extentTest.log(LogStatus.PASS, 'Selected filter category ' + FilterTitle)
-		extentTest.log(LogStatus.PASS,'Verification for AD-1418 - Expand and Collapse the left navigation filters')
+        extentTest.log(Status.PASS, 'Selected filter category ' + FilterTitle)
+		extentTest.log(Status.PASS,'Verification for AD-1418 - Expand and Collapse the left navigation filters')
 		
         WebUI.delay(2)
 
         WebUI.click(newJobFilterValue)
 
-        extentTest.log(LogStatus.PASS, 'Selected filter value ' + FilterValue)
+        extentTest.log(Status.PASS, 'Selected filter value ' + FilterValue)
 		
-		extentTest.log(LogStatus.PASS,'Verification for AD-1419 - Check an Un-check the left navigation filters')
+		extentTest.log(Status.PASS,'Verification for AD-1419 - Check an Un-check the left navigation filters')
     }
     
 	println("AllJobsUser -- "+AllJobsUser)
@@ -137,9 +139,9 @@ try {
     println(('==================' + result) + '==========================')
 
     if (result) {
-        extentTest.log(LogStatus.FAIL, 'Job Not Filtered for ' + FilterValue)
+        extentTest.log(Status.FAIL, 'Job Not Filtered for ' + FilterValue)
     } else {
-        extentTest.log(LogStatus.PASS, ('Job  Filtered for ' + FilterValue) + ' Jobs')
+        extentTest.log(Status.PASS, ('Job  Filtered for ' + FilterValue) + ' Jobs')
     }
     
     if (GlobalVariable.G_Browser == 'Edge') {
@@ -147,21 +149,31 @@ try {
     }
 }
 catch (Exception ex) {
-    String screenShotPath = (('ExtentReports/' + TestCaseName) + GlobalVariable.G_Browser) + '.png'
-    WebUI.takeScreenshot(screenShotPath)
-	String p = (TestCaseName + GlobalVariable.G_Browser) + '.png'
-	extentTest.log(LogStatus.FAIL, ex)
-	extentTest.log(LogStatus.FAIL, extentTest.addScreenCapture(p))
-	} 
-catch (StepErrorException e) {
-    String screenShotPath = (('ExtentReports/' + TestCaseName) + GlobalVariable.G_Browser) + '.png'
-    WebUI.takeScreenshot(screenShotPath)
-    extentTest.log(LogStatus.FAIL, e)
-} 
-finally { 
-    extentTest.log(LogStatus.PASS, 'Closing the browser after executinge test case - '+ TestCaseName)
-    extent.endTest(extentTest)
-    extent.flush()
-}
-//=====================================================================================
+	println('From TC - ' + GlobalVariable.G_ReportFolder)
 
+	String screenShotPath = (('ExtentReports/' + TestCaseName) + GlobalVariable.G_Browser) + '.png'
+
+	WebUI.takeScreenshot(screenShotPath)
+
+	String p = (TestCaseName + GlobalVariable.G_Browser) + '.png'
+
+	extentTest.log(Status.FAIL, ex)
+
+	extentTest.fail(MediaEntityBuilder.createScreenCaptureFromPath(p).build())
+}
+catch (StepErrorException e) {
+	String screenShotPath = (('ExtentReports/' + TestCaseName) + GlobalVariable.G_Browser) + '.png'
+
+	WebUI.takeScreenshot(screenShotPath)
+
+	String p = (TestCaseName + GlobalVariable.G_Browser) + '.png'
+
+	extentTest.log(Status.FAIL, ex)
+
+	extentTest.fail(MediaEntityBuilder.createScreenCaptureFromPath(p).build())
+}
+finally {
+	extentTest.log(Status.PASS, 'Closing the browser after executinge test case - ' + TestCaseName)
+	
+	
+}

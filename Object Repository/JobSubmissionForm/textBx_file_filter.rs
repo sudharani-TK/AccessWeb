@@ -7,7 +7,7 @@
    <selectorCollection>
       <entry>
          <key>BASIC</key>
-         <value>//input[@id = 'file_filter' and @placeholder = 'Search' and @type = 'search']</value>
+         <value>//input[@id = 'file_filter']</value>
       </entry>
       <entry>
          <key>XPATH</key>
@@ -22,6 +22,7 @@
       <name>tag</name>
       <type>Main</type>
       <value>input</value>
+      <webElementGuid>9a2f2b8b-81b3-4c85-b12e-95b5872d7495</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -29,6 +30,7 @@
       <name>id</name>
       <type>Main</type>
       <value>file_filter</value>
+      <webElementGuid>e2749bac-2dc5-475a-bcbf-d466a7211961</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -36,20 +38,23 @@
       <name>class</name>
       <type>Main</type>
       <value>file-filter clear_icon_hide_ie</value>
+      <webElementGuid>60ed6f05-74de-4333-b20b-8cedd269b7fc</webElementGuid>
    </webElementProperties>
    <webElementProperties>
-      <isSelected>true</isSelected>
+      <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>placeholder</name>
       <type>Main</type>
       <value>Search</value>
+      <webElementGuid>c237206c-4cd5-4123-b3aa-2820700ff10b</webElementGuid>
    </webElementProperties>
    <webElementProperties>
-      <isSelected>true</isSelected>
+      <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>type</name>
       <type>Main</type>
       <value>search</value>
+      <webElementGuid>07efdc48-eeff-45fe-9be9-a52f17a4f8be</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -57,6 +62,7 @@
       <name>xpath</name>
       <type>Main</type>
       <value>id(&quot;file_filter&quot;)</value>
+      <webElementGuid>da96ae82-262e-40fe-887b-b46997ef0657</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
@@ -64,6 +70,7 @@
       <name>xpath:attributes</name>
       <type>Main</type>
       <value>//input[@id='file_filter']</value>
+      <webElementGuid>20d50646-0d5e-4a85-9642-d8a8af5ed2ef</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -71,6 +78,7 @@
       <name>xpath:idRelative</name>
       <type>Main</type>
       <value>//div[@id='file_browser_modal_dialog_identifier']/div/div/div/div/div[2]/div/div[2]/div/input</value>
+      <webElementGuid>d7081d8a-a286-4d4a-87bf-6a7291a3b100</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -78,6 +86,7 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='rohini'])[1]/following::input[1]</value>
+      <webElementGuid>fb4b9d1f-82c2-4bb8-a8b8-98c16e979cce</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -85,6 +94,7 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='/stage'])[1]/following::input[1]</value>
+      <webElementGuid>7f642a1d-7a81-49ce-b4a0-2e1f9a53ed04</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -92,6 +102,7 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='Name'])[1]/preceding::input[1]</value>
+      <webElementGuid>c216cb14-4429-4fb9-8d52-4768ecb7e234</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -99,6 +110,7 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='Created On'])[1]/preceding::input[1]</value>
+      <webElementGuid>89b8f486-6e9f-4b31-846a-8210631bc8e1</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -106,5 +118,6 @@
       <name>xpath:position</name>
       <type>Main</type>
       <value>//div/div[2]/div/input</value>
+      <webElementGuid>989c6541-9f39-4237-a8de-47f57b5999b3</webElementGuid>
    </webElementXpaths>
 </WebElementEntity>

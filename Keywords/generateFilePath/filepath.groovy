@@ -4,6 +4,12 @@ import com.kms.katalon.core.annotation.Keyword
 import com.kms.katalon.core.testobject.ConditionType as ConditionType
 import com.kms.katalon.core.testobject.TestObject
 import internal.GlobalVariable
+import org.openqa.selenium.Keys
+
+import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
+import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
+import com.aventstack.extentreports.MediaEntityBuilder
+import com.aventstack.extentreports.Status
 
 public class filePath {
 
@@ -17,6 +23,18 @@ public class filePath {
 		else {
 			return filePath
 		}
+	}
+	@Keyword
+	def navlocation( String location,extentTest) {
+
+		WebUI.click(findTestObject('Object Repository/FilesPage/GotoFoldericon'))
+		WebUI.delay(2)
+		WebUI.waitForElementVisible(findTestObject('Object Repository/FilesPage/gotofoldertext'), 10)
+		WebUI.setText(findTestObject('Object Repository/FilesPage/gotofoldertext'), location)
+		WebUI.delay(2)
+		WebUI.sendKeys(findTestObject('Object Repository/FilesPage/gotofoldertext'), Keys.chord(Keys.ENTER))
+
+		extentTest.log(Status.PASS, 'Navigated to ' + location)
 	}
 
 

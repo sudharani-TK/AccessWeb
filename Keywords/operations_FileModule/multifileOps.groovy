@@ -14,7 +14,12 @@ import com.kms.katalon.core.model.FailureHandling
 import com.kms.katalon.core.testobject.ConditionType as ConditionType
 import com.kms.katalon.core.testobject.TestObject
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
-import com.relevantcodes.extentreports.LogStatus
+
+import com.aventstack.extentreports.MediaEntityBuilder
+import com.aventstack.extentreports.Status
+import org.openqa.selenium.WebDriver
+import org.openqa.selenium.JavascriptExecutor;
+import com.kms.katalon.core.webui.driver.DriverFactory
 
 import internal.GlobalVariable
 
@@ -25,30 +30,42 @@ public class multifileOps {
 		def sdf = new SimpleDateFormat("ddMMyyyy_HHmmss")
 		def e1 = sdf.format(date)
 		def e2 =sdf.format(date)
-		def op
+		def op= null
 		boolean result=false
-		def LogStatus = com.relevantcodes.extentreports.LogStatus
-		def y
+
+		def y=null
 		def navlocation=(new generateFilePath.filePath()).execLocation()
-		def location
+		def location=null
 		println ("Control in Keyword")
 		WebUI.delay(2)
-		String msg
+		String msg=null
 		switch (Operation) {
 			case 'copy_icon':
 				op='Copy'
 				TestObject newFileOp=WebUI.modifyObjectProperty(findTestObject('FilesPage/FileOperations_Icon'), 'id', 'equals', Operation, true)
 				println(Operation)
-				WebUI.click(newFileOp)
-				extentTest.log(LogStatus.PASS, 'Clicked on top menu icon -'+op)
+				WebUI.delay(5)
+				WebUI.mouseOver(newFileOp)
+				WebUI.delay(3)
+			//	WebUI.click(newFileOp)
+				WebDriver driver = DriverFactory.getWebDriver()
+
+				WebElement ele1 = driver.findElement(By.xpath("//span[@id = 'copy_icon']"))
+				JavascriptExecutor jse1 = (JavascriptExecutor)driver;
+				jse1.executeScript("arguments[0].click()", ele1);
+
+				extentTest.log(Status.PASS, 'Clicked on top menu icon -'+op)
 
 				def fileToCheck
 				if (TestCaseName.contains('tile view')) {
 					location = navlocation+'/MultipleFilesIcons/CopyPasteTV'
-					WebUI.click(findTestObject('Object Repository/FilesPage/Icon_EditFilePath'))
-					WebUI.setText(findTestObject('Object Repository/FilesPage/textBx_FilePath'), location)
-					WebUI.sendKeys(findTestObject('Object Repository/FilesPage/textBx_FilePath'), Keys.chord(Keys.ENTER))
-					extentTest.log(LogStatus.PASS, 'Navigated to '+location)
+					/*WebUI.click(findTestObject('Object Repository/FilesPage/Icon_EditFilePath'))
+				 WebUI.setText(findTestObject('Object Repository/FilesPage/textBx_FilePath'), location)
+				 WebUI.sendKeys(findTestObject('Object Repository/FilesPage/textBx_FilePath'), Keys.chord(Keys.ENTER))
+				 extentTest.log(Status.PASS, 'Navigated to '+location)*/
+
+
+					(new generateFilePath.filePath()).navlocation(location, extentTest)
 					WebUI.delay(2)
 					y=5
 					msg = '5 items copied successfully to '+ location+'.'
@@ -56,19 +73,20 @@ public class multifileOps {
 				else {
 
 					location = navlocation+'/MultipleFilesIcons/CopyPasteLV'
-					WebUI.click(findTestObject('Object Repository/FilesPage/Icon_EditFilePath'))
-					WebUI.setText(findTestObject('Object Repository/FilesPage/textBx_FilePath'), location)
-					WebUI.sendKeys(findTestObject('Object Repository/FilesPage/textBx_FilePath'), Keys.chord(Keys.ENTER))
-					extentTest.log(LogStatus.PASS, 'Navigated to '+location)
+					/*	WebUI.click(findTestObject('Object Repository/FilesPage/Icon_EditFilePath'))
+				 WebUI.setText(findTestObject('Object Repository/FilesPage/textBx_FilePath'), location)
+				 WebUI.sendKeys(findTestObject('Object Repository/FilesPage/textBx_FilePath'), Keys.chord(Keys.ENTER))
+				 extentTest.log(Status.PASS, 'Navigated to '+location)*/
+					(new generateFilePath.filePath()).navlocation(location, extentTest)
 					WebUI.delay(2)
 					y=6
 					msg = '5 items copied successfully to '+ location+'.'
 				}
 
-				WebUI.click(findTestObject('FilesPage/TopMenuIcon_ellipses'))
-				extentTest.log(LogStatus.PASS, 'Clicked on top menu icon ellipses')
+			//WebUI.click(findTestObject('FilesPage/TopMenuIcon_ellipses'))
+			//	extentTest.log(Status.PASS, 'Clicked on top menu icon ellipses')
 				WebUI.click(findTestObject('Object Repository/FilesPage/TopMenu_Paste'))
-				extentTest.log(LogStatus.PASS, 'Clicked on top menu item for Paste')
+				extentTest.log(Status.PASS, 'Clicked on the  Paste icon from Top menu')
 			//msg='copied successfully to'
 				(new operations_FileModule.notifications()).getNotifications(msg,extentTest)
 
@@ -90,14 +108,14 @@ public class multifileOps {
 				println listElement.size()
 				println("-------------------------------------")
 				def x=listElement.size()
-				extentTest.log(LogStatus.PASS, ' Number of files listied on this page - '+x)
+				extentTest.log(Status.PASS, ' Number of files listied on this page - '+x)
 
 				if(y>=x) {
-					extentTest.log(LogStatus.PASS, 'All the files are copied')
+					extentTest.log(Status.PASS, 'All the files are copied')
 					result = true
 				}
 				else {
-					extentTest.log(LogStatus.FAIL, 'All the files not are copied')
+					extentTest.log(Status.FAIL, 'All the files not are copied')
 					result=false
 				}
 
@@ -110,17 +128,19 @@ public class multifileOps {
 				op='Cut'
 				TestObject newFileOp=WebUI.modifyObjectProperty(findTestObject('FilesPage/FileOperations_Icon'), 'id', 'equals', Operation, true)
 				println(Operation)
+				WebUI.delay(5)
 				WebUI.click(newFileOp)
-				extentTest.log(LogStatus.PASS, 'Clicked on top menu icon -'+op)
+				extentTest.log(Status.PASS, 'Clicked on top menu icon -'+op)
 
 
 
 				if (TestCaseName.contains('tile view')) {
 					location = navlocation+'/MultipleFilesIcons/CutPasteTV'
-					WebUI.click(findTestObject('Object Repository/FilesPage/Icon_EditFilePath'))
-					WebUI.setText(findTestObject('Object Repository/FilesPage/textBx_FilePath'), location)
-					WebUI.sendKeys(findTestObject('Object Repository/FilesPage/textBx_FilePath'), Keys.chord(Keys.ENTER))
-					extentTest.log(LogStatus.PASS, 'Navigated to '+location)
+					/*	WebUI.click(findTestObject('Object Repository/FilesPage/Icon_EditFilePath'))
+				 WebUI.setText(findTestObject('Object Repository/FilesPage/textBx_FilePath'), location)
+				 WebUI.sendKeys(findTestObject('Object Repository/FilesPage/textBx_FilePath'), Keys.chord(Keys.ENTER))
+				 extentTest.log(Status.PASS, 'Navigated to '+location)*/
+					(new generateFilePath.filePath()).navlocation(location, extentTest)
 					WebUI.delay(2)
 					y=5
 					msg = '5 items moved successfully to '+ location+'.'
@@ -128,18 +148,19 @@ public class multifileOps {
 				else {
 
 					location = navlocation+'/MultipleFilesIcons/CutPasteLV'
-					WebUI.click(findTestObject('Object Repository/FilesPage/Icon_EditFilePath'))
-					WebUI.setText(findTestObject('Object Repository/FilesPage/textBx_FilePath'), location)
-					WebUI.sendKeys(findTestObject('Object Repository/FilesPage/textBx_FilePath'), Keys.chord(Keys.ENTER))
-					extentTest.log(LogStatus.PASS, 'Navigated to '+location)
+					/*WebUI.click(findTestObject('Object Repository/FilesPage/Icon_EditFilePath'))
+				 WebUI.setText(findTestObject('Object Repository/FilesPage/textBx_FilePath'), location)
+				 WebUI.sendKeys(findTestObject('Object Repository/FilesPage/textBx_FilePath'), Keys.chord(Keys.ENTER))
+				 extentTest.log(Status.PASS, 'Navigated to '+location)*/
+					(new generateFilePath.filePath()).navlocation(location, extentTest)
 					WebUI.delay(2)
 					y=6
 					msg = '5 items moved successfully to '+ location+'.'
 				}
-				WebUI.click(findTestObject('FilesPage/TopMenuIcon_ellipses'))
-				extentTest.log(LogStatus.PASS, 'Clicked on top menu icon ellipses')
+			//	WebUI.click(findTestObject('FilesPage/TopMenuIcon_ellipses'))
+			//	extentTest.log(Status.PASS, 'Clicked on top menu icon ellipses')
 				WebUI.click(findTestObject('Object Repository/FilesPage/TopMenu_Paste'))
-				extentTest.log(LogStatus.PASS, 'Clicked on top menu item for Paste')
+				extentTest.log(Status.PASS, 'Clicked on top menu item for Paste')
 
 				(new operations_FileModule.notifications()).getNotifications(msg,extentTest)
 
@@ -162,15 +183,15 @@ public class multifileOps {
 				println listElement.size()
 				println("-------------------------------------")
 				def x=listElement.size()
-				extentTest.log(LogStatus.PASS, ' Number of files listied on this page - '+x)
-				extentTest.log(LogStatus.PASS, ' value of x  - '+x)
-				extentTest.log(LogStatus.PASS, ' value of y  - '+y)
+				extentTest.log(Status.PASS, ' Number of files listied on this page - '+x)
+				extentTest.log(Status.PASS, ' value of x  - '+x)
+				extentTest.log(Status.PASS, ' value of y  - '+y)
 				if(x<=y) {
-					extentTest.log(LogStatus.PASS, 'All the files are pasted ')
+					extentTest.log(Status.PASS, 'All the files are pasted ')
 					result = true
 				}
 				else {
-					extentTest.log(LogStatus.FAIL, 'All the files not are pasted')
+					extentTest.log(Status.FAIL, 'All the files not are pasted')
 					result=false
 				}
 				return result
@@ -192,10 +213,10 @@ public class multifileOps {
 				}
 
 				WebUI.delay(2)
-				extentTest.log(LogStatus.PASS, 'Clicked on top menu icon -'+op)
+				extentTest.log(Status.PASS, 'Clicked on top menu icon -'+op)
 				WebUI.click(findTestObject('GenericObjects/btn_Yes'))
 				WebUI.delay(2)
-				extentTest.log(LogStatus.PASS, 'Clicked on Yes on Delete confirmation pop-up ')
+				extentTest.log(Status.PASS, 'Clicked on Yes on Delete confirmation pop-up ')
 
 				msg = '5 items deleted successfully'
 
@@ -222,14 +243,14 @@ public class multifileOps {
 				println listElement.size()
 				println("-------------------------------------")
 				def x=listElement.size()
-				extentTest.log(LogStatus.PASS, ' Number of files listied on this page - '+x)
+				extentTest.log(Status.PASS, ' Number of files listied on this page - '+x)
 
 				if(x==y) {
-					extentTest.log(LogStatus.PASS, 'All the files are deleted ')
+					extentTest.log(Status.PASS, 'All the files are deleted ')
 					result = true
 				}
 				else {
-					extentTest.log(LogStatus.FAIL, 'All the files not are deleted')
+					extentTest.log(Status.FAIL, 'All the files not are deleted')
 					result=false
 				}
 
@@ -241,7 +262,7 @@ public class multifileOps {
 				WebUI.click(findTestObject('FilesPage/TopMenuIcon_ellipses'))
 				WebUI.click(findTestObject('FilesPage/TopMenuIcons_Compress'))
 				WebUI.delay(5)
-				extentTest.log(LogStatus.PASS, 'Clicked on top menu item for -'+op)
+				extentTest.log(Status.PASS, 'Clicked on top menu item for -'+op)
 			//WebUI.click(findTestObject('FilesPage/Icon_Close'))
 				println"Clicked Compress"
 				if (TestCaseName.contains('tile view')) {
@@ -250,7 +271,7 @@ public class multifileOps {
 					WebUI.delay(3)
 					WebUI.mouseOver(findTestObject("Object Repository/FilesPage/SortList-Option"))
 					WebUI.click(findTestObject("Object Repository/FilesPage/SortList-Option"))
-					extentTest.log(LogStatus.PASS, 'Sorted the listed files by created on, in tile view')
+					extentTest.log(Status.PASS, 'Sorted the listed files by created on, in tile view')
 
 					TestObject sortIconDown=WebUI.modifyObjectProperty(findTestObject('Object Repository/FilesPage/SortBy-Order'), 'class', 'equals',"down-arrow tile-sortable-icon focus_enable_class", true)
 					def sortIconUp=WebUI.waitForElementPresent(findTestObject('Object Repository/FilesPage/SortBy-Order'), 3, FailureHandling.CONTINUE_ON_FAILURE)
@@ -264,7 +285,6 @@ public class multifileOps {
 					def isElemenetPresent=WebUI.waitForElementVisible(findTestObject('FilesPage/RowItem_CompressedFile_TileView'), 10, FailureHandling.CONTINUE_ON_FAILURE)
 					println  "RowItem_CompressedFile_TileView - "+isElemenetPresent
 					println("Testcasename - "+TestCaseName)
-
 				}
 				else {
 					def isElemenetPresent=WebUI.waitForElementVisible(findTestObject('FilesPage/RowItem_CompressedFile_ListView'), 10, FailureHandling.CONTINUE_ON_FAILURE)
@@ -285,20 +305,18 @@ public class multifileOps {
 					newCompressedFile.addProperty('xpath', ConditionType.EQUALS, xpathNew)
 					WebUI.click(newCompressedFile)
 				}
-				else
-				{
+				else {
 
 					TestObject newCompressedFile
 					newCompressedFile=new TestObject('objectName')
-					String xpathNew="//div[contains(text(),'"+compressedFileName+"')]"
+					String xpathNew="//label[contains(text(),'"+compressedFileName+"')]"
 					newCompressedFile.addProperty('xpath', ConditionType.EQUALS, xpathNew)
 					WebUI.click(newCompressedFile)
-
 				}
 				WebUI.delay(3)
 				WebUI.click(findTestObject('FilesPage/TopMenuIcon_ellipses'))
 				WebUI.click(findTestObject('FilesPage/TopMenuIcon_Uncompress'))
-				extentTest.log(LogStatus.PASS, 'Clicked on top menu item Un-Compress on file - '+compressedFileName)
+				extentTest.log(Status.PASS, 'Clicked on top menu item Un-Compress on file - '+compressedFileName)
 
 				result=(new operations_FileModule.multiFileCompress()).VerifyUnCompressedFile(compressedFileName , TestCaseName ,extentTest)
 				WebUI.delay(4)
@@ -321,18 +339,15 @@ public class multifileOps {
 				println listElement.size()
 				println("-------------------------------------")
 				def x=listElement.size()
-				extentTest.log(LogStatus.PASS, ' Number of files listied on this page - '+x)
+				extentTest.log(Status.PASS, ' Number of files listied on this page - '+x)
 
-				if(x==y)
-				{
-					extentTest.log(LogStatus.PASS, 'All the files are present after uncompress ')
+				if(x==y) {
+					extentTest.log(Status.PASS, 'All the files are present after uncompress ')
 					result = true
 				}
-				else
-				{
-					extentTest.log(LogStatus.FAIL, 'All the files not are present after uncompress')
+				else {
+					extentTest.log(Status.FAIL, 'All the files not are present after uncompress')
 					result=false
-
 				}
 
 				return result
@@ -359,8 +374,6 @@ public class multifileOps {
 
 				return true
 				break
-
-
 		}
 	}
 }

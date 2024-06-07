@@ -10,7 +10,7 @@ import org.openqa.selenium.remote.RemoteWebElement
 import com.kms.katalon.core.annotation.Keyword
 import com.kms.katalon.core.model.FailureHandling
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
-import com.relevantcodes.extentreports.LogStatus
+import com.aventstack.extentreports.Status
 
 public class getRowDetails {
 
@@ -19,8 +19,8 @@ public class getRowDetails {
 		String myXpath=null;
 		String myText=null;
 		WebUI.delay(5)
-		def LogStatus = com.relevantcodes.extentreports.LogStatus
-		def result
+
+		def result=false
 		String item=null
 
 		if(TestCaseName.contains('tile view')) {
@@ -51,7 +51,7 @@ public class getRowDetails {
 				println (ele.getText())
 				if(myText.toLowerCase().contains(searchStr.toLowerCase())) {
 					println("PASS")
-					extentTest.log(LogStatus.PASS, 'Current'+item +' - '+i + '- file name - '+myText)
+					extentTest.log(Status.PASS, 'Current'+item +' - '+i + '- file name - '+myText)
 					result=true
 				}
 				else {
@@ -67,7 +67,7 @@ public class getRowDetails {
 	@Keyword
 	def getFileLine(WebDriver katalonWebDriver,extentTest) {
 		String myText
-		def LogStatus = com.relevantcodes.extentreports.LogStatus
+	
 		def myXpath="//div[@id='brace-editor']//textarea"
 		List<WebElement> listElement = katalonWebDriver.findElements(By.xpath(myXpath))
 		def num=listElement.size()
@@ -92,8 +92,8 @@ public class getRowDetails {
 		String myXpath=null;
 		String myText=null;
 		WebUI.delay(5)
-		def LogStatus = com.relevantcodes.extentreports.LogStatus
-		def result
+	
+		def result=false
 		String item=null
 
 		if(TestCaseName.contains('tile view')) {
@@ -110,15 +110,15 @@ public class getRowDetails {
 		println("-------------------------------------")
 		println listElement.size()
 		println("-------------------------------------")
-		def x=listElement.size()
-		extentTest.log(LogStatus.PASS, ' Number of files listied on this page - '+x)
+		def x=listElement.size()-1
+		extentTest.log(Status.PASS, ' Number of files listied on this page - '+x)
 
 		RemoteWebElement ele = listElement.get(1)
 		myText=ele.getText()
-		extentTest.log(LogStatus.PASS, 'Name of first file - '+myText)
+		extentTest.log(Status.PASS, 'Name of first file - '+myText)
 		x=x-1
 		RemoteWebElement ele1 = listElement.get(x)
 		myText=ele1.getText()
-		extentTest.log(LogStatus.PASS, 'Name of last file - '+myText)
+		extentTest.log(Status.PASS, 'Name of last file - '+myText)
 	}
 }

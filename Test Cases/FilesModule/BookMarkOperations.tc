@@ -36,7 +36,7 @@
       <variableId>c7d5b966-c3fb-4077-8987-6079bf79f6af</variableId>
    </variableLinks>
    <variable>
-      <defaultValue>'BD'</defaultValue>
+      <defaultValue>''</defaultValue>
       <description></description>
       <id>4d935674-32e0-4d9c-a5a2-02a91f2765ff</id>
       <masked>false</masked>

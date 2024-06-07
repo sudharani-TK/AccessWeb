@@ -11,9 +11,25 @@
       </entry>
       <entry>
          <key>BASIC</key>
-         <value></value>
+         <value>//span[@id = 'go-to-folder-icon']</value>
       </entry>
    </selectorCollection>
-   <selectorMethod>XPATH</selectorMethod>
+   <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>tag</name>
+      <type>Main</type>
+      <value>span</value>
+      <webElementGuid>acf9290f-f257-4227-abfd-a8675139d711</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>id</name>
+      <type>Main</type>
+      <value>go-to-folder-icon</value>
+      <webElementGuid>1e42ae57-e8e0-4755-ade6-2ddb5b8a6777</webElementGuid>
+   </webElementProperties>
 </WebElementEntity>

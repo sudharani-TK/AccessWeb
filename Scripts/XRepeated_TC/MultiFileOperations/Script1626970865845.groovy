@@ -44,7 +44,7 @@ println('##################################################################')
 
 try {
 	WebUI.delay(2)
-	def jobsTab = CustomKeywords.'customWait.WaitForElement.WaitForelementPresent'(findTestObject('NewJobPage/AppList_ShellScript'),
+	def jobsTab = CustomKeywords.'customWait.WaitForElement.WaitForelementPresent'(findTestObject('LoginPage/NewJobPage/AppList_ShellScript'),
 	20,extentTest,'App def')
 
 if (jobsTab) {

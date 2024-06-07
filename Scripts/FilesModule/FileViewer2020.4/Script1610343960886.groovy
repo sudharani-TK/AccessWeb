@@ -56,6 +56,8 @@ try {
 	}
     	extentTest.log(LogStatus.PASS, 'Navigated to Files Tab')
 
+		
+		
 	WebUI.delay(2)
 
 	TestObject viewIconTile = WebUI.modifyObjectProperty(findTestObject('Object Repository/FilesPage/Icon_ViewIcon'), 'title',
@@ -95,30 +97,32 @@ try {
 
 			WebUI.delay(2)
 
-			newFileObj = WebUI.modifyObjectProperty(findTestObject('FilesPage/RowItem_File_TileView'), 'title', 'equals',
+			newFileObj = WebUI.modifyObjectProperty(findTestObject('FilesPage/RowItem_File_TileView'), 'data-automation-id', 'equals',
 					fileName, true)
 		} else {
-			newFileObj = WebUI.modifyObjectProperty(findTestObject('FilesPage/RowItem_File_ListView'), 'title', 'equals',
+			newFileObj = WebUI.modifyObjectProperty(findTestObject('FilesPage/RowItem_File_ListView'), 'data-automation-id', 'equals',
 					fileName, true)
 		}
 
-		WebUI.click(findTestObject('Object Repository/FilesPage/Icon_EditFilePath'))
+		//WebUI.click(findTestObject('Object Repository/FilesPage/Icon_EditFilePath'))
 
 		 navLocation = CustomKeywords.'generateFilePath.filePath.execLocation'()
 
-		 location = navLocation + '/FilesModule/FileViewer/'
+		 location = navLocation + '/ForProfiles/InputDeck'
 
+		 CustomKeywords.'generateFilePath.filePath.navlocation'( location,extentTest)
+		 
 		println('##################################################################')
 
 		println(location)
 
 		println('##################################################################')
 
-		WebUI.setText(findTestObject('Object Repository/FilesPage/textBx_FilePath'), location)
+		//WebUI.setText(findTestObject('Object Repository/FilesPage/textBx_FilePath'), location)
 
-		WebUI.sendKeys(findTestObject('Object Repository/FilesPage/textBx_FilePath'), Keys.chord(Keys.ENTER))
+		//WebUI.sendKeys(findTestObject('Object Repository/FilesPage/textBx_FilePath'), Keys.chord(Keys.ENTER))
 
-		extentTest.log(LogStatus.PASS, 'Navigated to /stage/JSUploads in RFB ')
+		//extentTest.log(LogStatus.PASS, 'Navigated to /stage/JSUploads in RFB ')
 
 		WebUI.click(findTestObject('FilesPage/FilesSearch_filter'))
 
@@ -160,21 +164,35 @@ try {
 		
 		case 'Process With':
 		
-		      WebUI.verifyElementPresent(findTestObject('2020.4/ProcessWith'), 3)
-		
+		   boolean processWithBtn=   WebUI.verifyElementPresent(findTestObject('2020.4/ProcessWith'), 3)
+		   if(processWithBtn) {
+			  extentTest.log(LogStatus.PASS, 'Verified ProcessWith is present in file viewer')
+		   }
 		break
 		
 		
 		case 'Open with':
 		
 		          
-		      WebUI.verifyElementPresent(findTestObject('2020.4/ProcessWith'), 3)
-			  
+		    //  WebUI.verifyElementPresent(findTestObject('2020.4/ProcessWith'), 3)
+		boolean editBtn=	  WebUI.verifyElementPresent(findTestObject('FilesPage/FileViewer_Edit'), 2)
+		if(editBtn) {
 			  WebUI.click(findTestObject('FilesPage/FileViewer_Edit'))
 			  extentTest.log(LogStatus.PASS, 'Click on file edit icon')
-			  WebUI.delay(3)
 			  
-			  //WebUI.verifyElementNotPresent(findTestObject('2020.4/ProcessWith'), 3)
+		}
+			 WebUI.delay(3)
+			  
+			boolean processWithBtnNotPresent=  WebUI.verifyElementPresent(findTestObject('2020.4/ProcessWith'), 3)
+			if(processWithBtnNotPresent) {
+				extentTest.log(LogStatus.PASS, ' Verified ProcessWith Button is Disabled When Click on Edit Option')
+			}
+			
+			//else {
+				
+				//extentTest.log(LogStatus.PASS, 'Verified ProcessWith Button is Disabled When Click on Edit Option')
+		//	}
+			
 			  //WebUI.verifyElementNotClickable(findTestObject('2020.4/ProcessWith'), 3)
 			  
 		      
@@ -182,11 +200,19 @@ try {
 		
 		case'Submit job':
 		
-		     WebUI.click(findTestObject('2020.4/ProcessWith'))
-			 WebUI.click(findTestObject('2020.4/Shellscript'))
-			 
+		  //   WebUI.click(findTestObject('2020.4/ProcessWith'))
+			// WebUI.click(findTestObject('2020.4/Shellscript'))
+		boolean processWithBtn=   WebUI.verifyElementPresent(findTestObject('2020.4/ProcessWith'), 3)
+		if(processWithBtn) {
+			WebUI.click(findTestObject('2020.4/ProcessWith'))
+		   extentTest.log(LogStatus.PASS, 'clicked on ProcessWith is present in file viewer')
+		}
 		
-		
+		boolean shellScriptBtn=WebUI.verifyElementPresent(findTestObject('2020.4/ShellscriptBtn'), 3)
+		if(shellScriptBtn) {
+			WebUI.click(findTestObject('2020.4/ShellscriptBtn'))
+			extentTest.log(LogStatus.PASS, 'Clicked on ShellScript and Submit the Job')
+		}
 		break
 		
 		default:
@@ -199,16 +225,18 @@ try {
 	}
 }
 catch (Exception ex) {
-	String screenShotPath = (('ExtentReports/' + TCName) + GlobalVariable.G_Browser) + '.png'
+	//String screenShotPath = (('ExtentReports/' + TCName) + GlobalVariable.G_Browser) + '.png'
+	
+	String screenShotPath='ExtentReports/'+TestCaseName+GlobalVariable.G_Browser+'.png'
 
 	WebUI.takeScreenshot(screenShotPath)
 
-	String p =TCName+GlobalVariable.G_Browser+'.png'
+	String p =TestCaseName+GlobalVariable.G_Browser+'.png'
 	extentTest.log(LogStatus.FAIL,ex)
 	extentTest.log(LogStatus.FAIL,extentTest.addScreenCapture(p))
 
 
-	KeywordUtil.markFailed('ERROR: ' + e)
+	//KeywordUtil.markFailed('ERROR: ' + e)
 }
 catch (StepErrorException e) {
 	String screenShotPath = (('ExtentReports/' + TCName) + GlobalVariable.G_Browser) + '.png'

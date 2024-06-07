@@ -7,7 +7,11 @@
    <selectorCollection>
       <entry>
          <key>BASIC</key>
-         <value>//span[(text() = 'Myfile.txt' or . = 'Myfile.txt')]</value>
+         <value>//div[(text() = 'Myfile.txt' or . = 'Myfile.txt')]</value>
+      </entry>
+      <entry>
+         <key>XPATH</key>
+         <value></value>
       </entry>
    </selectorCollection>
    <selectorMethod>BASIC</selectorMethod>
@@ -17,21 +21,8 @@
       <matchCondition>equals</matchCondition>
       <name>tag</name>
       <type>Main</type>
-      <value>span</value>
-   </webElementProperties>
-   <webElementProperties>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>class</name>
-      <type>Main</type>
-      <value>generic-header show-text-ellipsis retain-whitespace</value>
-   </webElementProperties>
-   <webElementProperties>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>title</name>
-      <type>Main</type>
-      <value>Myfile.txt</value>
+      <value>div</value>
+      <webElementGuid>99c74d17-7c77-47c0-9bf1-c3010509bce9</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -39,40 +30,6 @@
       <name>text</name>
       <type>Main</type>
       <value>Myfile.txt</value>
+      <webElementGuid>035f68c8-7d2e-4edc-ba2f-31354bb210e6</webElementGuid>
    </webElementProperties>
-   <webElementProperties>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath</name>
-      <type>Main</type>
-      <value>id(&quot;root&quot;)/div[1]/div[@class=&quot;tabs&quot;]/div[@class=&quot;tabs__content&quot;]/div[@class=&quot;filecontent-fileviewer-container&quot;]/div[@class=&quot;filecontent-fileviewer-wrapper&quot;]/div[@class=&quot;SplitPane splitpane  vertical&quot;]/div[@class=&quot;Pane vertical Pane2&quot;]/div[@class=&quot;filecontent-fileviewer-container-wrapper&quot;]/div[@class=&quot;filecontent-fileviewer-container-right&quot;]/div[@class=&quot;file-content-viewer-wrapper&quot;]/div[@class=&quot;file-content-viewer-content-wrapper&quot;]/div[@class=&quot;file-content-viewer-file-details&quot;]/div[2]/div[@class=&quot;generic-header show-text-ellipsis retain-whitespace&quot;]</value>
-   </webElementProperties>
-   <webElementXpaths>
-      <isSelected>true</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath:idRelative</name>
-      <type>Main</type>
-      <value>//div[@id='root']/div/div[3]/div/div/div[2]/div/div[2]/div/div[2]/div/div[3]/div[2]/div[2]/div</value>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath:neighbor</name>
-      <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='Details'])[1]/following::div[3]</value>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath:neighbor</name>
-      <type>Main</type>
-      <value>(.//*[normalize-space(text()) and normalize-space(.)='Go'])[1]/following::div[6]</value>
-   </webElementXpaths>
-   <webElementXpaths>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath:position</name>
-      <type>Main</type>
-      <value>//div[3]/div[2]/div[2]/div</value>
-   </webElementXpaths>
 </WebElementEntity>

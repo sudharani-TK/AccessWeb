@@ -10,7 +10,7 @@
    <pageLoadTimeoutDefault>true</pageLoadTimeoutDefault>
    <rerunFailedTestCasesOnly>false</rerunFailedTestCasesOnly>
    <rerunImmediately>false</rerunImmediately>
-   <testSuiteGuid>8d44b7b1-533d-4e3e-bde6-581f7153f85c</testSuiteGuid>
+   <testSuiteGuid>bba38b36-5e57-4634-8fb0-95bd769f251d</testSuiteGuid>
    <testCaseLink>
       <guid>7c901d33-1ceb-4e85-8171-fbb84e26639d</guid>
       <isReuseDriver>false</isReuseDriver>
@@ -73,7 +73,7 @@
          <id>def05681-ad99-4ca0-8381-8005037feabf</id>
          <iterationEntity>
             <iterationType>SPECIFIC</iterationType>
-            <value>7-12</value>
+            <value>7-11</value>
          </iterationEntity>
          <testDataId>Data Files/Sanity/AppComp</testDataId>
       </testDataLink>
@@ -119,7 +119,7 @@
          <id>61f54222-daec-495d-bc77-9483e72d7f02</id>
          <iterationEntity>
             <iterationType>SPECIFIC</iterationType>
-            <value>13-16</value>
+            <value>12-16</value>
          </iterationEntity>
          <testDataId>Data Files/Sanity/AppComp</testDataId>
       </testDataLink>

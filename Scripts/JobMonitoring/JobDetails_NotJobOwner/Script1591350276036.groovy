@@ -7,28 +7,29 @@ import com.kms.katalon.core.model.FailureHandling as FailureHandling
 import com.kms.katalon.core.testobject.TestObject as TestObject
 import com.kms.katalon.core.util.KeywordUtil as KeywordUtil
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
-import com.relevantcodes.extentreports.LogStatus
+import com.aventstack.extentreports.MediaEntityBuilder
+import com.aventstack.extentreports.Status
 
 import internal.GlobalVariable as GlobalVariable
 
-//====================================================================================
-ReportFile = (GlobalVariable.G_ReportName + '.html')
-def extent = CustomKeywords.'generateReports.GenerateReport.create'(ReportFile, GlobalVariable.G_Browser, GlobalVariable.G_BrowserVersion)
-def LogStatus = com.relevantcodes.extentreports.LogStatus
-def extentTest = extent.startTest(TestCaseName)
+//==================================================================
+def Browser = GlobalVariable.G_Browser
+//===============================================================
+def extentTest=GlobalVariable.G_ExtentTest
+//===========================================================
 CustomKeywords.'toLogin.ForLogin.Login'(extentTest)
 //=====================================================================================
 
-def result
-def msgPass
-def mssFail
+def result=false
+def msgPass=false
+def mssFail=false
 
 WebUI.delay(2)
 
 try {
 	WebUI.delay(2)
 	
-		def jobsTab = CustomKeywords.'customWait.WaitForElement.WaitForelementPresent'(findTestObject('NewJobPage/AppList_ShellScript'),
+		def jobsTab = CustomKeywords.'customWait.WaitForElement.WaitForelementPresent'(findTestObject('LoginPage/NewJobPage/AppList_ShellScript'),
 		20,extentTest,'Jobs Tab')
 
 	if (jobsTab) {
@@ -42,8 +43,8 @@ try {
 
 	
 		WebUI.click(findTestObject('Object Repository/JobMonitoringPage/RadioBtn_AllJobs'))
-		WebUI.delay(1)
-		extentTest.log(LogStatus.PASS, 'All Jobs Filter Applied')
+		WebUI.delay(2)
+		extentTest.log(Status.PASS, 'All Jobs Filter Applied')
 		WebUI.click(findTestObject('JobMonitoringPage/JM_SearchBox'))
 		//WebUI.setText(findTestObject('JobMonitoringPage/JM_SearchBox'),AllJobsUser)
 		WebUI.sendKeys(findTestObject('JobMonitoringPage/JM_SearchBox'), AllJobsUser)
@@ -51,7 +52,7 @@ try {
 
 		if(GlobalVariable.G_Browser.equals('FireFox')) {
 			WebUI.delay(5)
-			extentTest.log(LogStatus.PASS, 'Waiting for jobs table to load on FireFox')
+			extentTest.log(Status.PASS, 'Waiting for jobs table to load on FireFox')
 		}
 	
 
@@ -59,7 +60,7 @@ try {
 			jobState, true)
 	WebUI.click(newJobFilter)
 	WebUI.delay(2)
-	extentTest.log(LogStatus.PASS, 'Clicked on job with state  - ' + jobState)
+	extentTest.log(Status.PASS, 'Clicked on job with state  - ' + jobState)
 	println(jobState)
 
 
@@ -73,17 +74,17 @@ try {
 
 		case 'Running':
 			WebUI.click(findTestObject('Object Repository/JobMonitoringPage/RunningFolder'))
-			extentTest.log(LogStatus.PASS, 'Navigated to Running Folder')
+			extentTest.log(Status.PASS, 'Navigated to Running Folder')
 			result=WebUI.verifyElementClickable(findTestObject('JobMonitoringPage/ErrMsg_NotJobOwner'), FailureHandling.CONTINUE_ON_FAILURE)
 			break;
 		case 'Output':
 			WebUI.click(findTestObject('Object Repository/JobMonitoringPage/OutputFolder'))
-			extentTest.log(LogStatus.PASS, 'Navigated to Output Folder')
+			extentTest.log(Status.PASS, 'Navigated to Output Folder')
 			result=WebUI.verifyElementClickable(findTestObject('JobMonitoringPage/ErrMsg_NotJobOwner'), FailureHandling.CONTINUE_ON_FAILURE)
 			break;
 			case 'Input':
 			WebUI.click(findTestObject('Object Repository/JobMonitoringPage/InputFolder'))
-			extentTest.log(LogStatus.PASS, 'Navigated to Inputjob_detail_download_btn Folder')
+			extentTest.log(Status.PASS, 'Navigated to Inputjob_detail_download_btn Folder')
 			result=WebUI.verifyElementClickable(findTestObject('JobMonitoringPage/ErrMsg_NotJobOwner'), FailureHandling.CONTINUE_ON_FAILURE)
 			break;
 	}
@@ -94,10 +95,10 @@ try {
 	
 
 	if (result) {
-		extentTest.log(LogStatus.PASS, msgPass)
+		extentTest.log(Status.PASS, msgPass)
 	}
 	else
-	{	 extentTest.log(LogStatus.FAIL, msgFail)
+	{	 extentTest.log(Status.FAIL, msgFail)
 
 	}
 
@@ -110,31 +111,37 @@ catch (Exception ex) {
 
 	WebUI.takeScreenshot(screenShotPath)
 
-	extentTest.log(LogStatus.FAIL, ex)
+	extentTest.log(Status.FAIL, ex)
 
 	KeywordUtil.markFailed('ERROR: ' + e)
+}
+catch (Exception ex) {
+	println('From TC - ' + GlobalVariable.G_ReportFolder)
+
+	String screenShotPath = (('ExtentReports/' + TestCaseName) + GlobalVariable.G_Browser) + '.png'
+
+	WebUI.takeScreenshot(screenShotPath)
+
+	String p = (TestCaseName + GlobalVariable.G_Browser) + '.png'
+
+	extentTest.log(Status.FAIL, ex)
+
+	extentTest.fail(MediaEntityBuilder.createScreenCaptureFromPath(p).build())
 }
 catch (StepErrorException e) {
 	String screenShotPath = (('ExtentReports/' + TestCaseName) + GlobalVariable.G_Browser) + '.png'
 
 	WebUI.takeScreenshot(screenShotPath)
 
-	extentTest.log(LogStatus.FAIL, e)
+	String p = (TestCaseName + GlobalVariable.G_Browser) + '.png'
 
-	KeywordUtil.markFailed('ERROR: ' + e)
-}
-catch (StepFailedException e) {
-	String screenShotPath = (('ExtentReports/' + TestCaseName) + GlobalVariable.G_Browser) + '.png'
+	extentTest.log(Status.FAIL, ex)
 
-	WebUI.takeScreenshot(screenShotPath)
-
-	extentTest.log(LogStatus.FAIL, e)
-
-	KeywordUtil.markFailed('ERROR: ' + e)
+	extentTest.fail(MediaEntityBuilder.createScreenCaptureFromPath(p).build())
 }
 finally {
-	extent.endTest(extentTest)
-
-	extent.flush()
+	extentTest.log(Status.PASS, 'Closing the browser after executinge test case - ' + TestCaseName)
+	
+	
 }
 

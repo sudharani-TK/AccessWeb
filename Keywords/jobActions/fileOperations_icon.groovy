@@ -18,6 +18,8 @@ import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import com.kms.katalon.core.testobject.ConditionType as ConditionType
 import org.openqa.selenium.Keys as Keys
+import com.aventstack.extentreports.MediaEntityBuilder
+import com.aventstack.extentreports.Status
 import internal.GlobalVariable
 
 public class fileOperations_Icon {
@@ -26,7 +28,7 @@ public class fileOperations_Icon {
 	@Keyword
 	def executeFileOperations(String Operation,String TestCaseName ,extentTest) {
 		boolean result=false
-		def LogStatus = com.relevantcodes.extentreports.LogStatus
+
 		println ("Control in Keyword")
 		WebUI.delay(2)
 		switch (Operation) {
@@ -34,7 +36,7 @@ public class fileOperations_Icon {
 				TestObject newFileOp=WebUI.modifyObjectProperty(findTestObject('FilesPage/FileOperations_Icon'), 'id', 'equals', Operation, true)
 				println(Operation)
 				WebUI.click(newFileOp)
-				extentTest.log(LogStatus.PASS, 'Clicked on Context Menu Option for - '+Operation)
+				extentTest.log(Status.PASS, 'Clicked on Context Menu Option for - '+Operation)
 				WebUI.click(findTestObject('FilesPage/Icon_Close'))
 				if (TestCaseName.contains('tile view')) {
 					TestObject newFolderObj
@@ -42,14 +44,14 @@ public class fileOperations_Icon {
 					newFolderObj.addProperty('xpath', ConditionType.EQUALS, "//label[contains(text(),'ToPaste')]")
 					WebUI.click(newFolderObj)
 					WebUI.doubleClick(newFolderObj)
-					extentTest.log(LogStatus.PASS, 'Navigated to ToPaste Folder')
+					extentTest.log(Status.PASS, 'Navigated to ToPaste Folder')
 					WebUI.delay(2)
 				}
 				else {
 
 					WebUI.click(findTestObject('Object Repository/FilesPage/Folder_ListView_ToPaste'))
 					WebUI.doubleClick(findTestObject('Object Repository/FilesPage/Folder_ListView_ToPaste'))
-					extentTest.log(LogStatus.PASS, 'Navigated to ToPaste Folder')
+					extentTest.log(Status.PASS, 'Navigated to ToPaste Folder')
 					WebUI.delay(2)
 				}
 				WebUI.click(findTestObject('FilesPage/TopMenuIcon_ellipses'))
@@ -67,7 +69,7 @@ public class fileOperations_Icon {
 				TestObject newFileOp=WebUI.modifyObjectProperty(findTestObject('FilesPage/FileOperations_Icon'), 'id', 'equals', Operation, true)
 				println(Operation)
 				WebUI.click(newFileOp)
-				extentTest.log(LogStatus.PASS, 'Clicked on Context Menu Option for - '+Operation)
+				extentTest.log(Status.PASS, 'Clicked on Context Menu Option for - '+Operation)
 				WebUI.click(findTestObject('FilesPage/Icon_Close'))
 				if (TestCaseName.contains('tile view')) {
 					TestObject newFolderObj
@@ -75,29 +77,28 @@ public class fileOperations_Icon {
 					newFolderObj.addProperty('xpath', ConditionType.EQUALS, "//label[contains(text(),'ToPaste')]")
 					WebUI.click(newFolderObj)
 					WebUI.doubleClick(newFolderObj)
-					extentTest.log(LogStatus.PASS, 'Navigated to ToPaste Folder')
+					extentTest.log(Status.PASS, 'Navigated to ToPaste Folder')
 					WebUI.delay(2)
-
 				}
 				else {
 
 					WebUI.click(findTestObject('Object Repository/FilesPage/Folder_ListView_ToPaste'))
 					WebUI.doubleClick(findTestObject('Object Repository/FilesPage/Folder_ListView_ToPaste'))
-					extentTest.log(LogStatus.PASS, 'Navigated to ToPaste Folder')
+					extentTest.log(Status.PASS, 'Navigated to ToPaste Folder')
 					WebUI.delay(2)
 				}
 
 				WebUI.click(findTestObject('FilesPage/TopMenuIcon_ellipses'))
 				WebUI.delay(2)
 				WebUI.click(findTestObject('Object Repository/FilesPage/TopMenuIcons_Paste'))
-				extentTest.log(LogStatus.PASS, 'Clicked on Paste Option')
+				extentTest.log(Status.PASS, 'Clicked on Paste Option')
 				WebUI.click(findTestObject('Landing_Page/Btn_Notifiction2'))
-				extentTest.log(LogStatus.PASS, "Opened Notification Panel" )
+				extentTest.log(Status.PASS, "Opened Notification Panel" )
 
 				WebUI.delay(2)
 			//Verify notification
 				result = WebUI.verifyElementPresent(findTestObject('Notificactions/Notification_CutFile'),5)
-				extentTest.log(LogStatus.PASS, "verified notification for operation - "+Operation)
+				extentTest.log(Status.PASS, "verified notification for operation - "+Operation)
 				println("notification status - "+result)
 				return result
 				break
@@ -115,8 +116,7 @@ public class fileOperations_Icon {
 
 				if (namesOfFiles.contains('ToDownload.txt')) {
 					println('success')
-					//extentTest.log(LogStatus.PASS, 'file to downloaded ')
-
+					//extentTest.log(Status.PASS, 'file to downloaded ')
 				} else {
 					println('fail')
 				}
@@ -132,16 +132,16 @@ public class fileOperations_Icon {
 				WebUI.click(findTestObject('FilesPage/TopMenuIcons_Compress'))
 				WebUI.delay(5)
 
-				extentTest.log(LogStatus.PASS, 'Clicked on Context Menu Option for - '+Operation)
+				extentTest.log(Status.PASS, 'Clicked on Context Menu Option for - '+Operation)
 
 				println"Clicked Compress"
 				WebUI.click(findTestObject('Landing_Page/Btn_Notifiction2'))
-				extentTest.log(LogStatus.PASS, "Opened Notification Panel" )
+				extentTest.log(Status.PASS, "Opened Notification Panel" )
 
 				WebUI.delay(2)
 			//Verify notification
 				result = WebUI.verifyElementPresent(findTestObject('Notificactions/Notification_CompressFile'),5)
-				extentTest.log(LogStatus.PASS, "verified notification for operation - "+Operation)
+				extentTest.log(Status.PASS, "verified notification for operation - "+Operation)
 				println("notification status - "+result)
 				WebUI.click(findTestObject('Landing_Page/Btn_Notifiction2'))
 
@@ -157,8 +157,7 @@ public class fileOperations_Icon {
 					def isIconPresent=WebUI.waitForElementPresent(sortIconDown, 3, FailureHandling.CONTINUE_ON_FAILURE)
 					println("sortIconUp - "+sortIconUp)
 					println("sortIconDown - "+isIconPresent)
-					if(sortIconUp)
-					{
+					if(sortIconUp) {
 						WebUI.click(findTestObject('Object Repository/FilesPage/SortBy-Order'))
 						WebUI.delay(2)
 					}
@@ -176,10 +175,10 @@ public class fileOperations_Icon {
 				println" UNCOMPRESS SCENARIO"
 				println "=================================================================="
 				String compressedFileName=(new jobActions.CreateFilesPageTestObj()).VerifyCompressedFile(TestCaseName,Operation)
-				extentTest.log(LogStatus.PASS, "Compressed FileName "+compressedFileName)
+				extentTest.log(Status.PASS, "Compressed FileName "+compressedFileName)
 				WebUI.setText(findTestObject('FilesPage/FilesSearch_filter'), compressedFileName)
 				WebUI.sendKeys(findTestObject('JobDetailsPage/TextBx_DetailsFilter'), Keys.chord(Keys.ENTER))
-				extentTest.log(LogStatus.PASS, 'Searched for Compressed File ')
+				extentTest.log(Status.PASS, 'Searched for Compressed File ')
 				TestObject newFileObj
 				TestObject newFolderObj
 				String UnCompressedFileName
@@ -202,17 +201,16 @@ public class fileOperations_Icon {
 				WebUI.click(newFileObj)
 
 				WebUI.rightClick(newFileObj)
-				extentTest.log(LogStatus.PASS, 'rightClicked on Compressed File ')
+				extentTest.log(Status.PASS, 'rightClicked on Compressed File ')
 				WebUI.delay(3)
 				WebUI.click(findTestObject('FilesPage/ContextMenu_FileGrid_UnCompress'))
-				extentTest.log(LogStatus.PASS, 'performed Un-Compress Operation on'+compressedFileName)
+				extentTest.log(Status.PASS, 'performed Un-Compress Operation on'+compressedFileName)
 				WebUI.delay(3)
 				WebUI.rightClick(newFileObj)
 				WebUI.delay(2)
 				if (TestCaseName.contains('Job Submission')) {
 					TestObject newFileOp=WebUI.modifyObjectProperty(findTestObject('FilesPage/ContextMenu_JobSubmission_FileOperations'), 'id', 'equals', 'Delete', true)
 					WebUI.click(newFileOp)
-
 				}
 				else {
 					TestObject newFileOp=WebUI.modifyObjectProperty(findTestObject('FilesPage/ContextMenu_FileOperation'), 'id', 'equals', 'Delete', true)
@@ -221,13 +219,13 @@ public class fileOperations_Icon {
 
 				WebUI.click(findTestObject('GenericObjects/btn_Yes'))
 				WebUI.delay(2)
-				extentTest.log(LogStatus.PASS, 'Deleted Compressed File ')
+				extentTest.log(Status.PASS, 'Deleted Compressed File ')
 				WebUI.click(newFolderObj)
 				WebUI.doubleClick(newFolderObj)
-				extentTest.log(LogStatus.PASS, 'Navigated to Uncompressed Folder')
+				extentTest.log(Status.PASS, 'Navigated to Uncompressed Folder')
 				WebUI.delay(2)
 				String newString=(new jobActions.CreateFilesPageTestObj()).VerifyUnCompressedFile(UnCompressedFileName,Operation)
-				extentTest.log(LogStatus.PASS, 'Verified Uncompressed folder contains original file ')
+				extentTest.log(Status.PASS, 'Verified Uncompressed folder contains original file ')
 				return result
 				break
 
@@ -246,11 +244,6 @@ public class fileOperations_Icon {
 				println("notification status - "+result)
 				return result
 				break
-
-
-
-
-
 		}
 	}
 }

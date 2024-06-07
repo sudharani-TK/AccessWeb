@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement
 import org.openqa.selenium.remote.RemoteWebElement
 
 import com.kms.katalon.core.annotation.Keyword
-import com.relevantcodes.extentreports.LogStatus
+import com.aventstack.extentreports.Status
 
 
 
@@ -47,10 +47,10 @@ public class AuditLog {
 			if(listElement.size() > 0) {
 				println("-------------------------------------")
 				def x=listElement.size()
-				extentTest.log(LogStatus.PASS, "value for "+tabHeaderLabel[i]  +"--- "+header)
+				extentTest.log(Status.PASS, "value for "+tabHeaderLabel[i]  +"--- "+header)
 				RemoteWebElement ele = listElement.get(1)
 				String myText=ele.getText()
-				extentTest.log(LogStatus.PASS, "text --- "+myText)
+				extentTest.log(Status.PASS, "text --- "+myText)
 				i++
 			}
 			else {

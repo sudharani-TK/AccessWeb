@@ -31,7 +31,5 @@ public class testGi {
 	def FolderRowIdentifireForUnCompressedFile() {
 		println (RunConfiguration.getProjectDir())
 		println(GlobalVariable.G_PBSHostName)
-
 	}
-
 }

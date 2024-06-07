@@ -9,7 +9,8 @@ import com.kms.katalon.core.model.FailureHandling
 import com.kms.katalon.core.testobject.ConditionType
 import com.kms.katalon.core.testobject.TestObject
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
-import com.relevantcodes.extentreports.LogStatus
+import com.aventstack.extentreports.MediaEntityBuilder
+import com.aventstack.extentreports.Status
 
 public class multiFileCompress {
 	@Keyword
@@ -22,39 +23,38 @@ public class multiFileCompress {
 		println(fileNew)
 		WebUI.setText(findTestObject('FilesPage/FilesSearch_filter'), fileNew)
 		WebUI.sendKeys(findTestObject('JobDetailsPage/TextBx_DetailsFilter'), Keys.chord(Keys.ENTER))
-		extentTest.log(LogStatus.PASS, 'Looking for archived file, search text entered - '+fileNew)
+		extentTest.log(Status.PASS, 'Looking for archived file, search text entered - '+fileNew)
 
 		if(TestCaseName.contains('tile view')) {
 
+			//String xpath_compressedfileXpathTV=	"//span[@id='permission-icons-list-view']"
 			String xpath_compressedfileXpathTV = "//label[@id='file_text'][contains(text(),'five_archive_')]"
 			println xpath_compressedfileXpathTV
 			// Building job indentifier obj
 			TestObject compressedFileObjIdentifierTV = new TestObject('objectName')
 			compressedFileObjIdentifierTV.addProperty('xpath', ConditionType.EQUALS, xpath_compressedfileXpathTV)
-			String CompressTitle=WebUI.getAttribute(compressedFileObjIdentifierTV,'title')
+			String CompressTitle=WebUI.getAttribute(compressedFileObjIdentifierTV,'textContent')
 			def newEmelemt=(new customWait.WaitForElement()).WaitForelementPresent(compressedFileObjIdentifierTV, 5,extentTest, 'Compressed File')
-			if(newEmelemt)
-			{
-				extentTest.log(LogStatus.PASS, ' Verified the compresed file - '+CompressTitle)
+			if(newEmelemt) {
+				extentTest.log(Status.PASS, ' Verified the compresed file - '+CompressTitle)
 			}
 			println("==========================================================")
 			println(CompressTitle)
 			println("==========================================================")
 			return CompressTitle
-
 		}
 		else {
-			String xpath_compressedfileXpath = "//div[@class='show-text-ellipsis retain-whitespace'][contains(text(),'five_archive_')]"
+			String xpath_compressedfileXpath = "//label[@class='show-text-ellipsis retain-whitespace']"//[contains(text(),'five_archive_')]"
 			println xpath_compressedfileXpath
 			// Building job indentifier obj
 			TestObject compressedFileObjIdentifierLatest = new TestObject('objectName')
 			compressedFileObjIdentifierLatest.addProperty('xpath', ConditionType.EQUALS, xpath_compressedfileXpath)
 			WebUI.delay(2)
-			String CompressTitle=WebUI.getAttribute(compressedFileObjIdentifierLatest,'title')
+			WebUI.delay(2)
+			String CompressTitle=WebUI.getAttribute(compressedFileObjIdentifierLatest,'textContent')
 			def newEmelemt=(new customWait.WaitForElement()).WaitForelementPresent(compressedFileObjIdentifierLatest, 5,extentTest, 'Compressed File')
-			if(newEmelemt)
-			{
-				extentTest.log(LogStatus.PASS, ' Verified the compresed file - '+CompressTitle)
+			if(newEmelemt) {
+				extentTest.log(Status.PASS, ' Verified the compresed file - '+CompressTitle)
 			}
 			println("==========================================================")
 			println(CompressTitle)
@@ -67,13 +67,13 @@ public class multiFileCompress {
 	@Keyword
 	def VerifyUnCompressedFile(String CompressedFileName , String TestCaseName,extentTest) {
 
-		String CompressedFileXpath
-		String FolderXpath
+		String CompressedFileXpath=null
+		String FolderXpath=null
 		WebUI.delay(2)
-		String FolderName
+		String FolderName=null
 		if(TestCaseName.contains('tile view')) {
 
-			String f1="//label[@id='file_text'][@title='"
+			String f1="//label[@id='file_text'][@data-automation-id ='"
 			String f2 ="']"
 			CompressedFileXpath=f1+CompressedFileName+f2
 			println("==============================================================")
@@ -81,7 +81,7 @@ public class multiFileCompress {
 			println("==============================================================")
 
 			String[] splitAddress = CompressedFileName.split('\\.')
-			String x1="//label[@id='tile_dir_input'][@title='"
+			String x1="//label[@id='tile_dir_input'][@data-automation-id='"
 			FolderXpath=x1+splitAddress[0]+f2
 			FolderName=splitAddress[0]
 			println("==============================================================")
@@ -91,7 +91,7 @@ public class multiFileCompress {
 			WebUI.rightClick(findTestObject('Object Repository/FilesPage/Tick_SelectedTick_TV'))
 		}
 		else {
-			String p1="//div[@title = '"
+			String p1="//div[@data-automation-id = '"
 			String p2 ="']"
 			CompressedFileXpath=p1+CompressedFileName+p2
 			println("==============================================================")
@@ -110,7 +110,7 @@ public class multiFileCompress {
 			WebUI.rightClick(newFileObj)
 		}
 
-		extentTest.log(LogStatus.PASS, 'Right clicked on compressed file - '+CompressedFileName+' to invoke contextmenu' )
+		extentTest.log(Status.PASS, 'Right clicked on compressed file - '+CompressedFileName+' to invoke contextmenu' )
 
 		def isSubmitPresent=WebUI.verifyElementPresent(findTestObject('Object Repository/JobSubmissionForm/button_Submit_Job'), 3, FailureHandling.CONTINUE_ON_FAILURE)
 		if(isSubmitPresent){
@@ -121,22 +121,20 @@ public class multiFileCompress {
 			WebUI.click(newFileOp)
 		}
 		WebUI.delay(2)
-		extentTest.log(LogStatus.PASS, 'Clicked on Delete menu item on compressed file - '+CompressedFileName)
+		extentTest.log(Status.PASS, 'Clicked on Delete menu item on compressed file - '+CompressedFileName)
 
 		WebUI.click(findTestObject('GenericObjects/btn_Yes'))
 		WebUI.delay(2)
 
-		extentTest.log(LogStatus.PASS, 'Clicked on Yes on Delete confirmation pop-up ')
+		extentTest.log(Status.PASS, 'Clicked on Yes on Delete confirmation pop-up ')
 
 		TestObject newFolderObj=new TestObject('objectName')
 		newFolderObj.addProperty('xpath', ConditionType.EQUALS, FolderXpath)
 		def isElemenet=WebUI.verifyElementPresent(newFolderObj, 5, FailureHandling.CONTINUE_ON_FAILURE)
-		extentTest.log(LogStatus.PASS, ' Navigated into uncompressed folder - '+FolderName)
+		extentTest.log(Status.PASS, ' Navigated into uncompressed folder - '+FolderName)
 		WebUI.click(newFolderObj)
 		WebUI.doubleClick(newFolderObj)
 
 		return true
 	}
-
-
 }

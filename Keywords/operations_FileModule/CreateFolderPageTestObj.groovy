@@ -24,10 +24,10 @@ public class CreateFolderPageTestObj {
 	def FolderRowIdentifireForUnCompressedFile() {
 
 
-		String x1 = '//div[contains(@data-path,\'/stage/'
+		String x1 = '//label[contains(@data-path,\'/stage/'
 		String x2 =GlobalVariable.G_userName
-		String x3
-		String x4
+		String x3 =null
+		String x4 =null
 		if(Operation.contains('icon')) {
 			x3='/FilesModule/FolderOpsIcons'
 		}
@@ -55,7 +55,7 @@ public class CreateFolderPageTestObj {
 	@Keyword
 	def VerifyCompressedFile(String TestCaseName , String Operation) {
 
-		String x1 = '//div[contains(@data-path,\'/stage/'
+		String x1 = '//label[contains(@data-path,\'/stage/'
 		String x2 =GlobalVariable.G_userName
 		String x3
 		String x4
@@ -64,7 +64,7 @@ public class CreateFolderPageTestObj {
 			xpath_compressedfileXpath = "//label[@id='file_text'][contains(@title,'MyFolderCompress_LV_archive_')]"
 		}
 		else {
-			xpath_compressedfileXpath = "//div[contains(text(),'MyFolderCompress_LV_archive_')]"
+			xpath_compressedfileXpath = "//label[contains(text(),'MyFolderCompress_LV_archive_')]"
 		}
 		println xpath_compressedfileXpath
 		// Building job indentifier obj
@@ -82,20 +82,14 @@ public class CreateFolderPageTestObj {
 		String CheckStringforFileName=sfn[0]
 		println ("File size from Verify Compressed file - "+CheckStringforFileSize)
 		println ("File size from Verify Compressed name - "+CheckStringforFileName)
-		if (CheckStringforFileSize.contains("190"))
-		{
+		if (CheckStringforFileSize.contains("190")) {
 			println('true')
 			return CheckStringforFileName
 		}
-		else
-		{
+		else {
 			println('false')
 			return false
 		}
-
-
-
-
 	}
 
 
@@ -103,7 +97,7 @@ public class CreateFolderPageTestObj {
 	def VerifyUnCompressedFile(String UnCompressedFolderName , String Operation) {
 		println UnCompressedFolderName
 
-		String x1='//div[contains(@data-path,\''
+		String x1='//label[contains(@data-path,\''
 		String x2= '\')]'
 		String xpath_compressedfileXpath = x1+UnCompressedFolderName+x2
 
@@ -116,8 +110,4 @@ public class CreateFolderPageTestObj {
 
 		return true
 	}
-
-
-
-
 }

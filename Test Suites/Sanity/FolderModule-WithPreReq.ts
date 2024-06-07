@@ -91,4 +91,38 @@
          <variableId>3da23bfd-8e4f-4249-9c91-343235062b08</variableId>
       </variableLink>
    </testCaseLink>
+   <testCaseLink>
+      <guid>37a47705-753e-40c5-a2c5-52743c78d0d4</guid>
+      <isReuseDriver>false</isReuseDriver>
+      <isRun>true</isRun>
+      <testCaseId>Test Cases/Upload/NewTestcase_upload</testCaseId>
+      <testDataLink>
+         <combinationType>ONE</combinationType>
+         <id>1951fc70-2582-4de2-9b55-4d1348728255</id>
+         <iterationEntity>
+            <iterationType>SPECIFIC</iterationType>
+            <value>1</value>
+         </iterationEntity>
+         <testDataId>Data Files/TestDataForGenericFilesOps</testDataId>
+      </testDataLink>
+      <usingDataBindingAtTestSuiteLevel>true</usingDataBindingAtTestSuiteLevel>
+      <variableLink>
+         <testDataLinkId>1951fc70-2582-4de2-9b55-4d1348728255</testDataLinkId>
+         <type>DATA_COLUMN</type>
+         <value>UserChoice</value>
+         <variableId>7fd8da46-d669-4970-a771-ff3b9bcbc69a</variableId>
+      </variableLink>
+      <variableLink>
+         <testDataLinkId>1951fc70-2582-4de2-9b55-4d1348728255</testDataLinkId>
+         <type>DATA_COLUMN</type>
+         <value>TestCaseName</value>
+         <variableId>faa67465-3ced-4f85-9eee-664c79e43c8c</variableId>
+      </variableLink>
+      <variableLink>
+         <testDataLinkId>1951fc70-2582-4de2-9b55-4d1348728255</testDataLinkId>
+         <type>DATA_COLUMN</type>
+         <value>InputFolder</value>
+         <variableId>95f26520-b2ee-4bda-8975-352c6c6b6388</variableId>
+      </variableLink>
+   </testCaseLink>
 </TestSuiteEntity>

@@ -14,17 +14,18 @@ import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
-import com.relevantcodes.extentreports.LogStatus as LogStatus
+import com.aventstack.extentreports.MediaEntityBuilder
+import com.aventstack.extentreports.Status
 import com.kms.katalon.core.util.KeywordUtil as KeywordUtil
 import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WSBuiltInKeywords
 import com.kms.katalon.core.exception.StepErrorException as StepErrorException
 
+
+//=========================================================
 def Browser = GlobalVariable.G_Browser
 //====================================================================================
-ReportFile = (GlobalVariable.G_ReportName + '.html')
-def extent = CustomKeywords.'generateReports.GenerateReport.create'(ReportFile, GlobalVariable.G_Browser, GlobalVariable.G_BrowserVersion)
-def LogStatus = com.relevantcodes.extentreports.LogStatus
-def extentTest = extent.startTest(TestCaseName)
+def extentTest=GlobalVariable.G_ExtentTest
+//===============================================================================
 CustomKeywords.'toLogin.ForLogin.Login'(extentTest)
 //=====================================================================================
 
@@ -32,7 +33,7 @@ try {
 
 	WebUI.delay(2)
 
-	extentTest.log(LogStatus.PASS, 'Navigated to url - ' + GlobalVariable.G_BaseUrl)
+	extentTest.log(Status.PASS, 'Navigated to url - ' + GlobalVariable.G_BaseUrl)
 
 
 	switch (UserChoice) {
@@ -59,7 +60,7 @@ try {
 
 			WebUI.delay(1)
 
-			extentTest.log(LogStatus.PASS, 'Clicked on the change button')
+			extentTest.log(Status.PASS, 'Clicked on the change button')
 			CustomKeywords.'change_password_feature.entering_passwords.validatemessages'(ErrorMessage1, ErrorMessage2, ErrorMessage3, extentTest)
 			break
 
@@ -72,7 +73,7 @@ try {
 		//click on the notification
 
 			WebUI.click(findTestObject('Object Repository/Notificactions/Notification'))
-			extentTest.log(LogStatus.PASS, 'Clicked on the Notification tab')
+			extentTest.log(Status.PASS, 'Clicked on the Notification tab')
 		//verify the error message
 			TestObject error_msg = WebUI.modifyObjectProperty(findTestObject('Object Repository/Notificactions/Notificationlistitem'), 'data-tip', 'contains', ErrorMessage1, true)
 			def err_msg = CustomKeywords.'customWait.WaitForElement.WaitForelementPresent'(error_msg,10, extentTest, 'Error Msg Pop up ')
@@ -81,9 +82,9 @@ try {
 				errormesage= WebUI.verifyElementPresent(error_msg, 4)
 			}
 			if(errormesage)
-				extentTest.log(LogStatus.PASS, 'Error message:: '+ ErrorMessage2)
+				extentTest.log(Status.PASS, 'Error message:: '+ ErrorMessage2)
 			else
-				extentTest.log(LogStatus.FAIL, 'Failed to verify the message ')
+				extentTest.log(Status.FAIL, 'Failed to verify the message ')
 			break
 		case 'PasswordMismatch':
 			CustomKeywords.'change_password_feature.entering_passwords.clickonchangepassword'(oldpassword, newpassword, confirmpassword,extentTest)
@@ -92,10 +93,10 @@ try {
 			WebUI.click(findTestObject('Object Repository/change_password/button'))
 			WebUI.delay(1)
 
-			extentTest.log(LogStatus.PASS, 'Clicked on the change button')
+			extentTest.log(Status.PASS, 'Clicked on the change button')
 
 			TestObject error_msg1 = WebUI.modifyObjectProperty(findTestObject('Object Repository/Notificactions/Notification_Item'),'text', 'equals', ErrorMessage1, true)
-			extentTest.log(LogStatus.PASS, 'Error message ::  ' + ErrorMessage1)
+			extentTest.log(Status.PASS, 'Error message ::  ' + ErrorMessage1)
 			break
 		case 'WrongOldPassword':
 			CustomKeywords.'change_password_feature.entering_passwords.clickonchangepassword'(oldpassword, newpassword, confirmpassword,extentTest)
@@ -103,12 +104,12 @@ try {
 			WebUI.click(findTestObject('Object Repository/change_password/button'))
 			WebUI.delay(1)
 
-			extentTest.log(LogStatus.PASS, 'Clicked on the change button')
+			extentTest.log(Status.PASS, 'Clicked on the change button')
 			WebUI.delay(3)
 			WebUI.click(findTestObject('Object Repository/Notificactions/Notification'))
 			TestObject error_msg1 = WebUI.modifyObjectProperty(findTestObject('Object Repository/Notificactions/Notificationlistitem'),'data-tip', 'contains', ErrorMessage1, true)
 
-			extentTest.log(LogStatus.PASS, 'Error message ::  ' + ErrorMessage1)
+			extentTest.log(Status.PASS, 'Error message ::  ' + ErrorMessage1)
 
 			break
 		case 'EmptyOldWrongConfirmPassword':
@@ -122,7 +123,7 @@ try {
 			WebUI.click(findTestObject('Object Repository/change_password/button'))
 			WebUI.delay(1)
 
-			extentTest.log(LogStatus.PASS, 'Clicked on the change button')
+			extentTest.log(Status.PASS, 'Clicked on the change button')
 
 		//verify the error message
 			TestObject error_msg1 = WebUI.modifyObjectProperty(findTestObject('Object Repository/Notificactions/Notification_Item'),
@@ -133,9 +134,9 @@ try {
 
 			String errormesage = WebUI.getText(error_msg1)
 
-			extentTest.log(LogStatus.PASS, 'Error message 1:: ' + ErrorMessage1)
+			extentTest.log(Status.PASS, 'Error message 1:: ' + ErrorMessage1)
 
-			extentTest.log(LogStatus.PASS, 'Error messages 2::   ' + ErrorMessage2)
+			extentTest.log(Status.PASS, 'Error messages 2::   ' + ErrorMessage2)
 			break
 		case 'EmptyOldEmptyNewPassword':
 			CustomKeywords.'change_password_feature.entering_passwords.clickonchangepassword'(oldpassword, newpassword, confirmpassword,extentTest)
@@ -150,7 +151,7 @@ try {
 			WebUI.click(findTestObject('Object Repository/change_password/button'))
 			WebUI.delay(1)
 
-			extentTest.log(LogStatus.PASS, 'Clicked on the change button')
+			extentTest.log(Status.PASS, 'Clicked on the change button')
 
 			CustomKeywords.'change_password_feature.entering_passwords.validatemessages'(ErrorMessage1, ErrorMessage2, ErrorMessage3, extentTest)
 
@@ -166,13 +167,13 @@ try {
 			WebUI.click(findTestObject('Object Repository/change_password/button'))
 			WebUI.delay(1)
 
-			extentTest.log(LogStatus.PASS, 'Clicked on the change button')
+			extentTest.log(Status.PASS, 'Clicked on the change button')
 
 		//verify the error message
 			TestObject error_msg1 = WebUI.modifyObjectProperty(findTestObject('Object Repository/Notificactions/Notification_Item'),
 					'text', 'equals', ErrorMessage1, true)
 
-			extentTest.log(LogStatus.PASS, 'Error message : ' + ErrorMessage1)
+			extentTest.log(Status.PASS, 'Error message : ' + ErrorMessage1)
 			break
 
 		case 'SameOldNewPassword':
@@ -180,12 +181,12 @@ try {
 			WebUI.click(findTestObject('Object Repository/change_password/button'))
 			WebUI.delay(1)
 
-			extentTest.log(LogStatus.PASS, 'Clicked on the change button')
+			extentTest.log(Status.PASS, 'Clicked on the change button')
 			WebUI.delay(3)
 			WebUI.click(findTestObject('Object Repository/Notificactions/Notification'))
 			TestObject error_msg1 = WebUI.modifyObjectProperty(findTestObject('Object Repository/Notificactions/Notificationlistitem'),
 					'data-tip', 'contains', ErrorMessage1, true)
-			extentTest.log(LogStatus.PASS, 'Error message ::  ' + ErrorMessage1)
+			extentTest.log(Status.PASS, 'Error message ::  ' + ErrorMessage1)
 			break
 
 		case 'EmptyNewEmptyConfirmPassword':
@@ -204,7 +205,7 @@ try {
 			WebUI.click(findTestObject('Object Repository/change_password/button'))
 			WebUI.delay(1)
 
-			extentTest.log(LogStatus.PASS, 'Clicked on the change button')
+			extentTest.log(Status.PASS, 'Clicked on the change button')
 
 
 
@@ -218,9 +219,9 @@ try {
 
 			String errormesage = WebUI.getText(error_msg1)
 
-			extentTest.log(LogStatus.PASS, 'Error message 1:: ' + ErrorMessage1)
+			extentTest.log(Status.PASS, 'Error message 1:: ' + ErrorMessage1)
 
-			extentTest.log(LogStatus.PASS, 'Error messages 2::   ' + ErrorMessage2)
+			extentTest.log(Status.PASS, 'Error messages 2::   ' + ErrorMessage2)
 
 			break
 		case 'DefaultFields':
@@ -231,7 +232,7 @@ try {
 		//click on the change password option
 			WebUI.click(findTestObject('Object Repository/change_password/changepass_menu'))
 
-			extentTest.log(LogStatus.PASS, 'Clicked on the change password icon  ')
+			extentTest.log(Status.PASS, 'Clicked on the change password icon  ')
 
 		//verify the title
 			println(WebUI.verifyElementPresent(findTestObject('Object Repository/change_password/title'), 20))
@@ -239,9 +240,9 @@ try {
 			String title = WebUI.getText(findTestObject('Object Repository/change_password/title'))
 			def returnvalue= WebUI.verifyMatch(title, "Change Password", true)
 			if(returnvalue)
-				extentTest.log(LogStatus.PASS, ('Verify the Title ' + title) + 'is present')
+				extentTest.log(Status.PASS, ('Verify the Title ' + title) + 'is present')
 			else
-				extentTest.log(LogStatus.FAIL, ('Verify the Title::  ' + title) + 'is not present')
+				extentTest.log(Status.FAIL, ('Verify the Title::  ' + title) + 'is not present')
 
 
 			def oldpwd= WebUI.modifyObjectProperty(findTestObject('Object Repository/change_password/placeholders') ,'placeholder', 'equals', ErrorMessage1, true)
@@ -252,26 +253,26 @@ try {
 			println(WebUI.verifyElementPresent(newpwd, 20))
 
 			println(WebUI.verifyElementPresent(confmpwd, 20))
-			extentTest.log(LogStatus.PASS, 'Verifying the Field::  '+ ErrorMessage1 + ' is present ')
-			extentTest.log(LogStatus.PASS, 'Verifying the Field::  '+ ErrorMessage2+ ' is present ')
-			extentTest.log(LogStatus.PASS, 'Verifying the Field::  '+ ErrorMessage3 + ' is present ')
+			extentTest.log(Status.PASS, 'Verifying the Field::  '+ ErrorMessage1 + ' is present ')
+			extentTest.log(Status.PASS, 'Verifying the Field::  '+ ErrorMessage2+ ' is present ')
+			extentTest.log(Status.PASS, 'Verifying the Field::  '+ ErrorMessage3 + ' is present ')
 			break
 	}
 
 
 }
 catch (Exception ex) {
+	println('From TC - ' + GlobalVariable.G_ReportFolder)
+
 	String screenShotPath = (('ExtentReports/' + TestCaseName) + GlobalVariable.G_Browser) + '.png'
 
 	WebUI.takeScreenshot(screenShotPath)
 
 	String p = (TestCaseName + GlobalVariable.G_Browser) + '.png'
 
-	extentTest.log(LogStatus.FAIL, ex)
+	extentTest.log(Status.FAIL, ex)
 
-	extentTest.log(LogStatus.FAIL, extentTest.addScreenCapture(p))
-
-	KeywordUtil.markFailed('ERROR: ' + ex)
+	extentTest.fail(MediaEntityBuilder.createScreenCaptureFromPath(p).build())
 }
 catch (StepErrorException e) {
 	String screenShotPath = (('ExtentReports/' + TestCaseName) + GlobalVariable.G_Browser) + '.png'
@@ -280,16 +281,12 @@ catch (StepErrorException e) {
 
 	String p = (TestCaseName + GlobalVariable.G_Browser) + '.png'
 
-	extentTest.log(LogStatus.FAIL, ex)
+	extentTest.log(Status.FAIL, ex)
 
-	extentTest.log(LogStatus.FAIL, extentTest.addScreenCapture(p))
-
-	KeywordUtil.markFailed('ERROR: ' + e)
+	extentTest.fail(MediaEntityBuilder.createScreenCaptureFromPath(p).build())
 }
 finally {
-	extent.endTest(extentTest)
-
-	extent.flush()
+	extentTest.log(Status.PASS, 'Closing the browser after executing the  test case - ' + TestCaseName)
+	
+	
 }
-
-

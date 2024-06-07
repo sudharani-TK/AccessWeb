@@ -6,7 +6,7 @@
    <containsHeaders>true</containsHeaders>
    <csvSeperator></csvSeperator>
    <dataFileGUID>d03a4561-4a46-4a82-8388-cd20f98f4366</dataFileGUID>
-   <dataSourceUrl>Data Files/TestData.xlsx</dataSourceUrl>
+   <dataSourceUrl>Data Files/TestData - Copy.xlsx</dataSourceUrl>
    <driver>ExcelFile</driver>
    <isInternalPath>true</isInternalPath>
    <query></query>

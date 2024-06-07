@@ -7,11 +7,10 @@
    <selectorCollection>
       <entry>
          <key>XPATH</key>
-         <value></value>
       </entry>
       <entry>
          <key>BASIC</key>
-         <value>//input[@id = 'folder_upload_element_running_job_dir_upload']</value>
+         <value>//input[@id = 'folder_upload_element_running_job_upload']</value>
       </entry>
    </selectorCollection>
    <selectorMethod>BASIC</selectorMethod>
@@ -22,14 +21,14 @@
       <name>tag</name>
       <type>Main</type>
       <value>input</value>
-      <webElementGuid>4f7bf305-8bd1-4d6d-b872-44d3e3f762f0</webElementGuid>
+      <webElementGuid>bbeb44cb-bb06-484b-9448-919ab606e868</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>id</name>
       <type>Main</type>
-      <value>folder_upload_element_running_job_dir_upload</value>
-      <webElementGuid>357e3e8f-9378-4e8c-af47-e93d74113296</webElementGuid>
+      <value>folder_upload_element_running_job_upload</value>
+      <webElementGuid>0e0bc8bf-94f3-4fe8-a2e4-2c99012b4606</webElementGuid>
    </webElementProperties>
 </WebElementEntity>

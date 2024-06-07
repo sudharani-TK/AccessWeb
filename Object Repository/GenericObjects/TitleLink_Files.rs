@@ -6,12 +6,12 @@
    <elementGuidId>9223800e-fea9-48f5-ab04-0976d37592c8</elementGuidId>
    <selectorCollection>
       <entry>
-         <key>BASIC</key>
-         <value>//li[@id = 'app_files_tab']</value>
+         <key>XPATH</key>
+         <value>//a</value>
       </entry>
       <entry>
-         <key>XPATH</key>
-         <value>//a[contains(text(),'Files')]</value>
+         <key>BASIC</key>
+         <value>//li[@id = 'app_files_tab']</value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>
@@ -22,6 +22,7 @@
       <name>tag</name>
       <type>Main</type>
       <value>li</value>
+      <webElementGuid>dc6f2ea9-bfd5-4b95-b5a6-c630e96d71de</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -29,6 +30,7 @@
       <name>class</name>
       <type>Main</type>
       <value> focus_enable_class</value>
+      <webElementGuid>d5c30f1b-a5e1-4d81-bcf9-adcd087367eb</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -36,6 +38,7 @@
       <name>text</name>
       <type>Main</type>
       <value>Files</value>
+      <webElementGuid>917655d8-fe68-4ad4-94d4-12997adf2adb</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -43,6 +46,7 @@
       <name>xpath</name>
       <type>Main</type>
       <value>id(&quot;app_files_tab&quot;)/a[@class=&quot;focus_enable_class&quot;]</value>
+      <webElementGuid>11ac146c-e140-4673-9773-31bc2d728e62</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -50,6 +54,7 @@
       <name>id</name>
       <type>Main</type>
       <value>app_files_tab</value>
+      <webElementGuid>6e2b19cd-5154-4afc-a9a6-04dd251bd918</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
@@ -57,6 +62,7 @@
       <name>xpath:idRelative</name>
       <type>Main</type>
       <value>//li[@id='app_files_tab']/a</value>
+      <webElementGuid>77c83396-688b-4f63-a06d-9bb692c5baed</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -64,6 +70,7 @@
       <name>xpath:link</name>
       <type>Main</type>
       <value>//a[contains(text(),'Files')]</value>
+      <webElementGuid>82b1c5f1-561e-4942-b10c-c54aaeec327a</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -71,6 +78,7 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='OK'])[1]/following::a[1]</value>
+      <webElementGuid>7451f642-31f5-47a3-944a-7299df2766ff</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -78,6 +86,7 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='There is no notifications to show at this moment'])[1]/following::a[1]</value>
+      <webElementGuid>ebbf80a6-8206-40b5-8219-31364ccef42e</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -85,6 +94,7 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='Jobs'])[1]/preceding::a[1]</value>
+      <webElementGuid>6c81d4ce-173d-4121-b149-ff1d549c1136</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -92,6 +102,7 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='Sessions'])[1]/preceding::a[2]</value>
+      <webElementGuid>87d43b80-dd32-41e0-b232-3dac5a39f68d</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -99,5 +110,6 @@
       <name>xpath:position</name>
       <type>Main</type>
       <value>//a</value>
+      <webElementGuid>65991115-35f5-44f8-b51a-a613a753d621</webElementGuid>
    </webElementXpaths>
 </WebElementEntity>

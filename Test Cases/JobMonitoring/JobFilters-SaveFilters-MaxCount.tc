@@ -5,8 +5,50 @@
    <tag></tag>
    <comment></comment>
    <testCaseGuid>5cf3daf8-0b68-4c33-9c4c-dd3b568424c4</testCaseGuid>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>8fe97f86-abc2-4212-92cd-9dba59c37e44</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>e85ec3a7-aa32-45f1-9349-99cee8d1a041</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>d56b7ca3-04cf-4d28-bd31-098ee71abbcc</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>c2ff0dd6-55d2-4806-a97c-f47e8385d0eb</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>e4825c27-e583-4def-8018-dfd922551744</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>266c33c0-f3d2-4b8e-8eae-571715039ba7</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>02b4f6a9-2244-4eaa-895d-cab9c1667543</variableId>
+   </variableLinks>
    <variable>
-      <defaultValue>'Job Filters'</defaultValue>
+      <defaultValue>'Job Filters-Verify the Filter icon gets disabled after reaching the max numbers'</defaultValue>
       <description></description>
       <id>8fe97f86-abc2-4212-92cd-9dba59c37e44</id>
       <masked>false</masked>

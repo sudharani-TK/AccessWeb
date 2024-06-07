@@ -3,6 +3,7 @@
    <description></description>
    <name>TestDataForJobDetails</name>
    <tag></tag>
+   <connectionProperties/>
    <containsHeaders>true</containsHeaders>
    <csvSeperator></csvSeperator>
    <dataFileGUID>b01f44c9-bf05-40d8-afa4-32f37183709b</dataFileGUID>

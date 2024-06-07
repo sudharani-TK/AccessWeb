@@ -7,7 +7,7 @@
    <selectorCollection>
       <entry>
          <key>BASIC</key>
-         <value>//span[@class = 'unity_user']</value>
+         <value>//span[contains(@class, 'unity_user')]</value>
       </entry>
    </selectorCollection>
    <selectorMethod>BASIC</selectorMethod>
@@ -18,12 +18,14 @@
       <name>tag</name>
       <type>Main</type>
       <value>span</value>
+      <webElementGuid>5fde90ff-592f-4859-bc00-e4917682eb05</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
-      <matchCondition>equals</matchCondition>
+      <matchCondition>contains</matchCondition>
       <name>class</name>
       <type>Main</type>
       <value>unity_user</value>
+      <webElementGuid>f0351d75-9b08-49c2-ab90-ec65ce656915</webElementGuid>
    </webElementProperties>
 </WebElementEntity>

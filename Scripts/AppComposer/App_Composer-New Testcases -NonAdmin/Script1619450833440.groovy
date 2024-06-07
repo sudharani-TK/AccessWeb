@@ -16,7 +16,9 @@ import com.kms.katalon.core.testobject.TestObject as TestObject
 import com.kms.katalon.core.util.KeywordUtil
 import com.kms.katalon.core.webui.driver.DriverFactory as DriverFactory
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
-import com.relevantcodes.extentreports.LogStatus
+
+import com.aventstack.extentreports.Status
+import com.aventstack.extentreports.MediaEntityBuilder
 
 import internal.GlobalVariable as GlobalVariable
 import com.kms.katalon.core.configuration.RunConfiguration as RunConfiguration
@@ -35,14 +37,14 @@ EventFiringWebDriver eventFiring = ((DriverFactory.getWebDriver()) as EventFirin
 WebDriver wrappedWebDriver = eventFiring.getWrappedDriver()
 
 // Cast the wrapped driver into RemoteWebDriver
-RemoteWebDriver katalonWebDriver = ((wrappedWebDriver) as RemoteWebDriver)
+//RemoteWebDriver katalonWebDriver = ((wrappedWebDriver) as RemoteWebDriver)
+RemoteWebDriver katalonWebDriver = (RemoteWebDriver) wrappedWebDriver
 
-ReportFile = (GlobalVariable.G_ReportName + '.html')
-def extent = CustomKeywords.'generateReports.GenerateReport.create'(ReportFile, GlobalVariable.G_Browser, GlobalVariable.G_BrowserVersion)
-def LogStatus = com.relevantcodes.extentreports.LogStatus
-def extentTest = extent.startTest(TestCaseName)
+def Browser = GlobalVariable.G_Browser
+//===============================================================
+def extentTest=GlobalVariable.G_ExtentTest
+
 CustomKeywords.'toLogin.ForLogin.Login'(extentTest)
-String screenShot='ExtentReports/'+TestCaseName+userChoice+GlobalVariable.G_Browser+'.png'
 def result
 WebUI.delay(2)
 
@@ -52,14 +54,24 @@ try
 	WebUI.delay(2)
 
 
-	WebUI.click(findTestObject('Preferences/Profiletab'))
+	WebUI.click(findTestObject('PageNavigation/Preferences/Profiletab'))
 	extentTest.log(LogStatus.PASS, 'Click on profile tab')
 	WebUI.delay(2)
 
 	WebUI.click(findTestObject('AppComposer/Appcomposer'))
 	extentTest.log(LogStatus.PASS, 'Click on App composer')
 
-	println("userchoice ++++++"+userChoice+"++++++++++++")
+	//println("userchoice ++++++"+userChoice+"++++++++++++")
+	
+	boolean hpcclusterTmp=	WebUI.waitForElementVisible(findTestObject('Object Repository/AppComposer/hpcluster_temp'), 10)
+	if(hpcclusterTmp) {
+		
+		WebUI.click(findTestObject('Object Repository/AppComposer/hpcluster_temp'))
+		WebUI.mouseOver(findTestObject('Object Repository/AppComposer/hpcluster_temp'))
+		WebUI.delay(2)
+		WebUI.click(findTestObject('Object Repository/AppComposer/NewApp_temp'))
+		extentTest.log(LogStatus.PASS, 'Clicked on new Appcomposer')
+	}
 
 	switch(userChoice)
 	{
@@ -90,7 +102,7 @@ try
 		WebUI.delay(2)
 
 		
-		TestObject appdefname = WebUI.modifyObjectProperty(findTestObject('Object Repository/AppComposer/application_name'),'title', 'equals', app, true)
+		TestObject appdefname = WebUI.modifyObjectProperty(findTestObject('Object Repository/AppComposer/application_name'),'data-automation-id', 'equals', app, true)
 		WebUI.delay(2)
 		WebUI.click(appdefname)
 		extentTest.log(LogStatus.PASS, 'Select the Existing app def '+ app)
@@ -112,31 +124,42 @@ try
 	{
 		extentTest.log(LogStatus.PASS, ('Verified ::  ' + TestCaseName) + ' :: Sucessfully')
 	} else {
-		extentTest.log(LogStatus.FAIL, ( TestCaseName) + ' :: failed')
+		extentTest.log(LogStatus.FAIL,  TestCaseName + ' :: failed')
 	}
 
 
 
 }
+
 catch (Exception ex) {
+	println('From TC - ' + GlobalVariable.G_ReportFolder)
+ 
 	String screenShotPath = (('ExtentReports/' + TestCaseName) + GlobalVariable.G_Browser) + '.png'
+ 
 	WebUI.takeScreenshot(screenShotPath)
+ 
 	String p = (TestCaseName + GlobalVariable.G_Browser) + '.png'
-	extentTest.log(LogStatus.FAIL, ex)
-	extentTest.log(LogStatus.FAIL, extentTest.addScreenCapture(p))
+ 
+	extentTest.log(Status.FAIL, ex)
+ 
+	extentTest.fail(MediaEntityBuilder.createScreenCaptureFromPath(p).build())
 }
 catch (StepErrorException e) {
 	String screenShotPath = (('ExtentReports/' + TestCaseName) + GlobalVariable.G_Browser) + '.png'
+ 
 	WebUI.takeScreenshot(screenShotPath)
-	extentTest.log(LogStatus.FAIL, e)
-}
-finally {
-	extentTest.log(LogStatus.PASS, 'Closing the browser after executinge test case - '+ TestCaseName)
-	extent.endTest(extentTest)
-	extent.flush()
+ 
+	String p = (TestCaseName + GlobalVariable.G_Browser) + '.png'
+ 
+	extentTest.log(Status.FAIL, ex)
+ 
+	extentTest.fail(MediaEntityBuilder.createScreenCaptureFromPath(p).build())
 }
 //=====================================================================================
+finally {
+	extentTest.log(Status.PASS, 'Closing the browser after executinge test case - ' + TestCaseName)
 
+}
 
 
 

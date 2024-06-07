@@ -4,9 +4,13 @@
    <name>AccessWeb</name>
    <tag></tag>
    <UUID>a8c072b2-808f-4e27-ae2b-31413eba1ca7</UUID>
+   <createdVersion>9.3.1</createdVersion>
+   <freeLicense>false</freeLicense>
    <migratedVersion>5.9.0</migratedVersion>
+   <modifiedEdition>ENTERPRISE</modifiedEdition>
+   <modifiedVersion>9.4.0</modifiedVersion>
    <pageLoadTimeout>0</pageLoadTimeout>
-   <projectFileLocation>D:\KatalonStudio\AccessWeb\AccessWeb.prj</projectFileLocation>
+   <projectFileLocation>C:\Users\sudhak\Accessweb_newextent\AccessWeb\AccessWeb.prj</projectFileLocation>
    <sourceContent>
       <sourceFolderList>
          <sourceFolderConfiguration>
@@ -25,5 +29,6 @@
          </systemFolderConfiguration>
       </systemFolderList>
    </sourceContent>
+   <timeStampInProperties>true</timeStampInProperties>
    <type>GENERIC</type>
 </Project>

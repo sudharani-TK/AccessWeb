@@ -5,6 +5,18 @@
    <tag></tag>
    <comment></comment>
    <testCaseGuid>492adeb3-33b1-4eb6-a333-c9a0949b6a80</testCaseGuid>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>0897d5a5-0b32-4d65-8610-6e93cd02a6ed</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>f7cb60b7-967b-4fe9-a0d4-ecb89c50d80e</variableId>
+   </variableLinks>
    <variable>
       <defaultValue>'Page Navigation'</defaultValue>
       <description></description>

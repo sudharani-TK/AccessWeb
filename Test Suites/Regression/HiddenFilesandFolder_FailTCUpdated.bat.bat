@@ -1,1 +1,0 @@
-katalon -noSplash  -runMode=console -projectPath="C:\KSProjects\AccessRegression\Appcomposer-master\AccessWeb.prj" -retry=0 -testSuitePath="" -executionProfile="FireFox_Files" -browserType="Firefox"

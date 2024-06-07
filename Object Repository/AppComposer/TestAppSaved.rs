@@ -11,9 +11,25 @@
       </entry>
       <entry>
          <key>BASIC</key>
-         <value></value>
+         <value>//div[@data-automation-id = 'TestSaved']</value>
       </entry>
    </selectorCollection>
-   <selectorMethod>XPATH</selectorMethod>
+   <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>tag</name>
+      <type>Main</type>
+      <value>div</value>
+      <webElementGuid>054e495c-77ef-4cee-b49a-56a7b8569915</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>data-automation-id</name>
+      <type>Main</type>
+      <value>TestSaved</value>
+      <webElementGuid>5b704304-879e-4c84-8a58-e7abaa536303</webElementGuid>
+   </webElementProperties>
 </WebElementEntity>

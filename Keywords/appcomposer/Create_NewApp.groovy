@@ -17,7 +17,8 @@ import com.kms.katalon.core.testobject.TestObject
 import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
-import com.relevantcodes.extentreports.LogStatus
+import com.aventstack.extentreports.MediaEntityBuilder
+import com.aventstack.extentreports.Status
 import org.openqa.selenium.Keys
 
 import internal.GlobalVariable
@@ -29,7 +30,7 @@ public class Create_NewApp {
 
 		WebUI.click(findTestObject('AppComposer/AppName'))
 
-		extentTest.log(LogStatus.PASS, 'Click to Entered App name')
+		extentTest.log(Status.PASS, 'Click to Entered App name')
 
 		WebUI.doubleClick(findTestObject('AppComposer/AppName'))
 
@@ -40,27 +41,27 @@ public class Create_NewApp {
 
 		WebUI.setText(findTestObject('AppComposer/AppName'), app)
 
-		extentTest.log(LogStatus.PASS, 'Entered App name - ' + app)
+		extentTest.log(Status.PASS, 'Entered App name - ' + app)
 
 		WebUI.click(findTestObject('AppComposer/Executableinput'))
 
-		extentTest.log(LogStatus.PASS, 'Click to add exec commands')
+		extentTest.log(Status.PASS, 'Click to add exec commands')
 
 		WebUI.setText(findTestObject('AppComposer/Executableinput'), '')
 
 		WebUI.setText(findTestObject('AppComposer/Executableinput'), exec)
 
-		extentTest.log(LogStatus.PASS, 'Add Exec commands - ' + exec)
+		extentTest.log(Status.PASS, 'Add Exec commands - ' + exec)
 
 		WebUI.click(findTestObject('AppComposer/Save'))
 
-		extentTest.log(LogStatus.PASS, 'Click on Save button')
+		extentTest.log(Status.PASS, 'Click on Save button')
 
 		WebUI.delay(3)
 		WebUI.waitForElementPresent(findTestObject('Object Repository/AppComposer/AppSaved'), 5)
 
 		def notification = WebUI.getText(findTestObject('Object Repository/AppComposer/AppSaved'))
 
-		extentTest.log(LogStatus.PASS, 'Notification Generated ' + notification)
+		extentTest.log(Status.PASS, 'Notification Generated ' + notification)
 	}
 }

@@ -64,7 +64,7 @@ try {
 	extentTest.log(LogStatus.PASS, 'Navigated Job Tab')
 	WebUI.delay(2)
 
-	TestObject newAppObj = WebUI.modifyObjectProperty(findTestObject('NewJobPage/AppList_ShellScript'), 'id', 'equals',
+	TestObject newAppObj = WebUI.modifyObjectProperty(findTestObject('LoginPage/NewJobPage/AppList_ShellScript'), 'id', 'equals',
 			AppName, true)
 
 	WebUI.click(newAppObj)
@@ -73,7 +73,7 @@ try {
 	//	WebUI.doubleClick(newAppObj)
 
 	WebUI.delay(2)
-	WebUI.click(findTestObject('Object Repository/NewJobPage/GenericProfile'))
+	WebUI.click(findTestObject('Object Repository/LoginPage/NewJobPage/GenericProfile'))
 	WebUI.delay(2)
 
 	if (Version.equals('ShellScript')) {

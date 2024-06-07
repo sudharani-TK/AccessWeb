@@ -3,6 +3,7 @@
    <description></description>
    <name>FilesOps</name>
    <tag></tag>
+   <connectionProperties/>
    <containsHeaders>true</containsHeaders>
    <csvSeperator></csvSeperator>
    <dataFileGUID>8dae5861-3b44-497c-8c71-397929e3b690</dataFileGUID>

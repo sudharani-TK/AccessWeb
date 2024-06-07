@@ -3,6 +3,7 @@
    <description></description>
    <name>TestDataForFileViewer</name>
    <tag></tag>
+   <connectionProperties/>
    <containsHeaders>true</containsHeaders>
    <csvSeperator></csvSeperator>
    <dataFileGUID>91a3c6ea-de66-41b0-8e57-266f87d86a2c</dataFileGUID>

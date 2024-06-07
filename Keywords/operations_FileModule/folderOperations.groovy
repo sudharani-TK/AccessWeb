@@ -9,7 +9,8 @@ import com.kms.katalon.core.model.FailureHandling
 import com.kms.katalon.core.testobject.ConditionType as ConditionType
 import com.kms.katalon.core.testobject.TestObject
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
-import com.relevantcodes.extentreports.LogStatus
+import com.aventstack.extentreports.MediaEntityBuilder
+import com.aventstack.extentreports.Status
 
 import internal.GlobalVariable
 
@@ -24,16 +25,16 @@ public class folderOperations {
 		def sdf = new SimpleDateFormat("ddMMyyyy_HHmmss")
 		def e1 = sdf.format(date)
 		def e2 =sdf.format(date)
-		def LogStatus = com.relevantcodes.extentreports.LogStatus
+
 		println ("Control in Keyword")
-		String msg
+		String msg= null
 		WebUI.delay(2)
 		switch (Operation) {
 
 			case 'Copy':
 				TestObject newFolderOp=WebUI.modifyObjectProperty(findTestObject('FilesPage/ContextMenu_FileOperation'), 'id', 'equals', Operation, true)
 				WebUI.click(newFolderOp)
-				extentTest.log(LogStatus.PASS, 'Clicked on Context Menu Option for - '+Operation)
+				extentTest.log(Status.PASS, 'Clicked on Context Menu Option for - '+Operation)
 				WebUI.click(findTestObject('FilesPage/Icon_Close'))
 				def folderToCheck
 				if (TestCaseName.contains('tile view')) {
@@ -44,7 +45,7 @@ public class folderOperations {
 					WebUI.scrollToElement(newFolderObj, 3)
 					WebUI.click(newFolderObj)
 					WebUI.doubleClick(newFolderObj)
-					extentTest.log(LogStatus.PASS, 'Navigated to ToPaste Folder')
+					extentTest.log(Status.PASS, 'Navigated to ToPaste Folder')
 					WebUI.delay(2)
 					def isElemenetPresent=WebUI.waitForElementVisible(findTestObject('FilesPage/Label_FolderEmpty'),5,FailureHandling.CONTINUE_ON_FAILURE)
 					if(isElemenetPresent) {
@@ -53,7 +54,7 @@ public class folderOperations {
 					else {
 						WebUI.rightClick(findTestObject('Object Repository/FilesPage/Canvas_FilesPage_TileView'))
 					}
-					extentTest.log(LogStatus.PASS, 'Invoked context menu in ToPaste Folder')
+					extentTest.log(Status.PASS, 'Invoked context menu in ToPaste Folder')
 
 					WebUI.delay(2)
 					WebUI.click(findTestObject('Object Repository/FilesPage/ContextMenu_TileGrid_Paste'))
@@ -62,7 +63,7 @@ public class folderOperations {
 					WebUI.scrollToElement(findTestObject('Object Repository/FilesPage/Folder_ListView_ToPaste'), 3)
 					WebUI.click(findTestObject('Object Repository/FilesPage/Folder_ListView_ToPaste'))
 					WebUI.doubleClick(findTestObject('Object Repository/FilesPage/Folder_ListView_ToPaste'))
-					extentTest.log(LogStatus.PASS, 'Navigated to ToPaste Folder')
+					extentTest.log(Status.PASS, 'Navigated to ToPaste Folder')
 					folderToCheck='MyFolderCopy_LV'
 					WebUI.delay(2)
 					def isElemenetPresent=WebUI.waitForElementVisible(findTestObject('FilesPage/Label_FolderEmpty'),5,FailureHandling.CONTINUE_ON_FAILURE)
@@ -70,7 +71,7 @@ public class folderOperations {
 						WebUI.rightClick(findTestObject('FilesPage/Label_FolderEmpty'))
 					}
 					else {
-						extentTest.log(LogStatus.PASS, 'Folder not empty - Right Clicking on canvas')
+						extentTest.log(Status.PASS, 'Folder not empty - Right Clicking on canvas')
 						WebUI.rightClick(findTestObject('FilesPage/Canvas_FilesPage_ListView'))
 					}
 
@@ -78,25 +79,25 @@ public class folderOperations {
 					WebUI.click(findTestObject('FilesPage/ContextMenu_FileGrid_Paste'))
 				}
 
-				extentTest.log(LogStatus.PASS, 'Invoked context menu in ToPaste Folder')
+				extentTest.log(Status.PASS, 'Invoked context menu in ToPaste Folder')
 
-				extentTest.log(LogStatus.PASS, 'Clicked on Paste Option')
+				extentTest.log(Status.PASS, 'Clicked on Paste Option')
 
 				TestObject newFolderObj
 
 				if (TestCaseName.contains('tile view')) {
 					WebUI.delay(2)
-					newFolderObj = WebUI.modifyObjectProperty(findTestObject('Object Repository/FilesPage/FolderRowItem_TileView'), 'title', 'equals', folderToCheck, true)
+					newFolderObj = WebUI.modifyObjectProperty(findTestObject('Object Repository/FilesPage/FolderRowItem_TileView'), 'data-automation-id', 'equals', folderToCheck, true)
 				}
 				else {
-					newFolderObj = WebUI.modifyObjectProperty(findTestObject('Object Repository/FilesPage/FolderRowItem_ListView'), 'title', 'equals', folderToCheck, true)
+					newFolderObj = WebUI.modifyObjectProperty(findTestObject('Object Repository/FilesPage/FolderRowItem_ListView'), 'data-automation-id', 'equals', folderToCheck, true)
 				}
 
 
 				def isFilePresent=WebUI.waitForElementVisible(newFolderObj, 10,FailureHandling.CONTINUE_ON_FAILURE)
 
 				if(isFilePresent){
-					extentTest.log(LogStatus.PASS, 'Verified Pasted Folder - '+ folderToCheck)
+					extentTest.log(Status.PASS, 'Verified Pasted Folder - '+ folderToCheck)
 					result=true
 				}
 				if(GlobalVariable.G_Browser=='chrome') {
@@ -104,6 +105,7 @@ public class folderOperations {
 
 					WebUI.delay(2)
 				}
+				WebUI.click(findTestObject('Object Repository/Notificactions/Notification')	)
 
 				if(TestCaseName.contains('Job Submission')) {
 					msg=GlobalVariable.G_StageArea+'/'+GlobalVariable.G_userName+'/JobsModule/JobsModuleFolderOps/'+folderToCheck+' copied successfully to '+ GlobalVariable.G_StageArea+'/'+GlobalVariable.G_userName+'/JobsModule/JobsModuleFolderOps/ToPaste.'
@@ -119,7 +121,7 @@ public class folderOperations {
 			case 'Cut':
 				TestObject newFileOp=WebUI.modifyObjectProperty(findTestObject('FilesPage/ContextMenu_FileOperation'), 'id', 'equals', Operation, true)
 				WebUI.click(newFileOp)
-				extentTest.log(LogStatus.PASS, 'Clicked on Context Menu Option for - '+Operation)
+				extentTest.log(Status.PASS, 'Clicked on Context Menu Option for - '+Operation)
 				WebUI.click(findTestObject('FilesPage/Icon_Close'))
 				def folderToCheck
 				if (TestCaseName.contains('tile view')) {
@@ -130,9 +132,9 @@ public class folderOperations {
 					WebUI.scrollToElement(newFolderObj, 2)
 					WebUI.click(newFolderObj)
 					WebUI.doubleClick(newFolderObj)
-					extentTest.log(LogStatus.PASS, 'Navigated to ToPaste Folder')
+					extentTest.log(Status.PASS, 'Navigated to ToPaste Folder')
 					WebUI.delay(2)
-					TestObject viewIconList=WebUI.modifyObjectProperty(findTestObject('Object Repository/FilesPage/Icon_ViewIcon'), 'title', 'equals',"List View", true)
+					TestObject viewIconList=WebUI.modifyObjectProperty(findTestObject('Object Repository/FilesPage/Icon_ViewIcon'), 'data-automation-id', 'equals',"List View", true)
 
 					def viewIconListPresent=WebUI.waitForElementPresent(viewIconList, 3, FailureHandling.CONTINUE_ON_FAILURE)
 
@@ -146,14 +148,14 @@ public class folderOperations {
 					WebUI.scrollToElement(findTestObject('Object Repository/FilesPage/Folder_ListView_ToPaste'),2)
 					WebUI.click(findTestObject('Object Repository/FilesPage/Folder_ListView_ToPaste'))
 					WebUI.doubleClick(findTestObject('Object Repository/FilesPage/Folder_ListView_ToPaste'))
-					extentTest.log(LogStatus.PASS, 'Navigated to ToPaste Folder')
+					extentTest.log(Status.PASS, 'Navigated to ToPaste Folder')
 					WebUI.delay(2)
 				}
 
 				def isElemenetPresent=WebUI.waitForElementVisible(findTestObject('FilesPage/Label_FolderEmpty'), 10,FailureHandling.CONTINUE_ON_FAILURE)
 
 				if(isElemenetPresent) {
-					extentTest.log(LogStatus.PASS, 'ToPaste Folder is Currently Empty')
+					extentTest.log(Status.PASS, 'ToPaste Folder is Currently Empty')
 
 					WebUI.rightClick(findTestObject('FilesPage/Label_FolderEmpty'))
 					String SC='RC'+e1
@@ -162,23 +164,30 @@ public class folderOperations {
 				}
 
 				else {
-					extentTest.log(LogStatus.PASS, 'ToPaste Folder is Currently Not Empty')
-					WebUI.rightClick(findTestObject('FilesPage/Canvas_FilesPage_ListView'))
+					extentTest.log(Status.PASS, 'ToPaste Folder is Currently Not Empty')
+					WebUI.delay(2)
+					if(TestCaseName.contains('tile view')) {
+						WebUI.rightClick(findTestObject('FilesPage/Canvas_FilesPage_TileView'))
+					}
+					else {
+						WebUI.rightClick(findTestObject('FilesPage/Canvas_FilesPage_ListView'))
+					}
+
 					String SC='RC-not'+e2
 					String screenShotPath = (('ExtentReports/' + SC) + GlobalVariable.G_Browser) + '.png'
 					WebUI.takeScreenshot(screenShotPath)
 				}
 				WebUI.delay(2)
 				WebUI.click(findTestObject('FilesPage/ContextMenu_FileGrid_Paste'))
-				extentTest.log(LogStatus.PASS, 'Invoked context menu in ToPaste Folder')
-				extentTest.log(LogStatus.PASS, 'Clicked on Paste Option')
+				extentTest.log(Status.PASS, 'Invoked context menu in ToPaste Folder')
+				extentTest.log(Status.PASS, 'Clicked on Paste Option')
 
 				TestObject newFolderObj
 
 				if (TestCaseName.contains('tile view')) {
 					WebUI.delay(2)
 
-					TestObject viewIconTile = WebUI.modifyObjectProperty(findTestObject('Object Repository/FilesPage/Icon_ViewIcon'), 'title',
+					TestObject viewIconTile = WebUI.modifyObjectProperty(findTestObject('Object Repository/FilesPage/Icon_ViewIcon'), 'data-automation-id',
 							'equals', 'Tile View', true)
 					def viewIconTilePresent=WebUI.waitForElementPresent(viewIconTile, 3, FailureHandling.CONTINUE_ON_FAILURE)
 
@@ -186,16 +195,18 @@ public class folderOperations {
 						WebUI.click(viewIconTile)
 						WebUI.delay(2)
 					}
-					newFolderObj = WebUI.modifyObjectProperty(findTestObject('Object Repository/FilesPage/FolderRowItem_TileView'), 'title', 'equals', folderToCheck, true)
+					newFolderObj = WebUI.modifyObjectProperty(findTestObject('Object Repository/FilesPage/FolderRowItem_TileView'), 'data-automation-id', 'equals', folderToCheck, true)
 				}
 				else {
-					newFolderObj = WebUI.modifyObjectProperty(findTestObject('Object Repository/FilesPage/FolderRowItem_ListView'), 'title', 'equals', folderToCheck, true)
+					newFolderObj = WebUI.modifyObjectProperty(findTestObject('Object Repository/FilesPage/FolderRowItem_ListView'), 'data-automation-id', 'equals', folderToCheck, true)
 				}
+
+
 
 
 				def isFilePresent=WebUI.waitForElementVisible(newFolderObj, 10,FailureHandling.CONTINUE_ON_FAILURE)
 				if(isFilePresent){
-					extentTest.log(LogStatus.PASS, 'Verified Pasted File - '+ folderToCheck)
+					extentTest.log(Status.PASS, 'Verified Pasted File - '+ folderToCheck)
 					result=true
 				}
 				if(GlobalVariable.G_Browser=='chrome') {
@@ -203,6 +214,9 @@ public class folderOperations {
 
 					WebUI.delay(2)
 				}
+
+				WebUI.click(findTestObject('Object Repository/Notificactions/Notification')	)
+
 
 				if(TestCaseName.contains('Job Submission')) {
 					msg=GlobalVariable.G_StageArea+'/'+GlobalVariable.G_userName+'/JobsModule/JobsModuleFolderOps/'+folderToCheck+' moved successfully to '+ GlobalVariable.G_StageArea+'/'+GlobalVariable.G_userName+'/JobsModule/JobsModuleFolderOps/ToPaste.'
@@ -229,14 +243,14 @@ public class folderOperations {
 				msg
 				TestObject newFolderObj=WebUI.modifyObjectProperty(findTestObject('FilesPage/ContextMenu_FileOperation'), 'id', 'equals', Operation, true)
 				WebUI.click(newFolderObj)
-				extentTest.log(LogStatus.PASS, 'Clicked on Context Menu Option for - '+Operation)
+				extentTest.log(Status.PASS, 'Clicked on Context Menu Option for - '+Operation)
 				WebUI.delay(2)
 				if (TestCaseName.contains('Job Submission')) {
 					oriFolderName='MyFolderRename'
 					Renameto='RenamedFolder'
 					renameTextBxObj = WebUI.modifyObjectProperty(findTestObject('FilesPage/NewFile_input'), 'value', 'equals', oriFolderName, true)
-					newFolderObjVerify = WebUI.modifyObjectProperty(findTestObject('Object Repository/FilesPage/FolderRowItem_ListView'), 'title', 'equals',Renameto, true)
-					extentTest.log(LogStatus.PASS,'oriFolderName - '+oriFolderName)
+					newFolderObjVerify = WebUI.modifyObjectProperty(findTestObject('Object Repository/FilesPage/FolderRowItem_ListView'), 'data-automation-id', 'equals',Renameto, true)
+					extentTest.log(Status.PASS,'oriFolderName - '+oriFolderName)
 					msg = 'File/Folder renamed successfully from ' +GlobalVariable.G_StageArea+'/'+GlobalVariable.G_userName+'/JobsModule/JobsModuleFileOps/'+oriFolderName+' to '+ GlobalVariable.G_StageArea+'/'+GlobalVariable.G_userName+'/JobsModule/JobsModuleFileOps/'+Renameto
 				}
 				else{
@@ -244,32 +258,32 @@ public class folderOperations {
 						oriFolderName='MyFolderRename_TV'
 						Renameto='RenamedFolder_TV'
 						renameTextBxObj = WebUI.modifyObjectProperty(findTestObject('FilesPage/NewFile_input'), 'value', 'equals', oriFolderName, true)
-						newFolderObjVerify =WebUI.modifyObjectProperty(findTestObject('Object Repository/FilesPage/FolderRowItem_TileView'), 'title', 'equals', Renameto, true)
+						newFolderObjVerify =WebUI.modifyObjectProperty(findTestObject('Object Repository/FilesPage/FolderRowItem_TileView'), 'data-automation-id', 'equals', Renameto, true)
 					}
 					else {
 						oriFolderName='MyFolderRename_LV'
 						Renameto='RenamedFolder_LV'
 						renameTextBxObj = WebUI.modifyObjectProperty(findTestObject('FilesPage/NewFile_input'), 'value', 'equals', oriFolderName, true)
-						newFolderObjVerify = WebUI.modifyObjectProperty(findTestObject('Object Repository/FilesPage/FolderRowItem_ListView'), 'title', 'equals',Renameto, true)
+						newFolderObjVerify = WebUI.modifyObjectProperty(findTestObject('Object Repository/FilesPage/FolderRowItem_ListView'), 'data-automation-id', 'equals',Renameto, true)
 					}
 					msg = 'File/Folder renamed successfully from ' +GlobalVariable.G_StageArea+'/'+GlobalVariable.G_userName+'/FoldersModule/FolderOpsContextMenu/'+oriFolderName+' to '+ GlobalVariable.G_StageArea+'/'+GlobalVariable.G_userName+'/FoldersModule/FolderOpsContextMenu/'+Renameto
 				}
 				WebUI.waitForElementVisible(renameTextBxObj, 3)
 				WebUI.setText(renameTextBxObj, Renameto)
-				extentTest.log(LogStatus.PASS, 'Entered the new name - '+ Renameto)
+				extentTest.log(Status.PASS, 'Entered the new name - '+ Renameto)
 				WebUI.click(findTestObject('FilesPage/btn_Save'))
-				extentTest.log(LogStatus.PASS, 'Clicked on Save Button')
+				extentTest.log(Status.PASS, 'Clicked on Save Button')
 				WebUI.delay(3)
 				WebUI.click(findTestObject('FilesPage/Icon_Close'))
-				extentTest.log(LogStatus.PASS, 'Clicked on Close icon on search text box ')
+				extentTest.log(Status.PASS, 'Clicked on Close icon on search text box ')
 				WebUI.delay(2)
 				def isElemenetPresent=WebUI.waitForElementVisible(newFolderObjVerify, 3,FailureHandling.CONTINUE_ON_FAILURE)
 				if(isElemenetPresent){
-					extentTest.log(LogStatus.PASS, "Renamed file - "+Renameto + " is listed ")
+					extentTest.log(Status.PASS, "Renamed file - "+Renameto + " is listed ")
 					result=true
 				}
 				else {
-					extentTest.log(LogStatus.PASS, "Renamed file - "+Renameto + " is listed ")
+					extentTest.log(Status.PASS, "Renamed file - "+Renameto + " is listed ")
 					result=false
 				}
 				result=WebUI.waitForElementPresent(newFolderObjVerify, 10, FailureHandling.CONTINUE_ON_FAILURE)
@@ -287,13 +301,13 @@ public class folderOperations {
 			case 'Compress':
 				WebUI.click(findTestObject('FilesPage/ContextMenu_FileGrid_Compress'))
 				WebUI.delay(5)
-				extentTest.log(LogStatus.PASS, 'Clicked on Context Menu Option for - '+Operation)
+				extentTest.log(Status.PASS, 'Clicked on Context Menu Option for - '+Operation)
 				if (TestCaseName.contains('tile view')) {
 					WebUI.click(findTestObject("Object Repository/FilesPage/SortBy-Option"))
 					WebUI.delay(3)
 					WebUI.mouseOver(findTestObject("Object Repository/FilesPage/SortList-Option"))
 					WebUI.click(findTestObject("Object Repository/FilesPage/SortList-Option"))
-					extentTest.log(LogStatus.PASS, 'Sorted the listed files by created on, in tile view')
+					extentTest.log(Status.PASS, 'Sorted the listed files by created on, in tile view')
 					TestObject sortIconDown=WebUI.modifyObjectProperty(findTestObject('Object Repository/FilesPage/SortBy-Order'), 'class', 'equals',"down-arrow tile-sortable-icon focus_enable_class", true)
 					def sortIconUp=WebUI.waitForElementPresent(findTestObject('Object Repository/FilesPage/SortBy-Order'), 3, FailureHandling.CONTINUE_ON_FAILURE)
 					def isIconPresent=WebUI.waitForElementPresent(sortIconDown, 3, FailureHandling.CONTINUE_ON_FAILURE)
@@ -304,7 +318,7 @@ public class folderOperations {
 					def isElemenetPresent=WebUI.waitForElementVisible(findTestObject('FilesPage/RowItem_CompressedFile_TileView'), 10, FailureHandling.CONTINUE_ON_FAILURE)
 				}
 				else {
-					def isElemenetPresent=WebUI.waitForElementVisible(findTestObject('FilesPage/RowItem_CompressedFile_ListView'), 10, FailureHandling.CONTINUE_ON_FAILURE)
+					def isElemenetPresent=WebUI.waitForElementVisible(findTestObject('FilesPage/RowItem_CompressedFile_ListView'), 15, FailureHandling.CONTINUE_ON_FAILURE)
 				}
 				WebUI.delay(2)
 
@@ -316,31 +330,29 @@ public class folderOperations {
 				if (TestCaseName.contains('tile view')) {
 					WebUI.click(findTestObject('FilesPage/RowItem_CompressedFolder_TileView'))
 					WebUI.rightClick(findTestObject('FilesPage/RowItem_CompressedFolder_TileView'))
-					extentTest.log(LogStatus.PASS, 'RightClicked on Compressed File ')
+					extentTest.log(Status.PASS, 'RightClicked on Compressed File ')
 				}
 				else {
 					WebUI.click(findTestObject('FilesPage/RowItem_CompressedFolder_ListView'))
 					WebUI.rightClick(findTestObject('FilesPage/RowItem_CompressedFolder_ListView'))
-					extentTest.log(LogStatus.PASS, 'rightClicked on Compressed File ')
+					extentTest.log(Status.PASS, 'rightClicked on Compressed File ')
 				}
 				WebUI.delay(3)
 				WebUI.click(findTestObject('FilesPage/ContextMenu_FileGrid_UnCompress'))
-				extentTest.log(LogStatus.PASS, 'Clicked on menu item Un-Compress on file - '+compressedFileName)
+				extentTest.log(Status.PASS, 'Clicked on menu item Un-Compress on file - '+compressedFileName)
 
 				result=(new jobActions.CreateFolderPageTestObj()).VerifyUnCompressedFolder(compressedFileName,extentTest)
 				if (TestCaseName.contains('tile view')) {
-					TestObject newFolderTV = WebUI.modifyObjectProperty(findTestObject('FilesPage/FolderRowItem_TileView'), 'title', 'equals','MyFolderCompress_TV', true)
+					TestObject newFolderTV = WebUI.modifyObjectProperty(findTestObject('FilesPage/FolderRowItem_TileView'), 'data-automation-id', 'equals','MyFolderCompress_TV', true)
 					WebUI.click(newFolderTV)
 					//println(" original file exixts - "+WebUI.verifyElementPresent(newFileTV, 10, FailureHandling.CONTINUE_ON_FAILURE))
-					extentTest.log(LogStatus.PASS, ' Verified the origial compressed folder is listed  - MyFolderCompress_LV')
-
+					extentTest.log(Status.PASS, ' Verified the origial compressed folder is listed  - MyFolderCompress_LV')
 				}
 				else {
-					TestObject newFolderLV = WebUI.modifyObjectProperty(findTestObject('FilesPage/FolderRowItem_ListView'), 'title', 'equals','MyFolderCompress_LV', true)
+					TestObject newFolderLV = WebUI.modifyObjectProperty(findTestObject('FilesPage/FolderRowItem_ListView'), 'data-automation-id', 'equals','MyFolderCompress_LV', true)
 					WebUI.click(newFolderLV)
 					//println(" original file exixts - "+WebUI.verifyElementPresent(newFileLV, 10, FailureHandling.CONTINUE_ON_FAILURE))
-					extentTest.log(LogStatus.PASS, ' Verified the origial compressed folder is listed  - MyFolderCompress_LV')
-
+					extentTest.log(Status.PASS, ' Verified the origial compressed folder is listed  - MyFolderCompress_LV')
 				}
 				return result
 				break
@@ -359,10 +371,10 @@ public class folderOperations {
 					WebUI.click(newFolderOp)
 					WebUI.delay(2)
 				}
-				extentTest.log(LogStatus.PASS, 'Clicked on Delete menu item' )
+				extentTest.log(Status.PASS, 'Clicked on Delete menu item' )
 				WebUI.click(findTestObject('GenericObjects/btn_Yes'))
 				WebUI.delay(2)
-				extentTest.log(LogStatus.PASS, 'Clicked on Yes on Delete confirmation pop-up ')
+				extentTest.log(Status.PASS, 'Clicked on Yes on Delete confirmation pop-up ')
 				if(GlobalVariable.G_Browser=='chrome') {
 					WebUI.refresh()
 
@@ -375,16 +387,16 @@ public class folderOperations {
 
 				if (TestCaseName.contains('Job Submission')) {
 					oriFolderName='MyFolderDelete_LV'
-					newFolderObjVerify = WebUI.modifyObjectProperty(findTestObject('FilesPage/FolderRowItem_ListView'), 'title', 'equals',oriFolderName, true)
+					newFolderObjVerify = WebUI.modifyObjectProperty(findTestObject('FilesPage/FolderRowItem_ListView'), 'data-automation-id', 'equals',oriFolderName, true)
 				}
 				else {
 					if(TestCaseName.contains('tile view')) {
 						oriFolderName='MyFolderDelete_TV'
-						newFolderObjVerify = WebUI.modifyObjectProperty(findTestObject('FilesPage/FolderRowItem_TileView'), 'title', 'equals',oriFolderName, true)
+						newFolderObjVerify = WebUI.modifyObjectProperty(findTestObject('FilesPage/FolderRowItem_TileView'), 'data-automation-id', 'equals',oriFolderName, true)
 					}
 					else {
 						oriFolderName='MyFolderDelete_LV'
-						newFolderObjVerify = WebUI.modifyObjectProperty(findTestObject('FilesPage/FolderRowItem_ListView'), 'title', 'equals',oriFolderName, true)
+						newFolderObjVerify = WebUI.modifyObjectProperty(findTestObject('FilesPage/FolderRowItem_ListView'), 'data-automation-id', 'equals',oriFolderName, true)
 					}
 				}
 				def isFilePresent=WebUI.verifyElementPresent(newFolderObjVerify, 5, FailureHandling.CONTINUE_ON_FAILURE)
@@ -393,7 +405,7 @@ public class folderOperations {
 				}
 				else {
 					result=true
-					extentTest.log(LogStatus.PASS, 'Verified folder - '+oriFolderName+' is not listed ')
+					extentTest.log(Status.PASS, 'Verified folder - '+oriFolderName+' is not listed ')
 				}
 
 				return result
@@ -404,7 +416,7 @@ public class folderOperations {
 				println Operation
 				String oriFolderName
 
-				extentTest.log(LogStatus.PASS, 'Clicked on Download mentu item ')
+				extentTest.log(Status.PASS, 'Clicked on Download mentu item ')
 
 				if (TestCaseName.contains('Job Submission')) {
 					TestObject newFileOp=WebUI.modifyObjectProperty(findTestObject('FilesPage/ContextMenu_JobSubmission_Download'), 'id', 'equals', Operation, true)
@@ -431,17 +443,47 @@ public class folderOperations {
 
 					/*if (namesOfFiles.contains(oriFolderName)) {
 				 println('success')
-				 extentTest.log(LogStatus.PASS, 'Verified the folder downloaded in C:\\katalonDownloads - '+oriFolderName+'.zip')
+				 extentTest.log(Status.PASS, 'Verified the folder downloaded in C:\\katalonDownloads - '+oriFolderName+'.zip')
 				 result= true
 				 } else {
 				 println('fail')
-				 extentTest.log(LogStatus.FAIL, 'Verified the folder not downloaded in C:\\katalonDownloads - '+oriFolderName+'.zip')
+				 extentTest.log(Status.FAIL, 'Verified the folder not downloaded in C:\\katalonDownloads - '+oriFolderName+'.zip')
 				 result=false
 				 }*/
 
 					return true
 					break
 				}
+			case 'Open':
+
+				String [] JobFiles = [
+					'one.txt',
+					'four.txt',
+					'two',
+					'three',
+					'five'
+				]
+				int x=0
+				for (String name1:JobFiles) {
+					String JF =JobFiles[x]
+
+					println(JF)
+
+					if(TestCaseName.contains('tile view'))
+						TestObject newJobFile= WebUI.modifyObjectProperty(findTestObject('Object Repository/FilesPage/FolderRowItem_TileView'), 'data-automation-id', 'equals',JF, true)
+					else {
+						newJobFile = WebUI.modifyObjectProperty(findTestObject('JobSubmissionForm/File_InputFile'), 'data-automation-id', 'equals',JF, true)
+					}
+					WebUI.verifyElementPresent(newJobFile, 5)
+
+					x++
+				}
+				println("x==="+ x)
+				if(x==5)
+					extentTest.log(Status.PASS, 'All the Files and Folders are present inside the Folder ')
+				return true
+				break
 		}
 	}
 }
+

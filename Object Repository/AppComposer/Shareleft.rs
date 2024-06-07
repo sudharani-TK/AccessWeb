@@ -6,14 +6,30 @@
    <elementGuidId>34ba702c-ad12-4c1e-9612-3626e9afe2fa</elementGuidId>
    <selectorCollection>
       <entry>
-         <key>XPATH</key>
-         <value>//a[@title='Shareleft']</value>
+         <key>BASIC</key>
+         <value>//div[@data-automation-id = 'Shareleft']</value>
       </entry>
       <entry>
-         <key>BASIC</key>
+         <key>XPATH</key>
          <value></value>
       </entry>
    </selectorCollection>
-   <selectorMethod>XPATH</selectorMethod>
+   <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>tag</name>
+      <type>Main</type>
+      <value>div</value>
+      <webElementGuid>934d8234-12af-47b1-afaf-44bc41e6a0af</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>data-automation-id</name>
+      <type>Main</type>
+      <value>Shareleft</value>
+      <webElementGuid>4598284a-fac3-48b8-ac5b-c697fcbabddb</webElementGuid>
+   </webElementProperties>
 </WebElementEntity>

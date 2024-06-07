@@ -19,7 +19,8 @@ import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 
 import internal.GlobalVariable
-import com.relevantcodes.extentreports.LogStatus
+import com.aventstack.extentreports.MediaEntityBuilder
+import com.aventstack.extentreports.Status
 import  org.openqa.selenium.Keys
 
 public class role {
@@ -40,10 +41,9 @@ public class role {
 		WebUI.sendKeys(findTestObject('Object Repository/AppComposer/Text'), Keys.chord(Keys.BACK_SPACE))
 		WebUI.setText(findTestObject('Object Repository/AppComposer/Text'), '')
 		WebUI.setText(findTestObject('Object Repository/AppComposer/Text'), roleid)
-		extentTest.log(LogStatus.PASS, 'Add roleid name -' + roleid)
+		extentTest.log(Status.PASS, 'Add roleid name -' + roleid)
 
 		WebUI.click(findTestObject('Access_Management/Confirm_button'))
-		extentTest.log(LogStatus.PASS, 'Click on save')
-
+		extentTest.log(Status.PASS, 'Click on save')
 	}
 }

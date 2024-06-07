@@ -6,12 +6,12 @@
    <elementGuidId>1276dedb-ed99-4267-87f8-c6b96c1fd8d1</elementGuidId>
    <selectorCollection>
       <entry>
-         <key>XPATH</key>
-         <value>//div[contains(text(),'ToPaste')]</value>
-      </entry>
-      <entry>
          <key>BASIC</key>
          <value></value>
+      </entry>
+      <entry>
+         <key>XPATH</key>
+         <value>//label[contains(text(),'ToPaste')]</value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>

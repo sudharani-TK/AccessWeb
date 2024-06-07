@@ -17,7 +17,8 @@ import com.kms.katalon.core.testobject.TestObject
 import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
-import com.relevantcodes.extentreports.LogStatus
+import com.aventstack.extentreports.MediaEntityBuilder
+import com.aventstack.extentreports.Status
 
 
 import internal.GlobalVariable
@@ -32,10 +33,10 @@ public class user {
 
 
 		WebUI.click(findTestObject('Access_Management/Add_user'))
-		extentTest.log(LogStatus.PASS, 'Click on users')
+		extentTest.log(Status.PASS, 'Click on users')
 
 		WebUI.click(findTestObject('Access_Management/Add_userbutton'))
-		extentTest.log(LogStatus.PASS, 'Click on add user')
+		extentTest.log(Status.PASS, 'Click on add user')
 
 
 
@@ -47,18 +48,18 @@ public class user {
 		WebUI.sendKeys(findTestObject('Object Repository/Access_Management/Username_text'), Keys.chord(Keys.BACK_SPACE))
 		WebUI.setText(findTestObject('Object Repository/Access_Management/Username_text'), '')
 		WebUI.setText(findTestObject('Object Repository/Access_Management/Username_text'), username)
-		extentTest.log(LogStatus.PASS, 'Add username name - ' + username )
+		extentTest.log(Status.PASS, 'Add username name - ' + username )
 
 		WebUI.click(findTestObject('Access_Management/Firstname'))
 		WebUI.setText(findTestObject('Access_Management/Firstname'), firstname)
-		extentTest.log(LogStatus.PASS, 'Add first name - ' + firstname)
+		extentTest.log(Status.PASS, 'Add first name - ' + firstname)
 
 		WebUI.click(findTestObject('Access_Management/Lastname'))
 		WebUI.setText(findTestObject('Access_Management/Lastname'), lastname)
-		extentTest.log(LogStatus.PASS, 'Add last name - ' + lastname)
+		extentTest.log(Status.PASS, 'Add last name - ' + lastname)
 
 
 		WebUI.click(findTestObject('Access_Management/Save'))
-		extentTest.log(LogStatus.PASS, 'Click on save')
+		extentTest.log(Status.PASS, 'Click on save')
 	}
 }

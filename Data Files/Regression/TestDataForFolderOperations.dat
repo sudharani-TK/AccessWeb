@@ -3,6 +3,7 @@
    <description></description>
    <name>TestDataForFolderOperations</name>
    <tag></tag>
+   <connectionProperties/>
    <containsHeaders>true</containsHeaders>
    <csvSeperator></csvSeperator>
    <dataFileGUID>dbd73c10-3105-49b5-b2d5-6ccb34515f1b</dataFileGUID>

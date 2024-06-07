@@ -18,7 +18,7 @@
       <name>tag</name>
       <type>Main</type>
       <value>span</value>
-      <webElementGuid>f02664ea-ac25-4d0e-ba97-4bccae786bf3</webElementGuid>
+      <webElementGuid>a0dc1954-37f0-438c-a464-b17f39f0ced6</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -26,6 +26,6 @@
       <name>id</name>
       <type>Main</type>
       <value>upload_folder_button_parent_running</value>
-      <webElementGuid>3314bfbb-17a1-4b1d-b0c4-a509881f381d</webElementGuid>
+      <webElementGuid>12274a18-525e-4f8c-9b4e-e497493b64ea</webElementGuid>
    </webElementProperties>
 </WebElementEntity>

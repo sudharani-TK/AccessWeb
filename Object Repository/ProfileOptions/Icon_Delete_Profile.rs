@@ -14,7 +14,7 @@
          <value>//span[@id='Delete']</value>
       </entry>
    </selectorCollection>
-   <selectorMethod>BASIC</selectorMethod>
+   <selectorMethod>XPATH</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -22,6 +22,7 @@
       <name>tag</name>
       <type>Main</type>
       <value>div</value>
+      <webElementGuid>460f227a-8366-4147-a13a-08f5f4213b29</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -29,6 +30,7 @@
       <name>id</name>
       <type>Main</type>
       <value>delete_icon</value>
+      <webElementGuid>b63b4dcd-de3c-4826-bdf7-3417077b590f</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -36,6 +38,7 @@
       <name>class</name>
       <type>Main</type>
       <value> focus_enable_class additional_file_options</value>
+      <webElementGuid>5197936d-57f1-410a-a6cb-b83b1107dae6</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -43,6 +46,7 @@
       <name>title</name>
       <type>Main</type>
       <value>Delete</value>
+      <webElementGuid>862665c9-6b40-4268-af53-7ee141ae4dad</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -50,6 +54,7 @@
       <name>text</name>
       <type>Main</type>
       <value>Delete</value>
+      <webElementGuid>012f7c6d-5e18-4dff-bf68-3dc5789adcc8</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -57,6 +62,7 @@
       <name>xpath</name>
       <type>Main</type>
       <value>id(&quot;Delete&quot;)</value>
+      <webElementGuid>dfd9ee10-e635-413f-9de3-5f836eb7d778</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
@@ -64,6 +70,7 @@
       <name>xpath:attributes</name>
       <type>Main</type>
       <value>//span[@id='Delete']</value>
+      <webElementGuid>2b0d8d3b-5c55-4831-8c44-413ac8a4d476</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -71,6 +78,7 @@
       <name>xpath:idRelative</name>
       <type>Main</type>
       <value>//div[@id='file_list_delete_menu_item']/span</value>
+      <webElementGuid>816cc475-c08a-4069-9fab-baa50d01cc42</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -78,6 +86,7 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='Duplicate'])[1]/following::span[1]</value>
+      <webElementGuid>3b41ac42-deb7-45e9-ae00-639d3abf74a0</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -85,6 +94,7 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='NewPro'])[1]/following::span[3]</value>
+      <webElementGuid>5b71620c-651e-486b-a944-bbf6f0d8c023</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -92,6 +102,7 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='Set As Default'])[1]/preceding::span[1]</value>
+      <webElementGuid>8674a16c-2b8b-40c8-83af-4de67fd2423c</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -99,6 +110,7 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='Choose Field'])[1]/preceding::span[3]</value>
+      <webElementGuid>e730a4dc-d614-478c-8dc7-64e5ce1d7e35</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -106,5 +118,6 @@
       <name>xpath:position</name>
       <type>Main</type>
       <value>//nav/div[2]/div/span</value>
+      <webElementGuid>5ea1bbef-33ba-4dd9-8747-26dcf4b8758a</webElementGuid>
    </webElementXpaths>
 </WebElementEntity>

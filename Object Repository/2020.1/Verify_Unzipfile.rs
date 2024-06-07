@@ -6,12 +6,12 @@
    <elementGuidId>289f352c-64e4-4eb1-90d1-c554c4a6b573</elementGuidId>
    <selectorCollection>
       <entry>
-         <key>XPATH</key>
-         <value>//div[contains(text(),'new1.zip')]</value>
-      </entry>
-      <entry>
          <key>BASIC</key>
          <value></value>
+      </entry>
+      <entry>
+         <key>XPATH</key>
+         <value>//label[contains(text(),'new1.zip')]</value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>

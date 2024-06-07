@@ -28,7 +28,7 @@ TestObject newFileObj
 
 try {
 	
-		WebUI.click(findTestObject('Preferences/Profiletab'))
+		WebUI.click(findTestObject('PageNavigation/Preferences/Profiletab'))
 		extentTest.log(LogStatus.PASS, 'Click on profile tab')
 		WebUI.delay(2)
 		

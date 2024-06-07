@@ -3,6 +3,7 @@
    <description></description>
    <name>TestDataForJobActionsIcons</name>
    <tag></tag>
+   <connectionProperties/>
    <containsHeaders>true</containsHeaders>
    <csvSeperator></csvSeperator>
    <dataFileGUID>76632894-b463-4fa2-8bb6-205b5ef9033e</dataFileGUID>

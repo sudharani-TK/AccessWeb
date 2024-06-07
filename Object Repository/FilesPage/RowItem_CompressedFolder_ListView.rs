@@ -7,10 +7,11 @@
    <selectorCollection>
       <entry>
          <key>BASIC</key>
+         <value></value>
       </entry>
       <entry>
          <key>XPATH</key>
-         <value>//div[contains(text(),'MyFolderCompress_LV')]</value>
+         <value>//label[contains(text(),'MyFolderCompress_LV')]</value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>

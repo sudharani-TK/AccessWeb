@@ -52,7 +52,7 @@ WebUI.delay(2)
 try
 {
 	WebUI.delay(2)
-	def jobsTab = CustomKeywords.'customWait.WaitForElement.WaitForelementPresent'(findTestObject('NewJobPage/AppList_ShellScript'),
+	def jobsTab = CustomKeywords.'customWait.WaitForElement.WaitForelementPresent'(findTestObject('LoginPage/NewJobPage/AppList_ShellScript'),
 			20,extentTest,'App def')
 
 	if (jobsTab) {
@@ -68,8 +68,8 @@ try
 
 	WebUI.click(findTestObject('JobMonitoringPage/JM_SearchBox'))
 	//WebUI.setText(findTestObject('JobMonitoringPage/JM_SearchBox'),AllJobsUser)
-	WebUI.sendKeys(findTestObject('JobMonitoringPage/JM_SearchBox'), 'Ops')
-
+	//WebUI.sendKeys(findTestObject('JobMonitoringPage/JM_SearchBox'), 'Ops')
+	WebUI.sendKeys(findTestObject('JobMonitoringPage/JM_SearchBox'), 'RunJob')
 	TestObject newJobFilter = WebUI.modifyObjectProperty(findTestObject('JobMonitoringPage/label_jobState'), 'text', 'equals',
 			jobState, true)
 
@@ -88,7 +88,7 @@ try
 	if(WebUI.verifyElementPresent(findTestObject('Object Repository/JobDetailsPage/details_tab'),2))
 	{
 		extentTest.log(LogStatus.PASS, 'User navigated to Jobs Summary page by clicking on JobID link')
-		extentTest.log(LogStatus.PASS,'Verified Test cases - AD-1556 Job submission: Job details page.')
+		//extentTest.log(LogStatus.PASS,'Verified Test cases - AD-1556 Job submission: Job details page.')
 		result=false
 		switch(userChoice)
 		{
@@ -111,6 +111,17 @@ try
 
 
 				break;
+				
+			case 'No data' :
+			findTestObject('Object Repository/JobDetailsPage/NoDataTab')
+			boolean noDataAvail=WebUI.verifyElementPresent(findTestObject('Object Repository/JobDetailsPage/NoDataTab'), 2)
+			if(noDataAvail) {
+				String nDA=WebUI.getText(findTestObject('Object Repository/JobDetailsPage/NoDataTab'))
+				println(nDA)
+				extentTest.log(LogStatus.PASS, 'No Data Available in JobDetailsPage when Jobs are in Queued Stage')
+			}
+			extentTest.log(LogStatus.PASS,'Verified Test cases - AD-1556 Job submission: Job details page.')
+			break;
 
 			case 'DetailsLink' :
 				WebUI.click(findTestObject('Object Repository/JobDetailsPage/details_tab'))

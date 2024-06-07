@@ -14,7 +14,8 @@ import com.kms.katalon.core.model.FailureHandling as FailureHandling
 import com.kms.katalon.core.util.KeywordUtil as KeywordUtil
 import com.kms.katalon.core.webui.driver.DriverFactory
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
-import com.relevantcodes.extentreports.LogStatus
+import com.aventstack.extentreports.MediaEntityBuilder
+import com.aventstack.extentreports.Status
 
 import internal.GlobalVariable as GlobalVariable
 
@@ -22,44 +23,45 @@ import internal.GlobalVariable as GlobalVariable
 WebDriver driver = DriverFactory.getWebDriver()
 EventFiringWebDriver eventFiring = ((DriverFactory.getWebDriver()) as EventFiringWebDriver)
 WebDriver wrappedWebDriver = eventFiring.getWrappedDriver()
-RemoteWebDriver katalonWebDriver = ((wrappedWebDriver) as RemoteWebDriver)
-//====================================================================================
-ReportFile = (GlobalVariable.G_ReportName + '.html')
-def extent = CustomKeywords.'generateReports.GenerateReport.create'(ReportFile, GlobalVariable.G_Browser, GlobalVariable.G_BrowserVersion)
-def LogStatus = com.relevantcodes.extentreports.LogStatus
-def extentTest = extent.startTest(TestCaseName)
+RemoteWebDriver katalonWebDriver = (RemoteWebDriver) wrappedWebDriver
+
+//==================================================================
+def Browser = GlobalVariable.G_Browser
+//===============================================================
+def extentTest=GlobalVariable.G_ExtentTest
+//===========================================================
 CustomKeywords.'toLogin.ForLogin.Login'(extentTest)
-//=====================================================================================
+//================================================================================================
 
 
-def result
+def result=false
 
 WebUI.delay(2)
 
 try {
 	WebUI.delay(2)
 
-	def jobsTab = CustomKeywords.'customWait.WaitForElement.WaitForelementPresent'(findTestObject('NewJobPage/AppList_ShellScript'),
+	def jobsTab = CustomKeywords.'customWait.WaitForElement.WaitForelementPresent'(findTestObject('LoginPage/NewJobPage/AppList_ShellScript'),
 		20,extentTest,'Jobs Tab')
 
 	if (jobsTab) {
 		WebUI.click(findTestObject('GenericObjects/TitleLink_Jobs'))
 	}	    
 	
-	extentTest.log(LogStatus.PASS, 'Navigated to Jobs Tab')
+	extentTest.log(Status.PASS, 'Navigated to Jobs Tab')
 	WebUI.delay(2)
 
 	WebUI.click(findTestObject('Object Repository/JobMonitoringPage/a_Reset'))
-	extentTest.log(LogStatus.PASS, 'Filters reset')
+	extentTest.log(Status.PASS, 'Filters reset')
 
 	WebUI.click(findTestObject('JobMonitoringPage/JM_SearchBox'))
-	extentTest.log(LogStatus.PASS, 'Entering Search text - '+searchValue)
+	extentTest.log(Status.PASS, 'Entering Search text - '+searchValue)
 	WebUI.setText(findTestObject('JobMonitoringPage/JM_SearchBox'),searchValue)
 	WebUI.sendKeys(findTestObject('JobMonitoringPage/JM_SearchBox'), Keys.chord(Keys.ENTER))
 
 	if(GlobalVariable.G_Browser.equals('FireFox')) {
 		WebUI.delay(5)
-		extentTest.log(LogStatus.PASS, 'Waiting for jobs table to load on FireFox')
+		extentTest.log(Status.PASS, 'Waiting for jobs table to load on FireFox')
 	}
 
 	String myXpath="//div[@col-id='jobId']"
@@ -76,12 +78,12 @@ try {
 					RemoteWebElement ele = listElement.get(i)
 					String myText=ele.getText()
 					println (ele.getText())
-					extentTest.log(LogStatus.PASS, 'Job Found for matching search criteria  - '+ searchWith + ' with job id  - '+myText)
+					extentTest.log(Status.PASS, 'Job Found for matching search criteria  - '+ searchWith + ' with job id  - '+myText)
 				}
 			}
 			else
 			{
-				extentTest.log(LogStatus.FAIL, 'No job found for search criteria - '+ searchWith)
+				extentTest.log(Status.FAIL, 'No job found for search criteria - '+ searchWith)
 
 			}
 			break;
@@ -93,12 +95,12 @@ try {
 					RemoteWebElement ele = listElement.get(i)
 					String myText=ele.getText()
 					println (ele.getText())
-					extentTest.log(LogStatus.FAIL, 'Job Found for invalid search criteria  - '+ searchWith + ' with job id  - '+myText)
+					extentTest.log(Status.FAIL, 'Job Found for invalid search criteria  - '+ searchWith + ' with job id  - '+myText)
 			}
 
 			}else
 			{
-				extentTest.log(LogStatus.PASS, 'No job found for invalid search criteria - '+ searchWith)
+				extentTest.log(Status.PASS, 'No job found for invalid search criteria - '+ searchWith)
 				
 			}
 			break;
@@ -106,12 +108,12 @@ try {
 		def isMsgPresent=WebUI.verifyElementPresent(findTestObject('Object Repository/JobMonitoringPage/NoJobsMsg'), 5, FailureHandling.CONTINUE_ON_FAILURE)
 		if(isMsgPresent)
 		{
-			extentTest.log(LogStatus.PASS, 'No job found for user - '+GlobalVariable.G_userName)
+			extentTest.log(Status.PASS, 'No job found for user - '+GlobalVariable.G_userName)
 			
 			}
 		else
 		{
-			extentTest.log(LogStatus.PASS, 'Jobs found for user - '+GlobalVariable.G_userName)
+			extentTest.log(Status.PASS, 'Jobs found for user - '+GlobalVariable.G_userName)
 			
 			}
 			break;
@@ -119,20 +121,31 @@ try {
 
 }
 catch (Exception ex) {
-    String screenShotPath = (('ExtentReports/' + TestCaseName) + GlobalVariable.G_Browser) + '.png'
-    WebUI.takeScreenshot(screenShotPath)
+	println('From TC - ' + GlobalVariable.G_ReportFolder)
+
+	String screenShotPath = (('ExtentReports/' + TestCaseName) + GlobalVariable.G_Browser) + '.png'
+
+	WebUI.takeScreenshot(screenShotPath)
+
 	String p = (TestCaseName + GlobalVariable.G_Browser) + '.png'
-	extentTest.log(LogStatus.FAIL, ex)
-	extentTest.log(LogStatus.FAIL, extentTest.addScreenCapture(p))
-	} 
-catch (StepErrorException e) {
-    String screenShotPath = (('ExtentReports/' + TestCaseName) + GlobalVariable.G_Browser) + '.png'
-    WebUI.takeScreenshot(screenShotPath)
-    extentTest.log(LogStatus.FAIL, e)
-} 
-finally { 
-    extentTest.log(LogStatus.PASS, 'Closing the browser after executinge test case - '+ TestCaseName)
-    extent.endTest(extentTest)
-    extent.flush()
+
+	extentTest.log(Status.FAIL, ex)
+
+	extentTest.fail(MediaEntityBuilder.createScreenCaptureFromPath(p).build())
 }
-//=====================================================================================
+catch (StepErrorException e) {
+	String screenShotPath = (('ExtentReports/' + TestCaseName) + GlobalVariable.G_Browser) + '.png'
+
+	WebUI.takeScreenshot(screenShotPath)
+
+	String p = (TestCaseName + GlobalVariable.G_Browser) + '.png'
+
+	extentTest.log(Status.FAIL, ex)
+
+	extentTest.fail(MediaEntityBuilder.createScreenCaptureFromPath(p).build())
+}
+finally {
+	extentTest.log(Status.PASS, 'Closing the browser after executinge test case - ' + TestCaseName)
+	
+	
+}

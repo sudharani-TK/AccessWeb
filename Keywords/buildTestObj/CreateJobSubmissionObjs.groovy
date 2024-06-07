@@ -32,12 +32,17 @@ public class CreateJobSubmissionObjs {
 		TestObject JobIDLinkIdentifier = new TestObject('objectName')
 		JobIDLinkIdentifier.addProperty('xpath', ConditionType.EQUALS, xpath_JobIDLink)
 		return JobIDLinkIdentifier
-
 	}
 	@Keyword
 	def myJobDetailsFolder(String Folder) {
 		//a[@class='active  focus_enable_class'][contains(text(),'Output')]
-		String p1 = "//a[@class='active  focus_enable_class'][contains(text(),'"
+		String p1 = "//li[@ id='app_output_tab'][contains(text(),'"
+		if(Folder =="Input") {
+			p1 = "//li[@id='app_input_tab'][contains(text(),'"
+		}
+		if(Folder =="Running") {
+			p1 = "//li[@id='app_running folder_tab'][contains(text(),'"
+		}
 		String p2 = "')]"
 		String xpath_JobDetailsFolder = p1+ Folder + p2
 		println xpath_JobDetailsFolder
@@ -45,7 +50,6 @@ public class CreateJobSubmissionObjs {
 		TestObject JobDetailsFolderIdentifier = new TestObject('objectName')
 		JobDetailsFolderIdentifier.addProperty('xpath', ConditionType.EQUALS, xpath_JobDetailsFolder)
 		return JobDetailsFolderIdentifier
-
 	}
 
 
@@ -60,7 +64,6 @@ public class CreateJobSubmissionObjs {
 		TestObject JobFileIdentifier = new TestObject('objectName')
 		JobFileIdentifier.addProperty('xpath', ConditionType.EQUALS, xpath_JobFile)
 		return JobFileIdentifier
-
 	}
 }
 

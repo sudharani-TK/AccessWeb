@@ -21,7 +21,7 @@
          <id>e8918466-2248-4ed3-ac3b-0ee2c20ce33c</id>
          <iterationEntity>
             <iterationType>ALL</iterationType>
-            <value></value>
+            <value>2</value>
          </iterationEntity>
          <testDataId>Data Files/Sanity/ProfileCreation</testDataId>
       </testDataLink>
@@ -130,7 +130,7 @@
          <combinationType>ONE</combinationType>
          <id>33cc5c11-5370-4800-aa58-58e44a51b974</id>
          <iterationEntity>
-            <iterationType>RANGE</iterationType>
+            <iterationType>ALL</iterationType>
             <value>1-4</value>
          </iterationEntity>
          <testDataId>Data Files/Sanity/ProfileCreation</testDataId>
@@ -153,6 +153,12 @@
          <type>DATA_COLUMN</type>
          <value>AppName</value>
          <variableId>d45d70d8-f2f8-48b4-94fb-152c1a5ecfc0</variableId>
+      </variableLink>
+      <variableLink>
+         <testDataLinkId>33cc5c11-5370-4800-aa58-58e44a51b974</testDataLinkId>
+         <type>DATA_COLUMN</type>
+         <value>ProfileType</value>
+         <variableId>80a01f2c-5b41-48f6-9f20-46bfa5b35ead</variableId>
       </variableLink>
    </testCaseLink>
 </TestSuiteEntity>

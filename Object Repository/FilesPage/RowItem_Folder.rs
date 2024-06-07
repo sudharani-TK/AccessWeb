@@ -11,7 +11,7 @@
       </entry>
       <entry>
          <key>BASIC</key>
-         <value>//div[@title = 'MyFolder']</value>
+         <value>//div[@data-automation-id = 'MyFolder']</value>
       </entry>
    </selectorCollection>
    <selectorMethod>BASIC</selectorMethod>
@@ -22,12 +22,14 @@
       <name>tag</name>
       <type>Main</type>
       <value>div</value>
+      <webElementGuid>ef87acd6-676c-4896-8455-e3fe8645c6c0</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
-      <name>title</name>
+      <name>data-automation-id</name>
       <type>Main</type>
       <value>MyFolder</value>
+      <webElementGuid>d00c0054-52b9-4dc6-9786-54bad971d087</webElementGuid>
    </webElementProperties>
 </WebElementEntity>

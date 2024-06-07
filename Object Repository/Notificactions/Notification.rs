@@ -7,7 +7,7 @@
    <selectorCollection>
       <entry>
          <key>BASIC</key>
-         <value>//*[@title = 'Notifications']</value>
+         <value>//span[@id = 'app_notify_menu']</value>
       </entry>
    </selectorCollection>
    <selectorMethod>BASIC</selectorMethod>
@@ -15,8 +15,17 @@
    <webElementProperties>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
-      <name>title</name>
+      <name>tag</name>
       <type>Main</type>
-      <value>Notifications</value>
+      <value>span</value>
+      <webElementGuid>6a36cfe9-5153-4402-b386-a5c534bc25f7</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>id</name>
+      <type>Main</type>
+      <value>app_notify_menu</value>
+      <webElementGuid>25fd95ad-6282-484e-9c3f-dd4717b246fe</webElementGuid>
    </webElementProperties>
 </WebElementEntity>

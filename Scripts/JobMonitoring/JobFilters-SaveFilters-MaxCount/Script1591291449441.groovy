@@ -20,7 +20,7 @@ import internal.GlobalVariable as GlobalVariable
 WebDriver driver = DriverFactory.getWebDriver()
 EventFiringWebDriver eventFiring = ((DriverFactory.getWebDriver()) as EventFiringWebDriver)
 WebDriver wrappedWebDriver = eventFiring.getWrappedDriver()
-RemoteWebDriver katalonWebDriver = ((wrappedWebDriver) as RemoteWebDriver)
+RemoteWebDriver katalonWebDriver = (RemoteWebDriver) wrappedWebDriver
 //====================================================================================
 ReportFile = (GlobalVariable.G_ReportName + '.html')
 def extent = CustomKeywords.'generateReports.GenerateReport.create'(ReportFile, GlobalVariable.G_Browser, GlobalVariable.G_BrowserVersion)
@@ -30,16 +30,16 @@ CustomKeywords.'toLogin.ForLogin.Login'(extentTest)
 //=====================================================================================
 
 
-def result
+def result=false
 
-def isElementPresentRight
+def isElementPresentRight=false
 
-def isElementPresentDown
+def isElementPresentDown=false
 
 WebUI.delay(2)
 
 try {
-		def jobsTab = CustomKeywords.'customWait.WaitForElement.WaitForelementPresent'(findTestObject('NewJobPage/AppList_ShellScript'),
+		def jobsTab = CustomKeywords.'customWait.WaitForElement.WaitForelementPresent'(findTestObject('LoginPage/NewJobPage/AppList_ShellScript'),
 		20,extentTest,'App def')
 
 	if (jobsTab) {
@@ -52,13 +52,13 @@ try {
 
 	
 	
-	def isFilterPresent= CustomKeywords.'customWait.WaitForElement.WaitForelementPresent'(findTestObject('Object Repository/JobMonitoringPage/icon_removeFilter'),20,extentTest,'REmoveFilterIcon')
+	/*def isFilterPresent= CustomKeywords.'customWait.WaitForElement.WaitForelementPresent'(findTestObject('Object Repository/JobMonitoringPage/icon_removeFilter'),20,extentTest,'REmoveFilterIcon')
 	if(isFilterPresent)
 	{
 		WebUI.click(findTestObject('Object Repository/JobMonitoringPage/icon_removeFilter'))
 		extentTest.log(LogStatus.PASS, 'Clicked on filter delete icon' )
 		WebUI.refresh()
-	}
+	}*/
 	
 	TestObject newJobFilterCategoryDown = CustomKeywords.'buildTestObj.CreateTestObjJobs.myTestObjFilterCategoryIdentifierDown'(FilterCategory)
 
@@ -136,6 +136,21 @@ try {
 		extentTest.log(LogStatus.FAIL, 'Save filter icon is not disabled' )
 
 	}
+	
+	for (int i=0;i<3;i++)
+		{
+			def NewFilterName=FilterName+"_"+i
+			println(NewFilterName)
+			TestObject newAppObj = WebUI.modifyObjectProperty(findTestObject('Object Repository/JobMonitoringPage/Filter_name'), 'data-automation-id', 'equals', NewFilterName, true)
+			WebUI.mouseOver(newAppObj )
+			WebUI.delay(3)
+			WebUI.click(findTestObject('Object Repository/JobMonitoringPage/icon_removeFilter'))
+			extentTest.log(LogStatus.PASS, 'Clicked on filter delete icon' )
+			WebUI.waitForElementVisible(findTestObject('Object Repository/JobMonitoringPage/button_Yes'), 5)
+			WebUI.click(findTestObject('Object Repository/JobMonitoringPage/button_Yes'))
+			if(GlobalVariable.G_Browser=="Firefox") {
+			WebUI.refresh()}
+		}
 
 	if (GlobalVariable.G_Browser == 'Edge') {
 		WebUI.callTestCase(findTestCase('XRepeated_TC/Logout'), [:], FailureHandling.STOP_ON_FAILURE)

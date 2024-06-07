@@ -8,7 +8,9 @@ import com.kms.katalon.core.exception.StepFailedException
 import com.kms.katalon.core.model.FailureHandling
 import com.kms.katalon.core.testobject.TestObject
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
-import com.relevantcodes.extentreports.LogStatus
+
+import com.aventstack.extentreports.MediaEntityBuilder
+import com.aventstack.extentreports.Status
 
 import internal.GlobalVariable as GlobalVariable
 
@@ -19,12 +21,12 @@ public class ChangeView {
 	def changePageView(String TestCaseName,extentTest) {
 
 		try {
-			def tileView
-			def listView
-			def isElementPresent
-			def editIcon
-			TestObject viewIconTile = WebUI.modifyObjectProperty(findTestObject('Object Repository/FilesPage/Icon_ViewIcon'), 'title','equals', 'Tile View', true)
-			TestObject viewIconList = WebUI.modifyObjectProperty(findTestObject('Object Repository/FilesPage/Icon_ViewIcon'), 'title','equals', 'List View', true)
+			def tileView=false
+			def listView=false
+			def isElementPresent=false
+			def editIcon=null
+			TestObject viewIconTile = WebUI.modifyObjectProperty(findTestObject('Object Repository/FilesPage/Icon_ViewIcon'), 'data-automation-id','equals', 'Tile View', true)
+			TestObject viewIconList = WebUI.modifyObjectProperty(findTestObject('Object Repository/FilesPage/Icon_ViewIcon'), 'data-automation-id','equals', 'List View', true)
 
 			tileView = WebUI.verifyElementPresent(findTestObject('Object Repository/FilesPage/SortLableTileView'), 3, FailureHandling.CONTINUE_ON_FAILURE)
 
@@ -43,7 +45,7 @@ public class ChangeView {
 					WebUI.refresh()
 				}
 				WebUI.click(viewIconList)
-				extentTest.log(LogStatus.PASS, 'Changed View to ListView')
+				extentTest.log(Status.PASS, 'Changed View to ListView')
 				WebUI.delay(2)
 			}
 
@@ -58,25 +60,25 @@ public class ChangeView {
 					WebUI.refresh()
 				}
 				WebUI.click(viewIconTile,FailureHandling.CONTINUE_ON_FAILURE)
-				extentTest.log(LogStatus.PASS, 'Changed View to Tile View as per the test case - ' +TestCaseName)
+				extentTest.log(Status.PASS, 'Changed View to Tile View as per the test case - ' +TestCaseName)
 			}
 
-			editIcon=(new customWait.WaitForElement()).WaitForelementPresent(findTestObject('Object Repository/FilesPage/Icon_EditFilePath'), 5,extentTest, 'Page Loaded')
+			editIcon=(new customWait.WaitForElement()).WaitForelementPresent(findTestObject('Object Repository/FilesPage/GotoFoldericon'), 5,extentTest, 'Page Loaded')
 			if(editIcon) {
-				extentTest.log(LogStatus.PASS, 'Page loaded after changing the view')
+				extentTest.log(Status.PASS, 'Page loaded after changing the view')
 			}
 			else {
-				extentTest.log(LogStatus.PASS, 'Page not loaded after changing the view')
-				extentTest.log(LogStatus.PASS, 'Refreshing the browser ')
+				extentTest.log(Status.PASS, 'Page not loaded after changing the view')
+				extentTest.log(Status.PASS, 'Refreshing the browser ')
 				WebUI.refresh()
 				WebUI.delay(3)
 				int i
 				while (editIcon == false && i<10) {
 					WebUI.delay(1)
 					try {
-						WebUI.verifyElementPresent(findTestObject('Object Repository/FilesPage/Icon_EditFilePath'), 1)
-						editIcon =WebUI.verifyElementClickable(findTestObject('Object Repository/FilesPage/Icon_EditFilePath'))
-						extentTest.log(LogStatus.PASS, 'Page is loaded now - took '+i+' secs')
+						WebUI.verifyElementPresent(findTestObject('Object Repository/FilesPage/GotoFoldericon'), 1)
+						editIcon =WebUI.verifyElementClickable(findTestObject('Object Repository/FilesPage/GotoFoldericon'))
+						extentTest.log(Status.PASS, 'Page is loaded now - took '+i+' secs')
 					}
 					catch (Exception  ex) {
 						println("Exception")
@@ -93,13 +95,13 @@ public class ChangeView {
 
 			String screenShotPath='ExtentReports/'+TestCaseName+GlobalVariable.G_Browser+'.png'
 			WebUI.takeScreenshot(screenShotPath)
-			extentTest.log(LogStatus.FAIL,ex)
+			extentTest.log(Status.FAIL,ex)
 		}
 		catch (StepErrorException  e) {
 
 			String screenShotPath='ExtentReports/'+TestCaseName+GlobalVariable.G_Browser+'.png'
 			WebUI.takeScreenshot(screenShotPath)
-			extentTest.log(LogStatus.FAIL,e)
+			extentTest.log(Status.FAIL,e)
 		}
 	}
 }

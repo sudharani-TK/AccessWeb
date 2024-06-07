@@ -12,7 +12,8 @@ import com.kms.katalon.core.testobject.TestObject as TestObject
 import com.kms.katalon.core.util.KeywordUtil as KeywordUtil
 import com.kms.katalon.core.webui.driver.DriverFactory as DriverFactory
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
-import com.relevantcodes.extentreports.LogStatus as LogStatus
+import com.aventstack.extentreports.MediaEntityBuilder
+import com.aventstack.extentreports.Status
 
 import internal.GlobalVariable as GlobalVariable
 
@@ -20,26 +21,27 @@ import internal.GlobalVariable as GlobalVariable
 WebDriver driver = DriverFactory.getWebDriver()
 EventFiringWebDriver eventFiring = ((DriverFactory.getWebDriver()) as EventFiringWebDriver)
 WebDriver wrappedWebDriver = eventFiring.getWrappedDriver()
-RemoteWebDriver katalonWebDriver = ((wrappedWebDriver) as RemoteWebDriver)
-//====================================================================================
-ReportFile = (GlobalVariable.G_ReportName + '.html')
-def extent = CustomKeywords.'generateReports.GenerateReport.create'(ReportFile, GlobalVariable.G_Browser, GlobalVariable.G_BrowserVersion)
-def LogStatus = com.relevantcodes.extentreports.LogStatus
-def extentTest = extent.startTest(TestCaseName)
+RemoteWebDriver katalonWebDriver = (RemoteWebDriver) wrappedWebDriver
+//==================================================================
+def Browser = GlobalVariable.G_Browser
+//===============================================================
+def extentTest=GlobalVariable.G_ExtentTest
+//===========================================================
 CustomKeywords.'toLogin.ForLogin.Login'(extentTest)
-//=====================================================================================
+//=============================================================
 
 
-def result
 
-def isElementPresentRight
+def result=false
 
-def isElementPresentDown
+def isElementPresentRight=false
+
+def isElementPresentDown=false
 
 WebUI.delay(2)
 
 try {
-		def jobsTab = CustomKeywords.'customWait.WaitForElement.WaitForelementPresent'(findTestObject('NewJobPage/AppList_ShellScripts'),
+		def jobsTab = CustomKeywords.'customWait.WaitForElement.WaitForelementPresent'(findTestObject('LoginPage/NewJobPage/AppList_ShellScript'),
 		20,extentTest,'App def')
 
 	if (jobsTab) {
@@ -87,43 +89,53 @@ try {
 
 		WebUI.click(newJobFilterCategory)
 
-		extentTest.log(LogStatus.INFO, 'Selected filter category ' + FilterTitle)
+		extentTest.log(Status.INFO, 'Selected filter category ' + FilterTitle)
 
 		WebUI.delay(2)
 
 		WebUI.click(newJobFilterValue)
 
-		extentTest.log(LogStatus.INFO, 'Selected filter value ' + FilterValue)
+		extentTest.log(Status.INFO, 'Selected filter value ' + FilterValue)
 	}
 
-	extentTest.log(LogStatus.PASS, 'Applied filter for - Filter Category - '+FilterCategory + 'Filter Value - '+ FilterValue)
+	extentTest.log(Status.PASS, 'Applied filter for - Filter Category - '+FilterCategory + 'Filter Value - '+ FilterValue)
 
 
 	WebUI.click(findTestObject('Object Repository/JobMonitoringPage/Icon_save_filter'))
 	WebUI.delay(1)
 	WebUI.setText(findTestObject('Object Repository/JobMonitoringPage/textBx_SaveFilter'), FilterName)
 	WebUI.click(findTestObject('Object Repository/JobMonitoringPage/button_Save'))
-	extentTest.log(LogStatus.PASS, 'Saved new filter with name - '+ FilterName)
+	extentTest.log(Status.PASS, 'Saved new filter with name - '+ FilterName)
 
 	TestObject newFilterItem=WebUI.modifyObjectProperty(findTestObject('Object Repository/JobMonitoringPage/newFilter_Item'),'text', 'equals', FilterName, true)
 	WebUI.click(newFilterItem)
-	extentTest.log(LogStatus.PASS, 'Verified new filetr in under filter section' )
+	extentTest.log(Status.PASS, 'Verified new filetr in under filter section' )
 	WebUI.click(findTestObject('Object Repository/JobMonitoringPage/a_Reset'))
-	extentTest.log(LogStatus.PASS, 'Clicked on reset filters' )
-	extentTest.log(LogStatus.PASS, 'Clicked on newly created filter' )
+	extentTest.log(Status.PASS, 'Clicked on reset filters' )
+	extentTest.log(Status.PASS, 'Clicked on newly created filter' )
 	WebUI.mouseOver(newFilterItem)
 	WebUI.delay(2)
 	WebUI.click(newFilterItem)
+	
+	
+	TestObject newFiltername=WebUI.modifyObjectProperty(findTestObject('Object Repository/JobMonitoringPage/Filter_name'),'data-automation-id', 'equals', FilterName, true)
+	WebUI.delay(2)
+	WebUI.mouseOver(newFiltername)
+	WebUI.delay(2)
+	WebUI.waitForElementPresent(findTestObject('Object Repository/JobMonitoringPage/icon_removeFilter'), 9)
 	WebUI.click(findTestObject('Object Repository/JobMonitoringPage/icon_removeFilter'))
-	extentTest.log(LogStatus.PASS, 'Clicked on filter delete icon' )
+	extentTest.log(Status.PASS, 'Clicked on filter delete icon' )
+	WebUI.waitForElementVisible(findTestObject('Object Repository/JobMonitoringPage/button_Yes'), 5)
+	WebUI.click(findTestObject('Object Repository/JobMonitoringPage/button_Yes'))
+	WebUI.delay(10)
 	result=WebUI.verifyElementPresent(newFilterItem, 5,FailureHandling.CONTINUE_ON_FAILURE)
 	if(result)
 	{
-		extentTest.log(LogStatus.PASS, 'Filter not Deleted' )
+		extentTest.log(Status.PASS, 'Filter not Deleted' )
 	}
 	else
 	{
-		extentTest.log(LogStatus.PASS, 'Deleted newly created filter' )
+		extentTest.log(Status.PASS, 'Deleted newly created filter' )
 	}
 
 	if (GlobalVariable.G_Browser == 'Edge') {
@@ -131,22 +143,33 @@ try {
 	}
 }
 catch (Exception ex) {
-    String screenShotPath = (('ExtentReports/' + TestCaseName) + GlobalVariable.G_Browser) + '.png'
-    WebUI.takeScreenshot(screenShotPath)
+	println('From TC - ' + GlobalVariable.G_ReportFolder)
+
+	String screenShotPath = (('ExtentReports/' + TestCaseName) + GlobalVariable.G_Browser) + '.png'
+
+	WebUI.takeScreenshot(screenShotPath)
+
 	String p = (TestCaseName + GlobalVariable.G_Browser) + '.png'
-	extentTest.log(LogStatus.FAIL, ex)
-	extentTest.log(LogStatus.FAIL, extentTest.addScreenCapture(p))
-	} 
-catch (StepErrorException e) {
-    String screenShotPath = (('ExtentReports/' + TestCaseName) + GlobalVariable.G_Browser) + '.png'
-    WebUI.takeScreenshot(screenShotPath)
-    extentTest.log(LogStatus.FAIL, e)
-} 
-finally { 
-    extentTest.log(LogStatus.PASS, 'Closing the browser after executinge test case - '+ TestCaseName)
-    extent.endTest(extentTest)
-    extent.flush()
+
+	extentTest.log(Status.FAIL, ex)
+
+	extentTest.fail(MediaEntityBuilder.createScreenCaptureFromPath(p).build())
 }
-//=====================================================================================
+catch (StepErrorException e) {
+	String screenShotPath = (('ExtentReports/' + TestCaseName) + GlobalVariable.G_Browser) + '.png'
+
+	WebUI.takeScreenshot(screenShotPath)
+
+	String p = (TestCaseName + GlobalVariable.G_Browser) + '.png'
+
+	extentTest.log(Status.FAIL, ex)
+
+	extentTest.fail(MediaEntityBuilder.createScreenCaptureFromPath(p).build())
+}
+finally {
+	extentTest.log(Status.PASS, 'Closing the browser after executinge test case - ' + TestCaseName)
+	
+	
+}
 
 

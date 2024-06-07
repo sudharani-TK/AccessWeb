@@ -11,7 +11,7 @@
       </entry>
       <entry>
          <key>BASIC</key>
-         <value>//div[@id = 'delete_icon']</value>
+         <value>//span[@id = 'delete_icon']</value>
       </entry>
    </selectorCollection>
    <selectorMethod>BASIC</selectorMethod>
@@ -21,16 +21,8 @@
       <matchCondition>equals</matchCondition>
       <name>tag</name>
       <type>Main</type>
-      <value>div</value>
-      <webElementGuid>a1bf1f1a-6b18-4a05-8558-8ac260e7ce54</webElementGuid>
-   </webElementProperties>
-   <webElementProperties>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>src</name>
-      <type>Main</type>
-      <value>/static/media/unity_delete.6169b9f2.svg</value>
-      <webElementGuid>032c2b5d-5930-4f6f-bc87-75e3ef971f4d</webElementGuid>
+      <value>span</value>
+      <webElementGuid>fbb6f916-a159-4252-9823-3bc2c712feb2</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -38,15 +30,7 @@
       <name>id</name>
       <type>Main</type>
       <value>delete_icon</value>
-      <webElementGuid>f5a2b44d-49ef-4aa6-80a8-2529463fc99a</webElementGuid>
-   </webElementProperties>
-   <webElementProperties>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath</name>
-      <type>Main</type>
-      <value>id(&quot;delete_icon&quot;)/img[1]</value>
-      <webElementGuid>3748b30b-eaa1-465e-85d5-c9a037e0f362</webElementGuid>
+      <webElementGuid>406e2612-66b9-42a7-aa8e-790fd95cb7b0</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
@@ -54,7 +38,7 @@
       <name>xpath:idRelative</name>
       <type>Main</type>
       <value>//div[@id='delete_icon']/img</value>
-      <webElementGuid>ab4cfb24-5f2c-43fa-80cd-7feaee4c4636</webElementGuid>
+      <webElementGuid>db8fa1a9-3ed1-4985-b89a-1f434700cbb9</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -62,7 +46,7 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='Files'])[2]/following::img[4]</value>
-      <webElementGuid>94f03965-7b57-4ff1-90e0-fdf39115be9b</webElementGuid>
+      <webElementGuid>7c8617e7-b970-4eae-be97-66f15bdc5ecf</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -70,7 +54,7 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='Myfolder1'])[1]/following::img[4]</value>
-      <webElementGuid>68a726c5-8285-4ffd-8d72-d5876e57acee</webElementGuid>
+      <webElementGuid>c7743d60-b094-4341-99b0-05acb62e9a4e</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -78,7 +62,7 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='Upload File'])[1]/preceding::img[2]</value>
-      <webElementGuid>5a4c445b-bd1b-4a65-815a-4098aa13deea</webElementGuid>
+      <webElementGuid>add747e2-99f0-43b9-8840-21522a1c932d</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -86,7 +70,7 @@
       <name>xpath:img</name>
       <type>Main</type>
       <value>//img[@alt='delete_icon']</value>
-      <webElementGuid>660045e7-a013-4aa1-8aa9-abf8464bb03f</webElementGuid>
+      <webElementGuid>8e81bb99-0fb9-4373-9c38-0051bd0a1eae</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -94,6 +78,6 @@
       <name>xpath:position</name>
       <type>Main</type>
       <value>//div[3]/img</value>
-      <webElementGuid>9e777cda-206f-4d42-bf28-4ab689bb03fb</webElementGuid>
+      <webElementGuid>71f74b1e-3b78-485f-9109-9c825a986e30</webElementGuid>
    </webElementXpaths>
 </WebElementEntity>

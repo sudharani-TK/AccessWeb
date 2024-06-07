@@ -6,7 +6,8 @@ import com.kms.katalon.core.annotation.Keyword
 import com.kms.katalon.core.model.FailureHandling
 import com.kms.katalon.core.testobject.TestObject
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
-import com.relevantcodes.extentreports.LogStatus
+import com.aventstack.extentreports.MediaEntityBuilder
+import com.aventstack.extentreports.Status
 
 import internal.GlobalVariable
 
@@ -14,9 +15,9 @@ public class executeJobAction_Icon {
 
 	@Keyword
 	def perfromJobAction(String Action , String TestCaseName , extentTest) {
-		def isNotoficationPresent
+		def isNotoficationPresent=false
 		boolean result=false
-		def LogStatus = com.relevantcodes.extentreports.LogStatus
+
 		WebUI.delay(3)
 
 		switch (Action) {
@@ -28,7 +29,7 @@ public class executeJobAction_Icon {
 				WebUI.click(findTestObject('GenericObjects/btn_Yes'))
 			//WebUI.click(findTestObject('FilesPage/Icon_Close'))
 				WebUI.delay(2)
-				WebUI.click(findTestObject('Landing_Page/Btn_Notifiction2'))
+				WebUI.click(findTestObject('Object Repository/Landing_Page/Btn_Notifiction2'))
 				WebUI.delay(2)
 			//Verify notification
 				result = WebUI.verifyElementPresent(findTestObject('Object Repository/Notificactions/Notification_JobDelete'),5)
@@ -47,18 +48,18 @@ public class executeJobAction_Icon {
 					println("No")
 					WebUI.click(findTestObject('GenericObjects/btn_No'))
 					result=true
-					extentTest.log(LogStatus.PASS, 'Not terminating job  ')
+					extentTest.log(Status.PASS, 'Not terminating job  ')
 				}
 				else {
 
 					WebUI.click(findTestObject('GenericObjects/btn_Yes'))
 					WebUI.delay(2)
-					extentTest.log(LogStatus.PASS, 'terminating job  ')
+					extentTest.log(Status.PASS, 'terminating job  ')
 					WebUI.click(findTestObject('Landing_Page/Btn_Notifiction2'))
 					WebUI.delay(2)
 					isNotoficationPresent=WebUI.waitForElementPresent(findTestObject('Notificactions/Notification_JobTerminate'), 5)
 					println("notification status - "+isNotoficationPresent)
-					extentTest.log(LogStatus.PASS, 'Verified notification')
+					extentTest.log(Status.PASS, 'Verified notification')
 					result=isNotoficationPresent
 				}
 				return result
@@ -81,27 +82,27 @@ public class executeJobAction_Icon {
 				WebUI.delay(2)
 
 				WebUI.click(findTestObject('JobDetailsPage/JobDetailsLink_Details'))
-				extentTest.log(LogStatus.PASS,"Navigated to Details Tab")
+				extentTest.log(Status.PASS,"Navigated to Details Tab")
 				WebUI.click(findTestObject('JobDetailsPage/TextBx_DetailsFilter'))
 
 				WebUI.setText(findTestObject('JobDetailsPage/TextBx_DetailsFilter'), 'queue name')
 				WebUI.click(findTestObject('JobDetailsPage/Detail_QueueName'))
-				TestObject newQueueObj = WebUI.modifyObjectProperty(findTestObject('JobDetailsPage/Detail_QueueName'), 'text', 'equals',	'accessQueue', true)
+				TestObject newQueueObj = WebUI.modifyObjectProperty(findTestObject('JobDetailsPage/Detail_QueueName'), 'text', 'equals','accessQueue', true)
+
+				String queueName=WebUI.getText(newQueueObj)
 				println("---------- queuename "+WebUI.waitForElementPresent(newQueueObj, 4, FailureHandling.CONTINUE_ON_FAILURE))
 
-				def queueName=WebUI.getText(newQueueObj)
-				if(queueName.equals("accessQueue"))
-				{
+				println("---------- queuename "+ queueName)
+
+				if(queueName.equals("accessQueue")) {
 					result=true
-					extentTest.log(LogStatus.PASS,"Verified queue name in job properties - "+ queueName)
+					extentTest.log(Status.PASS,"Verified queue name in job properties - "+ queueName)
 				}
 				else
 					result=false
 
 				return result
 				break
-
 		}
-
 	}
 }

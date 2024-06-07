@@ -5,6 +5,36 @@
    <tag></tag>
    <comment></comment>
    <testCaseGuid>4c95e1db-8f64-4982-89f4-33962932d915</testCaseGuid>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>9d2bae20-a478-4749-8ac6-272295f8a53c</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>c55ce919-eaed-4dcd-b544-70a159a3fc3c</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>50871651-4438-4afa-a3d1-e015def75e60</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>6242957b-bbbf-4b3a-a242-d30081c79543</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>c20ffa81-ef5c-405a-b281-7d065b6fbd73</variableId>
+   </variableLinks>
    <variable>
       <defaultValue>'ShellPro-WithRemoteFile'</defaultValue>
       <description></description>

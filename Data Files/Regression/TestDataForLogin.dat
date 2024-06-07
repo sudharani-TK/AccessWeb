@@ -3,6 +3,7 @@
    <description></description>
    <name>TestDataForLogin</name>
    <tag></tag>
+   <connectionProperties/>
    <containsHeaders>true</containsHeaders>
    <csvSeperator></csvSeperator>
    <dataFileGUID>801710ad-47c0-4344-a9e5-75578d7d3d1d</dataFileGUID>

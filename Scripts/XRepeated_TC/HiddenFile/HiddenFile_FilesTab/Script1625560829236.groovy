@@ -68,7 +68,7 @@ try {
 		extentTest.log(LogStatus.FAIL, ('Hidden file - ' + fileName) + 'is listed ')
 	}
 
-	WebUI.click(findTestObject('Preferences/Profiletab'))
+	WebUI.click(findTestObject('PageNavigation/Preferences/Profiletab'))
 	extentTest.log(LogStatus.PASS, 'Click on profile tab')
 	WebUI.delay(2)
 	WebUI.click(findTestObject('Landing_Page/ListItem_Logout'))

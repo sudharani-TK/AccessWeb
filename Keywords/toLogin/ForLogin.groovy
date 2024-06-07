@@ -18,7 +18,7 @@ import com.kms.katalon.core.testobject.TestObject
 import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
-import com.relevantcodes.extentreports.LogStatus
+import com.aventstack.extentreports.Status
 
 import internal.GlobalVariable
 
@@ -28,7 +28,7 @@ public class ForLogin {
 	def Login(extentTest) {
 
 		def Browser = GlobalVariable.G_Browser
-		extentTest.log(LogStatus.PASS, 'Navigated to Acces Instance - '+GlobalVariable.G_BaseUrl)
+		//extentTest.log(Status.PASS, 'Navigated to Acces Instance - '+GlobalVariable.G_BaseUrl)
 
 
 		if (Browser == 'Edge Chromium') {
@@ -42,17 +42,17 @@ public class ForLogin {
 		WebUI.setText(findTestObject('LoginPage/username_txtbx'), GlobalVariable.G_userName)
 		WebUI.setText(findTestObject('LoginPage/password_txtbx'), GlobalVariable.G_Password)
 		WebUI.click(findTestObject('LoginPage/login_btn'))
-		extentTest.log(LogStatus.PASS, 'Entered Creds - username - '+GlobalVariable.G_userName +' password - '+GlobalVariable.G_Password)
+		extentTest.log(Status.PASS, 'Entered Creds - username - '+GlobalVariable.G_userName +' password - '+GlobalVariable.G_Password)
 
-		extentTest.log(LogStatus.PASS, 'Clicked on Login Button ')
+		extentTest.log(Status.PASS, 'Clicked on Login Button ')
 
 
-		def jobsTab = (new customWait.WaitForElement()).WaitForelementPresent(findTestObject('NewJobPage/AppList_ShellScript'),	10,extentTest, 'Application - ShellScript loaded ')
+		//def jobsTab = (new customWait.WaitForElement()).WaitForelementPresent(findTestObject('LoginPage/NewJobPage/AppList_ShellScript'),	10,extentTest, 'Application - ShellScript loaded ')
 
-		if (jobsTab) {
-			WebUI.click(findTestObject('Object Repository/Landing_Page/LandigPage_AltairAccess_Link'))
-		}
+		//if (jobsTab) {
+		WebUI.click(findTestObject('Object Repository/Landing_Page/LandigPage_AltairAccess_Link'))
+		//}
 
-		extentTest.log(LogStatus.PASS, 'Verified AltairAccess Logo post login ')
+		extentTest.log(Status.PASS, 'Verified AltairAccess Logo post login ')
 	}
 }

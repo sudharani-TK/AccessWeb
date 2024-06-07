@@ -8,44 +8,45 @@ import com.kms.katalon.core.model.FailureHandling as FailureHandling
 import com.kms.katalon.core.testobject.TestObject as TestObject
 import com.kms.katalon.core.util.KeywordUtil as KeywordUtil
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
-import com.relevantcodes.extentreports.LogStatus
+import com.aventstack.extentreports.MediaEntityBuilder
+import com.aventstack.extentreports.Status
 
 import internal.GlobalVariable as GlobalVariable
 
-
-
-//====================================================================================
-ReportFile = (GlobalVariable.G_ReportName + '.html')
-def extent = CustomKeywords.'generateReports.GenerateReport.create'(ReportFile, GlobalVariable.G_Browser, GlobalVariable.G_BrowserVersion)
-def LogStatus = com.relevantcodes.extentreports.LogStatus
-TestCaseName=TestCaseName + ' through TopMenu icons'
-def extentTest = extent.startTest(TestCaseName)
+//==================================================================
+def Browser = GlobalVariable.G_Browser
+//===============================================================
+def extentTest=GlobalVariable.G_ExtentTest
+//===========================================================
 CustomKeywords.'toLogin.ForLogin.Login'(extentTest)
+//====================================================================================
+TestCaseName=TestCaseName + ' through TopMenu icons'
 //=====================================================================================
 
 def navLocation = CustomKeywords.'generateFilePath.filePath.execLocation'()
 def location = navLocation + '/FoldersModule/FolderOpsIcons'
 //=====================================================================================
 
-WebUI.delay(2)
+//WebUI.delay(2)
+WebUI.enableSmartWait()
 
 try {
-	def filesTab = CustomKeywords.'customWait.WaitForElement.WaitForelementPresent'(findTestObject('NewJobPage/AppList_ShellScript'),
+	def filesTab = CustomKeywords.'customWait.WaitForElement.WaitForelementPresent'(findTestObject('LoginPage/NewJobPage/AppList_ShellScript'),
 			20, extentTest, 'App def')
 
 	if (filesTab) {
 		WebUI.click(findTestObject('GenericObjects/TitleLink_Files'))
 	}
 
-	WebUI.delay(3)
+	//WebUI.delay(3)
 
 	CustomKeywords.'operations_FileModule.ChangeView.changePageView'(TestCaseName, extentTest)
 
 	if (TestCaseName.contains('tile view')) {
-		newFileObj = WebUI.modifyObjectProperty(findTestObject('FilesPage/FolderRowItem_TileView'), 'title', 'equals',folderName, true )
+		newFileObj = WebUI.modifyObjectProperty(findTestObject('FilesPage/FolderRowItem_TileView'), 'data-automation-id', 'equals',folderName, true )
 
 	} else {
-		newFileObj = WebUI.modifyObjectProperty(findTestObject('FilesPage/FolderRowItem_ListView'), 'title','equals', folderName, true)
+		newFileObj = WebUI.modifyObjectProperty(findTestObject('FilesPage/FolderRowItem_ListView'), 'data-automation-id','equals', folderName, true)
 
 	}
 	if (TestCaseName.contains('Upload')) {
@@ -54,16 +55,17 @@ try {
 	}
 	 else {
 
-		WebUI.click(findTestObject('Object Repository/FilesPage/Icon_EditFilePath'))
+	/*	WebUI.click(findTestObject('Object Repository/FilesPage/Icon_EditFilePath'))
 		WebUI.setText(findTestObject('Object Repository/FilesPage/textBx_FilePath'), location)
 		WebUI.sendKeys(findTestObject('Object Repository/FilesPage/textBx_FilePath'), Keys.chord(Keys.ENTER))
-		extentTest.log(LogStatus.PASS, ('Navigated to -' + location) + ' in RFB ')
+		extentTest.log(Status.PASS, ('Navigated to -' + location) + ' in RFB ')*/
+		 CustomKeywords.'generateFilePath.filePath.navlocation'(location, extentTest)
 
 		WebUI.click(findTestObject('FilesPage/FilesSearch_filter'))
 		WebUI.waitForElementVisible(findTestObject('FilesPage/FilesSearch_filter'), 2)
 		WebUI.setText(findTestObject('FilesPage/FilesSearch_filter'), folderName)
 		WebUI.sendKeys(findTestObject('JobDetailsPage/TextBx_DetailsFilter'), Keys.chord(Keys.ENTER))
-		extentTest.log(LogStatus.PASS, 'Clicked on File  - ' + folderName)
+		extentTest.log(Status.PASS, 'Clicked on File  - ' + folderName)
 
 		def folderItem = CustomKeywords.'customWait.WaitForElement.WaitForelementPresent'(newFileObj, 20, extentTest, folderName)
 		println(folderItem)
@@ -72,34 +74,46 @@ try {
 			WebUI.click(newFileObj)
 		}
 	}
-	WebUI.delay(2)
+	//WebUI.delay(2)
 	println('after is else ' + Operation)
 
 	def result = CustomKeywords.'operations_FileModule.folderOperations_Icon.executeFolderOperations'(Operation, TestCaseName, extentTest)
 	//def result = CustomKeywords.'demo.hello.executeFileOperations'(Operation, TestCaseName,extentTest)
 	if (result) {
-		extentTest.log(LogStatus.PASS, ('File Operation - ' + TestCaseName) + ' Performed Sucessfully')
+		extentTest.log(Status.PASS, ('File Operation - ' + TestCaseName) + ' Performed Sucessfully')
 	} else {
-		extentTest.log(LogStatus.FAIL, ('File Operation - ' + TestCaseName) + ' failed')
+		extentTest.log(Status.FAIL, ('File Operation - ' + TestCaseName) + ' failed')
 	}
+	WebUI.disableSmartWait()
 }
 catch (Exception ex) {
+	println('From TC - ' + GlobalVariable.G_ReportFolder)
+
 	String screenShotPath = (('ExtentReports/' + TestCaseName) + GlobalVariable.G_Browser) + '.png'
+
 	WebUI.takeScreenshot(screenShotPath)
+
 	String p = (TestCaseName + GlobalVariable.G_Browser) + '.png'
-	extentTest.log(LogStatus.FAIL, ex)
-	extentTest.log(LogStatus.FAIL, extentTest.addScreenCapture(p))
+
+	extentTest.log(Status.FAIL, ex)
+
+	extentTest.fail(MediaEntityBuilder.createScreenCaptureFromPath(p).build())
 }
 catch (StepErrorException e) {
 	String screenShotPath = (('ExtentReports/' + TestCaseName) + GlobalVariable.G_Browser) + '.png'
+
 	WebUI.takeScreenshot(screenShotPath)
+
 	String p = (TestCaseName + GlobalVariable.G_Browser) + '.png'
-	extentTest.log(LogStatus.FAIL, ex)
-	extentTest.log(LogStatus.FAIL, extentTest.addScreenCapture(p))
+
+	extentTest.log(Status.FAIL, ex)
+
+	extentTest.fail(MediaEntityBuilder.createScreenCaptureFromPath(p).build())
 }
 finally {
-	extent.endTest(extentTest)
-	extent.flush()
+	extentTest.log(Status.PASS, 'Closing the browser after executinge test case - ' + TestCaseName)
+	
+	
 }
 
 

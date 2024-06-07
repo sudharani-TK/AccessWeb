@@ -11,7 +11,8 @@ import com.kms.katalon.core.annotation.Keyword
 import com.kms.katalon.core.configuration.RunConfiguration
 import com.kms.katalon.core.testobject.TestObject
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
-import com.relevantcodes.extentreports.LogStatus
+import com.aventstack.extentreports.MediaEntityBuilder
+import com.aventstack.extentreports.Status
 import internal.GlobalVariable as GlobalVariable
 import com.kms.katalon.core.model.FailureHandling as FailureHandling
 
@@ -28,7 +29,7 @@ public class JobSubmissions {
 			case 'NCPU':
 				WebUI.click(findTestObject('JobSubmissionForm/List_NCPUS'))
 				WebUI.setText(findTestObject('JobSubmissionForm/List_NCPUS'),'2')
-				extentTest.log(LogStatus.PASS, 'Changed the NCPU value to - 2')
+				extentTest.log(Status.PASS, 'Changed the NCPU value to - 2')
 				break
 
 			case 'QUEUE':
@@ -38,14 +39,14 @@ public class JobSubmissions {
 				TestObject newQueueObj = WebUI.modifyObjectProperty(findTestObject('JobSubmissionForm/dropDown_version'), 'text', 'equals',	ChangeValue, true)
 				WebUI.mouseOver(newQueueObj)
 				WebUI.click(newQueueObj)
-				extentTest.log(LogStatus.PASS, 'Changed the QUEUE value to - '+ChangeValue)
+				extentTest.log(Status.PASS, 'Changed the QUEUE value to - '+ChangeValue)
 				break
 
 
 			case 'MEM':
 				WebUI.click(findTestObject('Object Repository/JobSubmissionForm/List_Memory'))
 				WebUI.setText(findTestObject('JobSubmissionForm/List_Memory'),'120')
-				extentTest.log(LogStatus.PASS, 'Changed the MEMORY value to - 120')
+				extentTest.log(Status.PASS, 'Changed the MEMORY value to - 120')
 				break
 
 			case 'OUTFOLDER':
@@ -53,7 +54,7 @@ public class JobSubmissions {
 				WebUI.scrollToElement(findTestObject('Object Repository/JobSubmissionForm/TextBx_OutPut_Folder'),2)
 				WebUI.click(findTestObject('Object Repository/JobSubmissionForm/TextBx_OutPut_Folder'))
 				WebUI.setText(findTestObject('Object Repository/JobSubmissionForm/TextBx_OutPut_Folder'), stageOut)
-				extentTest.log(LogStatus.PASS, 'Set the OUTPUT FOLDER value to - '+stageOut)
+				extentTest.log(Status.PASS, 'Set the OUTPUT FOLDER value to - '+stageOut)
 				break
 
 			case 'VERSION':
@@ -61,20 +62,24 @@ public class JobSubmissions {
 
 				if (ChangeValue.equals('ShellScript')) {
 					println('no version for this app')
-					extentTest.log(LogStatus.PASS, 'No vversion for ShellScript app def')
+					extentTest.log(Status.PASS, 'No vversion for ShellScript app def')
 				} else {
 					WebUI.scrollToElement(findTestObject('JobSubmissionForm/versionDropDown'), 3)
 					WebUI.click(findTestObject('JobSubmissionForm/versionDropDown'))
 					TestObject newVerObj = WebUI.modifyObjectProperty(findTestObject('JobSubmissionForm/dropDown_version'), 'text','equals',ChangeValue, true)
 					WebUI.click(newVerObj)
-					extentTest.log(LogStatus.PASS, 'Changed the VERSION value to - '+ChangeValue)
+					extentTest.log(Status.PASS, 'Changed the VERSION value to - '+ChangeValue)
 				}
 				break
 			case 'SetOutPutDir':
-				WebUI.click(findTestObject('Object Repository/FilesPage/Icon_EditFilePath'))
-				WebUI.setText(findTestObject('Object Repository/FilesPage/textBx_FilePath'), fileLocation)
-				WebUI.sendKeys(findTestObject('Object Repository/FilesPage/textBx_FilePath'), Keys.chord(Keys.ENTER))
-				extentTest.log(LogStatus.PASS, 'Navigated to '+ fileLocation +'in RFB ')
+			//WebUI.click(findTestObject('Object Repository/FilesPage/Icon_EditFilePath'))
+			//WebUI.setText(findTestObject('Object Repository/FilesPage/textBx_FilePath'), fileLocation)
+			//	WebUI.sendKeys(findTestObject('Object Repository/FilesPage/textBx_FilePath'), Keys.chord(Keys.ENTER))
+
+				(new generateFilePath.filePath()).navlocation(fileLocation, extentTest)
+
+
+
 
 				WebUI.waitForElementVisible(findTestObject('FilesPage/btn_NewFileFolder'), 10)
 				WebUI.click(findTestObject('FilesPage/btn_NewFileFolder'))
@@ -84,19 +89,21 @@ public class JobSubmissions {
 				WebUI.click(findTestObject('FilesPage/btn_Save'))
 
 				WebUI.click(findTestObject('Object Repository/FilesPage/Icon_Refresh'))
+				WebUI.delay(2)
 
-				TestObject newFolderObj = WebUI.modifyObjectProperty(findTestObject('FilesPage/RowItem_Folder'), 'title', 'equals',stageOut, true)
+
+				TestObject newFolderObj = WebUI.modifyObjectProperty(findTestObject('FilesPage/RowItem_Folder'), 'data-automation-id', 'equals',stageOut, true)
 				WebUI.click(newFolderObj)
 				WebUI.rightClick(newFolderObj)
-				extentTest.log(LogStatus.PASS, 'Right Clicked on Folder to set the OUTPUT FOLDER ' + stageOut)
+				extentTest.log(Status.PASS, 'Right Clicked on Folder to set the OUTPUT FOLDER ' + stageOut)
 				WebUI.delay(2)
 				String idForCntxtMn = 'Add as Output'
-				TestObject newRFBContextMnOption = WebUI.modifyObjectProperty(findTestObject('Object Repository/NewJobPage/ContextMenu_RFB_FilePicker'),
+				TestObject newRFBContextMnOption = WebUI.modifyObjectProperty(findTestObject('Object Repository/LoginPage/NewJobPage/ContextMenu_RFB_FilePicker'),
 						'id', 'contains', idForCntxtMn, true)
 				WebUI.delay(2)
 				WebUI.click(newRFBContextMnOption)
-				extentTest.log(LogStatus.PASS, 'Clicked on context menu item - ' + idForCntxtMn)
-				extentTest.log(LogStatus.PASS, 'Set the OUTPUT FOLDER to - '+stageOut)
+				extentTest.log(Status.PASS, 'Clicked on context menu item - ' + idForCntxtMn)
+				extentTest.log(Status.PASS, 'Set the OUTPUT FOLDER to - '+stageOut)
 				break;
 		}
 	}
@@ -105,9 +112,9 @@ public class JobSubmissions {
 	@Keyword
 	def selectFile(String mode , String InputFile,extentTest){
 
-		TestObject newFileObj = WebUI.modifyObjectProperty(findTestObject('JobSubmissionForm/File_InputFile'), 'text', 'equals',
+		TestObject newFileObj = WebUI.modifyObjectProperty(findTestObject('JobSubmissionForm/File_InputFile'), 'data-automation-id', 'equals',
 				InputFile, true)
-		extentTest.log(LogStatus.PASS, 'Input File Selection Mode- '+ mode)
+		extentTest.log(Status.PASS, 'Input File Selection Mode- '+ mode)
 
 		def navLocation=(new generateFilePath.filePath()).execLocation()
 		def shortCutFileLocation
@@ -131,10 +138,13 @@ public class JobSubmissions {
 
 		switch (mode){
 			case 'Local':
-				WebUI.click(findTestObject('Object Repository/FilesPage/Icon_EditFilePath'))
-				WebUI.setText(findTestObject('Object Repository/FilesPage/textBx_FilePath'), location)
-				WebUI.sendKeys(findTestObject('Object Repository/FilesPage/textBx_FilePath'), Keys.chord(Keys.ENTER))
-				extentTest.log(LogStatus.PASS, 'Navigated to '+ location +'in RFB ')
+				WebUI.click(findTestObject('Object Repository/FilesPage/GotoFoldericon'))
+				WebUI.delay(2)
+				WebUI.waitForElementVisible(findTestObject('Object Repository/FilesPage/gotofoldertext'), 10)
+				WebUI.setText(findTestObject('Object Repository/FilesPage/gotofoldertext'), location)
+				WebUI.delay(2)
+				WebUI.sendKeys(findTestObject('Object Repository/FilesPage/gotofoldertext'), Keys.chord(Keys.ENTER))
+				extentTest.log(Status.PASS, 'Navigated to '+ location +'in RFB ')
 				def FolderEmptytext = (new customWait.WaitForElement()).WaitForelementPresent(findTestObject('Object Repository/FilesPage/Label_FolderEmpty'), 3,extentTest,'Lable Empty')
 				println(FolderEmptytext)
 				if (FolderEmptytext) {
@@ -157,7 +167,7 @@ public class JobSubmissions {
 				def newFP = (new generateFilePath.filePath()).getFilePath(filePath)
 				println(newFP)
 				WebUI.uploadFile(findTestObject('FilesPage/UploadFileBtn'), newFP)
-				extentTest.log(LogStatus.PASS, 'Uploading File to RFB - '+InputFile)
+				extentTest.log(Status.PASS, 'Uploading File to RFB - '+InputFile)
 				def FileUploadClose = (new customWait.WaitForElement()).WaitForelementPresent(findTestObject('Object Repository/JobSubmissionForm/Icon_Close_UploadNotification'), 20,extentTest,'Upload Panel Close Icon')
 				println("upload Notfication - "+FileUploadClose)
 				def UploadedFile = (new customWait.WaitForElement()).WaitForelementPresent(newFileObj, 20,extentTest,InputFile)
@@ -169,26 +179,43 @@ public class JobSubmissions {
 				break;
 
 			case 'Remote':
-				WebUI.click(findTestObject('Object Repository/FilesPage/Icon_EditFilePath'))
-				WebUI.setText(findTestObject('Object Repository/FilesPage/textBx_FilePath'), fileLocation)
-				WebUI.sendKeys(findTestObject('Object Repository/FilesPage/textBx_FilePath'), Keys.chord(Keys.ENTER))
-				extentTest.log(LogStatus.PASS, 'Navigated to '+ fileLocation +'in RFB ')
-				WebUI.delay(3)
+			/*WebUI.click(findTestObject('Object Repository/FilesPage/GotoFoldericon'))
+			 WebUI.setText(findTestObject('Object Repository/FilesPage/gotofoldertext'), fileLocation)
+			 WebUI.sendKeys(findTestObject('Object Repository/FilesPage/gotofoldertext'), Keys.chord(Keys.ENTER))
+			 extentTest.log(Status.PASS, 'Navigated to '+ fileLocation +'in RFB ')*/
+				(new generateFilePath.filePath()).navlocation(fileLocation, extentTest)
+				WebUI.delay(2)
 				WebUI.waitForElementPresent(findTestObject('Object Repository/JobSubmissionForm/textBx_file_filter'), 5)
 				WebUI.click(findTestObject('Object Repository/JobSubmissionForm/textBx_file_filter'))
 				WebUI.setText(findTestObject('Object Repository/JobSubmissionForm/textBx_file_filter'), InputFile)
 				WebUI.sendKeys(findTestObject('JobSubmissionForm/textBx_file_filter'), Keys.chord(Keys.ENTER))
-				extentTest.log(LogStatus.PASS, 'Searched for input file - '+InputFile)
-				WebUI.delay(3)
+				extentTest.log(Status.PASS, 'Searched for input file - '+InputFile)
+				WebUI.delay(2)
 				return newFileObj
 				break;
 
 			case 'ShortCut':
-				WebUI.click(findTestObject('Object Repository/FilesPage/Icon_EditFilePath'))
+				(new generateFilePath.filePath()).navlocation(shortCutFileLocation, extentTest)
+				extentTest.log(Status.PASS, 'Navigating to - ' + shortCutFileLocation)
+			/*WebUI.click(findTestObject('Object Repository/FilesPage/GotoFoldericon'))
+			 WebUI.delay(2)
+			 WebUI.waitForElementVisible(findTestObject('Object Repository/FilesPage/gotofoldertext'), 10)
+			 WebUI.setText(findTestObject('Object Repository/FilesPage/gotofoldertext'), shortCutFileLocation)
+			 WebUI.delay(2)
+			 WebUI.sendKeys(findTestObject('Object Repository/FilesPage/gotofoldertext'), Keys.chord(Keys.ENTER))*/
+
+			////WebUI.click(findTestObject('Object Repository/FilesPage/Icon_EditFilePath'))
 				println(shortCutFileLocation)
-				WebUI.setText(findTestObject('Object Repository/FilesPage/textBx_FilePath'), shortCutFileLocation)
-				WebUI.sendKeys(findTestObject('Object Repository/FilesPage/textBx_FilePath'), Keys.chord(Keys.ENTER))
-				extentTest.log(LogStatus.PASS, 'Navigating to - ' + shortCutFileLocation)
+			//	WebUI.setText(findTestObject('Object Repository/FilesPage/textBx_FilePath'), shortCutFileLocation)
+			//	WebUI.sendKeys(findTestObject('Object Repository/FilesPage/textBx_FilePath'), Keys.chord(Keys.ENTER))
+				WebUI.delay(2)
+				WebUI.waitForElementPresent(findTestObject('Object Repository/JobSubmissionForm/textBx_file_filter'), 5)
+				WebUI.click(findTestObject('Object Repository/JobSubmissionForm/textBx_file_filter'))
+				WebUI.setText(findTestObject('Object Repository/JobSubmissionForm/textBx_file_filter'), InputFile)
+				WebUI.sendKeys(findTestObject('JobSubmissionForm/textBx_file_filter'), Keys.chord(Keys.ENTER))
+				extentTest.log(Status.PASS, 'Searched for input file - '+InputFile)
+				WebUI.delay(2)
+			//extentTest.log(Status.PASS, 'Navigating to - ' + shortCutFileLocation)
 
 
 				return newFileObj
@@ -196,10 +223,12 @@ public class JobSubmissions {
 
 
 			case 'LocalRad':
-				WebUI.click(findTestObject('Object Repository/FilesPage/Icon_EditFilePath'))
-				WebUI.setText(findTestObject('Object Repository/FilesPage/textBx_FilePath'), location)
-				WebUI.sendKeys(findTestObject('Object Repository/FilesPage/textBx_FilePath'), Keys.chord(Keys.ENTER))
-				extentTest.log(LogStatus.PASS, 'Navigated to '+ location +'in RFB ')
+
+				(new generateFilePath.filePath()).navlocation(location, extentTest)
+			/*WebUI.click(findTestObject('Object Repository/FilesPage/Icon_EditFilePath'))
+			 WebUI.setText(findTestObject('Object Repository/FilesPage/textBx_FilePath'), location)
+			 WebUI.sendKeys(findTestObject('Object Repository/FilesPage/textBx_FilePath'), Keys.chord(Keys.ENTER))*/
+				extentTest.log(Status.PASS, 'Navigated to '+ location +'in RFB ')
 			//	def FolderEmptytext = (new customWait.WaitForElement()).WaitForelementPresent(findTestObject('Object Repository/FilesPage/Label_FolderEmpty'), 20,extentTest,'EmptyLabel')
 				def FolderEmptytext= WebUI.waitForElementPresent(findTestObject('Object Repository/FilesPage/Label_FolderEmpty'),10, FailureHandling.CONTINUE_ON_FAILURE)
 				println(FolderEmptytext)
@@ -222,7 +251,7 @@ public class JobSubmissions {
 				def p2 = (new generateFilePath.filePath()).getFilePath(f2)
 				WebUI.uploadFile(findTestObject('FilesPage/UploadFileBtn'), p2)
 
-				extentTest.log(LogStatus.PASS, 'Uploading File to RFB - '+InputFile)
+				extentTest.log(Status.PASS, 'Uploading File to RFB - '+InputFile)
 				def FileUploadClose = (new customWait.WaitForElement()).WaitForelementPresent(findTestObject('Object Repository/JobSubmissionForm/Icon_Close_UploadNotification'), 20,extentTest,'Upload panel close icon')
 				println("upload Notfication - "+FileUploadClose)
 				def UploadedFile = (new customWait.WaitForElement()).WaitForelementPresent(newFileObj, 20,extentTest,InputFile)
@@ -236,10 +265,20 @@ public class JobSubmissions {
 
 
 			case 'LocalForm':
-				WebUI.click(findTestObject('Object Repository/FilesPage/Icon_EditFilePath'))
-				WebUI.setText(findTestObject('Object Repository/FilesPage/textBx_FilePath'), location)
-				WebUI.sendKeys(findTestObject('Object Repository/FilesPage/textBx_FilePath'), Keys.chord(Keys.ENTER))
-				extentTest.log(LogStatus.PASS, 'Navigated to '+ location +'in RFB ')
+			//WebUI.click(findTestObject('Object Repository/FilesPage/Icon_EditFilePath'))
+			//WebUI.setText(findTestObject('Object Repository/FilesPage/textBx_FilePath'), location)
+			//WebUI.sendKeys(findTestObject('Object Repository/FilesPage/textBx_FilePath'), Keys.chord(Keys.ENTER))
+
+
+			/*	WebUI.click(findTestObject('Object Repository/FilesPage/GotoFoldericon'))
+			 WebUI.delay(2)
+			 WebUI.waitForElementVisible(findTestObject('Object Repository/FilesPage/gotofoldertext'), 10)
+			 WebUI.setText(findTestObject('Object Repository/FilesPage/gotofoldertext'), location)
+			 WebUI.delay(2)
+			 WebUI.sendKeys(findTestObject('Object Repository/FilesPage/gotofoldertext'), Keys.chord(Keys.ENTER))*/
+				(new generateFilePath.filePath()).navlocation(location, extentTest)
+
+				extentTest.log(Status.PASS, 'Navigated to '+ location +'in RFB ')
 				def FolderEmptytext = (new customWait.WaitForElement()).WaitForelementPresent(findTestObject('Object Repository/FilesPage/Label_FolderEmpty'),  20,extentTest,'EmptyLabel')
 				println(FolderEmptytext)
 				if (FolderEmptytext) {
@@ -257,7 +296,7 @@ public class JobSubmissions {
 				def newFP = (new generateFilePath.filePath()).getFilePath(filePath)
 				println(newFP)
 				WebUI.uploadFile(findTestObject('JobSubmissionForm/LocalFileUploadElement'), newFP)
-				extentTest.log(LogStatus.PASS, 'Uploading File to Primary File element - '+InputFile)
+				extentTest.log(Status.PASS, 'Uploading File to Primary File element - '+InputFile)
 				def FileUploadClose = (new customWait.WaitForElement()).WaitForelementPresent(findTestObject('Object Repository/JobSubmissionForm/Icon_Close_UploadNotification'),  20,extentTest,'Upload Panel CloseIcon')
 				println("upload Notfication - "+FileUploadClose)
 				def UploadedFile = (new customWait.WaitForElement()).WaitForelementPresent(newFileObj,  20,extentTest,InputFile)
@@ -271,7 +310,7 @@ public class JobSubmissions {
 
 	@Keyword
 	def printJobState(WebDriver katalonWebDriver,extentTest){
-		def LogStatus = com.relevantcodes.extentreports.LogStatus
+
 
 		WebUI.click(findTestObject('JobMonitoringPage/JM_SearchBox'))
 		WebUI.setText(findTestObject('JobMonitoringPage/JM_SearchBox'),GlobalVariable.G_JobID)
@@ -279,7 +318,7 @@ public class JobSubmissions {
 
 		if(GlobalVariable.G_Browser.equals('FireFox')) {
 			WebUI.delay(5)
-			extentTest.log(LogStatus.PASS, 'Waiting for jobs table to load on FireFox')
+			extentTest.log(Status.PASS, 'Waiting for jobs table to load on FireFox')
 		}
 
 		String myXpath="//div[@col-id='jobState']"
@@ -290,7 +329,7 @@ public class JobSubmissions {
 			RemoteWebElement ele = listElement.get(i)
 			String myText=ele.getText()
 			println (ele.getText())
-			extentTest.log(LogStatus.PASS, 'Current Job State for Job ID  - '+ GlobalVariable.G_JobID+ ' is - '+myText)
+			extentTest.log(Status.PASS, 'Current Job State for Job ID  - '+ GlobalVariable.G_JobID+ ' is - '+myText)
 		}
 	}
 }

@@ -20,7 +20,7 @@
          <combinationType>ONE</combinationType>
          <id>d38d30b8-774e-4c0b-a9a9-30ee35da1bfa</id>
          <iterationEntity>
-            <iterationType>RANGE</iterationType>
+            <iterationType>SPECIFIC</iterationType>
             <value>1-10</value>
          </iterationEntity>
          <testDataId>Data Files/Sanity/FilesOps</testDataId>
@@ -54,7 +54,7 @@
          <combinationType>ONE</combinationType>
          <id>c94e0623-3e65-4167-a5cf-ef74c9f4e0d2</id>
          <iterationEntity>
-            <iterationType>RANGE</iterationType>
+            <iterationType>SPECIFIC</iterationType>
             <value>1-10</value>
          </iterationEntity>
          <testDataId>Data Files/Sanity/FilesOps</testDataId>

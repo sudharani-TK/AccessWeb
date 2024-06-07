@@ -73,7 +73,7 @@ try {
         extentTest.log(LogStatus.FAIL, ('Hidden file - .hiddenFile is not listed '))
     }
     
-    WebUI.click(findTestObject('Preferences/Profiletab'))
+    WebUI.click(findTestObject('PageNavigation/Preferences/Profiletab'))
 
     extentTest.log(LogStatus.PASS, 'Click on profile tab')
 

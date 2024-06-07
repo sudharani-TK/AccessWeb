@@ -36,7 +36,7 @@ Robot rob = new Robot()
 WebUI.delay(2)
 try
 {
-	def jobsTab = CustomKeywords.'customWait.WaitForElement.WaitForelementPresent'(findTestObject('NewJobPage/AppList_ShellScript'),
+	def jobsTab = CustomKeywords.'customWait.WaitForElement.WaitForelementPresent'(findTestObject('LoginPage/NewJobPage/AppList_ShellScript'),
 			20,extentTest,'App def')
 
 	if (jobsTab) {
@@ -45,11 +45,11 @@ try
 
 	WebUI.delay(2)
 
-	TestObject newAppObj = WebUI.modifyObjectProperty(findTestObject('NewJobPage/AppList_ShellScript'), 'id', 'equals', AppName, true)
+	TestObject newAppObj = WebUI.modifyObjectProperty(findTestObject('LoginPage/NewJobPage/AppList_ShellScript'), 'id', 'equals', AppName, true)
 	TestObject LeftNavAppIdentifier = CustomKeywords.'buildTestObj.CreateTestObjJobs.myLeftNavAppIdentifier'(proName)
 	WebUI.click(newAppObj)
 
-	def GP = CustomKeywords.'customWait.WaitForElement.WaitForelementPresent'(findTestObject('Object Repository/NewJobPage/GenericProfile'),2,extentTest,'JSPage')
+	def GP = CustomKeywords.'customWait.WaitForElement.WaitForelementPresent'(findTestObject('Object Repository/LoginPage/NewJobPage/GenericProfile'),2,extentTest,'JSPage')
 
 	if (GP) {
 		extentTest.log(LogStatus.PASS, 'Navigated to Job Submission For for - '+AppName)		}
@@ -68,14 +68,14 @@ try
 	}
 
 	WebUI.delay(2)
-	WebUI.click(findTestObject('Object Repository/NewJobPage/GenericProfile'))
+	WebUI.click(findTestObject('Object Repository/LoginPage/NewJobPage/GenericProfile'))
 	WebUI.delay(2)
 
-	WebUI.scrollToElement(findTestObject('NewJobPage/List_NCPU_White_Theam'), 3)
+	WebUI.scrollToElement(findTestObject('LoginPage/NewJobPage/List_NCPU_White_Theam'), 3)
 
-	WebUI.setText(findTestObject('NewJobPage/List_NCPU_White_Theam'), '2')
+	WebUI.setText(findTestObject('LoginPage/NewJobPage/List_NCPU_White_Theam'), '2')
 
-	WebUI.setText(findTestObject('NewJobPage/List_Mem_WhiteTheam'), '120')
+	WebUI.setText(findTestObject('LoginPage/NewJobPage/List_Mem_WhiteTheam'), '120')
 
 	extentTest.log(LogStatus.PASS, 'Changed the value for NCPU and MEMORY fileds ')
 
@@ -121,7 +121,7 @@ try
 			extentTest.log(LogStatus.PASS, 'Context Menu Invoked for Input File - ' + RemoteFile)
 			WebUI.delay(2)
 			String idForCntxtMn = 'Add as ' + FileArg
-			TestObject newRFBContextMnOption = WebUI.modifyObjectProperty(findTestObject('Object Repository/NewJobPage/ContextMenu_RFB_FilePicker'),
+			TestObject newRFBContextMnOption = WebUI.modifyObjectProperty(findTestObject('Object Repository/LoginPage/NewJobPage/ContextMenu_RFB_FilePicker'),
 					'id', 'equals', idForCntxtMn, true)
 			WebUI.click(newRFBContextMnOption)
 			extentTest.log(LogStatus.PASS, 'Selected Context Menu option - ' + idForCntxtMn)
@@ -179,21 +179,21 @@ try
 
 	
 	
-	WebUI.click(findTestObject('NewJobPage/Btn_Save As'))
+	WebUI.click(findTestObject('LoginPage/NewJobPage/Btn_Save As'))
 	WebUI.delay(3)
 
-	WebUI.waitForElementPresent(findTestObject('NewJobPage/label_Save Profile'), 5)
+	WebUI.waitForElementPresent(findTestObject('LoginPage/NewJobPage/label_Save Profile'), 5)
 	WebUI.delay(3)
 
 	if (GlobalVariable.G_Browser == 'Edge') {
-		CustomKeywords.'funtionsForEdge.EdgeFunctions.setTestToField'(proName, findTestObject('NewJobPage/TxtBx_saveProfile'))
+		CustomKeywords.'funtionsForEdge.EdgeFunctions.setTestToField'(proName, findTestObject('LoginPage/NewJobPage/TxtBx_saveProfile'))
 	} else {
-		WebUI.sendKeys(findTestObject('NewJobPage/TxtBx_saveProfile'), proName)
+		WebUI.sendKeys(findTestObject('LoginPage/NewJobPage/TxtBx_saveProfile'), proName)
 	}
 
 	if(ProfileType.equals('Cancel'))
 	{
-		WebUI.click(findTestObject('Object Repository/NewJobPage/button_Cancel'))
+		WebUI.click(findTestObject('Object Repository/LoginPage/NewJobPage/button_Cancel'))
 		extentTest.log(LogStatus.PASS, 'Clicked on Save As ')
 		extentTest.log(LogStatus.PASS, 'Entered profile name -  '+proName)
 		extentTest.log(LogStatus.PASS, 'Profile Creation Option Selected - '+ProfileType)
@@ -214,7 +214,7 @@ try
 	{
 		if(ProfileType.equals('Duplicate'))
 		{
-			WebUI.click(findTestObject('Object Repository/NewJobPage/button_Cancel'))
+			WebUI.click(findTestObject('Object Repository/LoginPage/NewJobPage/button_Cancel'))
 
 		}
 		else{
@@ -222,7 +222,7 @@ try
 			extentTest.log(LogStatus.PASS, 'Clicked on Save As ')
 			extentTest.log(LogStatus.PASS, 'Entered profile name -  '+proName)
 			extentTest.log(LogStatus.PASS, 'Verified Test Case - AD-1509 Create Profile pop up validation.')
-			WebUI.click(findTestObject('NewJobPage/button_Save'))
+			WebUI.click(findTestObject('LoginPage/NewJobPage/button_Save'))
 			WebUI.delay(3)
 
 			WebUI.waitForElementPresent(LeftNavAppIdentifier, 5)
