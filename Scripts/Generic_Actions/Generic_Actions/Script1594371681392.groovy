@@ -37,7 +37,7 @@ RemoteWebDriver katalonWebDriver = ((wrappedWebDriver) as RemoteWebDriver)
 
 
 
-String ReportFile=GlobalVariable.G_ReportName+".html"
+String ReportFile=GlobalVariable.FireFox+".html"
 
 def extent=CustomKeywords.'generateReports.GenerateReport.create'(ReportFile,GlobalVariable.G_Browser,GlobalVariable.G_BrowserVersion)
 def LogStatus = com.relevantcodes.extentreports.LogStatus;

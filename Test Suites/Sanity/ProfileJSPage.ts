@@ -119,7 +119,7 @@
       <guid>b87bddd6-5727-428e-9a6f-70dd1c831285</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/ProfileModule/DeleteProfile</testCaseId>
+      <testCaseId>Test Cases/ProfileModule/DeleteProfile - new(2024)</testCaseId>
       <testDataLink>
          <combinationType>ONE</combinationType>
          <id>1a6283f3-d580-4127-81a6-5313c5aec88a</id>
@@ -131,28 +131,28 @@
       </testDataLink>
       <usingDataBindingAtTestSuiteLevel>true</usingDataBindingAtTestSuiteLevel>
       <variableLink>
-         <testDataLinkId></testDataLinkId>
-         <type>DEFAULT</type>
-         <value></value>
-         <variableId>4343b31b-60fa-4ed8-9029-52a057e6f17f</variableId>
+         <testDataLinkId>1a6283f3-d580-4127-81a6-5313c5aec88a</testDataLinkId>
+         <type>DATA_COLUMN</type>
+         <value>TestCaseName</value>
+         <variableId>944e0f85-6fa2-43d9-8b8c-2ef112bf0864</variableId>
       </variableLink>
       <variableLink>
          <testDataLinkId>1a6283f3-d580-4127-81a6-5313c5aec88a</testDataLinkId>
          <type>DATA_COLUMN</type>
          <value>proName</value>
-         <variableId>0300cf62-3068-4779-b99e-ee7267d531f1</variableId>
+         <variableId>7a7b983c-49c3-45d7-a2e2-a101561f772f</variableId>
       </variableLink>
       <variableLink>
          <testDataLinkId>1a6283f3-d580-4127-81a6-5313c5aec88a</testDataLinkId>
          <type>DATA_COLUMN</type>
          <value>AppName</value>
-         <variableId>d45d70d8-f2f8-48b4-94fb-152c1a5ecfc0</variableId>
+         <variableId>c3a4a4af-196b-46d8-b42c-e7cf0c17aef4</variableId>
       </variableLink>
       <variableLink>
-         <testDataLinkId></testDataLinkId>
-         <type>DEFAULT</type>
-         <value></value>
-         <variableId>80a01f2c-5b41-48f6-9f20-46bfa5b35ead</variableId>
+         <testDataLinkId>1a6283f3-d580-4127-81a6-5313c5aec88a</testDataLinkId>
+         <type>DATA_COLUMN</type>
+         <value>ProfileType</value>
+         <variableId>bd6b07eb-f173-437c-b761-805638b35111</variableId>
       </variableLink>
    </testCaseLink>
 </TestSuiteEntity>

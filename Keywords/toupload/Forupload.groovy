@@ -91,6 +91,7 @@ public class Forupload {
 		//	WebUI.delay(2)
 		//WebUI.mouseOver(Foldername)
 		WebUI.doubleClick(Foldername)
+		WebUI.delay(2)
 
 		extentTest.log(Status.PASS, 'Navigate inside the folder by Double-click ')
 		String [] JobFiles = [
@@ -107,7 +108,7 @@ public class Forupload {
 			String JF =JobFiles[x]
 
 			println(JF)
-			TestObject newJobFile = WebUI.modifyObjectProperty(findTestObject('JobSubmissionForm/File_InputFile'), 'data-automation-id', 'equals',JF, true)
+			TestObject newJobFile = WebUI.modifyObjectProperty(findTestObject('Object Repository/FilesPage/FolderRowItem_TileView'), 'data-automation-id', 'equals',JF, true)
 			WebUI.verifyElementPresent(newJobFile, 5)
 			x++
 		}

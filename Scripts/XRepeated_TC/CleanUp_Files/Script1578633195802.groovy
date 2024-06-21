@@ -31,7 +31,7 @@ FailureHandling.STOP_ON_FAILURE)
  String browserVersion = caps.getVersion()
  def Browser = GlobalVariable.G_Browser*/
 
-String ReportFile = GlobalVariable.G_ReportName + '.html'
+String ReportFile = GlobalVariable.FireFox + '.html'
 
 def extent=CustomKeywords.'generateReports.GenerateReport.create'(ReportFile,GlobalVariable.G_Browser,GlobalVariable.G_BrowserVersion)
 

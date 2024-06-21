@@ -1,20 +1,46 @@
+import static com.kms.katalon.core.testcase.TestCaseFactory.findTestCase
 import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
 
 import org.openqa.selenium.Keys
 
-import com.kms.katalon.core.exception.StepErrorException
+import org.openqa.selenium.WebDriver as WebDriver
+import org.openqa.selenium.remote.RemoteWebDriver as RemoteWebDriver
+import org.openqa.selenium.support.events.EventFiringWebDriver as EventFiringWebDriver
+import com.kms.katalon.core.exception.StepErrorException as StepErrorException
+import com.kms.katalon.core.exception.StepFailedException as StepFailedException
+import com.kms.katalon.core.model.FailureHandling as FailureHandling
+import com.kms.katalon.core.testobject.TestObject as TestObject
+import com.kms.katalon.core.util.KeywordUtil as KeywordUtil
+import com.kms.katalon.core.webui.driver.DriverFactory as DriverFactory
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
-import com.aventstack.extentreports.MediaEntityBuilder
-import com.aventstack.extentreports.Status
 
 import internal.GlobalVariable as GlobalVariable
+import com.kms.katalon.core.configuration.RunConfiguration as RunConfiguration
+
+import com.aventstack.extentreports.MediaEntityBuilder
+import com.aventstack.extentreports.Status
 
 //====================================================================================
 
 def username=null
 def passwd=null
+WebDriver driver = DriverFactory.getWebDriver()
+
+EventFiringWebDriver eventFiring = ((DriverFactory.getWebDriver()) as EventFiringWebDriver)
+
+// Get the driver wrapped inside
+WebDriver wrappedWebDriver = eventFiring.getWrappedDriver()
+//def Browser = GlobalVariable.G_Browser
+RemoteWebDriver katalonWebDriver = (RemoteWebDriver) wrappedWebDriver
+
+//===========================================================
 def Browser = GlobalVariable.G_Browser
-extentTest.log(Status.PASS, 'Navigated to Acces Instance - '+GlobalVariable.G_BaseUrl)
+//===========================================================
+def extentTest=GlobalVariable.G_ExtentTest
+//===========================================================
+//extentTest.log(Status.PASS, 'Navigated to Acces Instance - '+GlobalVariable.G_BaseUrl)
+
+//===========================================================
 if (user=='admin')
 {
 			  username='pbsworks'

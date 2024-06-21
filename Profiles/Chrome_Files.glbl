@@ -21,18 +21,18 @@
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description></description>
-      <initValue>'chrome'</initValue>
+      <initValue>'FireFox'</initValue>
       <name>G_Browser</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description></description>
-      <initValue>'https://172.16.80.20:4443/pbsworks/'</initValue>
+      <initValue>'https://172.16.80.36:4443/pbsworks/'</initValue>
       <name>G_BaseUrl</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description></description>
-      <initValue>'chrome'</initValue>
-      <name>G_ReportName</name>
+      <initValue>'FireFox'</initValue>
+      <name>FireFox</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description></description>
@@ -41,7 +41,7 @@
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description></description>
-      <initValue>'115.11.0esr '</initValue>
+      <initValue>'115.12.0esr'</initValue>
       <name>G_BrowserVersion</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>

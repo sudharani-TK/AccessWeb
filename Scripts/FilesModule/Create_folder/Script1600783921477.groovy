@@ -57,10 +57,10 @@ try {
 	WebUI.sendKeys(findTestObject('Object Repository/FilesPage/textBx_FilePath'), Keys.chord(Keys.ENTER))
 	extentTest.log(Status.PASS, 'Navigated to - ' + location)*/
 	CustomKeywords.'generateFilePath.filePath.navlocation'(location, extentTest)
-//	WebUI.delay(2)
+	WebUI.delay(2)
 
 
-//	WebUI.delay(2)
+	WebUI.delay(2)
 	WebUI.waitForElementVisible(findTestObject('FilesPage/btn_NewFileFolder'), 10)
 	WebUI.click(findTestObject('FilesPage/btn_NewFileFolder'))
 	extentTest.log(Status.PASS, 'Clicked on New File/Folder  Button')

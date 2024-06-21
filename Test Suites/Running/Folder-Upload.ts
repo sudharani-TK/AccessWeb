@@ -20,8 +20,8 @@
          <combinationType>ONE</combinationType>
          <id>d2e26d04-8888-444a-9861-b225c2407626</id>
          <iterationEntity>
-            <iterationType>SPECIFIC</iterationType>
-            <value>2,6</value>
+            <iterationType>ALL</iterationType>
+            <value>5,6</value>
          </iterationEntity>
          <testDataId>Data Files/Upload/FileFolder-Upload</testDataId>
       </testDataLink>

@@ -29,7 +29,7 @@ import org.openqa.selenium.WebElement as WebElement
 import org.openqa.selenium.remote.RemoteWebElement as RemoteWebElement
 
 //====================================================================================
-ReportFile = (GlobalVariable.G_ReportName + '.html')
+ReportFile = (GlobalVariable.FireFox + '.html')
 
 def extent = CustomKeywords.'generateReports.GenerateReport.create'(ReportFile, GlobalVariable.G_Browser, GlobalVariable.G_BrowserVersion)
 

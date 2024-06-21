@@ -73,7 +73,7 @@
          <id>9fc78cc9-bc97-41d7-afea-116863944c74</id>
          <iterationEntity>
             <iterationType>SPECIFIC</iterationType>
-            <value>4</value>
+            <value>1-4</value>
          </iterationEntity>
          <testDataId>Data Files/Regression/TestDataAccessMangNew</testDataId>
       </testDataLink>

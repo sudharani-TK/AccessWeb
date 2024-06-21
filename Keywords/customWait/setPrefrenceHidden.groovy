@@ -18,49 +18,49 @@ public class setPrefrenceHidden {
 	def setprefrence(def preValue, extentTest) {
 
 		WebUI.click(findTestObject('PageNavigation/Preferences/Profiletab'))
-		extentTest.log(LogStatus.PASS, 'Click on profile tab')
+		extentTest.log(Status.PASS, 'Click on profile tab')
 
 		WebUI.click(findTestObject('PageNavigation/Preferences/Preference'))
-		extentTest.log(LogStatus.PASS, 'Click on preference menu item')
+		extentTest.log(Status.PASS, 'Click on preference menu item')
 
 		TestObject	 prefer = WebUI.modifyObjectProperty(findTestObject('PageNavigation/Preferences/Choice'), 'text', 'equals',"Files", true)
 		WebUI.click(prefer)
-		extentTest.log(LogStatus.PASS, 'Click on preference - Files')
+		extentTest.log(Status.PASS, 'Click on preference - Files')
 
 		WebUI.delay(2)
 
 		def result=WebUI.verifyElementChecked(findTestObject('PageNavigation/Preferences/CheckBox_HiddenFiles'), 2,FailureHandling.CONTINUE_ON_FAILURE)
 
-		extentTest.log(LogStatus.PASS, 'result value -- '+ result)
-		extentTest.log(LogStatus.PASS, 'preValue value -- '+ preValue)
+		extentTest.log(Status.PASS, 'result value -- '+ result)
+		extentTest.log(Status.PASS, 'preValue value -- '+ preValue)
 
 
 		if(preValue) {
 			if(result) {
-				extentTest.log(LogStatus.PASS, 'Enable hidden items is checked')
-				extentTest.log(LogStatus.PASS, 'pref - true , res - true ')
+				extentTest.log(Status.PASS, 'Enable hidden items is checked')
+				extentTest.log(Status.PASS, 'pref - true , res - true ')
 			}
 			else {
 				WebUI.click(findTestObject('PageNavigation/Preferences/Tickmark'))
-				extentTest.log(LogStatus.PASS, ' Checked the Enable hidden items checkbox')
-				extentTest.log(LogStatus.PASS, 'pref - true , res - false ')
+				extentTest.log(Status.PASS, ' Checked the Enable hidden items checkbox')
+				extentTest.log(Status.PASS, 'pref - true , res - false ')
 			}
 		}
 		else {
 			if(result) {
-				extentTest.log(LogStatus.PASS, 'Enable hidden items is checked')
+				extentTest.log(Status.PASS, 'Enable hidden items is checked')
 				WebUI.click(findTestObject('PageNavigation/Preferences/Tickmark'))
-				extentTest.log(LogStatus.PASS, ' UnChecked the Enable hidden items checkbox')
-				extentTest.log(LogStatus.PASS, 'pref - false , res - true ')
+				extentTest.log(Status.PASS, ' UnChecked the Enable hidden items checkbox')
+				extentTest.log(Status.PASS, 'pref - false , res - true ')
 			}
 			else {
-				extentTest.log(LogStatus.PASS, ' Enable hidden items checkbox is unchecked')
-				extentTest.log(LogStatus.PASS, 'pref - false , res - fasle ')
+				extentTest.log(Status.PASS, ' Enable hidden items checkbox is unchecked')
+				extentTest.log(Status.PASS, 'pref - false , res - fasle ')
 			}
 		}
 
 		WebUI.click(findTestObject('PageNavigation/Preferences/Back'))
-		extentTest.log(LogStatus.PASS, 'Click on back')
+		extentTest.log(Status.PASS, 'Click on back')
 	}
 
 	@Keyword
@@ -87,21 +87,21 @@ public class setPrefrenceHidden {
 
 		if(preValue) {
 			if(isFilePresent && isFilePresent) {
-				extentTest.log(LogStatus.PASS, 'Hidden File Present - '+isFilePresent+' Hidden Folder present - '+isFilePresent)
+				extentTest.log(Status.PASS, 'Hidden File Present - '+isFilePresent+' Hidden Folder present - '+isFilePresent)
 				result=true
 			}
 			else {
-				extentTest.log(LogStatus.FAIL, 'Hidden File/Folder not listed ')
+				extentTest.log(Status.FAIL, 'Hidden File/Folder not listed ')
 				result=false
 			}
 		}
 		else {
 			if(isFilePresent && isFilePresent) {
-				extentTest.log(LogStatus.FAIL, 'Hidden File Present - '+isFilePresent+' Hidden Folder present - '+isFilePresent +"- for prefrece set to false" )
+				extentTest.log(Status.FAIL, 'Hidden File Present - '+isFilePresent+' Hidden Folder present - '+isFilePresent +"- for prefrece set to false" )
 				result=false
 			}
 			else {
-				extentTest.log(LogStatus.PASS, 'Hidden File/Folder not listed ')
+				extentTest.log(Status.PASS, 'Hidden File/Folder not listed ')
 				result=true
 			}
 		}
@@ -132,11 +132,11 @@ public class setPrefrenceHidden {
 					'Completed', true)
 			WebUI.click(newJobFilter)
 			WebUI.delay(2)
-			extentTest.log(LogStatus.PASS, 'Clicked on job with state  - ' + 'Completed')
+			extentTest.log(Status.PASS, 'Clicked on job with state  - ' + 'Completed')
 			TestObject newJobRow = WebUI.modifyObjectProperty(findTestObject('JobMonitoringPage/div_Completed'), 'title', 'equals','Completed', true)
 			WebUI.rightClick(newJobRow)
 			WebUI.click(findTestObject('JobMonitoringPage/ViewDetails_Jobs'))
-			extentTest.log(LogStatus.PASS, 'Click on view details job')
+			extentTest.log(Status.PASS, 'Click on view details job')
 			WebUI.delay(3)
 			WebUI.click(findTestObject('Object Repository/JobDetailsPage/Input_tab'))
 		}
@@ -146,11 +146,11 @@ public class setPrefrenceHidden {
 					'Running', true)
 			WebUI.click(newJobFilter)
 			WebUI.delay(2)
-			extentTest.log(LogStatus.PASS, 'Clicked on job with state  - ' + 'Running')
+			extentTest.log(Status.PASS, 'Clicked on job with state  - ' + 'Running')
 			TestObject newJobRow = WebUI.modifyObjectProperty(findTestObject('JobMonitoringPage/div_Completed'), 'title', 'equals','Running', true)
 			WebUI.rightClick(newJobRow)
 			WebUI.click(findTestObject('JobMonitoringPage/ViewDetails_Jobs'))
-			extentTest.log(LogStatus.PASS, 'Click on view details job')
+			extentTest.log(Status.PASS, 'Click on view details job')
 
 			WebUI.delay(3)
 			WebUI.click(findTestObject('Object Repository/JobDetailsPage/Running_tab'))
@@ -166,7 +166,7 @@ public class setPrefrenceHidden {
 				if (filesTab) {
 					WebUI.click(findTestObject('GenericObjects/TitleLink_Files'))
 				}
-				extentTest.log(LogStatus.PASS, 'Navigated to Files Tab')
+				extentTest.log(Status.PASS, 'Navigated to Files Tab')
 				WebUI.delay(2)
 				(new operations_FileModule.ChangeView()).changePageView(TestCaseName,extentTest)
 				WebUI.delay(2)
@@ -174,7 +174,7 @@ public class setPrefrenceHidden {
 			/*WebUI.click(findTestObject('Object Repository/FilesPage/Icon_EditFilePath'))
 			 WebUI.setText(findTestObject('Object Repository/FilesPage/textBx_FilePath'), location)
 			 WebUI.sendKeys(findTestObject('Object Repository/FilesPage/textBx_FilePath'), Keys.chord(Keys.ENTER))
-			 extentTest.log(LogStatus.PASS, 'Navigated to - ' + location)*/
+			 extentTest.log(Status.PASS, 'Navigated to - ' + location)*/
 
 				(new generateFilePath.filePath()).navlocation(location, extentTest)
 
@@ -186,19 +186,19 @@ public class setPrefrenceHidden {
 				if (jobsTab) {
 					WebUI.click(findTestObject('GenericObjects/TitleLink_Jobs'))
 				}
-				extentTest.log(LogStatus.PASS, 'Navigated Job Tab')
+				extentTest.log(Status.PASS, 'Navigated Job Tab')
 				WebUI.delay(2)
 				TestObject newAppObj = WebUI.modifyObjectProperty(findTestObject('LoginPage/NewJobPage/AppList_ShellScript'), 'id', 'equals',
 						'ShellScript', true)
 				WebUI.click(newAppObj)
-				extentTest.log(LogStatus.PASS, 'Navigated to Job Submission For for - '+'ShellScript')
+				extentTest.log(Status.PASS, 'Navigated to Job Submission For for - '+'ShellScript')
 				WebUI.delay(2)
 				WebUI.click(findTestObject('Object Repository/LoginPage/NewJobPage/GenericProfile'))
 				WebUI.delay(2)
 			/*	WebUI.click(findTestObject('Object Repository/FilesPage/Icon_EditFilePath'))
 			 WebUI.setText(findTestObject('Object Repository/FilesPage/textBx_FilePath'), location)
 			 WebUI.sendKeys(findTestObject('Object Repository/FilesPage/textBx_FilePath'), Keys.chord(Keys.ENTER))
-			 extentTest.log(LogStatus.PASS, 'Navigated to '+location)*/
+			 extentTest.log(Status.PASS, 'Navigated to '+location)*/
 
 				(new generateFilePath.filePath()).navlocation(location, extentTest)
 				break
@@ -206,17 +206,17 @@ public class setPrefrenceHidden {
 			case 'Input':
 
 				WebUI.click(findTestObject('JobMonitoringPage/InputFolder'))
-				extentTest.log(LogStatus.PASS, 'Click on Input Folder')
+				extentTest.log(Status.PASS, 'Click on Input Folder')
 				break
 			case 'Output':
 				WebUI.click(findTestObject('JobMonitoringPage/OutputFolder'))
-				extentTest.log(LogStatus.PASS, 'Click on Output Folder')
+				extentTest.log(Status.PASS, 'Click on Output Folder')
 			//	WebUI.waitForElementVisible(findTestObject('Object Repository/LoginPage/NewJobPage/HiddenFolder_Jobdetailspage'), 10)
 			//	WebUI.doubleClick(findTestObject('Object Repository/LoginPage/NewJobPage/HiddenFolder_Jobdetailspage'))
 				break
 			case 'Running':
 				WebUI.click(findTestObject('JobMonitoringPage/RunningFolder'))
-				extentTest.log(LogStatus.PASS, 'Click on Running Folder')
+				extentTest.log(Status.PASS, 'Click on Running Folder')
 				break
 		}
 	}

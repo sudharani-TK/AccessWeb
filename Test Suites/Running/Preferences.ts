@@ -20,8 +20,8 @@
          <combinationType>ONE</combinationType>
          <id>7d394bde-79e6-4d97-a0a2-ffc440bcaa5b</id>
          <iterationEntity>
-            <iterationType>ALL</iterationType>
-            <value>1,2</value>
+            <iterationType>SPECIFIC</iterationType>
+            <value>1-9,11</value>
          </iterationEntity>
          <testDataId>Data Files/Regression/TestDataForPreferences</testDataId>
       </testDataLink>

@@ -20,8 +20,8 @@
          <combinationType>ONE</combinationType>
          <id>dfc5e0e4-e4ae-47f6-b597-b4098b904dd0</id>
          <iterationEntity>
-            <iterationType>ALL</iterationType>
-            <value>10</value>
+            <iterationType>SPECIFIC</iterationType>
+            <value>6-15</value>
          </iterationEntity>
          <testDataId>Data Files/Regression/TestDataForAppComposer</testDataId>
       </testDataLink>
@@ -66,7 +66,7 @@
    <testCaseLink>
       <guid>18274b42-5139-4fae-b039-6161fb993f46</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>true</isRun>
+      <isRun>false</isRun>
       <testCaseId>Test Cases/AppComposer/App_Composer-New Testcases</testCaseId>
       <testDataLink>
          <combinationType>ONE</combinationType>

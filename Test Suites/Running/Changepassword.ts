@@ -97,7 +97,7 @@
    <testCaseLink>
       <guid>cbda58f9-5b0c-4d02-adb4-54ad6eb9da19</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>false</isRun>
+      <isRun>true</isRun>
       <testCaseId>Test Cases/Changepassword/Fields_Validation</testCaseId>
       <testDataLink>
          <combinationType>ONE</combinationType>

@@ -20,47 +20,51 @@ import com.kms.katalon.core.context.TestSuiteContext
 import com.kms.katalon.core.webui.driver.DriverFactory
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 
+import java.time.Duration;
+import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
+
+import com.aventstack.extentreports.ReactiveSubject
+
 import internal.GlobalVariable as GlobalVariable
 
 class BaseTestListener {
-	/**
-	 * Executes before every test suite starts.
-	 * @param testSuiteContext: related information of the executed test suite.
-	 */
 	ExtentReports extent
-	//= CustomKeywords.'generateReports.GenerateReport.createSpark'(ReportFile, GlobalVariable.G_Browser, GlobalVariable.G_BrowserVersion)
+  def LocalDateTime startTime
+   def LocalDateTime endTime
 	def reportFolder=(RunConfiguration.getReportFolder()+'/')
 	def ReportFile
 	def filePath
 	def reportFliePath
+	def totalTime
 	
 	@BeforeTestSuite
 	def BeforeTestSuite(TestSuiteContext testSuiteContext)
 	{
+		startTime = LocalDateTime.now()
+		// creating executionID and storing in String
 		String execID = RunConfiguration.getExecutionSourceName()
 		def Browser=GlobalVariable.G_Browser
-
+		
+		// creating filepath for reports
 		filePath = (RunConfiguration.getProjectDir() + '/reports/'+execID+Browser+'.txt')
-		//reportFliePath=RunConfiguration.getReportFolder()
 		reportFliePath=(RunConfiguration.getProjectDir() + '/ExtentReports/')
 		GlobalVariable.G_TestSuite=execID
-		//GlobalVariable.G_ReportFolder=reportFliePath
 		GlobalVariable.G_ReportFolder=RunConfiguration.getReportFolder()
 		GlobalVariable.G_ConfigFile=filePath
 		def date = new Date()
 		def sdf = new SimpleDateFormat("ddMMyyyy_HHmmss")
 		def execTime = sdf.format(date)
+		
+		// creating Reportfile for extent reports which will unique for every suite
 		String execTag=Browser+'_'+execTime
-		//String sdfTag=sdf.format(date)
-		//GlobalVariable.G_ReportName=execID+'_'+execTag
-		//ReportFile = (GlobalVariable.G_ReportName + '.html')
-		//Random random= new Random();
-		//ReportFile =execID+random.nextInt(100)+'.html'
 		ReportFile =execID+'_'+execTag+'.html'
 		
-		extent = CustomKeywords.'generateReports.GenerateReport.createSpark'(ReportFile, GlobalVariable.G_Browser, GlobalVariable.G_BrowserVersion)
+		// Reusing extent from generate reports keyword
+		extent = CustomKeywords.'generateReports.GenerateReport.createSpark'(ReportFile, GlobalVariable.G_Browser, GlobalVariable.G_BrowserVersion, totalTime)
 		println ("From Brefore Suite")
 		println(RunConfiguration.getReportFolder())
+		
 	}
 	@BeforeTestCase
 	def BeforeTestCase(TestCaseContext testCaseContext) {
@@ -92,6 +96,8 @@ class BaseTestListener {
 		else
 		{
 			GlobalVariable.G_ExtentTest = extent.createTest(UpdatedtestcaseName)
+			
+			
 			def extentTest=GlobalVariable.G_ExtentTest
 			try {
 				WebUI.openBrowser('')
@@ -103,8 +109,9 @@ class BaseTestListener {
 				Capabilities caps =((RemoteWebDriver) (((EventFiringWebDriver) driver).getWrappedDriver())).getCapabilities()
 				def bn= caps.getBrowserName()
 				def bv = caps.getVersion()
-				println(" B Name"+ bn)
-				println(" B version"+ bv)
+			
+				
+				
 			}
 			catch (Exception ex)
 			{
@@ -118,18 +125,32 @@ class BaseTestListener {
 		}
 
 	}
+	
+	
+	
+	
 
-	@AfterTestSuite
-	def AfterTestSuite()
-	{
-
-		extent.flush()
+		@AfterTestSuite
+		def AfterTestSuite()
+		{
+		
+		endTime = LocalDateTime.now();
 		println ("*****************************************************************")
+		Duration duration = Duration.between(startTime, endTime)
+		long minutes = duration.toMinutes();
+		long seconds = duration.minusMinutes(minutes).getSeconds();
+		
+		totalTime = String.format("%d minutes and %d seconds", minutes, seconds);
+		System.out.println(totalTime);
+		extent.setSystemInfo("Total Duration", totalTime);
 		println("After Suite ")
 		println ("*****************************************************************")
 		println ("Report location - "+reportFliePath)
-
+		extent.flush()
 	}
+	
+	
+	
 	@AfterTestCase
 	void AfterTestCase() {
 		//extentTest.log(Status.PASS, 'Closing the browser after executinge test case - ' + TestCaseName)

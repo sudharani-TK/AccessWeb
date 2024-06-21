@@ -21,7 +21,7 @@
          <id>eb81605c-0fb0-4e96-8dad-18c375bbefb9</id>
          <iterationEntity>
             <iterationType>ALL</iterationType>
-            <value>5,6</value>
+            <value>9</value>
          </iterationEntity>
          <testDataId>Data Files/Regression/TestDataForBookMarks</testDataId>
       </testDataLink>
@@ -60,7 +60,7 @@
    <testCaseLink>
       <guid>da95e2dc-4ea6-4487-8f27-001da9915e9d</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>false</isRun>
+      <isRun>true</isRun>
       <testCaseId>Test Cases/FilesModule/FileOperations</testCaseId>
       <testDataLink>
          <combinationType>ONE</combinationType>
@@ -94,7 +94,7 @@
    <testCaseLink>
       <guid>82cb6a72-5e68-4dc8-b49b-4092f7c875fd</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>false</isRun>
+      <isRun>true</isRun>
       <testCaseId>Test Cases/FilesModule/FileOperations _Topmenu_Icons</testCaseId>
       <testDataLink>
          <combinationType>ONE</combinationType>
@@ -128,7 +128,7 @@
    <testCaseLink>
       <guid>dffa4d55-053b-4c7a-b745-f7d903cb95bb</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>false</isRun>
+      <isRun>true</isRun>
       <testCaseId>Test Cases/FilesModule/MultiFileOperations</testCaseId>
       <testDataLink>
          <combinationType>ONE</combinationType>
@@ -162,7 +162,7 @@
    <testCaseLink>
       <guid>233ce2e3-e4a1-4efa-87f6-971cd8647788</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>false</isRun>
+      <isRun>true</isRun>
       <testCaseId>Test Cases/FilesModule/MultiFileOperations</testCaseId>
       <testDataLink>
          <combinationType>ONE</combinationType>
@@ -196,7 +196,7 @@
    <testCaseLink>
       <guid>36914159-c0f9-444b-9da4-423371ef1836</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>false</isRun>
+      <isRun>true</isRun>
       <testCaseId>Test Cases/FilesModule/FileViewerOperations</testCaseId>
       <testDataLink>
          <combinationType>ONE</combinationType>
@@ -236,7 +236,7 @@
    <testCaseLink>
       <guid>a39c38c1-c2bc-44b1-b832-bf982d20eb21</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>false</isRun>
+      <isRun>true</isRun>
       <testCaseId>Test Cases/FilesModule/Create_file</testCaseId>
       <testDataLink>
          <combinationType>ONE</combinationType>
@@ -270,7 +270,7 @@
    <testCaseLink>
       <guid>f3501a9f-fd8b-444f-8a08-69bb398aced0</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>false</isRun>
+      <isRun>true</isRun>
       <testCaseId>Test Cases/FilesModule/ContextMenu_CreateFile</testCaseId>
       <testDataLink>
          <combinationType>ONE</combinationType>
@@ -304,7 +304,7 @@
    <testCaseLink>
       <guid>240a7bbd-2359-4de3-8236-3ca00c3b9bb4</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>false</isRun>
+      <isRun>true</isRun>
       <testCaseId>Test Cases/FilesModule/EditFilePath-FilesTab</testCaseId>
       <usingDataBindingAtTestSuiteLevel>true</usingDataBindingAtTestSuiteLevel>
       <variableLink>
