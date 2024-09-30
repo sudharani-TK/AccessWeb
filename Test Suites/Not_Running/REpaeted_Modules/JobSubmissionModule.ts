@@ -68,6 +68,12 @@
          <value>ChangeValue</value>
          <variableId>ea3c8f43-9d3d-4606-b294-b1768dbf277b</variableId>
       </variableLink>
+      <variableLink>
+         <testDataLinkId></testDataLinkId>
+         <type>DEFAULT</type>
+         <value></value>
+         <variableId>897603d7-a0d8-46ee-912d-f3966c317764</variableId>
+      </variableLink>
    </testCaseLink>
    <testCaseLink>
       <guid>4611ab03-3b21-4bdb-a558-d03398d2333b</guid>

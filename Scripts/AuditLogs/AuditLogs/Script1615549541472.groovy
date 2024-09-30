@@ -127,7 +127,7 @@ try {
 
             extentTest.log(Status.PASS, ' Click on  the Calendar icon::  From Date:: ')
 			WebUI.delay(2)
-			//WebUI.click(findTestObject('Object Repository/AuditLogs/From_date_fwd_arrow'))
+		//	WebUI.click(findTestObject('Object Repository/AuditLogs/From_date_fwd_arrow'))
 
             //From Date: Click calendar icon and verify that forward arrow is disabled & only backward arrow is enabled
             boolean res1 = WebUI.verifyElementClickable(findTestObject('Object Repository/AuditLogs/From_date_back_arrow'))
@@ -150,7 +150,7 @@ try {
             WebUI.click(findTestObject('Object Repository/AuditLogs/Calender_Icon_To_date'))
 			WebUI.delay(2)
 			
-		//	WebUI.click(findTestObject('Object Repository/AuditLogs/To_date_back_arrrow'))
+			//WebUI.click(findTestObject('Object Repository/AuditLogs/To_date_back_arrrow'))
 
             res1 = WebUI.verifyElementNotClickable(findTestObject('Object Repository/AuditLogs/To_date_back_arrrow'))
 
@@ -808,76 +808,56 @@ try {
 
 			break
 		case 'previous':
-			isLinkPresent = WebUI.verifyElementPresent(findTestObject('Object Repository/PageNavigation/NavTo_PreviousPage'),
-			5, FailureHandling.CONTINUE_ON_FAILURE)
-
-			if (isLinkPresent) {
-				WebUI.click(findTestObject('Object Repository/PageNavigation/NavTo_LastPage'))
-
-				WebUI.click(findTestObject('Object Repository/PageNavigation/NavTo_PreviousPage'))
-
-				extentTest.log(Status.PASS, 'Clicked on navigate to last page arrow ')
-
-				extentTest.log(Status.PASS, 'Clicked on navigate to previous arrow ')
-
-				WebUI.delay(1)
-
-				data = WebUI.getAttribute(findTestObject('FilesPage/PageHolder'), 'value')
-
-				if (data.equalsIgnoreCase('2')) {
-					extentTest.log(Status.PASS, 'Verified the page number in page number box - ' + data)
-				}
-			}
+		WebUI.delay(2)
+		WebUI.click(findTestObject('Object Repository/FilesPage/Pagination/Pagination_element3'))
+		extentTest.log(Status.PASS, ' click on the < (previous) arrow  ')
+		WebUI.delay(2)
+		WebUI.click(findTestObject('Object Repository/FilesPage/Pagination/Pagination_element2'))
+		def  pageentry=WebUI.getText(findTestObject('Object Repository/FilesPage/Pagination/pagination_number_status'))
+		
+		if(pageentry.contains('1')) {
 			
-				CustomKeywords.'operations_FileModule.getRowDetails.getFilePage'(katalonWebDriver, extentTest,TestCaseName)
-				extentTest.log(Status.PASS, 'Test case for pagination passed')
+			extentTest.log(Status.PASS, pageentry)
+			println("***"+  pageentry)
+			
+			extentTest.log(Status.PASS, "verified user navigated to  Previous  page")
+		
+		}
 			break
 		case 'first':
-			isLinkPresent = WebUI.verifyElementPresent(findTestObject('Object Repository/PageNavigation/NavTo_NextPage'),
-			5, FailureHandling.CONTINUE_ON_FAILURE)
-
-			if (isLinkPresent) {
-				WebUI.click(findTestObject('Object Repository/PageNavigation/NavTo_LastPage'))
-
-				WebUI.click(findTestObject('Object Repository/PageNavigation/NavTo_FirstPage'))
-
-				extentTest.log(Status.PASS, 'Clicked on navigate to last page arrow ')
-
-				extentTest.log(Status.PASS, 'Clicked on navigate to first arrow ')
-
-				WebUI.delay(1)
-
-				data = WebUI.getAttribute(findTestObject('FilesPage/PageHolder'), 'value')
-
-				if (data.equalsIgnoreCase('1')) {
-					extentTest.log(Status.PASS, 'Verified the page number in page number box - ' + data)
-				}
-			}
-			
-				CustomKeywords.'operations_FileModule.getRowDetails.getFilePage'(katalonWebDriver, extentTest,TestCaseName)
-				extentTest.log(Status.PASS, 'Test case for pagination passed')
+			//	WebUI.delay(2)
+		WebUI.click(findTestObject('Object Repository/FilesPage/Pagination/Pagination_element4'))
+		extentTest.log(Status.PASS, ' click on the << arrow  ')
+	//	WebUI.delay(2)
+		WebUI.click(findTestObject('Object Repository/FilesPage/Pagination/Pagination_element1'))
+		 pageentry=WebUI.getText(findTestObject('Object Repository/FilesPage/Pagination/pagination_number_status'))
+		
+		if(pageentry.contains('1')) {
+		extentTest.log(Status.PASS, "verified user is in the first page ")
+		WebUI.verifyElementPresent(findTestObject('Object Repository/FilesPage/Pagination/pagination_element1_disabled'),5)
+			WebUI.verifyElementPresent(findTestObject('Object Repository/FilesPage/Pagination/pagination_element2_disabled'),5)
+			extentTest.log(Status.PASS, "Verified that the > and >> arrows are disabled ")
+		}
+		
 
 			break
 		case 'next':
-			isLinkPresent = WebUI.verifyElementPresent(findTestObject('Object Repository/PageNavigation/NavTo_NextPage'),
-			5, FailureHandling.CONTINUE_ON_FAILURE)
-			WebUI.delay(2)
-			if (isLinkPresent) {
-				WebUI.click(findTestObject('Object Repository/PageNavigation/NavTo_NextPage'))
-
-				extentTest.log(Status.PASS, 'Clicked on navigate to next arrow ')
-
-				WebUI.delay(1)
-
-				data = WebUI.getAttribute(findTestObject('FilesPage/PageHolder'), 'value')
-
-				if (data.equalsIgnoreCase('2')) {
-					extentTest.log(Status.PASS, 'Verified the page number in page number box - ' + data)
-				}
-			}
+			extentTest.log(Status.PASS, ' click on the > (next) arrow  ')
+		//WebUI.delay(2)
+		WebUI.click(findTestObject('Object Repository/FilesPage/Pagination/Pagination_element3'))
+		WebUI.delay(5)
+		  pageentry=WebUI.getText(findTestObject('Object Repository/FilesPage/Pagination/pagination_number_status'))
+		
+		if(pageentry.contains('100')) {
 			
-		//	CustomKeywords.'operations_FileModule.getRowDetails.getFilePage'(katalonWebDriver, extentTest,TestCaseName)
-				extentTest.log(Status.PASS, 'Test case for pagination passed')
+			
+			extentTest.log(Status.PASS, pageentry)
+			
+			println("***"+  pageentry)
+			
+			extentTest.log(Status.PASS, "verified user navigated to  next  page")
+		
+		}
 
 			break
 		case 'page':

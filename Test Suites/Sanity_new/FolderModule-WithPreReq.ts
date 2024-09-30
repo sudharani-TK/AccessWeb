@@ -12,46 +12,6 @@
    <rerunImmediately>false</rerunImmediately>
    <testSuiteGuid>cee7fef2-6142-4d93-ad4c-cbfe083f1b3f</testSuiteGuid>
    <testCaseLink>
-      <guid>f5a5112f-2a1c-488d-b456-8ccbe48d9279</guid>
-      <isReuseDriver>false</isReuseDriver>
-      <isRun>true</isRun>
-      <testCaseId>Test Cases/FilesModule/FolderOperations</testCaseId>
-      <testDataLink>
-         <combinationType>ONE</combinationType>
-         <id>a360098c-69dc-4e2f-951a-2747cc3fb33d</id>
-         <iterationEntity>
-            <iterationType>ALL</iterationType>
-            <value></value>
-         </iterationEntity>
-         <testDataId>Data Files/Sanity/FolderOps</testDataId>
-      </testDataLink>
-      <usingDataBindingAtTestSuiteLevel>true</usingDataBindingAtTestSuiteLevel>
-      <variableLink>
-         <testDataLinkId>a360098c-69dc-4e2f-951a-2747cc3fb33d</testDataLinkId>
-         <type>DATA_COLUMN</type>
-         <value>FolderName</value>
-         <variableId>aeb53a0e-86e0-4c0a-b07f-a600d966296b</variableId>
-      </variableLink>
-      <variableLink>
-         <testDataLinkId></testDataLinkId>
-         <type>DEFAULT</type>
-         <value></value>
-         <variableId>7387cc82-73d5-4707-9683-6385e40d7781</variableId>
-      </variableLink>
-      <variableLink>
-         <testDataLinkId>a360098c-69dc-4e2f-951a-2747cc3fb33d</testDataLinkId>
-         <type>DATA_COLUMN</type>
-         <value>TestCaseName</value>
-         <variableId>b2b766af-3fe6-4951-8c7c-f50e8d8e8c45</variableId>
-      </variableLink>
-      <variableLink>
-         <testDataLinkId>a360098c-69dc-4e2f-951a-2747cc3fb33d</testDataLinkId>
-         <type>DATA_COLUMN</type>
-         <value>Operation</value>
-         <variableId>efc4ecd9-7862-4f03-a81e-d1c0cd816749</variableId>
-      </variableLink>
-   </testCaseLink>
-   <testCaseLink>
       <guid>37a47705-753e-40c5-a2c5-52743c78d0d4</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
@@ -83,6 +43,58 @@
          <type>DATA_COLUMN</type>
          <value>InputFolder</value>
          <variableId>95f26520-b2ee-4bda-8975-352c6c6b6388</variableId>
+      </variableLink>
+      <variableLink>
+         <testDataLinkId>034c0e5b-621b-43b6-8704-f19ed8037d10</testDataLinkId>
+         <type>DATA_COLUMN</type>
+         <value>XrayID</value>
+         <variableId>f6afaea7-24ad-4dfd-806a-b0407ff54b2a</variableId>
+      </variableLink>
+   </testCaseLink>
+   <testCaseLink>
+      <guid>f5a5112f-2a1c-488d-b456-8ccbe48d9279</guid>
+      <isReuseDriver>false</isReuseDriver>
+      <isRun>true</isRun>
+      <testCaseId>Test Cases/FilesModule/FolderOperations</testCaseId>
+      <testDataLink>
+         <combinationType>ONE</combinationType>
+         <id>a360098c-69dc-4e2f-951a-2747cc3fb33d</id>
+         <iterationEntity>
+            <iterationType>ALL</iterationType>
+            <value>6</value>
+         </iterationEntity>
+         <testDataId>Data Files/Sanity/FolderOps</testDataId>
+      </testDataLink>
+      <usingDataBindingAtTestSuiteLevel>true</usingDataBindingAtTestSuiteLevel>
+      <variableLink>
+         <testDataLinkId>a360098c-69dc-4e2f-951a-2747cc3fb33d</testDataLinkId>
+         <type>DATA_COLUMN</type>
+         <value>FolderName</value>
+         <variableId>aeb53a0e-86e0-4c0a-b07f-a600d966296b</variableId>
+      </variableLink>
+      <variableLink>
+         <testDataLinkId></testDataLinkId>
+         <type>DEFAULT</type>
+         <value></value>
+         <variableId>7387cc82-73d5-4707-9683-6385e40d7781</variableId>
+      </variableLink>
+      <variableLink>
+         <testDataLinkId>a360098c-69dc-4e2f-951a-2747cc3fb33d</testDataLinkId>
+         <type>DATA_COLUMN</type>
+         <value>TestCaseName</value>
+         <variableId>b2b766af-3fe6-4951-8c7c-f50e8d8e8c45</variableId>
+      </variableLink>
+      <variableLink>
+         <testDataLinkId>a360098c-69dc-4e2f-951a-2747cc3fb33d</testDataLinkId>
+         <type>DATA_COLUMN</type>
+         <value>Operation</value>
+         <variableId>efc4ecd9-7862-4f03-a81e-d1c0cd816749</variableId>
+      </variableLink>
+      <variableLink>
+         <testDataLinkId>a360098c-69dc-4e2f-951a-2747cc3fb33d</testDataLinkId>
+         <type>DATA_COLUMN</type>
+         <value>XrayID</value>
+         <variableId>5ac75741-5f7b-4073-96f5-131132cd5799</variableId>
       </variableLink>
    </testCaseLink>
    <testCaseLink>
@@ -123,6 +135,12 @@
          <type>DATA_COLUMN</type>
          <value>FolderName</value>
          <variableId>559bc7a0-a49b-4140-a780-b73601da9b34</variableId>
+      </variableLink>
+      <variableLink>
+         <testDataLinkId>a051ecc5-b266-403f-b7ee-7140d484b394</testDataLinkId>
+         <type>DATA_COLUMN</type>
+         <value>XrayID</value>
+         <variableId>eb3076b6-4638-4b86-bdbf-e73e32a489df</variableId>
       </variableLink>
    </testCaseLink>
 </TestSuiteEntity>

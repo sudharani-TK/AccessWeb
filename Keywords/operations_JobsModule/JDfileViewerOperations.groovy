@@ -34,8 +34,8 @@ public class JDfileViewerOperations {
 				WebUI.delay(2)
 				WebUI.verifyElementPresent(findTestObject('JobDetailsPage/Icon_DetailsFile'), 3, FailureHandling.STOP_ON_FAILURE)
 				extentTest.log(Status.PASS, 'Clicked on file to view details')
-				TestObject newFileNameDetails=WebUI.modifyObjectProperty(findTestObject('Object Repository/FileEditor/FileName_Text_Details'), 'text', 'equals', 'ToEdit.txt', true)
-				TestObject newFileOwnerDetails=WebUI.modifyObjectProperty(findTestObject('Object Repository/FileEditor/FileOwner_Text_Details'), 'text', 'equals', GlobalVariable.G_userName, true)
+				TestObject newFileNameDetails=WebUI.modifyObjectProperty(findTestObject('Object Repository/FilesPage/FileEditor/FileName_Text_Details'), 'text', 'equals', 'ToEdit.txt', true)
+				TestObject newFileOwnerDetails=WebUI.modifyObjectProperty(findTestObject('Object Repository/FilesPage/FileEditor/FileOwner_Text_Details'), 'text', 'equals', GlobalVariable.G_userName, true)
 				def isFileNamePresent=WebUI.verifyElementPresent(newFileNameDetails, 5)
 				def isFileOwnerPresent=WebUI.verifyElementPresent(newFileOwnerDetails, 5)
 				if(isFileNamePresent && isFileOwnerPresent) {
@@ -168,6 +168,22 @@ public class JDfileViewerOperations {
 				extentTest.log(Status.PASS, 'Click on file to perform tail operation')
 				result=true
 				return result
+				break
+			case 'pagination':
+				extentTest.log(Status.PASS,"output folder 's file openned in file viewer, contains content less than a page")
+				result=WebUI.verifyElementClickable(findTestObject('Object Repository/FilesPage/Pagination/pagination_numberfield'))
+				if(result)
+					extentTest.log(Status.PASS, 'Verified the pagenumbers are active')
+				def res1=WebUI.verifyElementPresent(findTestObject('Object Repository/FilesPage/Pagination/pagination_element1_disabled'),5)
+				def res2=WebUI.verifyElementPresent(findTestObject('Object Repository/FilesPage/Pagination/pagination_element2_disabled'),5)
+				def res3=WebUI.verifyElementPresent(findTestObject('Object Repository/FilesPage/Pagination/pagination_element3_disabled'),5)
+				def res4=WebUI.verifyElementPresent(findTestObject('Object Repository/FilesPage/Pagination/pagination_element4_disabled'),5)
+				if(res1&&res2&&res3&&res4) {
+					extentTest.log(Status.PASS, 'Verified the pagination elements are disabled')
+				}
+				else {
+					extentTest.log(Status.FAIL, 'failed to verify the pagination elements')
+				}
 				break
 		}
 	}

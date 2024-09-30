@@ -44,5 +44,11 @@
          <value>Operation</value>
          <variableId>7b950ced-8cb3-43ce-a472-81090d4db7f5</variableId>
       </variableLink>
+      <variableLink>
+         <testDataLinkId></testDataLinkId>
+         <type>DEFAULT</type>
+         <value></value>
+         <variableId>7dad33b6-4ada-4932-b51b-5c046ccb1533</variableId>
+      </variableLink>
    </testCaseLink>
 </TestSuiteEntity>

@@ -41,6 +41,12 @@
       <value></value>
       <variableId>3428c29d-520c-4d90-9e5d-0260f5e16e2c</variableId>
    </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>fdf441d7-f7ca-436a-9eab-47e1e7d0046c</variableId>
+   </variableLinks>
    <variable>
       <defaultValue>'Add user'</defaultValue>
       <description></description>
@@ -82,5 +88,12 @@
       <id>3428c29d-520c-4d90-9e5d-0260f5e16e2c</id>
       <masked>false</masked>
       <name>cores</name>
+   </variable>
+   <variable>
+      <defaultValue>'DEMO-XX'</defaultValue>
+      <description></description>
+      <id>fdf441d7-f7ca-436a-9eab-47e1e7d0046c</id>
+      <masked>false</masked>
+      <name>XrayID</name>
    </variable>
 </TestCaseEntity>

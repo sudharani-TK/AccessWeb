@@ -137,6 +137,12 @@
          <value>Operation</value>
          <variableId>efc4ecd9-7862-4f03-a81e-d1c0cd816749</variableId>
       </variableLink>
+      <variableLink>
+         <testDataLinkId></testDataLinkId>
+         <type>DEFAULT</type>
+         <value></value>
+         <variableId>5ac75741-5f7b-4073-96f5-131132cd5799</variableId>
+      </variableLink>
    </testCaseLink>
    <testCaseLink>
       <guid>6efcc209-680e-46c6-8bae-a4c4d2877107</guid>

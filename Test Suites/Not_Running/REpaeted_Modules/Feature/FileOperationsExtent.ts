@@ -44,6 +44,12 @@
          <value>Operation</value>
          <variableId>7b950ced-8cb3-43ce-a472-81090d4db7f5</variableId>
       </variableLink>
+      <variableLink>
+         <testDataLinkId></testDataLinkId>
+         <type>DEFAULT</type>
+         <value></value>
+         <variableId>7dad33b6-4ada-4932-b51b-5c046ccb1533</variableId>
+      </variableLink>
    </testCaseLink>
    <testCaseLink>
       <guid>82cb6a72-5e68-4dc8-b49b-4092f7c875fd</guid>
@@ -82,14 +88,14 @@
    <testCaseLink>
       <guid>36914159-c0f9-444b-9da4-423371ef1836</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>false</isRun>
+      <isRun>true</isRun>
       <testCaseId>Test Cases/FilesModule/FileViewerOperations</testCaseId>
       <testDataLink>
          <combinationType>ONE</combinationType>
          <id>f148e622-3d6f-44be-8355-a67aa489a91a</id>
          <iterationEntity>
-            <iterationType>ALL</iterationType>
-            <value></value>
+            <iterationType>SPECIFIC</iterationType>
+            <value>1</value>
          </iterationEntity>
          <testDataId>Data Files/Regression/TestDataForFileViewer</testDataId>
       </testDataLink>
@@ -117,6 +123,12 @@
          <type>DATA_COLUMN</type>
          <value>userChoice</value>
          <variableId>ef1274aa-47d9-4785-b26a-d28851f1ff02</variableId>
+      </variableLink>
+      <variableLink>
+         <testDataLinkId></testDataLinkId>
+         <type>DEFAULT</type>
+         <value></value>
+         <variableId>c861f285-8f44-470f-89da-bb9c4bf962c0</variableId>
       </variableLink>
    </testCaseLink>
    <testCaseLink>
@@ -152,11 +164,17 @@
          <value>userChoice</value>
          <variableId>cdf52790-8a83-4b10-8c0b-bed0a592b1c4</variableId>
       </variableLink>
+      <variableLink>
+         <testDataLinkId></testDataLinkId>
+         <type>DEFAULT</type>
+         <value></value>
+         <variableId>f18f1702-516c-495a-a57d-2a26a1c420f6</variableId>
+      </variableLink>
    </testCaseLink>
    <testCaseLink>
       <guid>f3501a9f-fd8b-444f-8a08-69bb398aced0</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>true</isRun>
+      <isRun>false</isRun>
       <testCaseId>Test Cases/FilesModule/ContextMenu_CreateFile</testCaseId>
       <testDataLink>
          <combinationType>ONE</combinationType>

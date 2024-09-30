@@ -68,6 +68,12 @@
          <value>ProfileType</value>
          <variableId>731ae8a5-0351-4126-a92c-0ec5b34713f9</variableId>
       </variableLink>
+      <variableLink>
+         <testDataLinkId></testDataLinkId>
+         <type>DEFAULT</type>
+         <value></value>
+         <variableId>dea5d6ab-c0d4-4c4f-9243-af29ed75932c</variableId>
+      </variableLink>
    </testCaseLink>
    <testCaseLink>
       <guid>dd46944a-48f1-4fe1-9d63-c50ab685aa1d</guid>
@@ -153,6 +159,12 @@
          <type>DATA_COLUMN</type>
          <value>ProfileType</value>
          <variableId>bd6b07eb-f173-437c-b761-805638b35111</variableId>
+      </variableLink>
+      <variableLink>
+         <testDataLinkId></testDataLinkId>
+         <type>DEFAULT</type>
+         <value></value>
+         <variableId>f2d236c5-fd8a-417c-8340-d4db63c33a58</variableId>
       </variableLink>
    </testCaseLink>
 </TestSuiteEntity>

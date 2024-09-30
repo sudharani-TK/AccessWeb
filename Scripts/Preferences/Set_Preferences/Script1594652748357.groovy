@@ -18,7 +18,7 @@ import internal.GlobalVariable as GlobalVariable
 WebUI.callTestCase(findTestCase('XRepeated_TC/Login'), [('username') : GlobalVariable.G_userName, ('password') : GlobalVariable.G_Password],
 FailureHandling.STOP_ON_FAILURE)
 
-ReportFile = (GlobalVariable.FireFox + '.html')
+ReportFile = (GlobalVariable.G_ReportName + '.html')
 
 def extent = CustomKeywords.'generateReports.GenerateReport.create'(ReportFile, GlobalVariable.G_Browser, GlobalVariable.G_BrowserVersion)
 

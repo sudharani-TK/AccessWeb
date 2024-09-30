@@ -17,6 +17,12 @@
       <value></value>
       <variableId>edbdda98-3662-45dc-9cca-c374182f15b5</variableId>
    </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>ef6339f6-917f-4be7-9bdb-017822e4c737</variableId>
+   </variableLinks>
    <variable>
       <defaultValue>'Custom Actions'</defaultValue>
       <description></description>
@@ -30,5 +36,12 @@
       <id>edbdda98-3662-45dc-9cca-c374182f15b5</id>
       <masked>false</masked>
       <name>AppName</name>
+   </variable>
+   <variable>
+      <defaultValue>'Ad-1498'</defaultValue>
+      <description></description>
+      <id>ef6339f6-917f-4be7-9bdb-017822e4c737</id>
+      <masked>false</masked>
+      <name>XrayID</name>
    </variable>
 </TestCaseEntity>

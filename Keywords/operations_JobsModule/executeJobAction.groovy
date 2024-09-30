@@ -250,7 +250,7 @@ public class executeJobAction {
 				WebUI.delay(2)
 				WebUI.click(newJobAction)
 				extentTest.log(Status.PASS, 'Clicked on Context Menu Option for - '+Action)
-				WebUI.click(findTestObject('Object Repository/FileEditor/Close_Button_fileEditor'))
+				WebUI.click(findTestObject('Object Repository/FilesPage/FileEditor/Close_Button_fileEditor'))
 				extentTest.log(Status.PASS, 'Clicked on Close Button ')
 				result=true
 
@@ -261,8 +261,8 @@ public class executeJobAction {
 			case 'Open With':
 
 				println ("Form job actions - "+Action)
-				WebUI.mouseOver(findTestObject('Object Repository/FileEditor/ContextMenu_OpenWith'))
-				WebUI.click(findTestObject('Object Repository/FileEditor/ContextMenu_OpenWith'))
+				WebUI.mouseOver(findTestObject('Object Repository/FilesPage/FileEditor/ContextMenu_OpenWith'))
+				WebUI.click(findTestObject('Object Repository/FilesPage/FileEditor/ContextMenu_OpenWith'))
 				WebUI.delay(2)
 				WebUI.mouseOver(findTestObject('Object Repository/FilesPage/span_Text Editor'))
 				WebUI.click(findTestObject('Object Repository/FilesPage/span_Text Editor'))
@@ -270,7 +270,7 @@ public class executeJobAction {
 				extentTest.log(Status.PASS, 'Clicked on Context Menu Option for - '+Action)
 
 				WebUI.delay(4)
-				WebUI.click(findTestObject('Object Repository/FileEditor/Close_Button_fileEditor'))
+				WebUI.click(findTestObject('Object Repository/FilesPage/FileEditor/Close_Button_fileEditor'))
 				extentTest.log(Status.PASS, 'Clicked on Close Button ')
 				result=true
 

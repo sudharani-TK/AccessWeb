@@ -67,7 +67,7 @@
          <id>db2a179e-363b-49ab-a7bb-22cfe5090a90</id>
          <iterationEntity>
             <iterationType>ALL</iterationType>
-            <value>7</value>
+            <value>6</value>
          </iterationEntity>
          <testDataId>Data Files/Regression/TestDataJobActionsTopMenuNotOwner</testDataId>
       </testDataLink>

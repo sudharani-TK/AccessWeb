@@ -21,7 +21,7 @@
          <id>41e4f676-9528-4518-900a-9ad376c718e4</id>
          <iterationEntity>
             <iterationType>ALL</iterationType>
-            <value>6</value>
+            <value>1-4</value>
          </iterationEntity>
          <testDataId>Data Files/Regression/TestDataForFolderOperations</testDataId>
       </testDataLink>
@@ -50,6 +50,12 @@
          <value>Operation</value>
          <variableId>efc4ecd9-7862-4f03-a81e-d1c0cd816749</variableId>
       </variableLink>
+      <variableLink>
+         <testDataLinkId></testDataLinkId>
+         <type>DEFAULT</type>
+         <value></value>
+         <variableId>5ac75741-5f7b-4073-96f5-131132cd5799</variableId>
+      </variableLink>
    </testCaseLink>
    <testCaseLink>
       <guid>7f2dd3a5-6b1f-4d1f-b6d3-d41c1b027956</guid>
@@ -60,7 +66,7 @@
          <combinationType>ONE</combinationType>
          <id>2f3e7c47-fdc6-4aca-b414-531bc56b5c02</id>
          <iterationEntity>
-            <iterationType>RANGE</iterationType>
+            <iterationType>SPECIFIC</iterationType>
             <value>1-10</value>
          </iterationEntity>
          <testDataId>Data Files/Regression/TestDataForFolderOperations</testDataId>
@@ -310,6 +316,12 @@
          <value>userChoice</value>
          <variableId>ef1274aa-47d9-4785-b26a-d28851f1ff02</variableId>
       </variableLink>
+      <variableLink>
+         <testDataLinkId></testDataLinkId>
+         <type>DEFAULT</type>
+         <value></value>
+         <variableId>c861f285-8f44-470f-89da-bb9c4bf962c0</variableId>
+      </variableLink>
    </testCaseLink>
    <testCaseLink>
       <guid>071664d5-9d10-4731-b843-0417cc0ef038</guid>
@@ -321,7 +333,7 @@
          <id>6de06c28-6991-4210-952b-47a77fa554d7</id>
          <iterationEntity>
             <iterationType>ALL</iterationType>
-            <value>1</value>
+            <value>13,14</value>
          </iterationEntity>
          <testDataId>Data Files/Regression/TestDataForCreateFolder</testDataId>
       </testDataLink>

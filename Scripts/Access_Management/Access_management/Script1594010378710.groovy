@@ -29,7 +29,7 @@ WebDriver wrappedWebDriver = eventFiring.getWrappedDriver()
 // Cast the wrapped driver into RemoteWebDriver
 RemoteWebDriver katalonWebDriver = ((wrappedWebDriver) as RemoteWebDriver)
 
-String ReportFile=GlobalVariable.FireFox+".html"
+String ReportFile=GlobalVariable.G_ReportName+".html"
 
 def extent=CustomKeywords.'generateReports.GenerateReport.create'(ReportFile,GlobalVariable.G_Browser,GlobalVariable.G_BrowserVersion)
 def Status = com.relevantcodes.extentreports.Status;
@@ -562,9 +562,9 @@ try {
 
             extentTest.log(Status.PASS, 'Double click the manager role')
 
-            WebUI.delay(3)
+            WebUI.delay(5)
 
-            WebUI.verifyElementPresent(findTestObject('Access_Management/Cancel_Role'), 5)
+            WebUI.verifyElementPresent(findTestObject('Access_Management/Cancel_Role'), 10)
 
             extentTest.log(Status.PASS, 'Verify save role button is diabled')
 

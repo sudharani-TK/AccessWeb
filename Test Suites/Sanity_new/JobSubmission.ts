@@ -68,5 +68,11 @@
          <value>ChangeValue</value>
          <variableId>ea3c8f43-9d3d-4606-b294-b1768dbf277b</variableId>
       </variableLink>
+      <variableLink>
+         <testDataLinkId>a70d0f78-a0de-4e39-8762-db2befa5f530</testDataLinkId>
+         <type>DATA_COLUMN</type>
+         <value>XrayID</value>
+         <variableId>897603d7-a0d8-46ee-912d-f3966c317764</variableId>
+      </variableLink>
    </testCaseLink>
 </TestSuiteEntity>

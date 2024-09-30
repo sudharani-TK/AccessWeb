@@ -9,7 +9,7 @@ import com.relevantcodes.extentreports.LogStatus as LogStatus
 
 import internal.GlobalVariable as GlobalVariable
 
-ReportFile = (GlobalVariable.FireFox + '.html')
+ReportFile = (GlobalVariable.G_ReportName + '.html')
 def extent = CustomKeywords.'generateReports.GenerateReport.create'(ReportFile, GlobalVariable.G_Browser, GlobalVariable.G_BrowserVersion)
 def LogStatus = com.relevantcodes.extentreports.LogStatus
 if (TestOperation.contains('icon')) {

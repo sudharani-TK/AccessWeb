@@ -24,7 +24,7 @@
       <variableId>4f68b7d4-a899-4d69-9a4a-b349b5d1e2dc</variableId>
    </variableLinks>
    <variable>
-      <defaultValue>'Jobs section: Column sorting In the Jobs Page'</defaultValue>
+      <defaultValue>'Jobs section  Column sorting In the Jobs Page'</defaultValue>
       <description></description>
       <id>00b7731d-b760-4882-878e-da6d96662b41</id>
       <masked>false</masked>

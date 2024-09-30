@@ -259,7 +259,7 @@ public class executeJobAction_JobFiles {
 					extentTest.log(Status.PASS, 'Verified filename on the file viewer panel - '+fileName)
 				}
 				WebUI.delay(3)
-				WebUI.click(findTestObject('Object Repository/FileEditor/Close_Button_fileEditor'))
+				WebUI.click(findTestObject('Object Repository/FilesPage/FileEditor/Close_Button_fileEditor'))
 				extentTest.log(Status.PASS, 'Clicked on Close Button ')
 				TestObject TestObjFolder=(new buildTestObj.CreateJobSubmissionObjs()).myJobDetailsFolder(userChoice)
 				def isFolderPresent=WebUI.verifyElementPresent(TestObjFolder,3)
@@ -278,8 +278,8 @@ public class executeJobAction_JobFiles {
 				WebUI.delay(2)
 
 				println ("Form job actions - "+Action)
-				WebUI.mouseOver(findTestObject('Object Repository/FileEditor/ContextMenu_OpenWith'))
-				WebUI.click(findTestObject('Object Repository/FileEditor/ContextMenu_OpenWith'))
+				WebUI.mouseOver(findTestObject('Object Repository/FilesPage/FileEditor/ContextMenu_OpenWith'))
+				WebUI.click(findTestObject('Object Repository/FilesPage/FileEditor/ContextMenu_OpenWith'))
 				WebUI.delay(2)
 				WebUI.mouseOver(findTestObject('Object Repository/FilesPage/span_Text Editor'))
 				WebUI.click(findTestObject('Object Repository/FilesPage/span_Text Editor'))
@@ -295,7 +295,7 @@ public class executeJobAction_JobFiles {
 					result=true
 					extentTest.log(Status.PASS, 'Verified filename on the file viewer panel - '+fileName)
 				}
-				WebUI.click(findTestObject('Object Repository/FileEditor/Close_Button_fileEditor'))
+				WebUI.click(findTestObject('Object Repository/FilesPage/FileEditor/Close_Button_fileEditor'))
 				extentTest.log(Status.PASS, 'Clicked on Close Button ')
 				return result
 				break

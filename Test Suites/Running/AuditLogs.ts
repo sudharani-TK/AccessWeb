@@ -14,14 +14,14 @@
    <testCaseLink>
       <guid>29233c5a-0ae7-4265-9438-05995a7dad25</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>true</isRun>
+      <isRun>false</isRun>
       <testCaseId>Test Cases/AuditLogs/AuditLogs</testCaseId>
       <testDataLink>
          <combinationType>ONE</combinationType>
          <id>915fb5c2-4a3e-43f3-8d4d-cf9755e6f731</id>
          <iterationEntity>
             <iterationType>SPECIFIC</iterationType>
-            <value>1-10</value>
+            <value>1</value>
          </iterationEntity>
          <testDataId>Data Files/Regression/TestDataForAuditLogs</testDataId>
       </testDataLink>
@@ -103,6 +103,65 @@
          <type>DATA_COLUMN</type>
          <value>jobAction</value>
          <variableId>4b353984-815b-4d48-b478-afe6e0f5c27d</variableId>
+      </variableLink>
+   </testCaseLink>
+   <testCaseLink>
+      <guid>f9d450fb-d8b4-4d4e-8796-f20b73b55304</guid>
+      <isReuseDriver>false</isReuseDriver>
+      <isRun>true</isRun>
+      <testCaseId>Test Cases/shareAcopy/share_a_copy</testCaseId>
+      <usingDataBindingAtTestSuiteLevel>true</usingDataBindingAtTestSuiteLevel>
+      <variableLink>
+         <testDataLinkId></testDataLinkId>
+         <type>DEFAULT</type>
+         <value></value>
+         <variableId>0ea8fb4a-6ea0-464c-a195-ebda6206686a</variableId>
+      </variableLink>
+      <variableLink>
+         <testDataLinkId></testDataLinkId>
+         <type>DEFAULT</type>
+         <value></value>
+         <variableId>73795e5a-d316-4af8-bec5-8a1a2a998ac6</variableId>
+      </variableLink>
+   </testCaseLink>
+   <testCaseLink>
+      <guid>89c300b6-3a7d-4727-abac-c6061b6dc509</guid>
+      <isReuseDriver>false</isReuseDriver>
+      <isRun>false</isRun>
+      <testCaseId>Test Cases/Generic/LoginTestCase</testCaseId>
+      <testDataLink>
+         <combinationType>ONE</combinationType>
+         <id>f5c1337a-a2a0-4423-8108-b65e1641e384</id>
+         <iterationEntity>
+            <iterationType>ALL</iterationType>
+            <value>1</value>
+         </iterationEntity>
+         <testDataId>Data Files/Regression/TestDataForLogin</testDataId>
+      </testDataLink>
+      <usingDataBindingAtTestSuiteLevel>true</usingDataBindingAtTestSuiteLevel>
+      <variableLink>
+         <testDataLinkId>f5c1337a-a2a0-4423-8108-b65e1641e384</testDataLinkId>
+         <type>DATA_COLUMN</type>
+         <value>username</value>
+         <variableId>8bcef31e-0732-4fba-bd3b-e4bce98ba19c</variableId>
+      </variableLink>
+      <variableLink>
+         <testDataLinkId>f5c1337a-a2a0-4423-8108-b65e1641e384</testDataLinkId>
+         <type>DATA_COLUMN</type>
+         <value>password</value>
+         <variableId>a63c7d7f-f42d-46cf-aa3c-404ff99616fb</variableId>
+      </variableLink>
+      <variableLink>
+         <testDataLinkId>f5c1337a-a2a0-4423-8108-b65e1641e384</testDataLinkId>
+         <type>DATA_COLUMN</type>
+         <value>TestCaseName</value>
+         <variableId>877994f5-2889-4f28-9a03-5b6c724d598a</variableId>
+      </variableLink>
+      <variableLink>
+         <testDataLinkId>f5c1337a-a2a0-4423-8108-b65e1641e384</testDataLinkId>
+         <type>DATA_COLUMN</type>
+         <value>userChoice</value>
+         <variableId>7779819d-719f-416d-9ac2-1ce4255afe2c</variableId>
       </variableLink>
    </testCaseLink>
 </TestSuiteEntity>

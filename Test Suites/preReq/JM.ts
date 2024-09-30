@@ -14,7 +14,7 @@
    <testCaseLink>
       <guid>86f55772-9721-48af-a8d6-81056f784960</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>false</isRun>
+      <isRun>true</isRun>
       <testCaseId>Test Cases/JobMonitoring/Pre-Req-Script-For-JobMonitoring-Ops</testCaseId>
       <usingDataBindingAtTestSuiteLevel>true</usingDataBindingAtTestSuiteLevel>
       <variableLink>
@@ -52,6 +52,12 @@
          <type>DEFAULT</type>
          <value></value>
          <variableId>b1c12b7f-deff-4bfd-b652-c2cc17ec0237</variableId>
+      </variableLink>
+      <variableLink>
+         <testDataLinkId></testDataLinkId>
+         <type>DEFAULT</type>
+         <value></value>
+         <variableId>d2c17f74-dfaa-42a1-9883-795f51ef28cf</variableId>
       </variableLink>
    </testCaseLink>
    <testCaseLink>
@@ -96,6 +102,12 @@
          <value></value>
          <variableId>1f0aeaa5-6880-49cb-8d7a-14ac8e0f1c1e</variableId>
       </variableLink>
+      <variableLink>
+         <testDataLinkId></testDataLinkId>
+         <type>DEFAULT</type>
+         <value></value>
+         <variableId>55b52fe6-5593-4c7d-8008-a30c51ac0f0b</variableId>
+      </variableLink>
    </testCaseLink>
    <testCaseLink>
       <guid>4049c397-0cb1-47cc-90e0-97bde26c032a</guid>
@@ -138,6 +150,12 @@
          <type>DEFAULT</type>
          <value></value>
          <variableId>52f77332-477a-45e2-bbf6-d5b4f5710123</variableId>
+      </variableLink>
+      <variableLink>
+         <testDataLinkId></testDataLinkId>
+         <type>DEFAULT</type>
+         <value></value>
+         <variableId>8e7290e2-c86e-4848-aed5-4cdb0229ed55</variableId>
       </variableLink>
    </testCaseLink>
 </TestSuiteEntity>

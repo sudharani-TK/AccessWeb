@@ -49,7 +49,7 @@ try
 	extentTest.log(Status.PASS, 'Click on Jobs tab')
 	WebUI.delay(2)
 	WebUI.click(findTestObject('Object Repository/JobMonitoringPage/a_Reset'))
-	extentTest.log(Status.PASS, 'Click on the  reset')
+	extentTest.log(Status.PASS, 'Click on  All My Jobs')
 	
 	//extentTest.log(Status.PASS," Jobs filter label should display as bold ")
 	
@@ -60,10 +60,21 @@ try
 	
 	//extentTest.log(Status.PASS,"Verify the Time filter label should display as bold")
 	//WebUI.verifyElementPresent(findTestObject('Object Repository/JobMonitoringPage/Job_Filters/Time_header'),5)
-	
+
 	extentTest.log(Status.PASS,"The 'Last 7 days' radio button  should be checked by default.")
-	
-	
+	//extentTest.log(Status.PASS,"The All Status Filter should be selected by default")
+	def res1=WebUI.verifyElementChecked(findTestObject('Object Repository/JobMonitoringPage/Job_Filters/Status_Filter_All_checkbox'),4)
+	def res2=WebUI.verifyElementChecked(findTestObject('Object Repository/JobMonitoringPage/Job_Filters/Applications_All_Filter'),4)
+	def res3=WebUI.verifyElementChecked(findTestObject('Object Repository/JobMonitoringPage/Job_Filters/Array_Job_Filter'),4)
+	def res4=WebUI.verifyElementChecked(findTestObject('Object Repository/JobMonitoringPage/Job_Filters/Batch_job_Filter'),4)
+	def res5=WebUI.verifyElementChecked(findTestObject('Object Repository/JobMonitoringPage/Job_Filters/Queue_All_Filter'),4)
+	def res6=WebUI.verifyElementChecked(findTestObject('Object Repository/JobMonitoringPage/Job_Filters/Server_All_Filter'),4)
+	if(res1 && res2 && res3 && res4 && res6) {
+		extentTest.log(Status.PASS,"  when user clicks on'All my Jobs' filter default options are selected. "+
+			"Status- ALL, Servers - All, Applications - All, Queues - All, Type -  Batch & Array")
+		
+	}
+	println(res6)
 	WebUI.verifyElementHasAttribute(findTestObject('Object Repository/JobMonitoringPage/Job_Filters/Time_Filter_last7days'),'checked', 10)
 		
 	

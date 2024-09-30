@@ -47,6 +47,12 @@
       <value></value>
       <variableId>ea3c8f43-9d3d-4606-b294-b1768dbf277b</variableId>
    </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>897603d7-a0d8-46ee-912d-f3966c317764</variableId>
+   </variableLinks>
    <variable>
       <defaultValue>'ShellScript'</defaultValue>
       <description></description>
@@ -95,5 +101,12 @@
       <id>ea3c8f43-9d3d-4606-b294-b1768dbf277b</id>
       <masked>false</masked>
       <name>ChangeValue</name>
+   </variable>
+   <variable>
+      <defaultValue>''</defaultValue>
+      <description></description>
+      <id>897603d7-a0d8-46ee-912d-f3966c317764</id>
+      <masked>false</masked>
+      <name>XrayID</name>
    </variable>
 </TestCaseEntity>

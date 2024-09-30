@@ -53,6 +53,12 @@
          <value></value>
          <variableId>1f0aeaa5-6880-49cb-8d7a-14ac8e0f1c1e</variableId>
       </variableLink>
+      <variableLink>
+         <testDataLinkId></testDataLinkId>
+         <type>DEFAULT</type>
+         <value></value>
+         <variableId>55b52fe6-5593-4c7d-8008-a30c51ac0f0b</variableId>
+      </variableLink>
    </testCaseLink>
    <testCaseLink>
       <guid>a1555019-a296-44e4-a236-ad82f1782e18</guid>
@@ -64,7 +70,7 @@
          <id>de3de7c4-8a67-4b96-9c3f-44b6f7372061</id>
          <iterationEntity>
             <iterationType>SPECIFIC</iterationType>
-            <value>1-14</value>
+            <value>8,9</value>
          </iterationEntity>
          <testDataId>Data Files/Sanity/JobAction</testDataId>
       </testDataLink>
@@ -93,18 +99,24 @@
          <value></value>
          <variableId>b9a88c01-3e4a-42b5-8a6d-68ece165320d</variableId>
       </variableLink>
+      <variableLink>
+         <testDataLinkId>de3de7c4-8a67-4b96-9c3f-44b6f7372061</testDataLinkId>
+         <type>DATA_COLUMN</type>
+         <value>XrayID</value>
+         <variableId>6ce0cbfc-68da-4faa-ad9f-89b693d75962</variableId>
+      </variableLink>
    </testCaseLink>
    <testCaseLink>
       <guid>928f535c-4e4e-4747-b20f-2cc7e54abf94</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>true</isRun>
+      <isRun>false</isRun>
       <testCaseId>Test Cases/JobMonitoring/JobActions_ForJobStates -Topmenu_Icon</testCaseId>
       <testDataLink>
          <combinationType>ONE</combinationType>
          <id>50abcf66-282e-49cf-93ce-a0412e658999</id>
          <iterationEntity>
             <iterationType>ALL</iterationType>
-            <value>9</value>
+            <value>5,6</value>
          </iterationEntity>
          <testDataId>Data Files/Sanity/JobActionIcon</testDataId>
       </testDataLink>
@@ -127,11 +139,17 @@
          <value>TestCaseName</value>
          <variableId>0974633c-cd4f-4eb4-87d0-82966292f7e9</variableId>
       </variableLink>
+      <variableLink>
+         <testDataLinkId>50abcf66-282e-49cf-93ce-a0412e658999</testDataLinkId>
+         <type>DATA_COLUMN</type>
+         <value>XrayID</value>
+         <variableId>72d56371-4e24-45cb-b863-908e544c2c9c</variableId>
+      </variableLink>
    </testCaseLink>
    <testCaseLink>
       <guid>5a0a29f5-383b-4668-be6a-281f8831eb45</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>true</isRun>
+      <isRun>false</isRun>
       <testCaseId>Test Cases/JobMonitoring/JobFilters</testCaseId>
       <testDataLink>
          <combinationType>ONE</combinationType>
@@ -179,11 +197,17 @@
          <value></value>
          <variableId>54bc3327-1895-48a0-ab95-3335411c3aba</variableId>
       </variableLink>
+      <variableLink>
+         <testDataLinkId>8ea59f6d-67a7-4368-8cef-42e60d8ef3b0</testDataLinkId>
+         <type>DATA_COLUMN</type>
+         <value>XrayID</value>
+         <variableId>40d68681-c5af-4b2f-ac13-e9fc22540cb7</variableId>
+      </variableLink>
    </testCaseLink>
    <testCaseLink>
       <guid>e9e5b92a-501d-431b-9060-cc600c3120ac</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>true</isRun>
+      <isRun>false</isRun>
       <testCaseId>Test Cases/Upload/RunningFolder_jobspage</testCaseId>
       <usingDataBindingAtTestSuiteLevel>true</usingDataBindingAtTestSuiteLevel>
       <variableLink>
@@ -209,6 +233,12 @@
          <type>DEFAULT</type>
          <value></value>
          <variableId>098e6013-1c93-4f47-8b26-69214f7e665a</variableId>
+      </variableLink>
+      <variableLink>
+         <testDataLinkId></testDataLinkId>
+         <type>DEFAULT</type>
+         <value></value>
+         <variableId>b30de482-3106-4bee-959e-a358e455ed75</variableId>
       </variableLink>
    </testCaseLink>
 </TestSuiteEntity>

@@ -105,7 +105,7 @@ try {
 			}
 			else{
 				extentTest.log(Status.FAIL, 'Column - ' + ColName+' not added in files table')
-				extentTest.log(Status.FAIL, ( TestCaseName) + ' :: failed')
+				extentTest.log(Status.FAIL,  TestCaseName + ' :: failed')
 
 			}
 			break
@@ -128,7 +128,7 @@ try {
 			if(result)
 			{
 				extentTest.log(Status.FAIL, 'Column - ' + ColName+' not removed from files table')
-				extentTest.log(Status.FAIL, ( TestCaseName) + ' :: failed')
+				extentTest.log(Status.FAIL,  TestCaseName + ' :: failed')
 			}
 			else{
 				extentTest.log(Status.PASS, 'Column - ' + ColName+' removed from files table')

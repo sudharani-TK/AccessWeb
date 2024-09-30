@@ -20,7 +20,7 @@ import internal.GlobalVariable as GlobalVariable
 WebDriver driver = DriverFactory.getWebDriver()
 EventFiringWebDriver eventFiring = ((DriverFactory.getWebDriver()) as EventFiringWebDriver)
 WebDriver wrappedWebDriver = eventFiring.getWrappedDriver()
-RemoteWebDriver katalonWebDriver = ((wrappedWebDriver) as RemoteWebDriver)
+RemoteWebDriver katalonWebDriver = (RemoteWebDriver) wrappedWebDriver
 //==================================================================
 def Browser = GlobalVariable.G_Browser
 //===============================================================

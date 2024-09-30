@@ -22,7 +22,7 @@ import org.openqa.selenium.remote.RemoteWebDriver
 import com.kms.katalon.core.exception.StepErrorException as StepErrorException
 import com.kms.katalon.core.util.KeywordUtil
 
-ReportFile = (GlobalVariable.FireFox + '.html')
+ReportFile = (GlobalVariable.G_ReportName + '.html')
 
 def extent = CustomKeywords.'generateReports.GenerateReport.create'(ReportFile, GlobalVariable.G_Browser, GlobalVariable.G_BrowserVersion)
 def LogStatus = com.relevantcodes.extentreports.LogStatus

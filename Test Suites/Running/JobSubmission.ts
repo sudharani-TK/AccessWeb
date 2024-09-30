@@ -20,8 +20,8 @@
          <combinationType>ONE</combinationType>
          <id>bb74da93-4c6e-4eb0-8cac-de53d70ee2ba</id>
          <iterationEntity>
-            <iterationType>ALL</iterationType>
-            <value>53</value>
+            <iterationType>SPECIFIC</iterationType>
+            <value>1-45</value>
          </iterationEntity>
          <testDataId>Data Files/Regression/TestDataForJS-Latest</testDataId>
       </testDataLink>
@@ -67,6 +67,12 @@
          <type>DATA_COLUMN</type>
          <value>ChangeValue</value>
          <variableId>ea3c8f43-9d3d-4606-b294-b1768dbf277b</variableId>
+      </variableLink>
+      <variableLink>
+         <testDataLinkId></testDataLinkId>
+         <type>DEFAULT</type>
+         <value></value>
+         <variableId>897603d7-a0d8-46ee-912d-f3966c317764</variableId>
       </variableLink>
    </testCaseLink>
 </TestSuiteEntity>

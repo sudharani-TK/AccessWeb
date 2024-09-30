@@ -28,7 +28,7 @@ public class multifileOpsCntxtMn {
 		def e2 =sdf.format(date)
 		def op =null
 		boolean result=false
-		
+
 		def navlocation=(new generateFilePath.filePath()).execLocation()
 		def location=null
 		def y=null
@@ -74,6 +74,7 @@ public class multifileOpsCntxtMn {
 				if(isElemenetPresent) {
 					WebUI.rightClick(findTestObject('FilesPage/Label_FolderEmpty'))
 				}
+				WebUI.delay(2)
 				extentTest.log(Status.PASS, 'Invoked context menu in Folder for pasting')
 				WebUI.delay(2)
 				WebUI.click(findTestObject('FilesPage/ContextMenu_FileGrid_Paste'))
@@ -156,6 +157,7 @@ public class multifileOpsCntxtMn {
 				else {
 					WebUI.rightClick(findTestObject('Object Repository/FilesPage/Canvas_FilesPage_TileView'))
 				}
+				WebUI.delay(2)
 				extentTest.log(Status.PASS, 'Invoked context menu in Folder for pasting')
 				WebUI.delay(2)
 				WebUI.click(findTestObject('FilesPage/ContextMenu_FileGrid_Paste'))

@@ -35,6 +35,12 @@
       <value></value>
       <variableId>500aa8ee-08f2-499c-af68-5e7ff18ef162</variableId>
    </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>ce6a02f4-c476-469e-b7fa-174ec85a5a06</variableId>
+   </variableLinks>
    <variable>
       <defaultValue>'Add user'</defaultValue>
       <description></description>
@@ -69,5 +75,12 @@
       <id>500aa8ee-08f2-499c-af68-5e7ff18ef162</id>
       <masked>false</masked>
       <name>input</name>
+   </variable>
+   <variable>
+      <defaultValue>'demo4'</defaultValue>
+      <description></description>
+      <id>ce6a02f4-c476-469e-b7fa-174ec85a5a06</id>
+      <masked>false</masked>
+      <name>XrayID</name>
    </variable>
 </TestCaseEntity>

@@ -50,6 +50,12 @@
          <value>Operation</value>
          <variableId>efc4ecd9-7862-4f03-a81e-d1c0cd816749</variableId>
       </variableLink>
+      <variableLink>
+         <testDataLinkId></testDataLinkId>
+         <type>DEFAULT</type>
+         <value></value>
+         <variableId>5ac75741-5f7b-4073-96f5-131132cd5799</variableId>
+      </variableLink>
    </testCaseLink>
    <testCaseLink>
       <guid>681d10ca-93d0-4430-8f0e-782d59db0273</guid>
@@ -123,6 +129,12 @@
          <type>DATA_COLUMN</type>
          <value>InputFolder</value>
          <variableId>95f26520-b2ee-4bda-8975-352c6c6b6388</variableId>
+      </variableLink>
+      <variableLink>
+         <testDataLinkId></testDataLinkId>
+         <type>DEFAULT</type>
+         <value></value>
+         <variableId>f6afaea7-24ad-4dfd-806a-b0407ff54b2a</variableId>
       </variableLink>
    </testCaseLink>
 </TestSuiteEntity>

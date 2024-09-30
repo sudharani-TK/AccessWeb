@@ -35,6 +35,12 @@
       <value></value>
       <variableId>9a2208ee-79e1-4f62-866a-9791d1580984</variableId>
    </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>f9e9cd6d-c078-4589-803b-9eccf9e6da9d</variableId>
+   </variableLinks>
    <variable>
       <defaultValue>'Test to submit a job using New App def created in the Appcomposer'</defaultValue>
       <description></description>
@@ -69,5 +75,12 @@
       <id>9a2208ee-79e1-4f62-866a-9791d1580984</id>
       <masked>false</masked>
       <name>ExecMode</name>
+   </variable>
+   <variable>
+      <defaultValue>'AD-3913'</defaultValue>
+      <description></description>
+      <id>f9e9cd6d-c078-4589-803b-9eccf9e6da9d</id>
+      <masked>false</masked>
+      <name>XrayID</name>
    </variable>
 </TestCaseEntity>

@@ -29,6 +29,12 @@
       <value></value>
       <variableId>559bc7a0-a49b-4140-a780-b73601da9b34</variableId>
    </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>eb3076b6-4638-4b86-bdbf-e73e32a489df</variableId>
+   </variableLinks>
    <variable>
       <defaultValue>''</defaultValue>
       <description></description>
@@ -56,5 +62,12 @@
       <id>559bc7a0-a49b-4140-a780-b73601da9b34</id>
       <masked>false</masked>
       <name>folderName</name>
+   </variable>
+   <variable>
+      <defaultValue>''</defaultValue>
+      <description></description>
+      <id>eb3076b6-4638-4b86-bdbf-e73e32a489df</id>
+      <masked>false</masked>
+      <name>XrayID</name>
    </variable>
 </TestCaseEntity>

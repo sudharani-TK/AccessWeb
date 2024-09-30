@@ -41,8 +41,8 @@ public class fileViewerOperations {
 				newFileObj = WebUI.modifyObjectProperty(findTestObject('FilesPage/Viewdetails_File'), 'title', 'equals', fileName, true)
 				WebUI.verifyElementPresent(newFileObj, 3, FailureHandling.STOP_ON_FAILURE)
 				extentTest.log(Status.PASS, 'Clicked on file to view details')
-				TestObject newFileNameDetails=WebUI.modifyObjectProperty(findTestObject('Object Repository/FileEditor/FileName_Text_Details'), 'text', 'equals', fileName, true)
-				TestObject newFileOwnerDetails=WebUI.modifyObjectProperty(findTestObject('Object Repository/FileEditor/FileOwner_Text_Details'), 'text', 'equals', GlobalVariable.G_userName, true)
+				TestObject newFileNameDetails=WebUI.modifyObjectProperty(findTestObject('Object Repository/FilesPage/FileEditor/FileName_Text_Details'), 'text', 'equals', fileName, true)
+				TestObject newFileOwnerDetails=WebUI.modifyObjectProperty(findTestObject('Object Repository/FilesPage/FileEditor/FileOwner_Text_Details'), 'text', 'equals', GlobalVariable.G_userName, true)
 				def isFileNamePresent=WebUI.verifyElementPresent(newFileNameDetails, 5)
 				def isFileOwnerPresent=WebUI.verifyElementPresent(newFileOwnerDetails, 5)
 				if(isFileNamePresent && isFileOwnerPresent) {
@@ -121,7 +121,7 @@ public class fileViewerOperations {
 				if(TestCaseName.contains('Close')) {
 
 					WebUI.click(findTestObject('Object Repository/FilesPage/Close_Button'))
-					def r=WebUI.verifyElementPresent(findTestObject('Object Repository/FileEditor/dialog_CancelEdit'), 3, FailureHandling.CONTINUE_ON_FAILURE)
+					def r=WebUI.verifyElementPresent(findTestObject('Object Repository/FilesPage/FileEditor/dialog_CancelEdit'), 3, FailureHandling.CONTINUE_ON_FAILURE)
 					if(r) {
 						extentTest.log(Status.PASS, 'Cancel Edting panel displayed')
 						WebUI.click(findTestObject('Object Repository/GenericObjects/btn_Yes'))
@@ -193,7 +193,7 @@ public class fileViewerOperations {
 
 			case 'Delete':
 
-				WebUI.click(findTestObject('Object Repository/FileEditor/Icon_Delete_FileEdit'))
+				WebUI.click(findTestObject('Object Repository/FilesPage/FileEditor/Icon_Delete_FileEdit'))
 				extentTest.log(Status.PASS, 'Click on file to delete')
 				extentTest.log(Status.PASS, 'Clicked on Delete menu item' )
 				WebUI.click(findTestObject('GenericObjects/btn_Yes'))

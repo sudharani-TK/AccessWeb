@@ -21,7 +21,7 @@
          <id>70c75075-d1e6-488d-81a9-f8d4ca4434b0</id>
          <iterationEntity>
             <iterationType>SPECIFIC</iterationType>
-            <value>17</value>
+            <value>46-90</value>
          </iterationEntity>
          <testDataId>Data Files/Regression/TestDataForJS-Latest</testDataId>
       </testDataLink>
@@ -67,6 +67,12 @@
          <type>DATA_COLUMN</type>
          <value>ChangeValue</value>
          <variableId>ea3c8f43-9d3d-4606-b294-b1768dbf277b</variableId>
+      </variableLink>
+      <variableLink>
+         <testDataLinkId></testDataLinkId>
+         <type>DEFAULT</type>
+         <value></value>
+         <variableId>897603d7-a0d8-46ee-912d-f3966c317764</variableId>
       </variableLink>
    </testCaseLink>
 </TestSuiteEntity>

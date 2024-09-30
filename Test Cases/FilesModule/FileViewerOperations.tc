@@ -29,6 +29,12 @@
       <value></value>
       <variableId>ef1274aa-47d9-4785-b26a-d28851f1ff02</variableId>
    </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>c861f285-8f44-470f-89da-bb9c4bf962c0</variableId>
+   </variableLinks>
    <variable>
       <defaultValue>'ForFileViewer.txt'</defaultValue>
       <description></description>
@@ -56,5 +62,12 @@
       <id>ef1274aa-47d9-4785-b26a-d28851f1ff02</id>
       <masked>false</masked>
       <name>userChoice</name>
+   </variable>
+   <variable>
+      <defaultValue>''</defaultValue>
+      <description></description>
+      <id>c861f285-8f44-470f-89da-bb9c4bf962c0</id>
+      <masked>false</masked>
+      <name>XrayID</name>
    </variable>
 </TestCaseEntity>

@@ -36,11 +36,13 @@ class BaseTestListener {
 	def ReportFile
 	def filePath
 	def reportFliePath
+	String BrowserVer=GlobalVariable.G_BrowserVersion
 	def totalTime
-	
+	String execID=null
 	@BeforeTestSuite
 	def BeforeTestSuite(TestSuiteContext testSuiteContext)
 	{
+		execID = RunConfiguration.getExecutionSourceName()
 		startTime = LocalDateTime.now()
 		// creating executionID and storing in String
 		String execID = RunConfiguration.getExecutionSourceName()
@@ -72,10 +74,28 @@ class BaseTestListener {
 	//	extent = CustomKeywords.'generateReports.GenerateReport.createSpark'(ReportFile, GlobalVariable.G_Browser, GlobalVariable.G_BrowserVersion)
 		
 		//String tcName="{variable_1=v3, passwd=rohini, variable_2=v4, variable_0=v2, variable=v1, usename=rohini, TestCaseName=Login,variable_0=v2,}"
+		
+		println(execID)
+		if(execID.equals(null))
+		{
+
+
+			def date = new Date()
+			def sdf = new SimpleDateFormat("ddMMyyyy_HHmmss")
+			def execTime = sdf.format(date)
+			String execTag=Browser+'_'+execTime
+			ReportFile =execTag+'.html'
+			extent = CustomKeywords.'generateReports.GenerateReport.createSpark'(ReportFile, Browser, BrowserVer, totalTime)
+
+			}
+
 		String variableList=testCaseContext.getTestCaseVariables()
+	
 		println("context - "+variableList)
 		println(testCaseContext.getTestCaseId())
 		def tcID=testCaseContext.getTestCaseId()
+		println("tcID"+ tcID)
+		
 
 		String [] tcScript=tcID.split('\\/')
 		def len=tcScript.size()
@@ -85,6 +105,10 @@ class BaseTestListener {
 		println("==========================")
 		String testcaseName=CustomKeywords.'generateReports.testCaseNameChange.toSplit'(variableList,'TestCaseName')
 		String UpdatedtestcaseName=CustomKeywords.'generateReports.testCaseNameChange.updateTCName'(testcaseName,variableList,tcScriptName)
+		String XrayID=CustomKeywords.'generateReports.testCaseNameChange.toSplit'(variableList,'XrayID')
+		println("==========================")
+		println("XrayID : " + XrayID)
+		println("==========================")
 		println ("new tn  --- "+UpdatedtestcaseName)
 		println("-------------------------")
 		if(tcScriptName.equals('JobSubmission-FileOperations')&&UpdatedtestcaseName.contains('tile view'))
@@ -95,7 +119,8 @@ class BaseTestListener {
 		}
 		else
 		{
-			GlobalVariable.G_ExtentTest = extent.createTest(UpdatedtestcaseName)
+			//GlobalVariable.G_ExtentTest = extent.createTest(UpdatedtestcaseName)
+			GlobalVariable.	G_ExtentTest= extent.createTest(UpdatedtestcaseName).assignAuthor(XrayID).assignCategory("sanity").assignDevice("Chrome")
 			
 			
 			def extentTest=GlobalVariable.G_ExtentTest

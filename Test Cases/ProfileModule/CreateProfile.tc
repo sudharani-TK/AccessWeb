@@ -47,6 +47,12 @@
       <value></value>
       <variableId>731ae8a5-0351-4126-a92c-0ec5b34713f9</variableId>
    </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>dea5d6ab-c0d4-4c4f-9243-af29ed75932c</variableId>
+   </variableLinks>
    <variable>
       <defaultValue>'dynIcn'</defaultValue>
       <description></description>
@@ -95,5 +101,12 @@
       <id>731ae8a5-0351-4126-a92c-0ec5b34713f9</id>
       <masked>false</masked>
       <name>ProfileType</name>
+   </variable>
+   <variable>
+      <defaultValue>''</defaultValue>
+      <description></description>
+      <id>dea5d6ab-c0d4-4c4f-9243-af29ed75932c</id>
+      <masked>false</masked>
+      <name>XrayID</name>
    </variable>
 </TestCaseEntity>

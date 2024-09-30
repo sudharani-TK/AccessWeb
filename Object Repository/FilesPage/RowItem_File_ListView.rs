@@ -6,15 +6,16 @@
    <elementGuidId>b2c6dd6e-de14-4486-8021-e450419ef111</elementGuidId>
    <selectorCollection>
       <entry>
-         <key>BASIC</key>
-         <value>//div[@data-automation-id = 'Myfile']</value>
-      </entry>
-      <entry>
          <key>XPATH</key>
          <value>//div[@id='fileviewer_filelist_table']/div/div/div/div/div[2]/div/div/div/div/div/div/div/div/div/span/div/div</value>
       </entry>
+      <entry>
+         <key>BASIC</key>
+         <value>//div[@data-automation-id = 'Myfile']</value>
+      </entry>
    </selectorCollection>
    <selectorMethod>BASIC</selectorMethod>
+   <smartLocatorEnabled>false</smartLocatorEnabled>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -22,7 +23,7 @@
       <name>data-automation-id</name>
       <type>Main</type>
       <value>Myfile</value>
-      <webElementGuid>29de7556-9495-466e-a2ea-6ca73742579f</webElementGuid>
+      <webElementGuid>87e931b9-913b-4299-b835-13ad638cfae0</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -30,15 +31,7 @@
       <name>tag</name>
       <type>Main</type>
       <value>div</value>
-      <webElementGuid>f1a9271c-ce77-45da-9426-47c673954dbb</webElementGuid>
-   </webElementProperties>
-   <webElementProperties>
-      <isSelected>false</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>xpath</name>
-      <type>Main</type>
-      <value>//label[@id='file_text']</value>
-      <webElementGuid>21033030-ea7a-4d52-88f4-903bcfe8a468</webElementGuid>
+      <webElementGuid>04f739b5-557e-4c26-8556-e9ffa8c29405</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
@@ -46,7 +39,7 @@
       <name>xpath:idRelative</name>
       <type>Main</type>
       <value>//div[@id='fileviewer_filelist_table']/div/div/div/div/div[2]/div/div/div/div/div/div/div/div/div/span/div/div</value>
-      <webElementGuid>592fda07-8bfd-4891-9959-3fe956de1b4d</webElementGuid>
+      <webElementGuid>16b1cf49-3c95-45a1-a8d7-08adb6058293</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -54,7 +47,7 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='File Size'])[1]/following::div[18]</value>
-      <webElementGuid>6c9d8553-925f-4fa4-9d0e-18957f0599ed</webElementGuid>
+      <webElementGuid>1c4ae93c-8e3a-4197-bae2-ad1542595210</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -62,7 +55,7 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='Owner'])[1]/following::div[22]</value>
-      <webElementGuid>4a438aa6-b186-44cf-878f-e2aad850d142</webElementGuid>
+      <webElementGuid>125f3a53-b0de-4a88-8d79-f6ce30258389</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -70,7 +63,7 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='pbsadmin'])[3]/preceding::div[7]</value>
-      <webElementGuid>5541fd66-e181-4d67-847f-869991d2bc74</webElementGuid>
+      <webElementGuid>07661462-2917-417e-af04-3db773c49e76</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -78,7 +71,7 @@
       <name>xpath:neighbor</name>
       <type>Main</type>
       <value>(.//*[normalize-space(text()) and normalize-space(.)='Open'])[1]/preceding::div[27]</value>
-      <webElementGuid>5a740b34-66a8-490e-bcff-d750e920398f</webElementGuid>
+      <webElementGuid>213ccbb7-f3f6-4fac-9b3d-eb4bbdfeafe6</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
@@ -86,6 +79,6 @@
       <name>xpath:position</name>
       <type>Main</type>
       <value>//div/span/div/div</value>
-      <webElementGuid>f995e3d9-61d7-4241-a4ab-fe0e376550fb</webElementGuid>
+      <webElementGuid>99d1b287-676d-4f67-8725-9c5b43907eee</webElementGuid>
    </webElementXpaths>
 </WebElementEntity>

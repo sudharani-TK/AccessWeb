@@ -210,6 +210,7 @@ public class folderOperations {
 					result=true
 				}
 				if(GlobalVariable.G_Browser=='chrome') {
+					WebUI.delay(2)
 					WebUI.refresh()
 
 					WebUI.delay(2)

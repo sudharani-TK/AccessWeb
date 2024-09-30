@@ -50,6 +50,12 @@
          <value>userChoice</value>
          <variableId>aa175b05-32fc-49ca-a330-8cfe38b2837c</variableId>
       </variableLink>
+      <variableLink>
+         <testDataLinkId></testDataLinkId>
+         <type>DEFAULT</type>
+         <value></value>
+         <variableId>356270a5-54ea-4c61-92e8-d4bb0389a9fa</variableId>
+      </variableLink>
    </testCaseLink>
    <testCaseLink>
       <guid>0db99bb0-d415-4082-8ef3-cb4a706388aa</guid>
@@ -80,6 +86,12 @@
          <type>DEFAULT</type>
          <value></value>
          <variableId>098e6013-1c93-4f47-8b26-69214f7e665a</variableId>
+      </variableLink>
+      <variableLink>
+         <testDataLinkId></testDataLinkId>
+         <type>DEFAULT</type>
+         <value></value>
+         <variableId>b30de482-3106-4bee-959e-a358e455ed75</variableId>
       </variableLink>
    </testCaseLink>
    <testCaseLink>

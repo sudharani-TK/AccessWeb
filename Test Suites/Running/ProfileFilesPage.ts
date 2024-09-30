@@ -68,11 +68,17 @@
          <value>ProfileType</value>
          <variableId>731ae8a5-0351-4126-a92c-0ec5b34713f9</variableId>
       </variableLink>
+      <variableLink>
+         <testDataLinkId></testDataLinkId>
+         <type>DEFAULT</type>
+         <value></value>
+         <variableId>dea5d6ab-c0d4-4c4f-9243-af29ed75932c</variableId>
+      </variableLink>
    </testCaseLink>
    <testCaseLink>
       <guid>2b1a4189-a818-47da-9742-56f962ca1783</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>false</isRun>
+      <isRun>true</isRun>
       <testCaseId>Test Cases/ProfileModule/JobSubmissionThroughProfileContextMenuAllProfiles</testCaseId>
       <testDataLink>
          <combinationType>ONE</combinationType>
@@ -120,11 +126,17 @@
          <value>SubmissionType</value>
          <variableId>9c97d509-5dcb-4ac6-86a9-60bbc4cf8b75</variableId>
       </variableLink>
+      <variableLink>
+         <testDataLinkId></testDataLinkId>
+         <type>DEFAULT</type>
+         <value></value>
+         <variableId>f68f3b3c-809d-46cb-8afb-ef51d9e7a478</variableId>
+      </variableLink>
    </testCaseLink>
    <testCaseLink>
       <guid>9d87a530-94fa-4a77-bca0-9470f4c22b63</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>false</isRun>
+      <isRun>true</isRun>
       <testCaseId>Test Cases/ProfileModule/DeleteProfile - new(2024)</testCaseId>
       <testDataLink>
          <combinationType>ONE</combinationType>
@@ -159,6 +171,12 @@
          <type>DATA_COLUMN</type>
          <value>ProfileType</value>
          <variableId>bd6b07eb-f173-437c-b761-805638b35111</variableId>
+      </variableLink>
+      <variableLink>
+         <testDataLinkId></testDataLinkId>
+         <type>DEFAULT</type>
+         <value></value>
+         <variableId>f2d236c5-fd8a-417c-8340-d4db63c33a58</variableId>
       </variableLink>
    </testCaseLink>
 </TestSuiteEntity>

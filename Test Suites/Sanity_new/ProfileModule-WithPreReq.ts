@@ -20,8 +20,8 @@
          <combinationType>ONE</combinationType>
          <id>e8918466-2248-4ed3-ac3b-0ee2c20ce33c</id>
          <iterationEntity>
-            <iterationType>SPECIFIC</iterationType>
-            <value>6</value>
+            <iterationType>ALL</iterationType>
+            <value>3</value>
          </iterationEntity>
          <testDataId>Data Files/Sanity/ProfileCreation</testDataId>
       </testDataLink>
@@ -68,18 +68,24 @@
          <value>ProfileType</value>
          <variableId>731ae8a5-0351-4126-a92c-0ec5b34713f9</variableId>
       </variableLink>
+      <variableLink>
+         <testDataLinkId>e8918466-2248-4ed3-ac3b-0ee2c20ce33c</testDataLinkId>
+         <type>DATA_COLUMN</type>
+         <value>XrayID</value>
+         <variableId>dea5d6ab-c0d4-4c4f-9243-af29ed75932c</variableId>
+      </variableLink>
    </testCaseLink>
    <testCaseLink>
       <guid>fde5d0fe-3587-4913-87b0-ccf3ae6a342f</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>false</isRun>
+      <isRun>true</isRun>
       <testCaseId>Test Cases/ProfileModule/JobSubmissionThroughProfileContextMenuAllProfiles</testCaseId>
       <testDataLink>
          <combinationType>ONE</combinationType>
          <id>eedb66fb-27b8-4868-afc1-ca297ee58312</id>
          <iterationEntity>
             <iterationType>ALL</iterationType>
-            <value></value>
+            <value>3</value>
          </iterationEntity>
          <testDataId>Data Files/Sanity/ProfileSubmissions</testDataId>
       </testDataLink>
@@ -120,45 +126,57 @@
          <value></value>
          <variableId>9c97d509-5dcb-4ac6-86a9-60bbc4cf8b75</variableId>
       </variableLink>
+      <variableLink>
+         <testDataLinkId>eedb66fb-27b8-4868-afc1-ca297ee58312</testDataLinkId>
+         <type>DATA_COLUMN</type>
+         <value>XrayID</value>
+         <variableId>f68f3b3c-809d-46cb-8afb-ef51d9e7a478</variableId>
+      </variableLink>
    </testCaseLink>
    <testCaseLink>
       <guid>b87bddd6-5727-428e-9a6f-70dd1c831285</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>false</isRun>
-      <testCaseId>Test Cases/ProfileModule/DeleteProfile</testCaseId>
+      <isRun>true</isRun>
+      <testCaseId>Test Cases/ProfileModule/DeleteProfile - new(2024)</testCaseId>
       <testDataLink>
          <combinationType>ONE</combinationType>
          <id>33cc5c11-5370-4800-aa58-58e44a51b974</id>
          <iterationEntity>
             <iterationType>ALL</iterationType>
-            <value>1-4</value>
+            <value>1,2</value>
          </iterationEntity>
-         <testDataId>Data Files/Sanity/ProfileCreation</testDataId>
+         <testDataId>Data Files/Sanity/ProfileDeletions</testDataId>
       </testDataLink>
       <usingDataBindingAtTestSuiteLevel>true</usingDataBindingAtTestSuiteLevel>
       <variableLink>
-         <testDataLinkId></testDataLinkId>
-         <type>DEFAULT</type>
-         <value></value>
-         <variableId>4343b31b-60fa-4ed8-9029-52a057e6f17f</variableId>
+         <testDataLinkId>33cc5c11-5370-4800-aa58-58e44a51b974</testDataLinkId>
+         <type>DATA_COLUMN</type>
+         <value>TestCaseName</value>
+         <variableId>944e0f85-6fa2-43d9-8b8c-2ef112bf0864</variableId>
       </variableLink>
       <variableLink>
          <testDataLinkId>33cc5c11-5370-4800-aa58-58e44a51b974</testDataLinkId>
          <type>DATA_COLUMN</type>
          <value>proName</value>
-         <variableId>0300cf62-3068-4779-b99e-ee7267d531f1</variableId>
+         <variableId>7a7b983c-49c3-45d7-a2e2-a101561f772f</variableId>
       </variableLink>
       <variableLink>
          <testDataLinkId>33cc5c11-5370-4800-aa58-58e44a51b974</testDataLinkId>
          <type>DATA_COLUMN</type>
          <value>AppName</value>
-         <variableId>d45d70d8-f2f8-48b4-94fb-152c1a5ecfc0</variableId>
+         <variableId>c3a4a4af-196b-46d8-b42c-e7cf0c17aef4</variableId>
       </variableLink>
       <variableLink>
          <testDataLinkId>33cc5c11-5370-4800-aa58-58e44a51b974</testDataLinkId>
          <type>DATA_COLUMN</type>
          <value>ProfileType</value>
-         <variableId>80a01f2c-5b41-48f6-9f20-46bfa5b35ead</variableId>
+         <variableId>bd6b07eb-f173-437c-b761-805638b35111</variableId>
+      </variableLink>
+      <variableLink>
+         <testDataLinkId>33cc5c11-5370-4800-aa58-58e44a51b974</testDataLinkId>
+         <type>DATA_COLUMN</type>
+         <value>XrayID</value>
+         <variableId>f2d236c5-fd8a-417c-8340-d4db63c33a58</variableId>
       </variableLink>
    </testCaseLink>
 </TestSuiteEntity>

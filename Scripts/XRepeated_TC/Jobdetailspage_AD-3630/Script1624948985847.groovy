@@ -14,7 +14,7 @@ WebUI.callTestCase(findTestCase('XRepeated_TC/Login'), [('username') : GlobalVar
 FailureHandling.STOP_ON_FAILURE)
 
 
-String ReportFile=GlobalVariable.FireFox+".html"
+String ReportFile=GlobalVariable.G_ReportName+".html"
 
 def extent=CustomKeywords.'generateReports.GenerateReport.create'(ReportFile,GlobalVariable.G_Browser,GlobalVariable.G_BrowserVersion)
 def LogStatus = com.relevantcodes.extentreports.LogStatus;
@@ -82,7 +82,7 @@ try
 				WebUI.rightClick(findTestObject('Object Repository/JobMonitoringPage/RunningFolder_File'))
 				
 				WebUI.click(findTestObject('JobMonitoringPage/Open'))
-				WebUI.click(findTestObject('Object Repository/FileEditor/Close_Button_fileEditor'))
+				WebUI.click(findTestObject('Object Repository/FilesPage/FileEditor/Close_Button_fileEditor'))
 				extentTest.log(LogStatus.PASS, 'Clicked on Close Button ')
 				result=true
 				WebUI.verifyElementPresent(findTestObject('JobMonitoringPage/InputFolder'), 3)
@@ -98,7 +98,7 @@ try
 			extentTest.log(LogStatus.PASS, 'Bread crumb value ' + text2)
 			
 			WebUI.click(findTestObject('JobMonitoringPage/Open'))
-			WebUI.click(findTestObject('Object Repository/FileEditor/Close_Button_fileEditor'))
+			WebUI.click(findTestObject('Object Repository/FilesPage/FileEditor/Close_Button_fileEditor'))
 			extentTest.log(LogStatus.PASS, 'Clicked on Close Button ')
 			result=true
 			WebUI.verifyElementPresent(findTestObject('JobMonitoringPage/OutputFolder'), 3)
@@ -111,7 +111,7 @@ try
 			WebUI.rightClick(findTestObject('Object Repository/JobMonitoringPage/RunningFolder_File'))
 			
 			WebUI.click(findTestObject('JobMonitoringPage/Open'))
-			WebUI.click(findTestObject('Object Repository/FileEditor/Close_Button_fileEditor'))
+			WebUI.click(findTestObject('Object Repository/FilesPage/FileEditor/Close_Button_fileEditor'))
 			extentTest.log(LogStatus.PASS, 'Clicked on Close Button ')
 			result=true
 			

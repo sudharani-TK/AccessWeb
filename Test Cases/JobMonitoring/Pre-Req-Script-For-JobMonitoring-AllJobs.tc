@@ -41,6 +41,12 @@
       <value></value>
       <variableId>1f0aeaa5-6880-49cb-8d7a-14ac8e0f1c1e</variableId>
    </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>55b52fe6-5593-4c7d-8008-a30c51ac0f0b</variableId>
+   </variableLinks>
    <variable>
       <defaultValue>'ShellScript'</defaultValue>
       <description></description>
@@ -82,5 +88,12 @@
       <id>1f0aeaa5-6880-49cb-8d7a-14ac8e0f1c1e</id>
       <masked>false</masked>
       <name>userChoice</name>
+   </variable>
+   <variable>
+      <defaultValue>'prereq2'</defaultValue>
+      <description></description>
+      <id>55b52fe6-5593-4c7d-8008-a30c51ac0f0b</id>
+      <masked>false</masked>
+      <name>XrayID</name>
    </variable>
 </TestCaseEntity>

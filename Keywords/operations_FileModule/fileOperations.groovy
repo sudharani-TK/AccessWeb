@@ -47,12 +47,12 @@ public class fileOperations {
 					if(TestCaseName.contains('tile view')) {
 						oriFileName='ToOpen_TV.log'
 						newFileObjVerify = WebUI.modifyObjectProperty(findTestObject('FilesPage/RowItem_File_TileView'), 'title', 'equals',oriFileName, true)
-						breadCrumbLabel=WebUI.modifyObjectProperty(findTestObject('Object Repository/FileEditor/breadCrumbLabel'), 'title', 'equals',oriFileName, true)
+						breadCrumbLabel=WebUI.modifyObjectProperty(findTestObject('Object Repository/FilesPage/FileEditor/breadCrumbLabel'), 'title', 'equals',oriFileName, true)
 					}
 					else {
 						oriFileName='ToOpen_LV.log'
 						newFileObjVerify = WebUI.modifyObjectProperty(findTestObject('FilesPage/RowItem_File_ListView'), 'data-automation-id', 'equals',oriFileName, true)
-						breadCrumbLabel=WebUI.modifyObjectProperty(findTestObject('Object Repository/FileEditor/breadCrumbLabel'), 'data-automation-id', 'equals',oriFileName, true)
+						breadCrumbLabel=WebUI.modifyObjectProperty(findTestObject('Object Repository/FilesPage/FileEditor/breadCrumbLabel'), 'data-automation-id', 'equals',oriFileName, true)
 					}
 				}
 				else {
@@ -60,16 +60,16 @@ public class fileOperations {
 						extentTest.log(Status.PASS, 'in tile view regular')
 						oriFileName='ToOpen_TV.txt'
 						newFileObjVerify = WebUI.modifyObjectProperty(findTestObject('FilesPage/RowItem_File_TileView'), 'title', 'equals',oriFileName, true)
-						breadCrumbLabel=WebUI.modifyObjectProperty(findTestObject('Object Repository/FileEditor/breadCrumbLabel'), 'title', 'equals',oriFileName, true)
+						breadCrumbLabel=WebUI.modifyObjectProperty(findTestObject('Object Repository/FilesPage/FileEditor/breadCrumbLabel'), 'title', 'equals',oriFileName, true)
 					}
 					else {
 						oriFileName='ToOpen_LV.txt'
 						newFileObjVerify = WebUI.modifyObjectProperty(findTestObject('FilesPage/RowItem_File_ListView'), 'data-automation-id', 'equals',oriFileName, true)
-						breadCrumbLabel=WebUI.modifyObjectProperty(findTestObject('Object Repository/FileEditor/breadCrumbLabel'), 'title', 'equals',oriFileName, true)
+						breadCrumbLabel=WebUI.modifyObjectProperty(findTestObject('Object Repository/FilesPage/FileEditor/breadCrumbLabel'), 'title', 'equals',oriFileName, true)
 					}
 				}
 				def closeButtonPresent=WebUI.verifyElementPresent(findTestObject('Object Repository/FilesPage/Close_Button'), 3, FailureHandling.CONTINUE_ON_FAILURE)
-				def resultsLabelPresent= WebUI.verifyElementPresent(findTestObject('Object Repository/FileEditor/Word_wrap'), 3, FailureHandling.CONTINUE_ON_FAILURE)
+				def resultsLabelPresent= WebUI.verifyElementPresent(findTestObject('Object Repository/FilesPage/FileEditor/Word_wrap'), 3, FailureHandling.CONTINUE_ON_FAILURE)
 			//def breadCrumbLabelPresent=WebUI.verifyElementPresent(breadCrumbLabel, 3, FailureHandling.CONTINUE_ON_FAILURE)
 
 			//if(closeButtonPresent&&resultsLabelPresent&&breadCrumbLabelPresent) {
@@ -114,28 +114,28 @@ public class fileOperations {
 						println("in tile view unsupported ")
 						oriFileName='ToOpenWith_TV.log'
 						newFileObjVerify = WebUI.modifyObjectProperty(findTestObject('FilesPage/RowItem_File_TileView'), 'title', 'equals',oriFileName, true)
-						breadCrumbLabel=WebUI.modifyObjectProperty(findTestObject('Object Repository/FileEditor/breadCrumbLabel'), 'title', 'equals',oriFileName, true)
+						breadCrumbLabel=WebUI.modifyObjectProperty(findTestObject('Object Repository/FilesPage/FileEditor/breadCrumbLabel'), 'title', 'equals',oriFileName, true)
 					}
 					else {
 						oriFileName='ToOpenWith_LV.log'
 						newFileObjVerify = WebUI.modifyObjectProperty(findTestObject('FilesPage/RowItem_File_ListView'), 'data-automation-id', 'equals',oriFileName, true)
-						breadCrumbLabel=WebUI.modifyObjectProperty(findTestObject('Object Repository/FileEditor/breadCrumbLabel'), 'data-automation-id', 'equals',oriFileName, true)
+						breadCrumbLabel=WebUI.modifyObjectProperty(findTestObject('Object Repository/FilesPage/FileEditor/breadCrumbLabel'), 'data-automation-id', 'equals',oriFileName, true)
 					}
 				}else{
 					if(TestCaseName.contains('tile view')) {
 						oriFileName='ToOpenWith_TV.txt'
 						newFileObjVerify = WebUI.modifyObjectProperty(findTestObject('FilesPage/RowItem_File_TileView'), 'title', 'equals',oriFileName, true)
-						breadCrumbLabel=WebUI.modifyObjectProperty(findTestObject('Object Repository/FileEditor/breadCrumbLabel'), 'title', 'equals',oriFileName, true)
+						breadCrumbLabel=WebUI.modifyObjectProperty(findTestObject('Object Repository/FilesPage/FileEditor/breadCrumbLabel'), 'title', 'equals',oriFileName, true)
 					}
 					else {
 						oriFileName='ToOpenWith_LV.txt'
 						newFileObjVerify = WebUI.modifyObjectProperty(findTestObject('FilesPage/RowItem_File_ListView'), 'data-automation-id', 'equals',oriFileName, true)
-						breadCrumbLabel=WebUI.modifyObjectProperty(findTestObject('Object Repository/FileEditor/breadCrumbLabel'), 'title', 'equals',oriFileName, true)
+						breadCrumbLabel=WebUI.modifyObjectProperty(findTestObject('Object Repository/FilesPage/FileEditor/breadCrumbLabel'), 'title', 'equals',oriFileName, true)
 					}
 				}
 
 				def closeButtonPresent=WebUI.verifyElementPresent(findTestObject('Object Repository/FilesPage/Close_Button'), 3, FailureHandling.CONTINUE_ON_FAILURE)
-				def resultsLabelPresent= WebUI.verifyElementPresent(findTestObject('Object Repository/FileEditor/Word_wrap'), 3, FailureHandling.CONTINUE_ON_FAILURE)
+				def resultsLabelPresent= WebUI.verifyElementPresent(findTestObject('Object Repository/FilesPage/FileEditor/Word_wrap'), 3, FailureHandling.CONTINUE_ON_FAILURE)
 			//	def breadCrumbLabelPresent=WebUI.verifyElementPresent(breadCrumbLabel, 3, FailureHandling.CONTINUE_ON_FAILURE)
 
 			//if(closeButtonPresent&&resultsLabelPresent&&breadCrumbLabelPresent) {

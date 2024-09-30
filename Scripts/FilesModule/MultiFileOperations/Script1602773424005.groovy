@@ -137,9 +137,9 @@ try {
 		def fileItem = CustomKeywords.'customWait.WaitForElement.WaitForelementPresent'(newFileObj, 20, extentTest, 'five.txt')
 		println(fileItem)
 		if (fileItem) {
-			WebUI.waitForElementPresent(newFileObj, 3)
-			WebUI.scrollToElement(newFileObj, 3)
-			WebUI.delay(2)
+			WebUI.waitForElementPresent(newFileObj, 10)
+			WebUI.scrollToElement(newFileObj, 5)
+			WebUI.delay(3)
 			WebUI.rightClick(newFileObj)
 			extentTest.log(Status.PASS, 'Right Clicked File to invoke context menu on  ')
 			WebUI.delay(2)

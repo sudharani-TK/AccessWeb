@@ -26,7 +26,7 @@
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description></description>
-      <initValue>'https://10.75.36.105:4443/pbsworks'</initValue>
+      <initValue>'https://172.16.80.49:4443/pbsworks'</initValue>
       <name>G_BaseUrl</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>
@@ -41,7 +41,7 @@
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description></description>
-      <initValue>''</initValue>
+      <initValue>'ChromeVersion 124.0.6367.119'</initValue>
       <name>G_BrowserVersion</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>

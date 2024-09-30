@@ -4,7 +4,7 @@ import org.openqa.selenium.Keys as Keys
 import com.kms.katalon.core.exception.StepErrorException as StepErrorException
 import com.kms.katalon.core.testobject.TestObject as TestObject
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
-import com.relevantcodes.extentreports.Status as Status
+
 
 import internal.GlobalVariable as GlobalVariable
 

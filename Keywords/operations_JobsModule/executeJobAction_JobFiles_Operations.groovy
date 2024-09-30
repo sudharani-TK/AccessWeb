@@ -290,7 +290,7 @@ public class executeJobAction_JobFiles_Operations {
 				WebUI.delay(2)
 				WebUI.click(newJobAction)
 				extentTest.log(Status.PASS, 'Clicked on Context Menu Option for - '+Action)
-				WebUI.click(findTestObject('Object Repository/FileEditor/Close_Button_fileEditor'))
+				WebUI.click(findTestObject('Object Repository/FilesPage/FileEditor/Close_Button_fileEditor'))
 				extentTest.log(Status.PASS, 'Clicked on Close Button ')
 				result=true
 				TestObject TestObjFolder=(new buildTestObj.CreateJobSubmissionObjs()).myJobDetailsFolder(userChoice)
@@ -316,13 +316,13 @@ public class executeJobAction_JobFiles_Operations {
 				}
 				WebUI.delay(2)
 				println ("Form job actions - "+Action)
-				WebUI.mouseOver(findTestObject('Object Repository/FileEditor/ContextMenu_OpenWith'))
-				WebUI.click(findTestObject('Object Repository/FileEditor/ContextMenu_OpenWith'))
+				WebUI.mouseOver(findTestObject('Object Repository/FilesPage/FileEditor/ContextMenu_OpenWith'))
+				WebUI.click(findTestObject('Object Repository/FilesPage/FileEditor/ContextMenu_OpenWith'))
 				WebUI.delay(2)
 				extentTest.log(Status.PASS, 'Clicked on Context Menu Option for - '+Action)
 
 				WebUI.delay(4)
-			//WebUI.click(findTestObject('Object Repository/FileEditor/Close_Button_fileEditor'))
+			//WebUI.click(findTestObject('Object Repository/FilesPage/FileEditor/Close_Button_fileEditor'))
 				extentTest.log(Status.PASS, 'Clicked on Close Button ')
 
 				WebUI.mouseOver(findTestObject('Object Repository/JobMonitoringPage/OtherApps'))
@@ -349,7 +349,7 @@ public class executeJobAction_JobFiles_Operations {
 				WebUI.click(findTestObject('Object Repository/JobMonitoringPage/Ok_btn'))
 				extentTest.log(Status.PASS, 'Click on Ok button ')
 
-				WebUI.click(findTestObject('Object Repository/FileEditor/Close_Button_fileEditor'))
+				WebUI.click(findTestObject('Object Repository/FilesPage/FileEditor/Close_Button_fileEditor'))
 				extentTest.log(Status.PASS, 'Clicked on Close Button ')
 
 			//String fileLocation = WebUI.getAttribute(findTestObject,  "title")

@@ -21,6 +21,7 @@ public class GenerateReport {
 
 	@Keyword
 	def createSpark(String ReportName , String BrowserName , String BrowserVersion, String totalTime) {
+		//String totalTime
 		def date = new Date()
 		def filePath = (RunConfiguration.getProjectDir() + '/ExtentReports/')
 		def path = filePath+ReportName

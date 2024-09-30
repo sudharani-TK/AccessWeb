@@ -59,8 +59,9 @@ try {
 	CustomKeywords.'generateFilePath.filePath.navlocation'(location, extentTest)
 	WebUI.delay(2)
 
-
-	WebUI.delay(2)
+if(GlobalVariable.G_Browser=="Firefox") {
+	WebUI.delay(5)
+}
 	WebUI.waitForElementVisible(findTestObject('FilesPage/btn_NewFileFolder'), 10)
 	WebUI.click(findTestObject('FilesPage/btn_NewFileFolder'))
 	extentTest.log(Status.PASS, 'Clicked on New File/Folder  Button')

@@ -166,5 +166,11 @@
          <value>ProfileType</value>
          <variableId>731ae8a5-0351-4126-a92c-0ec5b34713f9</variableId>
       </variableLink>
+      <variableLink>
+         <testDataLinkId></testDataLinkId>
+         <type>DEFAULT</type>
+         <value></value>
+         <variableId>dea5d6ab-c0d4-4c4f-9243-af29ed75932c</variableId>
+      </variableLink>
    </testCaseLink>
 </TestSuiteEntity>

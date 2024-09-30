@@ -6,12 +6,12 @@
    <defaultProfile>false</defaultProfile>
    <GlobalVariableEntity>
       <description></description>
-      <initValue>'pbsworks'</initValue>
+      <initValue>'vizuser'</initValue>
       <name>G_userName</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description></description>
-      <initValue>'pbsworks'</initValue>
+      <initValue>'vizuser'</initValue>
       <name>G_Password</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>
@@ -21,7 +21,7 @@
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description></description>
-      <initValue>'Firefox'</initValue>
+      <initValue>'chrome'</initValue>
       <name>G_Browser</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>
@@ -31,7 +31,7 @@
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description></description>
-      <initValue>'Firefox'</initValue>
+      <initValue>'chrome'</initValue>
       <name>G_ReportName</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>
@@ -41,7 +41,7 @@
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description></description>
-      <initValue>'115.12.0esr'</initValue>
+      <initValue>'127.0.6533.72'</initValue>
       <name>G_BrowserVersion</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>

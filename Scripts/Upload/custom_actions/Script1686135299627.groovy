@@ -114,6 +114,7 @@ try {
 			  WebUI.click(findTestObject('Object Repository/JobDetailsPage/Btn_SendSignal') )
 			  extentTest.log(Status.PASS, 'Clicked on Send Signal Drop down ')
 			  WebUI.delay(2)
+			  WebUI.waitForElementVisible(findTestObject('Object Repository/JobMonitoringPage/Ok_btn'), 10)
 			  
 			  WebUI.click(findTestObject('Object Repository/JobMonitoringPage/Ok_btn'))
 			  extentTest.log(Status.PASS, 'Clicked on RUN Btn')

@@ -29,6 +29,12 @@
       <value></value>
       <variableId>efc4ecd9-7862-4f03-a81e-d1c0cd816749</variableId>
    </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>5ac75741-5f7b-4073-96f5-131132cd5799</variableId>
+   </variableLinks>
    <variable>
       <defaultValue>'MyFolderCopy_TV'</defaultValue>
       <description></description>
@@ -56,5 +62,12 @@
       <id>efc4ecd9-7862-4f03-a81e-d1c0cd816749</id>
       <masked>false</masked>
       <name>TestOperation</name>
+   </variable>
+   <variable>
+      <defaultValue>''</defaultValue>
+      <description></description>
+      <id>5ac75741-5f7b-4073-96f5-131132cd5799</id>
+      <masked>false</masked>
+      <name>XrayID</name>
    </variable>
 </TestCaseEntity>

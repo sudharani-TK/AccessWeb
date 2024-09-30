@@ -42,7 +42,7 @@ try
 	WebUI.sendKeys(findTestObject('JobMonitoringPage/JM_SearchBox'), AllJobsUser)
 	//	WebUI.sendKeys(findTestObject('JobMonitoringPage/JM_SearchBox'), Keys.chord(Keys.ENTER))
 
-	if(GlobalVariable.G_Browser.equals('FireFox')) {
+	if(GlobalVariable.G_Browser.equals('Firefox')) {
 		WebUI.delay(5)
 		extentTest.log(Status.PASS, 'Waiting for jobs table to load on FireFox')
 	}

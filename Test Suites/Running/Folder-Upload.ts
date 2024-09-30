@@ -44,5 +44,11 @@
          <value>InputFolder</value>
          <variableId>95f26520-b2ee-4bda-8975-352c6c6b6388</variableId>
       </variableLink>
+      <variableLink>
+         <testDataLinkId></testDataLinkId>
+         <type>DEFAULT</type>
+         <value></value>
+         <variableId>f6afaea7-24ad-4dfd-806a-b0407ff54b2a</variableId>
+      </variableLink>
    </testCaseLink>
 </TestSuiteEntity>

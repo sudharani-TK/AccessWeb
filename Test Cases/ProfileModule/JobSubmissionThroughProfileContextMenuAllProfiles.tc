@@ -41,6 +41,12 @@
       <value></value>
       <variableId>9c97d509-5dcb-4ac6-86a9-60bbc4cf8b75</variableId>
    </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>f68f3b3c-809d-46cb-8afb-ef51d9e7a478</variableId>
+   </variableLinks>
    <variable>
       <defaultValue>'dynIC'</defaultValue>
       <description></description>
@@ -82,5 +88,12 @@
       <id>9c97d509-5dcb-4ac6-86a9-60bbc4cf8b75</id>
       <masked>false</masked>
       <name>submissionType</name>
+   </variable>
+   <variable>
+      <defaultValue>''</defaultValue>
+      <description></description>
+      <id>f68f3b3c-809d-46cb-8afb-ef51d9e7a478</id>
+      <masked>false</masked>
+      <name>XrayID</name>
    </variable>
 </TestCaseEntity>

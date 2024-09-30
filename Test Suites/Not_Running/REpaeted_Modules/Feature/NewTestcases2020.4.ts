@@ -130,6 +130,12 @@
          <value>userChoice</value>
          <variableId>717d5e86-3349-4836-8c36-9a645d19d409</variableId>
       </variableLink>
+      <variableLink>
+         <testDataLinkId></testDataLinkId>
+         <type>DEFAULT</type>
+         <value></value>
+         <variableId>a06a0491-5102-480b-a4ea-2a2aa193d23e</variableId>
+      </variableLink>
    </testCaseLink>
    <testCaseLink>
       <guid>51c453af-9a96-48bb-99d5-d2ec11f50dab</guid>

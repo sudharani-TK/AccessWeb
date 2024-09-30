@@ -29,6 +29,12 @@
       <value></value>
       <variableId>bd6b07eb-f173-437c-b761-805638b35111</variableId>
    </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>f2d236c5-fd8a-417c-8340-d4db63c33a58</variableId>
+   </variableLinks>
    <variable>
       <defaultValue>'set as default'</defaultValue>
       <description></description>
@@ -56,5 +62,12 @@
       <id>bd6b07eb-f173-437c-b761-805638b35111</id>
       <masked>false</masked>
       <name>ProfileType</name>
+   </variable>
+   <variable>
+      <defaultValue>''</defaultValue>
+      <description></description>
+      <id>f2d236c5-fd8a-417c-8340-d4db63c33a58</id>
+      <masked>false</masked>
+      <name>XrayID</name>
    </variable>
 </TestCaseEntity>

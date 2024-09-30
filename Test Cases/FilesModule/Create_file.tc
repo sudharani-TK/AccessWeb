@@ -23,6 +23,12 @@
       <value></value>
       <variableId>cdf52790-8a83-4b10-8c0b-bed0a592b1c4</variableId>
    </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>f18f1702-516c-495a-a57d-2a26a1c420f6</variableId>
+   </variableLinks>
    <variable>
       <defaultValue>'Big.txt'</defaultValue>
       <description></description>
@@ -43,5 +49,12 @@
       <id>cdf52790-8a83-4b10-8c0b-bed0a592b1c4</id>
       <masked>false</masked>
       <name>userChoice</name>
+   </variable>
+   <variable>
+      <defaultValue>''</defaultValue>
+      <description></description>
+      <id>f18f1702-516c-495a-a57d-2a26a1c420f6</id>
+      <masked>false</masked>
+      <name>XrayID</name>
    </variable>
 </TestCaseEntity>

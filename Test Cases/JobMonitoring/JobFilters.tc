@@ -41,6 +41,12 @@
       <value></value>
       <variableId>54bc3327-1895-48a0-ab95-3335411c3aba</variableId>
    </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>40d68681-c5af-4b2f-ac13-e9fc22540cb7</variableId>
+   </variableLinks>
    <variable>
       <defaultValue>'Shell'</defaultValue>
       <description></description>
@@ -82,5 +88,12 @@
       <id>54bc3327-1895-48a0-ab95-3335411c3aba</id>
       <masked>false</masked>
       <name>AllJobsUser</name>
+   </variable>
+   <variable>
+      <defaultValue>''</defaultValue>
+      <description></description>
+      <id>40d68681-c5af-4b2f-ac13-e9fc22540cb7</id>
+      <masked>false</masked>
+      <name>XrayID</name>
    </variable>
 </TestCaseEntity>

@@ -27,7 +27,7 @@ def location=navLocation+'/FoldersModule/CreateFolder/ListView'
 TestObject newFileObj
 
 WebUI.enableSmartWait()
-CustomKeywords.'toLogin.ForLogin.Login'(extentTest)
+
 
 try
 {

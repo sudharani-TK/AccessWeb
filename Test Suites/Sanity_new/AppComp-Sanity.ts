@@ -62,6 +62,12 @@
          <value></value>
          <variableId>3428c29d-520c-4d90-9e5d-0260f5e16e2c</variableId>
       </variableLink>
+      <variableLink>
+         <testDataLinkId>7f91cc44-48d5-4eae-b024-78fc54186bbd</testDataLinkId>
+         <type>DATA_COLUMN</type>
+         <value>XrayID</value>
+         <variableId>fdf441d7-f7ca-436a-9eab-47e1e7d0046c</variableId>
+      </variableLink>
    </testCaseLink>
    <testCaseLink>
       <guid>92444daa-26a0-4490-9c51-99a3e97011f8</guid>
@@ -98,6 +104,12 @@
          <type>DEFAULT</type>
          <value></value>
          <variableId>9a2208ee-79e1-4f62-866a-9791d1580984</variableId>
+      </variableLink>
+      <variableLink>
+         <testDataLinkId></testDataLinkId>
+         <type>DEFAULT</type>
+         <value></value>
+         <variableId>f9e9cd6d-c078-4589-803b-9eccf9e6da9d</variableId>
       </variableLink>
    </testCaseLink>
    <testCaseLink>
@@ -145,6 +157,12 @@
          <value>input</value>
          <variableId>500aa8ee-08f2-499c-af68-5e7ff18ef162</variableId>
       </variableLink>
+      <variableLink>
+         <testDataLinkId>def05681-ad99-4ca0-8381-8005037feabf</testDataLinkId>
+         <type>DATA_COLUMN</type>
+         <value>XrayID</value>
+         <variableId>ce6a02f4-c476-469e-b7fa-174ec85a5a06</variableId>
+      </variableLink>
    </testCaseLink>
    <testCaseLink>
       <guid>f417f931-d623-4770-98b7-0a4f90a15022</guid>
@@ -190,6 +208,12 @@
          <type>DATA_COLUMN</type>
          <value>input</value>
          <variableId>18e1bc2d-7734-4154-9cf9-022443eb671e</variableId>
+      </variableLink>
+      <variableLink>
+         <testDataLinkId>61f54222-daec-495d-bc77-9483e72d7f02</testDataLinkId>
+         <type>DATA_COLUMN</type>
+         <value>XrayID</value>
+         <variableId>34915d06-6ff8-483c-ad6a-04d5f3e7c09e</variableId>
       </variableLink>
    </testCaseLink>
 </TestSuiteEntity>

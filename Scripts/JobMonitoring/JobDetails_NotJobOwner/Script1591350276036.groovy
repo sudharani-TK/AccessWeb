@@ -38,6 +38,7 @@ try {
 	
 	WebUI.delay(2)
 	WebUI.click(findTestObject('Object Repository/JobMonitoringPage/a_Reset'))
+	WebUI.delay(2)
 
 	println(AllJobsUser)
 
@@ -50,7 +51,7 @@ try {
 		WebUI.sendKeys(findTestObject('JobMonitoringPage/JM_SearchBox'), AllJobsUser)
 		//	WebUI.sendKeys(findTestObject('JobMonitoringPage/JM_SearchBox'), Keys.chord(Keys.ENTER))
 
-		if(GlobalVariable.G_Browser.equals('FireFox')) {
+		if(GlobalVariable.G_Browser.equals('Firefox')) {
 			WebUI.delay(5)
 			extentTest.log(Status.PASS, 'Waiting for jobs table to load on FireFox')
 		}
@@ -58,6 +59,7 @@ try {
 
 	TestObject newJobFilter = WebUI.modifyObjectProperty(findTestObject('JobMonitoringPage/label_jobState'), 'text', 'equals',
 			jobState, true)
+	WebUI.delay(2)
 	WebUI.click(newJobFilter)
 	WebUI.delay(2)
 	extentTest.log(Status.PASS, 'Clicked on job with state  - ' + jobState)

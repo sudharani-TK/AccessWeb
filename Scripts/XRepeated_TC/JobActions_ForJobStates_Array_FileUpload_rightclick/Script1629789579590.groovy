@@ -36,7 +36,7 @@ WebDriver wrappedWebDriver = eventFiring.getWrappedDriver()
 RemoteWebDriver katalonWebDriver = ((wrappedWebDriver) as RemoteWebDriver)
 
 
-String ReportFile = GlobalVariable.FireFox + '.html'
+String ReportFile = GlobalVariable.G_ReportName + '.html'
 
 def extent = CustomKeywords.'generateReports.GenerateReport.create'(ReportFile, GlobalVariable.G_Browser, GlobalVariable.G_BrowserVersion)
 

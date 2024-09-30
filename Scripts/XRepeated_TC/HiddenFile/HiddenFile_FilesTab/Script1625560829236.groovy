@@ -23,7 +23,7 @@ import com.kms.katalon.core.testdata.TestData as TestData
 import com.kms.katalon.core.checkpoint.Checkpoint as Checkpoint
 
 //====================================================================================
-ReportFile = (GlobalVariable.FireFox + '.html')
+ReportFile = (GlobalVariable.G_ReportName + '.html')
 def extent = CustomKeywords.'generateReports.GenerateReport.create'(ReportFile, GlobalVariable.G_Browser, GlobalVariable.G_BrowserVersion)
 def LogStatus = com.relevantcodes.extentreports.LogStatus
 def extentTest = extent.startTest(TestCaseName)

@@ -12,6 +12,31 @@
    <rerunImmediately>false</rerunImmediately>
    <testSuiteGuid>65909afd-a262-4284-95d9-97ccce2ad382</testSuiteGuid>
    <testCaseLink>
+      <guid>49406418-af2a-497b-a48d-169784a58f96</guid>
+      <isReuseDriver>false</isReuseDriver>
+      <isRun>true</isRun>
+      <testCaseId>Test Cases/Upload/AD-2855-Column Sorting</testCaseId>
+      <usingDataBindingAtTestSuiteLevel>true</usingDataBindingAtTestSuiteLevel>
+      <variableLink>
+         <testDataLinkId></testDataLinkId>
+         <type>DEFAULT</type>
+         <value></value>
+         <variableId>00b7731d-b760-4882-878e-da6d96662b41</variableId>
+      </variableLink>
+      <variableLink>
+         <testDataLinkId></testDataLinkId>
+         <type>DEFAULT</type>
+         <value></value>
+         <variableId>aabfaf6d-51fd-4061-9821-85df17cf22ae</variableId>
+      </variableLink>
+      <variableLink>
+         <testDataLinkId></testDataLinkId>
+         <type>DEFAULT</type>
+         <value></value>
+         <variableId>4f68b7d4-a899-4d69-9a4a-b349b5d1e2dc</variableId>
+      </variableLink>
+   </testCaseLink>
+   <testCaseLink>
       <guid>8ec914af-c956-4c56-b59d-628b08719024</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
@@ -25,7 +50,7 @@
          </iterationEntity>
          <testDataId>Data Files/Regression/TestDataJobFiltersSave</testDataId>
       </testDataLink>
-      <usingDataBindingAtTestSuiteLevel>false</usingDataBindingAtTestSuiteLevel>
+      <usingDataBindingAtTestSuiteLevel>true</usingDataBindingAtTestSuiteLevel>
       <variableLink>
          <testDataLinkId>1ecd16e6-f554-4e36-9aec-221ca4cfdf1f</testDataLinkId>
          <type>DATA_COLUMN</type>
@@ -119,6 +144,12 @@
          <type>DEFAULT</type>
          <value></value>
          <variableId>54bc3327-1895-48a0-ab95-3335411c3aba</variableId>
+      </variableLink>
+      <variableLink>
+         <testDataLinkId></testDataLinkId>
+         <type>DEFAULT</type>
+         <value></value>
+         <variableId>40d68681-c5af-4b2f-ac13-e9fc22540cb7</variableId>
       </variableLink>
    </testCaseLink>
    <testCaseLink>
@@ -288,31 +319,6 @@
       </variableLink>
    </testCaseLink>
    <testCaseLink>
-      <guid>49406418-af2a-497b-a48d-169784a58f96</guid>
-      <isReuseDriver>false</isReuseDriver>
-      <isRun>true</isRun>
-      <testCaseId>Test Cases/Upload/AD-2855-Column Sorting</testCaseId>
-      <usingDataBindingAtTestSuiteLevel>true</usingDataBindingAtTestSuiteLevel>
-      <variableLink>
-         <testDataLinkId></testDataLinkId>
-         <type>DEFAULT</type>
-         <value></value>
-         <variableId>00b7731d-b760-4882-878e-da6d96662b41</variableId>
-      </variableLink>
-      <variableLink>
-         <testDataLinkId></testDataLinkId>
-         <type>DEFAULT</type>
-         <value></value>
-         <variableId>aabfaf6d-51fd-4061-9821-85df17cf22ae</variableId>
-      </variableLink>
-      <variableLink>
-         <testDataLinkId></testDataLinkId>
-         <type>DEFAULT</type>
-         <value></value>
-         <variableId>4f68b7d4-a899-4d69-9a4a-b349b5d1e2dc</variableId>
-      </variableLink>
-   </testCaseLink>
-   <testCaseLink>
       <guid>5eeea36b-2d3f-4c63-a5a8-258434f0fb54</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
@@ -361,6 +367,12 @@
          <type>DEFAULT</type>
          <value></value>
          <variableId>edbdda98-3662-45dc-9cca-c374182f15b5</variableId>
+      </variableLink>
+      <variableLink>
+         <testDataLinkId></testDataLinkId>
+         <type>DEFAULT</type>
+         <value></value>
+         <variableId>ef6339f6-917f-4be7-9bdb-017822e4c737</variableId>
       </variableLink>
    </testCaseLink>
    <testCaseLink>

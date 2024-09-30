@@ -41,6 +41,12 @@
       <value></value>
       <variableId>717d5e86-3349-4836-8c36-9a645d19d409</variableId>
    </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>a06a0491-5102-480b-a4ea-2a2aa193d23e</variableId>
+   </variableLinks>
    <variable>
       <defaultValue>'ShellScript'</defaultValue>
       <description></description>
@@ -82,5 +88,12 @@
       <id>717d5e86-3349-4836-8c36-9a645d19d409</id>
       <masked>false</masked>
       <name>userChoice</name>
+   </variable>
+   <variable>
+      <defaultValue>''</defaultValue>
+      <description></description>
+      <id>a06a0491-5102-480b-a4ea-2a2aa193d23e</id>
+      <masked>false</masked>
+      <name>XrayID</name>
    </variable>
 </TestCaseEntity>

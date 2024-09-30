@@ -14,14 +14,14 @@
    <testCaseLink>
       <guid>c39c1232-201a-40a7-99cb-07a1cf598e0c</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>false</isRun>
+      <isRun>true</isRun>
       <testCaseId>Test Cases/Access_Management/Access_management</testCaseId>
       <testDataLink>
          <combinationType>ONE</combinationType>
          <id>32dc3266-132e-4628-9a9d-e0de47672d48</id>
          <iterationEntity>
             <iterationType>ALL</iterationType>
-            <value>6-7</value>
+            <value>15</value>
          </iterationEntity>
          <testDataId>Data Files/Regression/TestDataForAccess_Management</testDataId>
       </testDataLink>
@@ -118,7 +118,7 @@
    <testCaseLink>
       <guid>79766c1c-6e9a-4f61-aefb-e2692ef42276</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>false</isRun>
+      <isRun>true</isRun>
       <testCaseId>Test Cases/Access_Management/Access_managementNewtest cases 2</testCaseId>
       <testDataLink>
          <combinationType>ONE</combinationType>

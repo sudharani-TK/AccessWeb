@@ -3,6 +3,7 @@
    <description></description>
    <name>ProfileCreation</name>
    <tag></tag>
+   <connectionProperties/>
    <containsHeaders>true</containsHeaders>
    <csvSeperator></csvSeperator>
    <dataFileGUID>f0881ef1-448a-4e31-ac36-539b112b8959</dataFileGUID>

@@ -22,7 +22,7 @@ EventFiringWebDriver eventFiring = ((DriverFactory.getWebDriver()) as EventFirin
 WebDriver wrappedWebDriver = eventFiring.getWrappedDriver()
 RemoteWebDriver katalonWebDriver = ((wrappedWebDriver) as RemoteWebDriver)
 //====================================================================================
-ReportFile = (GlobalVariable.FireFox + '.html')
+ReportFile = (GlobalVariable.G_ReportName + '.html')
 def extent = CustomKeywords.'generateReports.GenerateReport.create'(ReportFile, GlobalVariable.G_Browser, GlobalVariable.G_BrowserVersion)
 def LogStatus = com.relevantcodes.extentreports.LogStatus
 def extentTest = extent.startTest(TestCaseName)
