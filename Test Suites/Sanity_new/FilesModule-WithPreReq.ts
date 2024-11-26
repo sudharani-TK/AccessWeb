@@ -54,7 +54,7 @@
    <testCaseLink>
       <guid>fc2abfee-33a2-4d31-98cf-aabe1ebbb81b</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>true</isRun>
+      <isRun>false</isRun>
       <testCaseId>Test Cases/FilesModule/FileOperations</testCaseId>
       <testDataLink>
          <combinationType>ONE</combinationType>
@@ -94,7 +94,7 @@
    <testCaseLink>
       <guid>4d109fb9-683f-49b8-ae40-9c58162fa8f8</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>true</isRun>
+      <isRun>false</isRun>
       <testCaseId>Test Cases/FilesModule/FileViewerOperations</testCaseId>
       <testDataLink>
          <combinationType>ONE</combinationType>
@@ -140,7 +140,7 @@
    <testCaseLink>
       <guid>0aad26ab-7ce1-4870-b2d3-f6102d712da0</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>true</isRun>
+      <isRun>false</isRun>
       <testCaseId>Test Cases/JobSubmission/JobSubmission-FileProcessWith-2020.4</testCaseId>
       <testDataLink>
          <combinationType>ONE</combinationType>

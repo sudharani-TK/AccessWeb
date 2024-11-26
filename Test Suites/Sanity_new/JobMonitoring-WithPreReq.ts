@@ -14,7 +14,7 @@
    <testCaseLink>
       <guid>2b6856f4-a9e7-4bc3-819c-a82e923b0b35</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>false</isRun>
+      <isRun>true</isRun>
       <testCaseId>Test Cases/JobMonitoring/Pre-Req-Script-For-JobMonitoring-AllJobs</testCaseId>
       <usingDataBindingAtTestSuiteLevel>true</usingDataBindingAtTestSuiteLevel>
       <variableLink>
@@ -109,7 +109,7 @@
    <testCaseLink>
       <guid>928f535c-4e4e-4747-b20f-2cc7e54abf94</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>false</isRun>
+      <isRun>true</isRun>
       <testCaseId>Test Cases/JobMonitoring/JobActions_ForJobStates -Topmenu_Icon</testCaseId>
       <testDataLink>
          <combinationType>ONE</combinationType>
@@ -149,7 +149,7 @@
    <testCaseLink>
       <guid>5a0a29f5-383b-4668-be6a-281f8831eb45</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>false</isRun>
+      <isRun>true</isRun>
       <testCaseId>Test Cases/JobMonitoring/JobFilters</testCaseId>
       <testDataLink>
          <combinationType>ONE</combinationType>
@@ -207,7 +207,7 @@
    <testCaseLink>
       <guid>e9e5b92a-501d-431b-9060-cc600c3120ac</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>false</isRun>
+      <isRun>true</isRun>
       <testCaseId>Test Cases/Upload/RunningFolder_jobspage</testCaseId>
       <usingDataBindingAtTestSuiteLevel>true</usingDataBindingAtTestSuiteLevel>
       <variableLink>

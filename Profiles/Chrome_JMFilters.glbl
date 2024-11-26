@@ -26,7 +26,7 @@
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description></description>
-      <initValue>'https://172.16.80.36:4443/pbsworks/'</initValue>
+      <initValue>'https://172.16.80.20:4443/pbsworks/'</initValue>
       <name>G_BaseUrl</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>
@@ -41,7 +41,7 @@
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description></description>
-      <initValue>'128.0.esr'</initValue>
+      <initValue>'127.0.6533.72'</initValue>
       <name>G_BrowserVersion</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>

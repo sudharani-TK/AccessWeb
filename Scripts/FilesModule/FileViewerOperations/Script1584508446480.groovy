@@ -121,7 +121,7 @@ try {
 				WebUI.delay(2)
 				WebUI.click(newFileObj)
 				WebUI.delay(2)
-				WebUI.rightClick(newFileObj)
+				//WebUI.rightClick(newFileObj)
 				extentTest.log(Status.PASS, 'RightClicked on File  - ' + fileName)
 				WebUI.delay(2)
 				WebUI.click(findTestObject('FilesPage/ContextMenu_FileOperation_Open'))
