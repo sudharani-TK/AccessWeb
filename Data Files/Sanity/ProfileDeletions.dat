@@ -7,7 +7,7 @@
    <containsHeaders>true</containsHeaders>
    <csvSeperator></csvSeperator>
    <dataFileGUID>50039f6e-f811-4f9d-96d6-fd5143d4b660</dataFileGUID>
-   <dataSourceUrl>D:\project_sanity_xrayid\Accessweb_newextent _2024.1.10 - Copy\AccessWeb\Data Files\TestDataSanity.xlsx</dataSourceUrl>
+   <dataSourceUrl>C:\project_sanity_xrayid\Accessweb_newextent _2024.1.10\AccessWeb\Data Files\TestDataSanity.xlsx</dataSourceUrl>
    <driver>ExcelFile</driver>
    <isInternalPath>false</isInternalPath>
    <query></query>

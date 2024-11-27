@@ -14,7 +14,7 @@
    <testCaseLink>
       <guid>f1539952-54e3-4b24-bf3f-3b527355ad56</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>true</isRun>
+      <isRun>false</isRun>
       <testCaseId>Test Cases/FilesModule/Create_file</testCaseId>
       <testDataLink>
          <combinationType>ONE</combinationType>
@@ -94,14 +94,14 @@
    <testCaseLink>
       <guid>4d109fb9-683f-49b8-ae40-9c58162fa8f8</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>false</isRun>
+      <isRun>true</isRun>
       <testCaseId>Test Cases/FilesModule/FileViewerOperations</testCaseId>
       <testDataLink>
          <combinationType>ONE</combinationType>
          <id>b0d439b5-b148-4dda-a077-ab90afcab37e</id>
          <iterationEntity>
             <iterationType>SPECIFIC</iterationType>
-            <value>1,2,4,5,7</value>
+            <value>1,2,5,6,4</value>
          </iterationEntity>
          <testDataId>Data Files/Sanity/FileViewerOps</testDataId>
       </testDataLink>

@@ -142,8 +142,8 @@
          <combinationType>ONE</combinationType>
          <id>33cc5c11-5370-4800-aa58-58e44a51b974</id>
          <iterationEntity>
-            <iterationType>ALL</iterationType>
-            <value>1,2</value>
+            <iterationType>SPECIFIC</iterationType>
+            <value>1-6</value>
          </iterationEntity>
          <testDataId>Data Files/Sanity/ProfileDeletions</testDataId>
       </testDataLink>

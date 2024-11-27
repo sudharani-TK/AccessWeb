@@ -3,6 +3,7 @@
    <description></description>
    <name>ProfileSubmissions</name>
    <tag></tag>
+   <connectionProperties/>
    <containsHeaders>true</containsHeaders>
    <csvSeperator></csvSeperator>
    <dataFileGUID>d76d8204-61ad-4503-ba7a-d26b5e245f93</dataFileGUID>
