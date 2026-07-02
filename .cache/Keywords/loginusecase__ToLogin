@@ -1,0 +1,15 @@
+{
+  "keywordFileContentHash": "2601F32B13F50A39531F5D85A01ED284",
+  "keywordClasses": [
+    {
+      "name": "loginusecase.ToLogin",
+      "keywordMethods": [
+        {
+          "name": "Forlogin",
+          "parameters": []
+        }
+      ]
+    }
+  ],
+  "javadocParsed": false
+}
